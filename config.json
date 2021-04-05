@@ -1,52 +1,52 @@
 [
   {
-    "field_id": "page_properties",
+    "field_group_id": "brand",
     "field_group": "Page Properties",
     "fields": [
       {
-        "field": "page_title",
+        "field_id": "page_title",
         "label": "Portal page title",
         "type": "text",
         "value": "AdoPiSoft WiFi Hotspot"
       },
       {
-        "field": "slogan_html",
+        "field_id": "slogan_html",
         "label": "Slogan",
         "type": "textarea",
         "value": "<p>Affordable internet connectivity</p>"
       },
       {
-        "field": "footer_html",
-        "desc": "Text under the banner images",
+        "field_id": "footer_html",
+        "label": "Text under the banner images",
         "type": "textarea",
         "value": "Powered By <b><a href=\"//www.adopisoft.com\">AdoPiSoft</a></b>"
       }
     ]
   },
   {
-    "field_id": "buttons",
+    "field_group_id": "buttons",
     "field_group": "Buttons",
     "fields": [
       {
-        "field": "button_insert_coin",
+        "field_id": "button_insert_coin",
         "label": "Show Insert Coin Button",
         "type": "checkbox",
         "value": true
       },
       {
-        "field": "button_buy_voucher",
+        "field_id": "button_buy_voucher",
         "label": "Show Buy Voucher Button",
         "type": "checkbox",
         "value": true
       },
       {
-        "field": "button_view_vouchers",
+        "field_id": "button_view_vouchers",
         "label": "Show View Vouchers Button",
         "type": "checkbox",
         "value": true
       },
       {
-        "field": "button_view_rates",
+        "field_id": "button_view_rates",
         "label": "Show View Rates Button",
         "type": "checkbox",
         "value": true
@@ -54,11 +54,11 @@
     ]
   },
   {
-    "field_id": "banners",
+    "field_group_id": "banners",
     "field_group": "Banners",
     "fields": [
       {
-        "field": "banners",
+        "field_id": "banners",
         "label": "Banners",
         "type": "images",
         "value": [
@@ -68,36 +68,36 @@
     ]
   },
   {
-    "field_id": "sounds",
+    "field_group_id": "sounds",
     "field_group": "Sounds",
     "fields": [
       {
-        "field": "count_down_sound",
+        "field_id": "count_down_sound",
         "label":  "Payment Countdown Sound",
         "type": "sound",
         "value": "/captive-portal/sounds/count-down.mp3"
       },
       {
-        "field": "connected_sound",
+        "field_id": "connected_sound",
         "label": "Connected Sound",
         "type": "sound",
         "value": "/captive-portal/sounds/connected.wav"
       },
       {
-        "field": "disconnected_sound",
+        "field_id": "disconnected_sound",
         "label": "Disconnected Sound",
         "type": "sound",
         "value": "/captive-portal/sounds/disconnected.mp3"
       },
       {
-        "field": "coin_inserted",
+        "field_id": "coin_inserted",
         "label":  "Coin Inserted Sound",
         "type": "sound",
         "value": "/captive-portal/sounds/coin-inserted.mp3"
       },
 
       {
-        "field": "error_sound",
+        "field_id": "error_sound",
         "label":  "Error Sound",
         "type": "sound",
         "value": "/captive-portal/sounds/error.mp3"
