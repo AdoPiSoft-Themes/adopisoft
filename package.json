@@ -1,0 +1,28 @@
+{
+  "name": "captive-portal",
+  "version": "1.0.0",
+  "description": "AdoPiSoft default captive portal theme",
+  "main": "main.js",
+  "scripts": {
+    "test": "eslint ./app"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AdoPiSoft-Themes/adopisoft.git"
+  },
+  "keywords": [
+    "adopisoft",
+    "theme",
+    "default"
+  ],
+  "author": "AdoPiSoft",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/AdoPiSoft-Themes/adopisoft/issues"
+  },
+  "homepage": "https://github.com/AdoPiSoft-Themes/adopisoft#readme",
+  "devDependencies": {
+    "eslint": "^7.23.0",
+    "eslint-config-es3": "^1.0.0"
+  }
+}

@@ -1,46 +1,43 @@
 
 requirejs.config({
-  //By default load any module IDs from js/lib
   baseUrl: '.',
-  //except, if the module ID starts with "app",
-  //load it from the js/app directory. paths
-  //config is relative to the baseUrl, and
-  //never includes a ".js" extension since
-  //the paths config could be for a directory.
-  paths: {
-    config: 'app/services/config',
-    text: 'libs/requirejs/text-2.0.16',
+  paths:   {
+    config:   'app/utils/config',
+    routes:   'app/routes',
+    text:     'libs/requirejs/text-2.0.16',
     knockout: 'libs/knockout/knockout-3.5.0.min',
-    jquery: 'libs/jquery/jquery-1.10.2.min',
-    pager: 'libs/pager/pager-1.1.0.min',
-    components: 'app/components/all'
-  }
+    pager:    'libs/pager/pager-1.1.0.min',
+    jquery:   'libs/jquery/jquery-1.10.2.min'
+  },
+  packages: [
+    'app/components'
+  ]
 });
 
 // Start the main app logic.
-requirejs(['jquery', 'knockout', 'pager', 'components', 'config'],
-  function   ($, ko, pager, components, config) {
+requirejs(['knockout', 'pager', 'app/components', 'config', 'routes'],
+  function(ko, pager, components, config, routes) {
 
+    $(function() {
+      pager.Href.hash = '#/';
 
-    $(function () {
-      pager.Href.hash = '#!/';
+      config.init(function(err) {
+        if (err) {
+          alert('Something went wrong');
+        } else {
+          var viewModel = {
+            routes: routes(config.data)
+          };
 
-      config(function (err, data) {
-        if (err)
-          console.log('Error:', err)
-        else {
-          console.log('Config:', data)
-
-          var viewModel = {}
+          console.log(viewModel);
 
           pager.extendWithPage(viewModel);
           ko.applyBindings(viewModel);
           pager.start();
 
         }
-      })
+      });
 
     });
 
   });
-

@@ -1,14 +1,12 @@
-[
+{
+  "brand": {
+    "page_title": "AdoPiSoft WiFi Hotspot"
+  },
+  "custom_fields": [
   {
-    "field_group_id": "brand",
+    "field_group_id": "page_properties",
     "field_group": "Page Properties",
     "fields": [
-      {
-        "field_id": "page_title",
-        "label": "Portal page title",
-        "type": "text",
-        "value": "AdoPiSoft WiFi Hotspot"
-      },
       {
         "field_id": "slogan_html",
         "label": "Slogan",
@@ -105,4 +103,4 @@
     ]
   }
 ]
-
+}

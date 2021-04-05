@@ -1,0 +1,18 @@
+{
+    "env": {
+        "amd": true,
+        "browser": true
+    },
+    "rules": {
+      "no-alert": "off",
+      "key-spacing": "off",
+      "space-before-function-paren": "off"
+    },
+    "extends": "es3",
+    "globals": {
+      "$": "readonly",
+      "requirejs": "readonly",
+      "jquery": "readonly",
+      "define": "readonly"
+    }
+}
