@@ -1,4 +1,4 @@
-define(['knockout', '../../bindings/imageSlider'], function (ko) {
+define(['knockout'], function (ko) {
 
   ko.components.register('banners', {
     viewModel: { require: 'app/components/banners/BannersVM' },
