@@ -19,10 +19,14 @@ requirejs.config({
 
 // Start the main app logic.
 requirejs(
-  ['knockout', 'jquery', 'app/routes', 'css!styles/normalize', 'app/components', 'app/pages'],
-  function(ko, $, routes) {
+  ['knockout', 'jquery', 'app/utils/config', 'app/routes', 'css!styles/normalize', 'app/components', 'app/pages'],
+  function(ko, $, config, routes) {
 
     $(function() {
+
+      function HeadVm() {
+        this.pageTitle = ko.observable(config.pageTitle());
+      }
 
       function RootVm() {
         this.page = ko.observable(routes[0].page);
@@ -36,7 +40,11 @@ requirejs(
       }
 
       var viewModel = new RootVm();
-      ko.applyBindings(viewModel);
+      var headModel = new HeadVm();
+      var headEl = document.getElementsByTagName('head')[0];
+      var bodyEl = document.getElementsByTagName('body')[0];
+      ko.applyBindings(headModel, headEl);
+      ko.applyBindings(viewModel, bodyEl);
 
     });
 
