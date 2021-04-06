@@ -2,6 +2,7 @@
 <html>
   <head>
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link data-bind="attr: {href: $data.favicon}" rel="shortcut icon" type="image/x-icon" />
     <title data-bind="text: $root.pageTitle"></title>
     <!-- ko foreach: $data.styles -->
     <link data-bind="attr: {href: $data}" rel="stylesheet" media="all">

@@ -27,6 +27,7 @@ requirejs(
     $(function() {
 
       function HeadVm() {
+        this.favicon = ko.observable(config.favicon());
         this.pageTitle = ko.observable(config.pageTitle());
         this.styles = ko.observableArray(config.styles());
       }

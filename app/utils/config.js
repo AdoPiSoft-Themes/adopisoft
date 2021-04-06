@@ -1,6 +1,9 @@
 define(['json!../../config.json'], function (config) {
 
   function Config () {
+    this.favicon = function () {
+      return this.findField('page_properties', 'favicon').value;
+    };
     this.pageTitle = function () {
       return this.findField('page_properties', 'page_title').value;
     };

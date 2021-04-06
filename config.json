@@ -4,6 +4,12 @@
     "legend": "Page Properties",
     "fields": [
       {
+        "field_id": "favicon",
+        "label": "Favicon Image",
+        "type": "image",
+        "value": "favicon.ico"
+      },
+      {
         "field_id": "page_title",
         "label": "Page Title",
         "type": "text",
@@ -119,6 +125,23 @@
         ]
       }
     ]
+  },
+  {
+    "field_group_id": "fonts",
+    "legend": "Fonts",
+    "fields": [
+      {
+        "field_id": "font_files",
+        "label": "Font files",
+        "type": "fonts",
+        "value": [
+          "libs/bootstrap/fonts/glyphicons-halflings-regular.eot",
+          "libs/bootstrap/fonts/glyphicons-halflings-regular.svg",
+          "libs/bootstrap/fonts/glyphicons-halflings-regular.ttf",
+          "libs/bootstrap/fonts/glyphicons-halflings-regular.woff",
+          "libs/bootstrap/fonts/glyphicons-halflings-regular.woff2"
+        ]
+      }
+    ]
   }
 ]
-
