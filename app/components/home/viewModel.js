@@ -1,7 +1,5 @@
-define(['knockout', 'jquery'], function (ko, $) {
-
-  function MyViewModel (){}
-
-  return MyViewModel
-
+define(function () {
+  function MyViewModel() {
+  }
+  return MyViewModel;
 });
