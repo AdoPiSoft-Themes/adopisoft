@@ -4,7 +4,6 @@ define(['knockout'], function(ko) {
     init: function(element, valueAccessor, allBindingsAccessor, viewModel, bindingContext) {
 
       var $el = $(element);
-
       var page =  ko.unwrap(valueAccessor()) || $el.attr('href');
 
       $el.on('click', function (e) {

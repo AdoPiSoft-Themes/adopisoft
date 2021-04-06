@@ -19,13 +19,16 @@ requirejs.config({
 
 // Start the main app logic.
 requirejs(
-  ['knockout', 'jquery', 'app/utils/config', 'app/routes', 'css!styles/normalize', 'app/components', 'app/pages'],
+  [
+    'knockout', 'jquery', 'app/utils/config', 'app/routes', 'app/components', 'app/pages'
+  ],
   function(ko, $, config, routes) {
 
     $(function() {
 
       function HeadVm() {
         this.pageTitle = ko.observable(config.pageTitle());
+        this.styles = ko.observableArray(config.styles());
       }
 
       function RootVm() {

@@ -13,7 +13,7 @@
         "field_id": "slogan_html",
         "label": "Slogan",
         "type": "textarea",
-        "value": "<p>Affordable internet connectivity</p>"
+        "value": "<h3 class=\"text-success\">Affordable internet connectivity</h3>"
       },
       {
         "field_id": "footer_html",
@@ -104,5 +104,21 @@
         "value": "/captive-portal/sounds/error.mp3"
       }
     ]
+  },
+  {
+    "field_group_id": "css",
+    "legend": "Stylesheets",
+    "fields": [
+      {
+        "field_id": "css_files",
+        "label": "CSS Files",
+        "type": "stylesheets",
+        "value": [
+          "libs/bootstrap/css/bootstrap.min.css",
+          "styles/portal.css"
+        ]
+      }
+    ]
   }
 ]
+

@@ -1,7 +1,11 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title data-bind="text: $root.pageTitle"></title>
+    <!-- ko foreach: $data.styles -->
+    <link data-bind="attr: {href: $data}" rel="stylesheet" media="all">
+    <!-- /ko -->
     <script src="polyfills/object.assign.js"></script>
     <script src="polyfills/array.map.js"></script>
     <script src="polyfills/array.find.js"></script>

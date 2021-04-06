@@ -1,0 +1,12 @@
+a { cursor: pointer; }
+
+img.img-full {
+  width: 100%;
+}
+
+.padd-top {
+  padding-top: 15px;
+}
+.padd-bottom {
+  padding-bottom: 15px;
+}

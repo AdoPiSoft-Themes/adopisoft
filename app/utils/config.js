@@ -4,6 +4,9 @@ define(['json!../../config.json'], function (config) {
     this.pageTitle = function () {
       return this.findField('page_properties', 'page_title').value;
     };
+    this.styles = function () {
+      return this.findField('css', 'css_files').value;
+    };
     this.findField = function (g_id, f_id) {
       var field = config.reduce(function(ret, field_group) {
         if (ret) return ret;
