@@ -1,25 +1,24 @@
-(function(window) {
-  define(function() {
+define(['json!../../config.json'], function (config) {
 
-    var url = '/captive-portal/config.json';
-    var config = {};
-
-    config.init = function (cb) {
-      $.ajax({
-        url: url,
-        dataType: 'json',
-        success: function (data) {
-          window.PORTAL_CONFIG = data;
-          cb();
-        },
-        error: function (e) {
-          cb(e);
-        }
-      });
+  function Config () {
+    this.pageTitle = function () {
+      return this.findField('page_properties', 'page_title').value;
     };
+    this.findField = function (g_id, f_id) {
+      var field = config.reduce(function(ret, field_group) {
+        if (ret) return ret;
+        if (field_group.field_group_id === g_id) {
+          return field_group.fields.find(function(f) {
+            if (f.field_id === f_id) return true;
+            return false;
+          });
+        }
+        return ret;
+      }, null);
+      return field;
+    };
+  }
 
-    return config;
+  return new Config();
 
-  });
-
-})(window);
+});

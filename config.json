@@ -1,12 +1,14 @@
-{
-  "brand": {
-    "page_title": "AdoPiSoft WiFi Hotspot"
-  },
-  "custom_fields": [
+[
   {
     "field_group_id": "page_properties",
-    "field_group": "Page Properties",
+    "legend": "Page Properties",
     "fields": [
+      {
+        "field_id": "page_title",
+        "label": "Page Title",
+        "type": "text",
+        "value": "AdoPiSoft WiFi Hotspot"
+      },
       {
         "field_id": "slogan_html",
         "label": "Slogan",
@@ -23,7 +25,7 @@
   },
   {
     "field_group_id": "buttons",
-    "field_group": "Buttons",
+    "legend": "Buttons",
     "fields": [
       {
         "field_id": "button_insert_coin",
@@ -53,7 +55,7 @@
   },
   {
     "field_group_id": "banners",
-    "field_group": "Banners",
+    "legend": "Banners",
     "fields": [
       {
         "field_id": "banners",
@@ -68,7 +70,7 @@
   },
   {
     "field_group_id": "sounds",
-    "field_group": "Sounds",
+    "legend": "Sounds",
     "fields": [
       {
         "field_id": "count_down_sound",
@@ -104,4 +106,3 @@
     ]
   }
 ]
-}

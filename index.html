@@ -8,9 +8,11 @@
   </head>
   <body>
 
-    <div data-bind="foreach: $data.routes">
-      <div data-bind="page: $data"></div>
-    </div>
-   
+    <!-- ko foreach: $data.routes -->
+    <!-- ko if: $root.isCurrentPage($data.page) -->
+    <div data-bind="component: $data.component"></div>
+    <!-- /ko -->
+    <!-- /ko -->
+
   </body>
 </html>

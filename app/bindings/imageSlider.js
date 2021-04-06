@@ -7,7 +7,6 @@ define(['knockout'], function(ko) {
       var $_interval;
 
       function changeImage() {
-        console.log('changin image');
         if (imageIndex === imageUrls.length) imageIndex = 0;
         element.src = imageUrls[imageIndex];
         imageIndex++;
