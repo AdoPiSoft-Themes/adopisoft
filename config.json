@@ -68,8 +68,8 @@
         "label": "Banners",
         "type": "images",
         "value": [
-          "/captive-portal/images/banner.jpg",
-          "/captive-portal/images/download.jpeg"
+          "images/banner.jpg",
+          "images/download.jpeg"
         ]
       }
     ]
