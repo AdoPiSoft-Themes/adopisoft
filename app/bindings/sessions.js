@@ -1,27 +1,28 @@
-define(['knockout', 'jquery', 'app/utils/http', 'app/observables/session'], function(ko, $, http, Session) {
+define(
+  ['knockout', 'jquery', 'app/utils/http', 'app/observables/session', 'app/utils/array.map'],
+  function(ko, $, http, Session, map) {
 
-  ko.bindingHandlers.sessions = {
-    init: function(element, valueAccessor, allBindingsAccessor, viewModel) {
+    ko.bindingHandlers.sessions = {
+      init: function(element, valueAccessor, allBindingsAccessor, viewModel) {
 
-      function featchSessions() {
-        http.get('/client/sessions', function(err, data) {
-          if (err) return alert('Error in sessions list!');
+        function featchSessions() {
+          http.get('/client/sessions', function(err, data) {
+            if (err) return alert('Error in sessions list!');
+            viewModel.stopSessionsTick();
+            viewModel.sessions(map(data, function (s) {
+              return new Session(s);
+            }));
+          });
+        }
+
+        featchSessions();
+        var $_interval = setInterval(featchSessions, 10000);
+
+        ko.utils.domNodeDisposal.addDisposeCallback(element, function() {
+          clearInterval($_interval);
           viewModel.stopSessionsTick();
-          viewModel.sessions(data.map(function (s) {
-            return new Session(s);
-          }));
         });
+
       }
-
-      featchSessions();
-      var $_interval = setInterval(featchSessions, 10000);
-
-      ko.utils.domNodeDisposal.addDisposeCallback(element, function() {
-        clearInterval($_interval);
-        viewModel.stopSessionsTick();
-      });
-
-    }
-  };
-});
-
+    };
+  });

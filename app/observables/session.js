@@ -3,9 +3,13 @@ define(
   function (ko, parseCredits, http, config, redirect, formatDate) {
 
     return function Session(data) {
-      Object.assign(this, data); 
-
+      // ["id","type","max_users","status","remaining_time_seconds","remaining_data_mb","data_mb","time_seconds","data_consumption_mb","running_time_seconds","bandwidth_down_kbps","bandwidth_up_kbps","expiration_date","expire_minutes","allow_pause","pause_limit","use_global_bandwidth","is_free_trial","created_at","updated_at"]
       var self = this;
+      this.type = data.type;
+      this.data_mb = data.data_mb;
+      this.data_consumption_mb = data.data_consumption_mb;
+      this.expiration_date = data.expiration_date;
+      this.remaining_time_seconds = data.remaining_time_seconds;
       this.credits = ko.observable(parseCredits(data));
       this.allow_pause = ko.observable(data.allow_pause);
       this.status = ko.observable(data.status);
