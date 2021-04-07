@@ -7,6 +7,9 @@ define(['json!../../config.json'], function (config) {
     this.pageTitle = function () {
       return this.findField('page_properties', 'page_title').value;
     };
+    this.footerHtml = function () {
+      return this.findField('page_properties', 'footer_html').value;
+    };
     this.styles = function () {
       return this.findField('css', 'css_files').value;
     };

@@ -6,7 +6,9 @@
     "rules": {
       "no-alert": "off",
       "key-spacing": "off",
-      "space-before-function-paren": "off"
+      "space-before-function-paren": "off",
+      "no-param-reassign": "off",
+      "consistent-return": "off"
     },
     "extends": "es3",
     "globals": {

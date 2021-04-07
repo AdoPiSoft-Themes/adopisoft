@@ -14,11 +14,16 @@
   </head>
   <body>
 
-    <!-- ko foreach: $data.routes -->
-    <!-- ko if: $root.isCurrentPage($data.page) -->
-    <div data-bind="component: $data.component"></div>
-    <!-- /ko -->
-    <!-- /ko -->
+    <div class="container">
+      <!-- ko foreach: $data.routes -->
+      <!-- ko if: $root.isCurrentPage($data.page) -->
+      <div data-bind="component: $data.component"></div>
+      <!-- /ko -->
+      <!-- /ko -->
+    </div>
 
+    <footer class="footer">
+      <div class="container" data-bind="html: footerHtml"></div>
+    </footer>
   </body>
 </html>

@@ -1,0 +1,31 @@
+
+<div class="padd-top" data-bind="sessions: $data.sessions">
+  <table class="table">
+    <thead>
+      <th class="text-center">Credits</th>
+      <th class="text-center">Expiry</th>
+      <th class="text-center"></th>
+    </thead>
+    <tbody>
+      <!-- ko foreach: sessions -->
+      <tr>
+        <td data-bind="text: credits"></td>
+        <td data-bind="text: expiration_date || 'N/A'"></td>
+        <td>
+          <!-- ko if: showPauseBtn -->
+          <button class="btn btn-warning" data-bind="enable: enablePause">
+            <i class="glyphicon glyphicon-pause"></i>
+          </button>
+          <!-- /ko -->
+          <!-- ko if: showStartBtn -->
+          <button class="btn btn-primary" data-bind="click: startSession">
+            <i class="glyphicon glyphicon-play"></i>
+          </button>
+          <!-- /ko -->
+        </td>
+      </tr>
+      <!-- /ko -->
+    </tbody>
+  </table>
+  <p class="text-muted">Expiry date format is Month/Date/Year.</p>
+</div>

@@ -34,6 +34,7 @@ requirejs(
 
       function RootVm() {
         this.page = ko.observable(routes[0].page);
+        this.footerHtml = config.footerHtml();
         this.routes = routes;
         this.isCurrentPage = function (page) {
           return page === this.page();

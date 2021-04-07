@@ -1,4 +1,5 @@
 define([
   './imageSlider',
-  './navigate'
+  './navigate',
+  './sessions'
 ]);
