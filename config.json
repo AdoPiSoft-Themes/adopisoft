@@ -31,7 +31,7 @@
         "field_id": "redirect_to",
         "label": "Redirect To",
         "type": "text",
-        "value": "https://www.adopisoft.com"
+        "value": "https://www.adopisoft.com/cp"
       }
     ]
   },

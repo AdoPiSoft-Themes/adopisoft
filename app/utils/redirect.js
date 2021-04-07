@@ -1,4 +1,4 @@
-define(['app/utils/config'], function (config) {
+define(['jquery', 'app/utils/config'], function ($, config) {
   var redirect_url = config.findField('page_properties', 'redirect_to').value;
   var timeout;
 
@@ -12,6 +12,7 @@ define(['app/utils/config'], function (config) {
       timeout = setTimeout(function () {
         location.href = redirect_url;
         timeout = null;
+        $('body').html('<h1 class="text-center">Please wait. <br/> Redirecting to ' + redirect_url + '</h1>');
       }, 2500);
     },
     cancel: cancel

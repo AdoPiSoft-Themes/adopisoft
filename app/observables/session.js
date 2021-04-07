@@ -17,19 +17,21 @@ define(
         ? formatDate(data.expiration_date)
         : 'N/A'; 
       this.startTick = function () {
-        if (self.status() === 'running') {
-          self.tick();
-          self.interval = setInterval(self.tick, 1000);
-        }
+        self.tick();
+        self.interval = setInterval(self.tick, 1000);
       };
       this.tick = function () {
-        if (self.remaining_time_seconds > 0) self.remaining_time_seconds = self.remaining_time_seconds - 1;
-        self.credits(parseCredits(self));
+        if (self.status() === 'running') { 
+          if (self.isTimeSession() && self.remaining_time_seconds > 0) self.remaining_time_seconds = self.remaining_time_seconds - 1;
+          self.credits(parseCredits(self));
+        }
       };
       this.stopTick = function () {
         clearInterval(self.interval);
       };
-    
+      this.isTimeSession = function () {
+        return data.type.indexOf('time') > -1;
+      }; 
       this.enablePause = ko.pureComputed(function () {
         return self.allow_pause() && self.status() === 'running';
       });
