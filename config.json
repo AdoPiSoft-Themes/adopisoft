@@ -87,33 +87,42 @@
       {
         "field_id": "count_down_sound",
         "label":  "Payment Countdown Sound",
-        "type": "sound",
-        "value": "/captive-portal/sounds/count-down.mp3"
+        "type": "sounds",
+        "value": "sounds/count-down.mp3"
       },
       {
         "field_id": "connected_sound",
         "label": "Connected Sound",
-        "type": "sound",
-        "value": "/captive-portal/sounds/connected.wav"
+        "type": "sounds",
+        "value": [
+          "sounds/connected.mp3",
+          "sounds/connected.wav"
+        ]
       },
       {
         "field_id": "disconnected_sound",
         "label": "Disconnected Sound",
-        "type": "sound",
-        "value": "/captive-portal/sounds/disconnected.mp3"
+        "type": "sounds",
+        "value": [
+          "sounds/disconnected.mp3",
+          "sounds/disconnected.wav"
+        ]
       },
       {
         "field_id": "coin_inserted",
         "label":  "Coin Inserted Sound",
-        "type": "sound",
-        "value": "/captive-portal/sounds/coin-inserted.mp3"
+        "type": "sounds",
+        "value": [
+          "sounds/coin-inserted.mp3",
+          "sounds/coin-inserted.wav"
+        ]
       },
 
       {
         "field_id": "error_sound",
         "label":  "Error Sound",
         "type": "sound",
-        "value": "/captive-portal/sounds/error.mp3"
+        "value": "sounds/error.mp3"
       }
     ]
   },

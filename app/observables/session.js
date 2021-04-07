@@ -1,6 +1,6 @@
 define(
-  ['knockout', 'toast', 'app/utils/parseCredits', 'app/utils/http', 'app/utils/config', 'app/utils/redirect', 'app/utils/formatDate'],
-  function (ko, toast, parseCredits, http, config, redirect, formatDate) {
+  ['knockout', 'toast', 'app/utils/sounds', 'app/utils/parseCredits', 'app/utils/http', 'app/utils/config', 'app/utils/redirect', 'app/utils/formatDate'],
+  function (ko, toast, sounds, parseCredits, http, config, redirect, formatDate) {
 
     return function Session(data) {
       var self = this;
@@ -44,6 +44,7 @@ define(
           if (err) {
             toast.error(err.toString());
           } else {
+            sounds.connected.play();
             toast.success('Yehey! You are now connected to internet.');
             self.status('running'); 
             redirect.redirect(); 
@@ -55,6 +56,7 @@ define(
           if (err) {
             toast.error(err.toString());
           } else {
+            sounds.disconnected.play();
             self.status('available'); 
             redirect.cancel();
             toast.error('Opps! Disconnected from internet.');

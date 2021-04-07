@@ -13,7 +13,7 @@ define(['jquery', 'app/utils/config'], function ($, config) {
         location.href = redirect_url;
         timeout = null;
         $('body').html('<h1 class="text-center">Please wait. <br/> Redirecting to ' + redirect_url + '</h1>');
-      }, 2500);
+      }, 3000);
     },
     cancel: cancel
   };

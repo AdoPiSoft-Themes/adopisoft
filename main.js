@@ -6,7 +6,8 @@ requirejs.config({
     css: 'libs/requirejs/css-0.3.1.min',
     knockout: 'libs/knockout/knockout-latest',
     jquery:   'libs/jquery/jquery-1.10.2.min',
-    toast: 'libs/toast/toast.min'
+    toast: 'libs/toast/toast.min',
+    howler: 'libs/howler/howler.core.min'
   },
   packages: [
     'app/components',
