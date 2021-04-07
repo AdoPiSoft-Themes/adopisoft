@@ -29,12 +29,18 @@ define(['knockout', 'app/utils/parseCredits', 'app/utils/http'], function (ko, p
       return self.status() !== 'available';
     });
     this.showStartBtn = ko.pureComputed(function () {
-      return self.status() === 'available';
+      return self.status() !== 'running';
     });
     this.startSession = function () {
       http.post('/client/sessions/' + data.id + '/start', function (err) {
         if (err) return alert(err);
         self.status('running'); 
+      });
+    };
+    this.pauseSession = function () {
+      http.post('/client/sessions/' + data.id + '/pause', function (err) {
+        if (err) return alert(err);
+        self.status('available'); 
       });
     };
     if (data.type.indexOf('time') > -1) self.startTick();

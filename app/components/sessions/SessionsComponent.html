@@ -13,7 +13,7 @@
         <td data-bind="text: expiration_date || 'N/A'"></td>
         <td>
           <!-- ko if: showPauseBtn -->
-          <button class="btn btn-warning" data-bind="enable: enablePause">
+          <button class="btn btn-warning" data-bind="enable: enablePause, click: pauseSession">
             <i class="glyphicon glyphicon-pause"></i>
           </button>
           <!-- /ko -->
