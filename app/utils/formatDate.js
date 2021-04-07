@@ -18,7 +18,7 @@ define(function () {
       var mm = date.getMonth() + 1;
       var dd = date.getDate();
       var yyyy = date.getFullYear();
-      if ((mm && dd && yyyy)) {
+      if ((mm && dd && yyyy)) { // mm dd and yyyy are NaN in ie8 and below versions
         var mm_dd_yy = [mm, dd, yyyy].join('/');
         var hh_mm = formatAMPM(date);
         return mm_dd_yy + ' ' + hh_mm;
