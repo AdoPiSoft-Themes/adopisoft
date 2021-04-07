@@ -13,15 +13,21 @@ define(function () {
 
   // https://stackoverflow.com/questions/10632346/how-to-format-a-date-in-mm-dd-yyyy-hhmmss-format-in-javascript
   return function(d) {
-    var mm_dd_yy = [
-      d.getMonth() + 1,
-      d.getDate(),
-      d.getFullYear()].join('/');
-
-    var hh_mm = formatAMPM(d);
-  
-    return mm_dd_yy + ' ' + hh_mm;
-
+    try {
+      var date = typeof d === 'string' ? new Date(d) : d;
+      var mm = date.getMonth() + 1;
+      var dd = date.getDate();
+      var yyyy = date.getFullYear();
+      if ((mm && dd && yyyy)) {
+        var mm_dd_yy = [mm, dd, yyyy].join('/');
+        var hh_mm = formatAMPM(date);
+        return mm_dd_yy + ' ' + hh_mm;
+      } else {
+        return d;
+      }
+    } catch(e) {
+      return d;
+    }
   };
 
 });

@@ -13,10 +13,9 @@ define(
       this.credits = ko.observable(parseCredits(data));
       this.allow_pause = ko.observable(data.allow_pause);
       this.status = ko.observable(data.status);
-      this.formatDate = function(d) {
-        if (d) return formatDate(new Date(d));
-        return 'N/A';
-      }; 
+      this.formatted_expiry_date = data.expiration_date
+        ? formatDate(data.expiration_date)
+        : 'N/A'; 
       this.startTick = function () {
         if (self.status() === 'running') {
           self.tick();
@@ -51,6 +50,7 @@ define(
         http.post('/client/sessions/' + data.id + '/pause', function (err) {
           if (err) return alert(err);
           self.status('available'); 
+          redirect.cancel();
         });
       };
       if (data.type.indexOf('time') > -1) self.startTick();
