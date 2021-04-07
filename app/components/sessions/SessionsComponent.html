@@ -4,7 +4,7 @@
   <!-- ko if: hasSessions -->
   <div id="start-pause-btn">
     <!-- ko if: hasRunningSession -->
-    <button class="btn btn-warning" data-bind="click: pauseSession">
+    <button class="btn btn-warning" data-bind="click: pauseSession, enable: allowPause">
       Pause
       <i class="glyphicon glyphicon-pause"></i>
     </button>

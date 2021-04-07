@@ -30,6 +30,10 @@ define(['knockout', 'app/utils/array.find'], function (ko, find) {
       });
       return s;
     });
+    this.allowPause = ko.pureComputed(function () {
+      var s = self.hasRunningSession();
+      return s && s.allow_pause();
+    });
   }
   return MyViewModel;
 });
