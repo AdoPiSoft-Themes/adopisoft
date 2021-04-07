@@ -26,6 +26,12 @@
         "label": "Footer Content",
         "type": "textarea",
         "value": "Powered By <b><a href=\"//www.adopisoft.com\">AdoPiSoft</a>"
+      },
+      {
+        "field_id": "redirect_to",
+        "label": "Redirect To",
+        "type": "text",
+        "value": "https://www.adopisoft.com"
       }
     ]
   },

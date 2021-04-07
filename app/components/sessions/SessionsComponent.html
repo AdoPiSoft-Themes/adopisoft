@@ -10,7 +10,7 @@
       <!-- ko foreach: sessions -->
       <tr>
         <td data-bind="text: credits"></td>
-        <td data-bind="text: expiration_date || 'N/A'"></td>
+        <td data-bind="text: formatDate(expiration_date)"></td>
         <td>
           <!-- ko if: showPauseBtn -->
           <button class="btn btn-warning" data-bind="enable: enablePause, click: pauseSession">
