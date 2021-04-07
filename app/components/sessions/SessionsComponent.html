@@ -1,5 +1,23 @@
 
 <div class="padd-top" data-bind="sessions: $data.sessions">
+
+  <!-- ko if: hasSessions -->
+  <div id="start-pause-btn">
+    <!-- ko if: hasRunningSession -->
+    <button class="btn btn-warning" data-bind="click: pauseSession">
+      Pause
+      <i class="glyphicon glyphicon-pause"></i>
+    </button>
+    <!-- /ko -->
+    <!-- ko ifnot: hasRunningSession -->
+    <button class="btn btn-primary" data-bind="click: startSession">
+      Start
+      <i class="glyphicon glyphicon-play"></i>
+    </button>
+    <!-- /ko -->
+  </div>
+  <!-- /ko -->
+
   <table class="table">
     <thead>
       <th class="text-center">Credits</th>
