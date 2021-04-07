@@ -1,3 +1,7 @@
+#slogan, .btn, th, #footer {
+  font-family: 'Righteous';
+}
+
 a { cursor: pointer; }
 
 img.img-full {

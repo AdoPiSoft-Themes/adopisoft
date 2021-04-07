@@ -121,6 +121,7 @@
         "type": "stylesheets",
         "value": [
           "libs/bootstrap/css/bootstrap.min.css",
+          "fonts/fonts.css",
           "styles/ie10-viewport-bug-workaround.css",
           "styles/sticky-footer-navbar.css",
           "styles/portal.css"
