@@ -47,6 +47,8 @@ requirejs(
       var bodyEl = document.getElementsByTagName('body')[0];
       ko.applyBindings(headModel, headEl);
       ko.applyBindings(viewModel, bodyEl);
+      $('#loading').remove();
+      $('.footer').show();
 
     });
 
