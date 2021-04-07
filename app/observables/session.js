@@ -1,6 +1,6 @@
 define(
-  ['knockout', 'app/utils/parseCredits', 'app/utils/http', 'app/utils/config', 'app/utils/redirect', 'app/utils/formatDate'],
-  function (ko, parseCredits, http, config, redirect, formatDate) {
+  ['knockout', 'toast', 'app/utils/parseCredits', 'app/utils/http', 'app/utils/config', 'app/utils/redirect', 'app/utils/formatDate'],
+  function (ko, toast, parseCredits, http, config, redirect, formatDate) {
 
     return function Session(data) {
       var self = this;
@@ -41,16 +41,24 @@ define(
       });
       this.startSession = function () {
         http.post('/client/sessions/' + data.id + '/start', function (err) {
-          if (err) return alert(err);
-          self.status('running'); 
-          redirect.redirect(); 
+          if (err) {
+            toast.error(err.toString());
+          } else {
+            toast.success('Yehey! You are now connected to internet.');
+            self.status('running'); 
+            redirect.redirect(); 
+          }
         });
       };
       this.pauseSession = function () {
         http.post('/client/sessions/' + data.id + '/pause', function (err) {
-          if (err) return alert(err);
-          self.status('available'); 
-          redirect.cancel();
+          if (err) {
+            toast.error(err.toString());
+          } else {
+            self.status('available'); 
+            redirect.cancel();
+            toast.error('Opps! Disconnected from internet.');
+          }
         });
       };
       if (data.type.indexOf('time') > -1) self.startTick();

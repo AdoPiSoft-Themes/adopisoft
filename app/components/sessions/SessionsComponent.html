@@ -27,7 +27,7 @@
     <tbody>
       <!-- ko foreach: sessions -->
       <tr>
-        <td data-bind="text: credits"></td>
+        <td data-bind="text: credits, css: {'text-success': status() == 'running'}"></td>
         <td data-bind="text: formatted_expiry_date"></td>
         <td>
           <!-- ko if: showPauseBtn -->

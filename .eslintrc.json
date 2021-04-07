@@ -5,6 +5,7 @@
     },
     "rules": {
       "no-alert": "off",
+      "no-new": "off",
       "key-spacing": "off",
       "space-before-function-paren": "off",
       "no-param-reassign": "off",

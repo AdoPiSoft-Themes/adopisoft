@@ -6,15 +6,12 @@ requirejs.config({
     css: 'libs/requirejs/css-0.3.1.min',
     knockout: 'libs/knockout/knockout-latest',
     jquery:   'libs/jquery/jquery-1.10.2.min',
-    lightslider: 'libs/lightslider/js/lightslider.min'
+    toast: 'libs/toast/toast.min'
   },
   packages: [
     'app/components',
     'app/pages'
-  ],
-  shim: {
-    lightslider: {deps: ['jquery']}
-  }
+  ]
 });
 
 // Start the main app logic.
