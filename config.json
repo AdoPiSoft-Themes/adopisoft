@@ -16,16 +16,16 @@
         "value": "AdoPiSoft WiFi Hotspot"
       },
       {
-        "field_id": "slogan_html",
-        "label": "Slogan",
-        "type": "textarea",
-        "value": "<h3 class=\"text-success\">Affordable internet connectivity</h3>"
+        "field_id": "banner_text",
+        "label": "Banner Text",
+        "type": "text",
+        "value": "Affordable internet connectivity"
       },
       {
-        "field_id": "footer_html",
-        "label": "Text under the banner images",
+        "field_id": "footer_content",
+        "label": "Footer Content",
         "type": "textarea",
-        "value": "<p class=\"text-center text-muted\">Powered By <b><a href=\"//www.adopisoft.com\">AdoPiSoft</a></b></p>"
+        "value": "Powered By <b><a href=\"//www.adopisoft.com\">AdoPiSoft</a>"
       }
     ]
   },
