@@ -1,22 +1,6 @@
-
 <div data-bind="sessions: $data.sessions">
 
-  <!-- ko if: hasSessions -->
-  <div id="start-pause-btn" class="btn-group-padded">
-    <!-- ko if: hasRunningSession -->
-    <button class="btn btn-warning" data-bind="click: pauseSession, enable: allowPause">
-      Pause
-      <i class="glyphicon glyphicon-pause"></i>
-    </button>
-    <!-- /ko -->
-    <!-- ko ifnot: hasRunningSession -->
-    <button class="btn btn-primary" data-bind="click: startSession">
-      Start
-      <i class="glyphicon glyphicon-play"></i>
-    </button>
-    <!-- /ko -->
-  </div>
-  <!-- /ko -->
+  <h4>Available Sessions</h4>
 
   <table class="table">
     <thead>

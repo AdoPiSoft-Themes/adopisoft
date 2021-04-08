@@ -1,5 +1,21 @@
 <div class="btn-group-padded">
   <!-- ko ifnot: showingMore -->
+
+  <!-- ko if: hasSessions -->
+  <!-- ko if: hasRunningSession -->
+  <a class="btn btn-warning" data-bind="click: pauseSession, enable: allowPause">
+    Pause
+    <i class="glyphicon glyphicon-pause"></i>
+  </a>
+  <!-- /ko -->
+  <!-- ko ifnot: hasRunningSession -->
+  <a class="btn btn-primary" data-bind="click: startSession">
+    Start
+    <i class="glyphicon glyphicon-play"></i>
+  </a>
+  <!-- /ko -->
+  <!-- /ko -->
+
   <!-- ko if: showInsertCoin -->
   <a class="btn btn-success" data-bind="click: function(){ $root.buyWifi() }">Insert Coin</a>
   <!-- /ko -->

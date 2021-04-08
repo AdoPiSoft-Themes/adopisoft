@@ -10,7 +10,7 @@ img.img-full {
 
 .btn-group-padded > .btn {
   width: 115px;
-  margin-bottom: 5px;
+  margin: 10px;
 }
 
 .padd-top {
@@ -22,7 +22,6 @@ img.img-full {
 
 #status-nav {
   vertical-align: middle;
-  text-align: right;
   padding-top: 5px;
   padding-bottom: 5px;
 }
