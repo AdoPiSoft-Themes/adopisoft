@@ -1,5 +1,5 @@
 define(function () {
-  // converts megabytes to bytes
+  // converts megabytes to with unit
   return function formatBytes(megabytes, decimals) {
     decimals = decimals || 2;
     var k = 1000; // or 1024 ???

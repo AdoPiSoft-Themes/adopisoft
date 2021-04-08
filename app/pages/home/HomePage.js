@@ -2,7 +2,8 @@ define([
   'knockout',
   'app/components/banners/BannersComponent',
   'app/components/sessions/SessionsComponent',
-  'app/components/connection-status/ConnectionStatusComponent',
+  'app/components/session-summary/SessionSummaryComponent',
+  'app/components/status-nav/StatusNavComponent',
   'app/components/buttons/ButtonsComponent',
   'app/bindings/navigate'
 ],

@@ -20,9 +20,9 @@ img.img-full {
   padding-bottom: 15px;
 }
 
-#connection-status {
+#status-nav {
   vertical-align: middle;
-  text-align: left;
+  text-align: right;
   padding-top: 5px;
   padding-bottom: 5px;
 }
