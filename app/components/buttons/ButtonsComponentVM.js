@@ -12,9 +12,5 @@ define(['knockout', 'app/utils/config'], function (ko, config) {
     this.toggleButtons = function () {
       self.showingMore(!self.showingMore());
     };
-    this.buyWifi = function () {
-      console.log(self.$parent);  
-    };
-    this.buyVoucher = function () {};
   };
 });
