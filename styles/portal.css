@@ -8,6 +8,11 @@ img.img-full {
   width: 100%;
 }
 
+.btn-group-padded > .btn {
+  width: 115px;
+  margin-bottom: 5px;
+}
+
 .padd-top {
   padding-top: 15px;
 }

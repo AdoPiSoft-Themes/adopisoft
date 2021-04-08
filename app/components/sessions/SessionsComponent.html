@@ -1,8 +1,8 @@
 
-<div class="padd-top" data-bind="sessions: $data.sessions">
+<div data-bind="sessions: $data.sessions">
 
   <!-- ko if: hasSessions -->
-  <div id="start-pause-btn">
+  <div id="start-pause-btn" class="btn-group-padded">
     <!-- ko if: hasRunningSession -->
     <button class="btn btn-warning" data-bind="click: pauseSession, enable: allowPause">
       Pause

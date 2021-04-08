@@ -3,6 +3,7 @@ define([
   'app/components/banners/BannersComponent',
   'app/components/sessions/SessionsComponent',
   'app/components/connection-status/ConnectionStatusComponent',
+  'app/components/buttons/ButtonsComponent',
   'app/bindings/navigate'
 ],
 function (ko) {

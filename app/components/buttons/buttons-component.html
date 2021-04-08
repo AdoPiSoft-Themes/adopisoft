@@ -1,0 +1,32 @@
+<div class="btn-group-padded">
+  <!-- ko ifnot: showingMore -->
+  <!-- ko if: showInsertCoin -->
+  <a class="btn btn-success" data-bind="navigate" href="insert-coin">Insert Coin</a>
+  <!-- /ko -->
+  <!-- ko if: showBuyVoucher -->
+  <a class="btn btn-info" data-bind="navigate" href="buy-voucher">Buy Voucher</a>
+  <!-- /ko -->
+  <!-- /ko -->
+
+  <!-- ko if: showMoreBtn -->
+  <a class="btn btn-default" data-bind="click: toggleButtons">
+    More
+    <i class="glyphicon glyphicon-chevron-right"></i>
+  </a>
+  <!-- /ko -->
+
+  <!-- ko if: showingMore -->
+  <!-- ko if: showViewVouchers -->
+  <a class="btn btn-info" data-bind="navigate" href="view-vouchers">View Vouchers</a>
+  <!-- /ko -->
+  <!-- ko if: showViewRates -->
+  <a class="btn btn-info" data-bind="navigate" href="view-rates">View Rates</a>
+  <!-- /ko -->
+
+  <a class="btn btn-default" data-bind="click: toggleButtons">
+    <i class="glyphicon glyphicon-chevron-left"></i>
+    Back
+  </a>
+  <!-- /ko -->
+
+</div>
