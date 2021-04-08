@@ -17,7 +17,7 @@
 
     <div class="wrapper">
       <!-- ko foreach: $data.routes -->
-      <!-- ko if: $root.isCurrentPage($data.page) -->
+      <!-- ko if: $root.isCurrentPage($data) -->
       <div data-bind="component: $data.component"></div>
       <!-- /ko -->
       <!-- /ko -->
