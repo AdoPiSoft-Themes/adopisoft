@@ -1,7 +1,7 @@
-define(['knockout', 'app/utils/array.find'], function (ko, find) {
+define(['knockout', 'app/observables/sessions', 'app/utils/array.find'], function (ko, sessions, find) {
   function MyViewModel() {
     var self = this;
-    this.sessions = ko.observableArray([]);
+    this.sessions = sessions; 
     this.stopSessionsTick = function () {
       var sessions = this.sessions();
       for (var i = 0; i < sessions.length; i++) {

@@ -13,10 +13,9 @@
     </style>
   </head>
   <body>
-
     <p id="loading">Loading...</p>
 
-    <div class="container">
+    <div class="wrapper">
       <!-- ko foreach: $data.routes -->
       <!-- ko if: $root.isCurrentPage($data.page) -->
       <div data-bind="component: $data.component"></div>

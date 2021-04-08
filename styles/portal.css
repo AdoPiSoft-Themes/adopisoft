@@ -14,3 +14,15 @@ img.img-full {
 .padd-bottom {
   padding-bottom: 15px;
 }
+
+#connection-status {
+  vertical-align: middle;
+  text-align: right;
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+
+#connection-status img {
+  width: 20px;
+}
+

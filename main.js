@@ -8,17 +8,13 @@ requirejs.config({
     jquery:   'libs/jquery/jquery-1.10.2.min',
     toast: 'libs/toast/toast.min',
     howler: 'libs/howler/howler.core.min'
-  },
-  packages: [
-    'app/components',
-    'app/pages'
-  ]
+  }
 });
 
 // Start the main app logic.
 requirejs(
   [
-    'knockout', 'jquery', 'app/utils/config', 'app/routes', 'app/components', 'app/pages'
+    'knockout', 'jquery', 'app/utils/config', 'app/routes', 'app/pages/index'
   ],
   function(ko, $, config, routes) {
 
