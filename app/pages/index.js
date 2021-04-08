@@ -1,4 +1,4 @@
 define([
-  './home/HomeComponent',
-  './insert-coin/InsertCoinComponent',
+  './home/HomePage',
+  './insert-coin/InsertCoinPage',
 ]);

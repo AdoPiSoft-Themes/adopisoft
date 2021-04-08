@@ -14,32 +14,11 @@ requirejs.config({
 // Start the main app logic.
 requirejs(
   [
-    'knockout', 'jquery', 'app/utils/config', 'app/routes', 'app/pages/index'
+    'knockout', 'jquery', 'app/root/RootVM', 'app/root/HeadVM', 'app/pages/index'
   ],
-  function(ko, $, config, routes) {
-
+  function(ko, $, viewModel, headModel) {
     $(function() {
 
-      function HeadVm() {
-        this.favicon = ko.observable(config.favicon());
-        this.pageTitle = ko.observable(config.pageTitle());
-        this.styles = ko.observableArray(config.styles());
-      }
-
-      function RootVm() {
-        this.page = ko.observable(routes[0].page);
-        this.footerHtml = config.footerHtml();
-        this.routes = routes;
-        this.isCurrentPage = function (page) {
-          return page === this.page();
-        };
-        this.navigate = function (page) {
-          this.page(page);
-        };
-      }
-
-      var viewModel = new RootVm();
-      var headModel = new HeadVm();
       var headEl = document.getElementsByTagName('head')[0];
       var bodyEl = document.getElementsByTagName('body')[0];
       ko.applyBindings(headModel, headEl);
@@ -48,6 +27,5 @@ requirejs(
       $('.footer').show();
 
     });
-
   }
 );

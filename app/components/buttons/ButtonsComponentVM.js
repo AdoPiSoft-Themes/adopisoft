@@ -10,7 +10,11 @@ define(['knockout', 'app/utils/config'], function (ko, config) {
       return (self.showViewVouchers() || self.showViewRates()) && !self.showingMore();
     });
     this.toggleButtons = function () {
-      this.showingMore(!this.showingMore());
+      self.showingMore(!self.showingMore());
     };
+    this.buyWifi = function () {
+      console.log(self.$parent);  
+    };
+    this.buyVoucher = function () {};
   };
 });
