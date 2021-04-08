@@ -19,8 +19,8 @@
   <!-- ko if: showInsertCoin -->
   <a class="btn btn-lg btn-success" data-bind="click: function(){ $root.buyWifi() }">Insert Coin</a>
   <!-- /ko -->
-  <!-- ko if: showBuyVoucher -->
-  <a class="btn btn-lg btn-info" data-bind="click: function(){ $root.buyVoucher() }">Buy Voucher</a>
+  <!-- ko if: showBuyEload -->
+  <a class="btn btn-lg btn-info" data-bind="click: function(){ $root.buyVoucher() }">Buy E-Load</a>
   <!-- /ko -->
   <!-- /ko -->
 
@@ -32,6 +32,9 @@
   <!-- /ko -->
 
   <!-- ko if: showingMore -->
+  <!-- ko if: showBuyVoucher -->
+  <a class="btn btn-lg btn-success" data-bind="navigate" href="view-vouchers">Buy Voucher</a>
+  <!-- /ko -->
   <!-- ko if: showViewVouchers -->
   <a class="btn btn-lg btn-info" data-bind="navigate" href="view-vouchers">View Vouchers</a>
   <!-- /ko -->

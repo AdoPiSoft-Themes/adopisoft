@@ -8,6 +8,7 @@ define([
     var self = this;
     this.showInsertCoin = ko.observable(config.findField('buttons', 'button_insert_coin').value);
     this.showBuyVoucher = ko.observable(config.findField('buttons', 'button_buy_voucher').value);
+    this.showBuyEload = true;
     this.showViewVouchers = ko.observable(config.findField('buttons', 'button_view_vouchers').value);
     this.showViewRates = ko.observable(config.findField('buttons', 'button_view_rates').value);
     this.showingMore = ko.observable(false);

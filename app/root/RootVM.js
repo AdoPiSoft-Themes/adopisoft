@@ -1,8 +1,9 @@
 define([
   'knockout',
   'app/routes',
-  'app/utils/config'
-], function (ko, routes, config) {
+  'app/utils/config',
+  'app/observables/payment'
+], function (ko, routes, config, payment) {
 
   function RootVm() {
     this.intent = ko.observable('');
@@ -16,7 +17,7 @@ define([
       this.page(page);
     };
     this.buyWifi = function () {
-      this.intent('buy_wifi');
+      payment.intent('wifi');
       this.navigate('select-coinslot-page');
     };
     this.buyVoucher = function () {

@@ -2,6 +2,30 @@
   <div id="status-nav-con" data-bind="component: 'status-nav'"></div>
   <div id="banners-con" data-bind="component: 'banners'"></div>
 
-  <button>Time rate</button>
+  <h1>Please select a coinslot.</h1>
+
+  <table class="table">
+    <thead>
+      <tr>
+        <th class="text-center">Available Coinslots</th>
+        <th class="text-center"></th>
+      </tr>
+    </thead>
+    <tbody>
+      <!-- ko foreach: [1, 2] -->
+      <tr>
+        <td>
+          Coinslot 1
+        </td>
+        <td>
+          <a class="btn btn-primary">
+            Select
+            <i class="glyphicon glyphicon-chevron-right"></i>
+          </a>
+        </td>
+      </tr>
+      <!-- /ko -->
+    </tbody>
+  </table>
 
 </div>
