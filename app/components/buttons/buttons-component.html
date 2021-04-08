@@ -3,13 +3,13 @@
 
   <!-- ko if: hasSessions -->
   <!-- ko if: hasRunningSession -->
-  <a class="btn btn-warning" data-bind="click: pauseSession, enable: allowPause">
+  <a class="btn btn-lg btn-warning" data-bind="click: pauseSession, enable: allowPause">
     Pause
     <i class="glyphicon glyphicon-pause"></i>
   </a>
   <!-- /ko -->
   <!-- ko ifnot: hasRunningSession -->
-  <a class="btn btn-primary" data-bind="click: startSession">
+  <a class="btn btn-lg btn-primary" data-bind="click: startSession">
     Start
     <i class="glyphicon glyphicon-play"></i>
   </a>
@@ -17,15 +17,15 @@
   <!-- /ko -->
 
   <!-- ko if: showInsertCoin -->
-  <a class="btn btn-success" data-bind="click: function(){ $root.buyWifi() }">Insert Coin</a>
+  <a class="btn btn-lg btn-success" data-bind="click: function(){ $root.buyWifi() }">Insert Coin</a>
   <!-- /ko -->
   <!-- ko if: showBuyVoucher -->
-  <a class="btn btn-info" data-bind="click: function(){ $root.buyVoucher() }">Buy Voucher</a>
+  <a class="btn btn-lg btn-info" data-bind="click: function(){ $root.buyVoucher() }">Buy Voucher</a>
   <!-- /ko -->
   <!-- /ko -->
 
   <!-- ko if: showMoreBtn -->
-  <a class="btn btn-default" data-bind="click: toggleButtons">
+  <a class="btn btn-lg btn-default" data-bind="click: toggleButtons">
     More
     <i class="glyphicon glyphicon-chevron-right"></i>
   </a>
@@ -33,13 +33,13 @@
 
   <!-- ko if: showingMore -->
   <!-- ko if: showViewVouchers -->
-  <a class="btn btn-info" data-bind="navigate" href="view-vouchers">View Vouchers</a>
+  <a class="btn btn-lg btn-info" data-bind="navigate" href="view-vouchers">View Vouchers</a>
   <!-- /ko -->
   <!-- ko if: showViewRates -->
-  <a class="btn btn-info" data-bind="navigate" href="view-rates">View Rates</a>
+  <a class="btn btn-lg btn-info" data-bind="navigate" href="view-rates">View Rates</a>
   <!-- /ko -->
 
-  <a class="btn btn-default" data-bind="click: toggleButtons">
+  <a class="btn btn-lg btn-default" data-bind="click: toggleButtons">
     <i class="glyphicon glyphicon-chevron-left"></i>
     Back
   </a>
