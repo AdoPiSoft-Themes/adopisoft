@@ -1,8 +1,8 @@
-define(function () {
+define(['app/utils/array.find'], function (find) {
   return function includes(arr, item) {
-    for (var i = 0; i < arr.length; i++) {
-      if (item === arr[i]) return true;
-    }
-    return false;
+    var found = find(arr, function (i) {
+      return i === item;
+    });
+    return !!found;
   };
 });

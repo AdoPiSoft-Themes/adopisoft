@@ -5,8 +5,15 @@ define(
     return function Session(data) {
       var self = this;
       this.type = data.type;
-      this.remaining_time_seconds = ko.observable(data.remaining_time_seconds);
-      this.remaining_data_mb = ko.observable(data.remaining_data_mb);
+      this.data_mb = ko.observable(data.data_mb);
+      this.data_consumption_mb = ko.observable(data.data_consumption_mb);
+      this.remaining_time_seconds = ko.pureComputed(function () {
+        return self.time_seconds() - self.running_time_seconds();
+      });
+      this.remaining_data_mb = ko.pureComputed(function () {
+        return self.data_mb() - self.data_consumption_mb();
+      });
+      this.time_seconds = ko.observable(data.time_seconds);
       this.running_time_seconds = ko.observable(data.running_time_seconds);
       this.credits = ko.observable('');
       this.allow_pause = ko.observable(data.allow_pause);
@@ -20,10 +27,10 @@ define(
         self.interval = setInterval(self.tick, 1000);
       };
       this.tick = function () {
-        if (self.status() === 'running') { 
-          if (self.isTimeSession() && self.remaining_time_seconds() > 0) self.remaining_time_seconds(self.remaining_time_seconds() - 1);
-          self.credits(parseCredits(self));
+        if (self.status() === 'running' && self.isTimeSession() && self.remaining_time_seconds() > 0) {
+          self.running_time_seconds(self.running_time_seconds() + 1);
         }
+        self.credits(parseCredits(self));
       };
       this.stopTick = function () {
         clearInterval(self.interval);
@@ -64,8 +71,7 @@ define(
           }
         });
       };
-      if (data.type.indexOf('time') > -1) self.startTick();
-
+      self.startTick();
     };
 
   });

@@ -1,7 +1,7 @@
 define([
   'knockout',
   'app/components/banners/BannersComponent',
-  'app/components/sessions/SessionsComponent',
+  'app/components/sessions-table/SessionsTableComponent',
   'app/components/session-summary/SessionSummaryComponent',
   'app/components/status-nav/StatusNavComponent',
   'app/components/buttons/ButtonsComponent',
