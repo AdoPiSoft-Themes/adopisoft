@@ -8,24 +8,31 @@ requirejs.config({
     jquery:   'libs/jquery/jquery-1.10.2.min',
     toast: 'libs/toast/toast.min',
     howler: 'libs/howler/howler.core.min'
-  }
+  },
+  packages: [
+    'app/bindings',
+    'app/pages'
+  ]
 });
 
 // Start the main app logic.
-requirejs(
-  [
-    'knockout', 'jquery', 'app/root/RootVM', 'app/root/HeadVM', 'app/pages/index'
-  ],
-  function(ko, $, viewModel, headModel) {
-    $(function() {
+requirejs([
+  'knockout',
+  'jquery',
+  'app/root/RootVM',
+  'app/root/HeadVM',
+  'app/bindings',
+  'app/pages'
+], function(ko, $, viewModel, headModel) {
+  $(function() {
 
-      var headEl = document.getElementsByTagName('head')[0];
-      var bodyEl = document.getElementsByTagName('body')[0];
-      ko.applyBindings(headModel, headEl);
-      ko.applyBindings(viewModel, bodyEl);
-      $('#loading').remove();
-      $('.footer').show();
+    var headEl = document.getElementsByTagName('head')[0];
+    var bodyEl = document.getElementsByTagName('body')[0];
+    ko.applyBindings(headModel, headEl);
+    ko.applyBindings(viewModel, bodyEl);
+    $('#loading').remove();
+    $('.footer').show();
 
-    });
-  }
+  });
+}
 );
