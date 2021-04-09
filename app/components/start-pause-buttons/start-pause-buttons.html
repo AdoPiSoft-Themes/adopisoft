@@ -1,0 +1,14 @@
+<!-- ko if: hasSessions -->
+<!-- ko if: hasRunningSession -->
+<a class="btn btn-lg btn-warning" data-bind="click: pauseSession, enable: allowPause">
+  Pause
+  <i class="glyphicon glyphicon-pause"></i>
+</a>
+<!-- /ko -->
+<!-- ko ifnot: hasRunningSession -->
+<a class="btn btn-lg btn-primary" data-bind="click: startSession">
+  Start
+  <i class="glyphicon glyphicon-play"></i>
+</a>
+<!-- /ko -->
+<!-- /ko -->

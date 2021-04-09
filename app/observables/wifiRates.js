@@ -3,8 +3,6 @@ define([
   'app/utils/http'
 ], function(ko, http) {
 
-  console.log(http);
-
   var wifiRates = {
     currency: ko.observable(''),
     data_rates: ko.observable(false),
