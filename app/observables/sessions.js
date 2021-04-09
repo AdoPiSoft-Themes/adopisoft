@@ -9,7 +9,7 @@ define([
   var sessions = ko.observableArray([]);
 
   function featchSessions() {
-    http.get('/client/sessions', function(err, data) {
+    http.fetchSessions(function(err, data) {
       if (err) return toast.error('Error fetching sessions list!');
       stopSessionsTick();
       sessions(map(data, function (s) {

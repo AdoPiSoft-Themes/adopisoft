@@ -47,8 +47,8 @@ define(
       this.showStartBtn = ko.pureComputed(function () {
         return self.status() !== 'running';
       });
-      this.startSession = function () {
-        http.post('/client/sessions/' + data.id + '/start', function (err) {
+      this.startSession = function() {
+        http.startSession(data.id, function (err) {
           if (err) {
             toast.error(err.toString());
           } else {
@@ -59,8 +59,8 @@ define(
           }
         });
       };
-      this.pauseSession = function () {
-        http.post('/client/sessions/' + data.id + '/pause', function (err) {
+      this.pauseSession = function() {
+        http.pauseSession(data.id, function (err) {
           if (err) {
             toast.error(err.toString());
           } else {
