@@ -1,4 +1,7 @@
-define(['knockout'], function(ko) {
+define([
+  'knockout',
+  'app/utils/addClass'
+], function(ko, addClass) {
 
   ko.bindingHandlers.navigate = {
     init: function(element, valueAccessor, allBindingsAccessor, viewModel, bindingContext) {
@@ -17,11 +20,11 @@ define(['knockout'], function(ko) {
         }
 
         if (tagName === 'a') {
-          element.classList.add('disabled');
+          addClass(element, 'disabled');
           element.innerHTML = 'Loading...';
         }
         if (tagName === 'button') {
-          element.classList.add('disabled');
+          addClass(element, 'disabled');
           element.setAttribute('disabled', 'disabled');
           element.innerHTML = 'Loading...';
         }

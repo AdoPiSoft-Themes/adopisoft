@@ -3,7 +3,6 @@
   <!-- ko if: rates.time_rates -->
 
   <a
-    id="buy-wifi-time"
     class="btn btn-lg btn-success"
     data-bind="click: buyWifiTime, loadingBtn: loading">
     Wifi Time
@@ -12,7 +11,7 @@
   <!-- /ko -->
 
   <!-- ko if: rates.data_rates -->
-  <a class="btn btn-lg btn-success">
+  <a class="btn btn-lg btn-success" data-bind="loadingBtn: loading">
     Wifi Data
   </a>
   <!-- /ko -->
