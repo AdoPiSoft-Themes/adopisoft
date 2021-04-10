@@ -24,8 +24,10 @@ require([
   'domready',
   'app/bindings',
   'app/pages',
+  'app/utils/config',
   'app/components/app-root/AppComponent',
-  'app/components/toast/ToastComponent'
+  'app/components/toast/ToastComponent',
+  'app/components/banners/BannersComponent'
 ], function(ko, mainVM, domready) {
 
   function onLoad() { 

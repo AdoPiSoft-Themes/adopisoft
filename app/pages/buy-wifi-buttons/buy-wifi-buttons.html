@@ -1,13 +1,13 @@
+
+<!-- ko ifnot: loading -->
 <div class="btn-group-padded text-center">
 
   <!-- ko if: rates.time_rates -->
-
   <a
     class="btn btn-lg btn-success"
     data-bind="click: buyWifiTime, loadingBtn: loading">
     Wifi Time
   </a>
-
   <!-- /ko -->
 
   <!-- ko if: rates.data_rates -->
@@ -22,4 +22,14 @@
   </a>
   <!-- /ko -->
 
+
 </div>
+<!-- /ko -->
+
+<!-- ko if: loading -->
+<div class="container">
+  <p class="alert alert-info text-center">Loading. Please wait...</p>
+</div>
+<!-- /ko -->
+
+

@@ -1,8 +1,12 @@
-define(['knockout'], function (ko) {
+define([
+  'knockout',
+  'app/components/banners/BannersVM',
+  'text!app/components/banners/banners-component.html' 
+], function (ko, vm, tpl) {
 
   ko.components.register('banners', {
-    viewModel: { require: 'app/components/banners/BannersVM' },
-    template: { require: 'text!app/components/banners/banners-component.html' }
+    viewModel: vm,
+    template: tpl
   });
 
 });

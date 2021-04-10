@@ -10,9 +10,9 @@ define([
     this.footerHtml = config.footerHtml();
 
     this.page = ko.observable('');
-    this.showingStatusNav = ko.observable(false);
-    this.showingBanners = ko.observable(false);
-    this.showingSessionsTable = ko.observable(false);
+    this.showingStatusNav = ko.observable(true);
+    this.showingBanners = ko.observable(true);
+    this.showingSessionsTable = ko.observable(true);
     this.navigate = function (page) {
       this.page(page);
     };
