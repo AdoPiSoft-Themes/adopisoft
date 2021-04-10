@@ -14,37 +14,8 @@
   <body id="body">
     <p id="loading">Loading...</p>
 
-    <div class="wrapper">
+    <div id="app" class="wrapper" data-bind="component: 'app', childrenComplete: showApp" style="display: none;">
 
-      <!-- ko if: showingStatusNav -->
-      <div id="status-nav-con" data-bind="component: 'status-nav'"></div>
-      <!-- /ko -->
-
-      <!-- ko if: showingBanners -->
-      <div class="container text-center">
-        <div id="banners-con" data-bind="component: 'banners'"></div>
-      </div>
-      <!-- /ko -->
-
-      <!-- ko foreach: $data.routes -->
-      <!-- ko if: $root.isCurrentPage($data) -->
-      <div data-bind="component: $data.component"></div>
-      <!-- /ko -->
-      <!-- /ko -->
-
-      <!-- ko if: showingSessionsTable -->
-      <div class="container text-center" id="sessions-list-con" data-bind="component: 'sessions-table'"></div>
-      <!-- /ko -->
     </div>
-
-    <footer id="footer" class="footer">
-      <div class="container">
-        <p data-bind="html: footerHtml" class="text-muted text-center"></p>
-      </div>
-    </footer>
-
-    <!-- ko component: 'toast' -->
-    <!-- /ko -->
-
   </body>
 </html>

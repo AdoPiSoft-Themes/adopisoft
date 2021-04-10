@@ -1,0 +1,29 @@
+<!-- ko if: $root.page -->
+
+<!-- ko if: $root.showingStatusNav -->
+<div id="status-nav-con" data-bind="component: 'status-nav'"></div>
+<!-- /ko -->
+
+<!-- ko if: $root.showingBanners -->
+<div class="container text-center">
+  <div id="banners-con" data-bind="component: 'banners'"></div>
+</div>
+<!-- /ko -->
+
+<div data-bind="component: $root.page"></div>
+
+<!-- ko if: $root.showingSessionsTable -->
+<div class="container text-center" id="sessions-list-con" data-bind="component: 'sessions-table'"></div>
+<!-- /ko -->
+
+<!-- /ko -->
+
+<footer id="footer" class="footer">
+  <div class="container">
+    <p data-bind="html: footerHtml" class="text-muted text-center"></p>
+  </div>
+</footer>
+
+<!-- ko component: 'toast' -->
+<!-- /ko -->
+

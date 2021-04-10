@@ -54,7 +54,6 @@ define([
     };
     this.showToast = function (element, index) {
       var toasts = findToasts();
-      console.log('toasts:', toasts);
       var el = toasts[index];
       applyToastStyles(el);
       var totalHeight = reduce(toasts, function (sum, t) {
