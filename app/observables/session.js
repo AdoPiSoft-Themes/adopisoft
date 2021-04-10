@@ -1,5 +1,5 @@
 define(
-  ['knockout', 'toast', 'app/utils/sounds', 'app/utils/parseCredits', 'app/utils/http', 'app/utils/config', 'app/utils/redirect', 'app/utils/formatDate'],
+  ['knockout', 'toast', 'app/utils/sounds', 'app/utils/parseCredits', 'app/services/http', 'app/utils/config', 'app/utils/redirect', 'app/utils/formatDate'],
   function (ko, toast, sounds, parseCredits, http, config, redirect, formatDate) {
 
     return function Session(data) {
