@@ -1,7 +1,7 @@
 define([
   'knockout',
   'app/observables/sessions',
-  'app/utils/array.find',
+  'app/utils/array.find'
 ], function(ko, sessions, find) {
 
   return function() {

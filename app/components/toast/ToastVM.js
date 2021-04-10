@@ -1,8 +1,9 @@
 define([
   'knockout',
   'toast',
-  'app/utils/array.reduce'
-],function(ko, toast, reduce) {
+  'app/utils/array.reduce',
+  'getElementsByClassName'
+],function(ko, toast, reduce, getElementsByClassName) {
 
   var messages = ko.observableArray([]);
 
@@ -31,6 +32,16 @@ define([
     el.style.paddingRight = '30px';
   }
 
+  function findToasts() {
+    try {
+      var toasts = document.getElementsByClassName('toast');
+      return toasts;
+    } catch(e) {
+      var toastsCon = document.getElementById('toasts');
+      return getElementsByClassName('toast', '*', toastsCon);
+    }
+  }
+
   return function ToastVM() {
     this.messages = messages;
     this.success = function (message) {
@@ -42,7 +53,8 @@ define([
       m.show();
     };
     this.showToast = function (element, index) {
-      var toasts = document.getElementsByClassName('toast');
+      var toasts = findToasts();
+      console.log('toasts:', toasts);
       var el = toasts[index];
       applyToastStyles(el);
       var totalHeight = reduce(toasts, function (sum, t) {

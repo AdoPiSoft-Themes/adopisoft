@@ -3,7 +3,7 @@ define([
   'toast',
   'app/observables/session',
   'app/utils/array.map',
-  'app/utils/http'
+  'app/services/http'
 ], function (ko, toast, Session, map, http) {
 
   var sessions = ko.observableArray([]);

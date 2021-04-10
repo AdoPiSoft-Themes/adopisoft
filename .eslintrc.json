@@ -1,21 +1,23 @@
 {
-    "env": {
-        "amd": true,
-        "browser": true
-    },
-    "rules": {
-      "no-alert": "off",
-      "no-new": "off",
-      "key-spacing": "off",
-      "space-before-function-paren": "off",
-      "no-param-reassign": "off",
-      "consistent-return": "off"
-    },
-    "extends": "es3",
-    "globals": {
-      "$": "readonly",
-      "requirejs": "readonly",
-      "jquery": "readonly",
-      "define": "readonly"
-    }
+  "env": {
+    "amd": true,
+    "browser": true
+  },
+  "rules": {
+    "no-alert": "off",
+    "no-new": "off",
+    "key-spacing": "off",
+    "space-before-function-paren": "off",
+    "no-param-reassign": "off",
+    "consistent-return": "off",
+    "comma-dangle": ["error", "never"]
+  },
+  "extends": "es3",
+  "globals": {
+    "$": "readonly",
+    "requirejs": "readonly",
+    "jquery": "readonly",
+    "define": "readonly",
+    "ActiveXObject": "readonly"
+  }
 }

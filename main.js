@@ -6,7 +6,8 @@ requirejs.config({
     css: 'libs/requirejs/css-0.3.1.min',
     knockout: 'libs/knockout/knockout-latest',
     howler: 'libs/howler/howler.core.min',
-    domready: 'app/utils/domready',
+    domready: 'libs/domready',
+    getElementsByClassName: 'libs/polyfills/getElementsByClassName',
     toast: 'app/services/toast',
     rootVM: 'app/root/RootVM'
   },
@@ -34,12 +35,10 @@ require([
     var headEl = document.getElementsByTagName('head')[0];
     var bodyEl = document.getElementsByTagName('body')[0];
     var loading = document.getElementById('loading');
-    var footer = document.getElementsByClassName('footer')[0];
     ko.applyBindings(rootVM, headEl);
     ko.applyBindings(rootVM, bodyEl);
 
-    loading.parentNode.removeChild(loading); //remove loading text
-    footer.style.display = 'block';// show footer
+    loading.style.display = 'none'; //remove loading text
 
   }
   domready(onLoad);

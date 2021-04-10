@@ -1,5 +1,5 @@
 define([
-  'app/utils/ajax',
+  'libs/ajax',
   'toast'
 ], function (ajax, toast) {
 

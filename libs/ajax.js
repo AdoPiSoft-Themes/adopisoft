@@ -1,5 +1,11 @@
 define(function () {
 
+  function getHttp() {
+    return window.ActiveXObject
+      ? new window.ActiveXObject('Microsoft.XMLHTTP')
+      : new window.XMLHttpRequest();
+  }
+
   function toParams(obj) {
     if (!obj) return '';
     var str = '';
@@ -20,10 +26,11 @@ define(function () {
     var data = opts.data;
     var successCb = opts.success;
     var errorCb = opts.error;
-    var http = new XMLHttpRequest();
+
+    var http = getHttp();
 
     http.onreadystatechange = function() {
-      if (http.readyState === XMLHttpRequest.DONE) { // XMLHttpRequest.DONE == 4
+      if (http.readyState === 4) { // XMLHttpRequest.DONE == 4
         if (http.status >= 200 && http.status < 400) {
           var json = JSON.parse(http.responseText);
           successCb(json);
@@ -37,10 +44,14 @@ define(function () {
     http.setRequestHeader('Accept', 'application/json');
 
     if (method.toLowerCase() === 'post') {
+      try {
       //Send the proper header information along with the request
-      http.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
-      var params = toParams(data);
-      http.send(params);
+        http.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+        var params = toParams(data);
+        http.send(params);
+      } catch(e) {
+        errorCb(e);
+      }
     } else {
       http.send();
     }

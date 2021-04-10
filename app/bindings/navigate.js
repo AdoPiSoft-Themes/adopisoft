@@ -6,8 +6,12 @@ define(['knockout'], function(ko) {
       var page =  ko.unwrap(valueAccessor()) || element.getAttribute('href');
 
       element.onclick = function (e) {
-        e.preventDefault();
+        if (e) {
+          e.returnValue = false;
+          if (e.preventDefault) e.preventDefault();
+        }
         bindingContext.$root.navigate(page);
+        return false;
       };
 
     }
