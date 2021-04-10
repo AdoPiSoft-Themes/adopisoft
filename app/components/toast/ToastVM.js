@@ -23,6 +23,7 @@ define([
   }
 
   function applyToastStyles(el) {
+    el.style.zIndex = 999999;
     el.style.position = 'fixed';
     el.style.bottom = '0';
     el.style.right = '15px';

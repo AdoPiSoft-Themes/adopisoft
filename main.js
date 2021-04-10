@@ -25,9 +25,7 @@ require([
   'app/bindings',
   'app/pages',
   'app/utils/config',
-  'app/components/app-root/AppComponent',
-  'app/components/toast/ToastComponent',
-  'app/components/banners/BannersComponent'
+  'app/components/app-root/AppComponent'
 ], function(ko, mainVM, domready) {
 
   function onLoad() { 
