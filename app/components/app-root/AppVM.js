@@ -10,7 +10,7 @@ define([
     this.favicon = ko.observable(config.favicon());
     this.pageTitle = ko.observable(config.pageTitle());
     this.styles = ko.observableArray(config.styles());
-    this.footerHtml = config.footerHtml();
+    this.footerHtml = ko.observable(config.footerHtml());
     
     this.buyWifi = function () {
       payment.intent('wifi');
