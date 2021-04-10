@@ -1,8 +1,14 @@
 <div class="btn-group-padded text-center">
+
   <!-- ko if: rates.time_rates -->
-  <a class="btn btn-lg btn-success" data-bind="click: buyWifiTime">
+
+  <a
+    id="buy-wifi-time"
+    class="btn btn-lg btn-success"
+    data-bind="click: buyWifiTime, loadingBtn: loading">
     Wifi Time
   </a>
+
   <!-- /ko -->
 
   <!-- ko if: rates.data_rates -->
