@@ -25,7 +25,7 @@ define([
   function applyToastStyles(el) {
     el.style.position = 'fixed';
     el.style.bottom = '0';
-    el.style.right = '30px';
+    el.style.right = '15px';
     el.style.width = '100%';
     el.style.maxWidth = '300px';
     el.style.paddingLeft = '30px';
