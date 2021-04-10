@@ -11,13 +11,15 @@ define(['knockout'], function(ko) {
         element.src = imageUrls[imageIndex];
         imageIndex++;
       }
-
       changeImage();
-      $_interval = setInterval(changeImage, 3000);
 
-      ko.utils.domNodeDisposal.addDisposeCallback(element, function() {
-        clearInterval($_interval);
-      });
+      if (imageUrls.length > 1) {
+        $_interval = setInterval(changeImage, 3000);
+
+        ko.utils.domNodeDisposal.addDisposeCallback(element, function() {
+          clearInterval($_interval);
+        });
+      }
 
     }
   };

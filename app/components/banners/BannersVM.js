@@ -5,7 +5,7 @@ define([
   var slogan_field = config.findField('page_properties', 'banner_text');
   return function () {
     this.bannerText = slogan_field.value;
-    this.img_urls = banner_field.value;
+    this.imgUrls = banner_field.value;
   };
 
 });
