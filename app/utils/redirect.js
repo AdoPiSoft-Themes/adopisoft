@@ -13,7 +13,7 @@ define(['app/utils/config'], function (config) {
         location.href = redirect_url;
         timeout = null;
         var body = document.getElementById('body');
-        body.innterHTML = '<h1 class="text-center">Please wait. <br/> Redirecting to ' + redirect_url + '</h1>';
+        body.innerHTML = '<h1 class="text-center">Please wait. <br/> Redirecting to ' + redirect_url + '</h1>';
       }, 3000);
     },
     cancel: cancel
