@@ -6,7 +6,7 @@ define([
   function Http () {
     this.get = function (url, cb) {
       try {
-        ajax.ajax({
+        ajax({
           url: url,
           success: function (data) {
             cb(null, data);
@@ -18,7 +18,7 @@ define([
     this.post = function (url, data, cb) {
       var callback = typeof data === 'function' ? data : cb; 
       try {
-        ajax.ajax({
+        ajax({
           url: url,
           method: 'POST',
           data: data,

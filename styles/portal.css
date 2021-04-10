@@ -32,14 +32,3 @@ img.img-full {
   width: 20px;
 }
 
-.toast {
-  position: fixed;
-  left: 0;
-  width: 100%;
-  padding-left: 30px;
-  padding-right: 30px;
-}
-
-.toast:hover {
-  cursor: pointer;
-}

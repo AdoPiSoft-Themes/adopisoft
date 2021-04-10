@@ -21,6 +21,16 @@ define([
     };
   }
 
+  function applyToastStyles(el) {
+    el.style.position = 'fixed';
+    el.style.bottom = '0';
+    el.style.right = '30px';
+    el.style.width = '100%';
+    el.style.maxWidth = '300px';
+    el.style.paddingLeft = '30px';
+    el.style.paddingRight = '30px';
+  }
+
   return function ToastVM() {
     this.messages = messages;
     this.success = function (message) {
@@ -34,10 +44,11 @@ define([
     this.showToast = function (element, index) {
       var toasts = document.getElementsByClassName('toast');
       var el = toasts[index];
+      applyToastStyles(el);
       var totalHeight = reduce(toasts, function (sum, t) {
-        return sum + t.offsetHeight + (index === 0 ? 15 : 0);
+        return sum + t.offsetHeight;
       }, 0) - el.offsetHeight;
-      el.style.top = totalHeight + 'px';
+      el.style.bottom = totalHeight + 'px';
     };
     toast.init(this);
   };
