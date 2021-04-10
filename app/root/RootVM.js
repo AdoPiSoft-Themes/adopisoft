@@ -17,6 +17,7 @@ define([
       this.page(page);
     };
     this.showApp = function () {
+      document.getElementById('loading').style.display = 'none';
       document.getElementById('app').style.display = 'block';
     };
 

@@ -31,12 +31,8 @@ require([
   function onLoad() { 
     var headEl = document.getElementsByTagName('head')[0];
     var bodyEl = document.getElementsByTagName('body')[0];
-    var loading = document.getElementById('loading');
     ko.applyBindings(mainVM, headEl);
     ko.applyBindings(mainVM, bodyEl);
-
-    loading.style.display = 'none'; //remove loading text
-
   }
 
   domready(onLoad);
