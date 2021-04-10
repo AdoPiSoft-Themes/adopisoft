@@ -1,11 +1,20 @@
 <div class="btn-group-padded text-center">
-  <a class="btn btn-lg btn-success">
+  <!-- ko if: rates.time_rates -->
+  <a class="btn btn-lg btn-success" data-bind="click: buyWifiTime">
     Wifi Time
   </a>
+  <!-- /ko -->
+
+  <!-- ko if: rates.data_rates -->
   <a class="btn btn-lg btn-success">
     Wifi Data
   </a>
+  <!-- /ko -->
+
+  <!-- ko if: rates.time_or_data_rates -->
   <a class="btn btn-lg btn-success">
-    Wifi Voucher
+    Wifi Time/Data
   </a>
+  <!-- /ko -->
+
 </div>

@@ -32,8 +32,6 @@ define([
       var s = self.hasRunningSession();
       return s && s.allow_pause();
     });
-
-
   };
 
 });

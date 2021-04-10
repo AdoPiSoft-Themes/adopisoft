@@ -9,8 +9,8 @@ img.img-full {
   width: 100%;
 }
 
-.btn-group-padded > .btn {
-  width: 150px;
+.btn-group-padded .btn {
+  width: 158px;
   margin: 10px;
 }
 

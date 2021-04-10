@@ -15,7 +15,7 @@
         <td data-bind="text: formatted_expiry_date"></td>
         <td>
           <!-- ko if: showPauseBtn -->
-          <button class="btn btn-warning" data-bind="enable: enablePause, click: pauseSession">
+          <button class="btn btn-warning" data-bind="enable: allow_pause, click: pauseSession">
             <i class="glyphicon glyphicon-pause"></i>
           </button>
           <!-- /ko -->

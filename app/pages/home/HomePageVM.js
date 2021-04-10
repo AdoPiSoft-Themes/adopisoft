@@ -1,12 +1,15 @@
 define([
-  'rootVM'
+  'knockout',
+  'rootVM',
+  'app/utils/config'
 ],
-function (rootVm) {
+function (ko, rootVM, config) {
   function HomePageVM() {
+    this.showInsertCoinBtn = ko.observable(config.findField('buttons', 'button_insert_coin').value);
     this.koDescendantsComplete = function() {
-      rootVm.showingBanners(true);
-      rootVm.showingSessionsTable(true);
-      rootVm.showingStatusNav(true);
+      rootVM.showingBanners(true);
+      rootVM.showingSessionsTable(true);
+      rootVM.showingStatusNav(true);
     };
   }
   return HomePageVM;
