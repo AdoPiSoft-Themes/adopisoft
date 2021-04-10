@@ -1,11 +1,13 @@
-define(['jquery', 'toast'], function ($, toast) {
+define([
+  'app/utils/ajax',
+  'toast'
+], function (ajax, toast) {
 
   function Http () {
     this.get = function (url, cb) {
       try {
-        $.ajax({
+        ajax.ajax({
           url: url,
-          dataType: 'json',
           success: function (data) {
             cb(null, data);
           },
@@ -14,12 +16,11 @@ define(['jquery', 'toast'], function ($, toast) {
       } catch(e) { cb(e); }
     };
     this.post = function (url, data, cb) {
-      var callback = $.isFunction(data) ? data : cb; 
+      var callback = typeof data === 'function' ? data : cb; 
       try {
-        $.ajax({
+        ajax.ajax({
           url: url,
           method: 'POST',
-          dataType: 'json',
           data: data,
           success: function (data) {
             callback(null, data);

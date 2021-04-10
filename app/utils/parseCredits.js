@@ -1,4 +1,4 @@
-define(['jquery', 'app/utils/creditsFormat'], function ($, creditsFormat) {
+define(['app/utils/creditsFormat'], function (creditsFormat) {
   return function parseCredits(session) {
     try {
       var type = session.type,

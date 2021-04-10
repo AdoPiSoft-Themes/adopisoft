@@ -4,8 +4,6 @@ define([
   'app/utils/array.find',
 ], function(ko, sessions, find) {
 
-  console.log('StartPauseButtons');
-
   return function() {
     var self = this;
     this.hasSessions = ko.pureComputed(function () {

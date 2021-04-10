@@ -1,0 +1,15 @@
+<div
+    class="toast"
+    data-bind="foreach: {data: messages, afterAdd: showToast}"
+    >
+
+    <div
+        class="alert"
+        data-bind="css: {'alert-success': type() == 'success', 'alert-danger': type() == 'error'}"
+        >
+
+        <p data-bind="text: message"></p>
+
+    </div>
+
+</div>
