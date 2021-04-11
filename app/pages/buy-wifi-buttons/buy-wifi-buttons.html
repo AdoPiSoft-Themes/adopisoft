@@ -5,13 +5,13 @@
   <!-- ko if: rates.time_rates -->
   <a
     class="btn btn-lg btn-success"
-    data-bind="click: buyWifiTime, loadingBtn: loading">
+    data-bind="click: function () { selectRate('time') }">
     Wifi Time
   </a>
   <!-- /ko -->
 
   <!-- ko if: rates.data_rates -->
-  <a class="btn btn-lg btn-success" data-bind="loadingBtn: loading">
+  <a class="btn btn-lg btn-success" data-bind="function () { selectRate('data') }">
     Wifi Data
   </a>
   <!-- /ko -->
@@ -28,7 +28,7 @@
 
 <!-- ko if: loading -->
 <div class="container">
-  <p class="alert alert-info text-center">Loading. Please wait...</p>
+  <p class="alert alert-info text-center">Loading, please wait...</p>
 </div>
 <!-- /ko -->
 

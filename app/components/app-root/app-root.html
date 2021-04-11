@@ -1,5 +1,6 @@
 <div class="wrapper">
-  <!-- ko if: $root.page -->
+
+  <!-- ko if: $root.currentPage -->
 
   <!-- ko if: $root.showingStatusNav -->
   <div id="status-nav-con" data-bind="component: 'status-nav'"></div>
@@ -11,7 +12,7 @@
   </div>
   <!-- /ko -->
 
-  <div data-bind="component: $root.page"></div>
+  <div data-bind="component: $root.currentPage"></div>
 
   <!-- ko if: $root.showingSessionsTable -->
   <div class="container text-center" id="sessions-list-con" data-bind="component: 'sessions-table'"></div>

@@ -4,6 +4,7 @@ define([
 ], function (ajax, toast) {
 
   function Http () {
+    var self = this;
     this.get = function (url, cb) {
       try {
         ajax({
@@ -26,17 +27,16 @@ define([
             callback(null, data);
           },
           error: function(e) {
-            var err = e.responseJSON || {};
-            callback(err.error || err.message || 'Something went wrong');
+            callback(e);
           }
         });
       } catch(e) {
         callback(e);
       }
     };
-    this.catchError = function(e) {
-      var err = e.responseJSON || {};
-      var message = err.error || err.message || 'Something went wrong';
+    this.catchError = function(http) {
+      var e = http.responseText ? JSON.parse(http.responseText) : {};
+      var message = e.error || e.message || 'Something went wrong';
       toast.error(message);
     };
     this.fetchSessions = function (cb) {
@@ -50,6 +50,20 @@ define([
     };
     this.fetchRates = function (cb) {
       this.get('/settings/timer/rates', cb);
+    };
+    this.fetchCoinslots = function (cb) {
+      this.get('/client/coinslots', cb);
+    };
+    this.queForPayment = function (opts, cb) {
+      var data = {
+        coinslot_id: opts.coinslot_id,
+        type: opts.type,
+        is_voucher: opts.is_voucher
+      };
+      this.post('/client/payments/que', data, cb);
+    };
+    this.getDevice = function (cb) {
+      this.get('/client/device', cb);
     };
   }
   return new Http();

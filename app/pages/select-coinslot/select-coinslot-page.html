@@ -9,13 +9,12 @@
       </tr>
     </thead>
     <tbody>
-      <!-- ko foreach: [1, 2] -->
+      <!-- ko foreach: {data: coinslots} -->
       <tr>
-        <td>
-          Coinslot 1
+        <td data-bind="text: alias">
         </td>
         <td>
-          <a class="btn btn-primary">
+          <a class="btn btn-primary" data-bind="click: function () { $parent.selectCoinslot(id) }">
             Select
             <i class="glyphicon glyphicon-chevron-right"></i>
           </a>

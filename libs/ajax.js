@@ -35,7 +35,7 @@ define(function () {
           var json = JSON.parse(http.responseText);
           successCb(json);
         } else {
-          errorCb(new Error('Error fetching ' + url));
+          errorCb(http);
         }
       }
     };
