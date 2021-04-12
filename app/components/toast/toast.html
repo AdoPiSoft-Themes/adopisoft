@@ -9,7 +9,8 @@
         data-bind="css: {'alert-success': type() == 'success', 'alert-danger': type() == 'error'}"
         >
 
-        <p data-bind="text: message"></p>
+        <strong data-bind="text: title"></strong>
+        <p data-bind="html: message"></p>
 
     </div>
 

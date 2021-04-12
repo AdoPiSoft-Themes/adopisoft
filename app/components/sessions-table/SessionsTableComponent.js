@@ -1,8 +1,11 @@
 define([
-  'knockout'
-], function(ko) {
+  'knockout',
+  'app/services/sessions'
+], function(ko, sessions) {
   ko.components.register('sessions-table', {
-    viewModel: {require: 'app/components/sessions-table/SessionsTableVM.js'},
+    viewModel: function() {
+      this.sessions = sessions.get();
+    },
     template: {require: 'text!app/components/sessions-table/sessions-table.html'}
   });
 });

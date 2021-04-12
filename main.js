@@ -23,17 +23,20 @@ require([
   'knockout',
   'rootVM',
   'domready',
+  'app/init',
   'app/bindings',
   'app/pages',
   'app/utils/config',
   'app/components/app-root/AppComponent'
-], function(ko, rootVM, domready) {
+], function(ko, rootVM, domready, init) {
 
   function onLoad() {
-    var headEl = document.getElementsByTagName('head')[0];
-    var bodyEl = document.getElementsByTagName('body')[0];
-    ko.applyBindings(rootVM, headEl);
-    ko.applyBindings(rootVM, bodyEl); 
+    init(function () {
+      var headEl = document.getElementsByTagName('head')[0];
+      var bodyEl = document.getElementsByTagName('body')[0];
+      ko.applyBindings(rootVM, headEl);
+      ko.applyBindings(rootVM, bodyEl);
+    });
   }
 
   domready(onLoad);

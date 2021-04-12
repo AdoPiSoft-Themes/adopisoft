@@ -1,6 +1,13 @@
-define(['knockout'], function(ko) {
+define([
+  'knockout',
+  'app/services/sessions'
+], function(ko, sessions) {
   ko.components.register('connection-status', {
-    viewModel: {require: 'app/components/status-nav/connection-status/ConnectionStatusVM.js'},
+    viewModel: function() {
+      this.connected = ko.pureComputed(function () {
+        return sessions.hasRunning();
+      });
+    },
     template: {require: 'text!app/components/status-nav/connection-status/connection-status.html'}
   });
 });

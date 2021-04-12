@@ -1,28 +1,30 @@
 define([
   'knockout',
-  'app/services/socket',
+  'toast',
   'app/services/http'
-], function(ko, socket, http) {
+], function(ko, toast, http) {
   var d = {
     id: ko.observable(0),
     mac_address: ko.observable(''),
     ip_address: ko.observable(''),
     hostname: ko.observable(''),
     is_paying: ko.observable(''),
-    status: ko.observable('')
-  };
-
-  http.getDevice(function(err, device) {
-    if (!err) {
+    status: ko.observable(''),
+    set: function(device) {
       d.id(device.id);
       d.mac_address(device.mac_address);
       d.ip_address(device.ip_address);
       d.hostname(device.hostname);
       d.is_paying(device.is_paying);
       d.status(device.status);
-      socket(d);
+    },
+    fetch: function(cb) {
+      http.getDevice(function(err, device) {
+        if (err) return toast.error('Unable to sync device information.');
+        d.set(device);
+        cb(d);
+      });
     }
-  });
-
+  };
   return d;
 });

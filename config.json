@@ -84,7 +84,7 @@
     "legend": "Sounds",
     "fields": [
       {
-        "field_id": "count_down_sound",
+        "field_id": "countdown_sound",
         "label":  "Payment Countdown Sound",
         "type": "sounds",
         "value": "sounds/count-down.mp3"

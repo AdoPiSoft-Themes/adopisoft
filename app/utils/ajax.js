@@ -1,23 +1,9 @@
-define(function () {
+define(['knockout'], function (ko) {
 
   function getHttp() {
     return window.ActiveXObject
       ? new window.ActiveXObject('Microsoft.XMLHTTP')
       : new window.XMLHttpRequest();
-  }
-
-  function toParams(obj) {
-    if (!obj) return '';
-    var str = '';
-    for (var key in obj) {
-      if (typeof key === 'string' || typeof key === 'number' || typeof key === 'boolean') {
-        if (str !== '') {
-          str += '&';
-        }
-        str += encodeURIComponent(key) + '=' + encodeURIComponent(obj[key]);
-      }
-    }
-    return str;
   }
 
   return function Ajax(opts) {
@@ -46,8 +32,8 @@ define(function () {
     if (method.toLowerCase() === 'post') {
       try {
       //Send the proper header information along with the request
-        http.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
-        var params = toParams(data);
+        http.setRequestHeader('Content-type', 'application/json');
+        var params = ko.toJSON(data);
         http.send(params);
       } catch(e) {
         errorCb(e);

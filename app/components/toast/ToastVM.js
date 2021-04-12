@@ -7,9 +7,10 @@ define([
 
   var messages = ko.observableArray([]);
 
-  function Message(type, message) {
+  function Message(type, title, message) {
     var self = this;
     this.type = ko.observable(type);
+    this.title = ko.observable(title);
     this.message = ko.observable(message);
     this.show = function () {
       messages.push(this);
@@ -45,12 +46,12 @@ define([
 
   return function ToastVM() {
     this.messages = messages;
-    this.success = function (message) {
-      var m = new Message('success', message);
+    this.success = function (title, message) {
+      var m = new Message('success', title, message);
       m.show();
     };
-    this.error = function (message) {
-      var m = new Message('error', message);
+    this.error = function (title, message) {
+      var m = new Message('error', title, message);
       m.show();
     };
     this.showToast = function (element, index) {
@@ -66,3 +67,4 @@ define([
   };
 
 });
+

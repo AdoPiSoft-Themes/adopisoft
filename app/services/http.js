@@ -1,5 +1,5 @@
 define([
-  'libs/ajax',
+  'app/utils/ajax',
   'toast'
 ], function (ajax, toast) {
 
@@ -69,6 +69,9 @@ define([
     };
     this.timerConfig = function (cb) {
       this.get('/settings/timer/config', cb);
+    };
+    this.donePayment = function (coinslot_id, cb) {
+      this.post('/client/payments/done', {coinslot_id: coinslot_id}, cb);
     };
   }
   return new Http();

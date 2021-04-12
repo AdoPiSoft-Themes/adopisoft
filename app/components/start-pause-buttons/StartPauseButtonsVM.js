@@ -1,33 +1,20 @@
 define([
   'knockout',
-  'app/observables/sessions',
-  'app/utils/array.find'
-], function(ko, sessions, find) {
+  'app/services/sessions'
+], function(ko, sessions) {
 
   return function() {
-    var self = this;
-    this.hasSessions = ko.pureComputed(function () {
-      return sessions().length > 0; 
-    });
-    this.hasRunningSession = ko.pureComputed(function () {
-      return find(sessions(), function (s) {
-        return s.status() === 'running';
-      });
-    });
+    this.sessions = sessions;
     this.pauseSession = function () {
-      var running = find(sessions(), function (s) {
-        return s.status() === 'running';
-      });
+      var running = sessions.runningSession();
       running.pauseSession();
     };
     this.startSession = function () {
-      var available = find(sessions(), function (s) {
-        return s.status() === 'available';
-      });
+      var available = sessions.available();
       available.startSession();
     };
     this.allowPause = ko.pureComputed(function () {
-      var s = self.hasRunningSession();
+      var s = sessions.runningSession();
       return s && s.allow_pause();
     });
   };
