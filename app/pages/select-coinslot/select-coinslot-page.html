@@ -1,27 +1,31 @@
 <div class="container text-center">
-  <h1>Please select a coinslot:</h1>
+  <div class="panel panel-primary">
+    <div class="panel-heading">
+      Please select a coinslot.
+    </div>
 
-  <table class="table">
-    <thead>
-      <tr>
-        <th class="text-center">Available Coinslots</th>
-        <th></th>
-      </tr>
-    </thead>
-    <tbody>
-      <!-- ko foreach: {data: coinslots} -->
-      <tr>
-        <td data-bind="text: alias">
-        </td>
-        <td>
-          <a class="btn btn-primary" data-bind="click: function () { $parent.selectCoinslot(id) }, loadingBtn: $parent.loading">
-            Select
-            <i class="glyphicon glyphicon-chevron-right"></i>
-          </a>
-        </td>
-      </tr>
-      <!-- /ko -->
-    </tbody>
-  </table>
+    <table class="table">
+      <thead>
+        <tr>
+          <th class="text-center">Available Coinslots</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <!-- ko foreach: {data: coinslots} -->
+        <tr>
+          <td data-bind="text: alias">
+          </td>
+          <td>
+            <a class="btn btn-primary" data-bind="click: function () { $parent.selectCoinslot(id) }, loadingBtn: $parent.loading">
+              Select
+              <i class="glyphicon glyphicon-chevron-right"></i>
+            </a>
+          </td>
+        </tr>
+        <!-- /ko -->
+      </tbody>
+    </table>
 
+  </div>
 </div>
