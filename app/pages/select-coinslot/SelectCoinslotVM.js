@@ -12,9 +12,9 @@ define([
     rootVM.showingStatusNav(true);
     rootVM.showingBanners(true);
     rootVM.showingSessionsTable(false);
-    this.loading = ko.observable(true);
-    this.coinslots = ko.observableArray([]);
-    this.koDescendantsComplete = function () {
+    self.loading = ko.observable(true);
+    self.coinslots = ko.observableArray([]);
+    self.koDescendantsComplete = function () {
       rootVM.showingStatusNav(true);
       rootVM.showingBanners(true);
       rootVM.showingSessionsTable(false);
@@ -25,7 +25,7 @@ define([
         self.loading(false);
       });
     };
-    this.selectCoinslot = function(coinslot_id) {
+    self.selectCoinslot = function(coinslot_id) {
       self.loading(true);
       http.queForPayment({
         coinslot_id: coinslot_id,

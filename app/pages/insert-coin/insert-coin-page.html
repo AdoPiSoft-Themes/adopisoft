@@ -26,10 +26,10 @@
   </h3>
 
   <!-- ko if: hasPayment -->
-  <a class="btn btn-lg btn-primary" data-bind="click: donePayment">I'm Done Paying</a>
+  <a class="btn btn-lg btn-primary" data-bind="click: donePayment, loadingBtn: loading">I'm Done Paying</a>
   <!-- /ko -->
   <!-- ko ifnot: hasPayment -->
-  <a class="btn btn-lg btn-warning" data-bind="click: donePayment">Cancel</a>
+  <a class="btn btn-lg btn-warning" data-bind="click: donePayment, loadingBtn: loading">Cancel</a>
   <!-- /ko -->
 
   <div class="container padd-top">
