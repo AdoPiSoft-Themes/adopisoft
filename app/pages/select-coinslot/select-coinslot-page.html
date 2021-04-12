@@ -14,7 +14,7 @@
         <td data-bind="text: alias">
         </td>
         <td>
-          <a class="btn btn-primary" data-bind="click: function () { $parent.selectCoinslot(id) }">
+          <a class="btn btn-primary" data-bind="click: function () { $parent.selectCoinslot(id) }, loadingBtn: $parent.loading">
             Select
             <i class="glyphicon glyphicon-chevron-right"></i>
           </a>
