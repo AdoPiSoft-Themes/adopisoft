@@ -138,6 +138,7 @@
           "fonts/fonts.css",
           "styles/ie10-viewport-bug-workaround.css",
           "styles/sticky-footer-navbar.css",
+          "styles/ellipsis.css",
           "styles/portal.css"
         ]
       }

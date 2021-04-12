@@ -7,12 +7,16 @@ define(function () {
   function Toast() {
     this.init = function (vm) {
       this.VM = vm;
-      this.success = vm.success;
-      this.error = vm.error;
+      this.success = function (m) {
+        vm.success(m);
+      };
+      this.error = function(m) {
+        vm.error(m);
+      };
     };
     this.success = _alert;
     this.error = _alert;
-  } 
+  }
 
   return new Toast();
 });

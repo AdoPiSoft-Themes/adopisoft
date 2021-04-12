@@ -1,4 +1,7 @@
-define(['knockout'], function (ko) {
+define([
+  'knockout',
+  'app/components/progress-bar/ProgressBar'
+], function (ko) {
 
   ko.components.register('insert-coin-page', {
     viewModel: { require: 'app/pages/insert-coin/InsertCoinVM' },

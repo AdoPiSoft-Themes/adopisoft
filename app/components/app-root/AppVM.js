@@ -20,7 +20,7 @@ define([
       this.intent('buy_voucher');
       this.navigate('select-coinslot-page');
     };
-    rootVM.page('home-page');
+    rootVM.page('insert-coin-page');
   };
 
 });

@@ -1,7 +1,11 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <!-- ko if: baseUrl -->
+    <base data-bind="attr: {href: baseUrl}">
+    <!-- /ko -->
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
     <link data-bind="attr: {href: $data.favicon}" rel="shortcut icon" type="image/x-icon" />
     <title data-bind="text: $root.pageTitle"></title>
     <!-- ko foreach: $data.styles -->

@@ -6,6 +6,7 @@ define([
 
   function RootVm() {
     var self = this;
+    this.baseUrl = ko.observable(location.href);
     this.favicon = ko.observable(config.favicon());
     this.pageTitle = ko.observable(config.pageTitle());
     this.styles = ko.observableArray(config.styles());
@@ -25,6 +26,11 @@ define([
     this.showApp = function () {
       document.getElementById('loading').style.display = 'none';
       document.getElementById('app').style.display = 'block';
+      try{
+        window.history.replaceState('', document.title, '/');
+      } catch(e) {
+        //
+      }
     };
 
   }

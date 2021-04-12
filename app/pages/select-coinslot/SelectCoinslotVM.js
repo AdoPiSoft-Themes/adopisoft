@@ -14,10 +14,13 @@ define([
     rootVM.showingSessionsTable(false);
     this.coinslots = ko.observableArray([]);
     this.koDescendantsComplete = function () {
+      rootVM.showingStatusNav(true);
+      rootVM.showingBanners(true);
+      rootVM.showingSessionsTable(false);
+
       http.fetchCoinslots(function(err, coinslots) {
         if (err) return toast.error(err.toString());
         self.coinslots(coinslots);
-        console.log(coinslots);
       });
     };
     this.selectCoinslot = function(coinslot_id) {

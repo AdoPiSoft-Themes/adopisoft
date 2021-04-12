@@ -1,2 +1,26 @@
-Insert?
-<a data-bind="navigate" href="home">Back</a>
+<div id="insert-coin-page" class="text-center">
+  <!-- ko if: loading -->
+  <p>Please wait...</p>
+  <!-- /ko -->
+
+  <!-- ko ifnot: loading -->
+  <h2 class="text-success">Insert Coin Now</h2>
+  <div style="width: 150px; margin: 15px auto;">
+    <img src="images/insert-coin.gif" class="img-full" />
+  </div>
+  <h3>
+    Total Amount:
+    <span data-bind="text: que.total_amount, css: que.total_amount() > 0 ? 'text-success' : 'text-danger'"></span>
+  </h3>
+  <!-- /ko -->
+
+  <div class="container padd-top">
+    <div class="row">
+      <div class="col-sm-6 col-sm-offset-3">
+        <div data-bind="component: {name: 'progress-bar', params: {current: que.wait_payment_seconds, total: config.wait_payment_seconds}}"></div>
+      </div>
+    </div>
+  </div>
+
+
+</div>

@@ -4,7 +4,6 @@ define([
 ], function (ajax, toast) {
 
   function Http () {
-    var self = this;
     this.get = function (url, cb) {
       try {
         ajax({
@@ -64,6 +63,12 @@ define([
     };
     this.getDevice = function (cb) {
       this.get('/client/device', cb);
+    };
+    this.currentPaymentQue = function (cb) {
+      this.get('/client/payments/current', cb);
+    };
+    this.timerConfig = function (cb) {
+      this.get('/settings/timer/config', cb);
     };
   }
   return new Http();
