@@ -28,7 +28,7 @@ define(['howler', 'app/utils/config'], function (howler, config) {
 
     var disconnected = new Sound(config.findField('sounds', 'disconnected_sound').value);
     var connected = new Sound(config.findField('sounds', 'connected_sound').value);
-    var insertCoin = new Sound(config.findField('sounds', 'countdown_sound').value, 1500);
+    var insertCoin = new Sound(config.findField('sounds', 'countdown_sound').value, 1000);
     var coinInserted = new Sound(config.findField('sounds', 'coin_inserted').value);
 
     return {

@@ -5,7 +5,9 @@ define([
   ko.components.register('progress-bar', {
     viewModel: function (params) {
       var self = this;
-      this.klass = 'progress-bar-warning';
+      this.klass = ko.pureComputed(function() {
+        return self.current() < 10 ? 'progress-bar-danger' : 'progress-bar-warning';
+      });
       this.current = params.current;
       this.total = params.total;
       this.percent = ko.pureComputed(function () {

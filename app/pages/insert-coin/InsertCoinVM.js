@@ -53,10 +53,7 @@ define([
       }
       if (self.session.data_mb() > 0 || self.session.time_seconds() > 0) {
         sounds.coinInserted.play();
-        toast.success(
-          '<b>Total Amount: ' + rates.currency() + ' ' + self.que.total_amount() + '</b>' +
-          '<br />Total Credits:</b>' + self.totalCredits()
-        );
+        toast.success('Total Amount: ' + rates.currency() + ' ' + self.que.total_amount(), 'Total Credits:</b>' + self.totalCredits());
       }
     };
     this.donePayment = function () {
@@ -67,11 +64,11 @@ define([
     this.done = function (data) {
       console.log('DONE:', data);
       device.is_paying(false);
-      if (this.hasPayment()) {
+      if (self.hasPayment()) {
+        receipt.sessionId(data.session.id);
         receipt.amount(data.total_amount);
         receipt.type(data.type);
         receipt.credits(self.totalCredits());
-        receipt.sessionId(data.session.id);
         rootVM.navigate('receipt-page');
       } else {
         rootVM.navigate('home-page');
@@ -88,12 +85,14 @@ define([
     this.dispose = function () {
       console.log('removed listener');
       socket().removeListener('payment:received', this.onPaymentReceived);
+      socket().removeListener('payment:done', this.done);
       sounds.insertCoin.stop();
     };
 
     receipt.reset();
     sounds.insertCoin.play();
     socket().on('payment:received', this.onPaymentReceived);
+    socket().on('payment:done', this.done);
     this.fetch();
   }
 
