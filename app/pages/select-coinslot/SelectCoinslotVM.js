@@ -12,6 +12,7 @@ define([
     rootVM.showingStatusNav(true);
     rootVM.showingBanners(true);
     rootVM.showingSessionsTable(false);
+    self.selectedId = ko.observable('');
     self.loading = ko.observable(true);
     self.coinslots = ko.observableArray([]);
     self.koDescendantsComplete = function () {
@@ -28,6 +29,7 @@ define([
 
     };
     self.selectCoinslot = function(coinslot_id) {
+      self.selectedId(coinslot_id);
       self.loading(true);
       http.queForPayment({
         coinslot_id: coinslot_id,
