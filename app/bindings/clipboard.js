@@ -20,9 +20,11 @@ define([
       });
       cb.on('success', function() {
         element.innerText = 'Copied!';
+        if (params.done) params.done();
       });
       cb.on('error', function() {
         element.innerText = 'Press Ctrl+C to copy';
+        if (params.done) params.done();
       });
     }
   };

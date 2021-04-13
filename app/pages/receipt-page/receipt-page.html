@@ -29,9 +29,15 @@
         <h3 class="text-center">Voucher Code: <span class="text-primary" data-bind="text: receipt.voucherCode"></span></h3>
         <div data-bind="component: {name: 'voucher-form', params: receipt.voucherCode}"></div>
         <div class="padd-top">
-          <a class="btn btn-lg btn-success" data-bind="clipboard: {targetId: 'voucher-code-input'}">
+          <a class="btn btn-lg" data-bind="clipboard: {targetId: 'voucher-code-input', done: afterCopy }, class: copied() ? 'btn-default' : 'btn-success'">
             Copy Voucher
           </a>
+          <!-- ko if: copied -->
+          <a class="btn btn-lg btn-success" data-bind="navigate: 'home-page'">
+            Done
+            <i class="glyphicon glyphicon-chevron-right"></i>
+          </a>
+          <!-- /ko -->
         </div>
         <!-- /ko -->
 
@@ -39,6 +45,7 @@
         <!-- ko if: sessions.hasRunning -->
         <a class="btn btn-lg btn-success" data-bind="navigate: 'home-page'">
           Done
+          <i class="glyphicon glyphicon-chevron-right"></i>
         </a>
         <!-- /ko -->
         <!-- ko ifnot: sessions.hasRunning -->
