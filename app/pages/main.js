@@ -4,5 +4,6 @@ define([
   './select-coinslot/SelectCoinslotPage.js',
   './buy-wifi-or-eload/BuyWifiOrEloadComponent',
   './buy-wifi-buttons/BuyWifiButtonsComponent',
+  './more-buttons/MoreButtons',
   './receipt-page/ReceiptPage'
 ]);
