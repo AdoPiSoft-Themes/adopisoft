@@ -4,7 +4,8 @@ define([
 ], function (ajax, toast) {
 
   function Http () {
-    this.get = function (url, cb) {
+    var http = this;
+    http.get = function (url, cb) {
       try {
         ajax({
           url: url,
@@ -15,7 +16,7 @@ define([
         });
       } catch(e) { cb(e); }
     };
-    this.post = function (url, data, cb) {
+    http.post = function (url, data, cb) {
       var callback = typeof data === 'function' ? data : cb; 
       try {
         ajax({
@@ -33,45 +34,48 @@ define([
         callback(e);
       }
     };
-    this.catchError = function(http) {
+    http.catchError = function(http) {
       var e = http.responseText ? JSON.parse(http.responseText) : {};
       var message = e.error || e.message || 'Something went wrong';
       toast.error(message);
     };
-    this.fetchSessions = function (cb) {
-      this.get('/client/sessions', cb);
+    http.fetchSessions = function (cb) {
+      http.get('/client/sessions', cb);
     };
-    this.startSession = function(s_id, cb) {
-      this.post('/client/sessions/' + s_id + '/start', cb);
+    http.startSession = function(s_id, cb) {
+      http.post('/client/sessions/' + s_id + '/start', cb);
     };
-    this.pauseSession = function (s_id, cb) {
-      this.post('/client/sessions/' + s_id + '/pause', cb);
+    http.pauseSession = function (s_id, cb) {
+      http.post('/client/sessions/' + s_id + '/pause', cb);
     };
-    this.fetchRates = function (cb) {
-      this.get('/settings/timer/rates', cb);
+    http.fetchRates = function (cb) {
+      http.get('/settings/timer/rates', cb);
     };
-    this.fetchCoinslots = function (cb) {
-      this.get('/client/coinslots', cb);
+    http.fetchCoinslots = function (cb) {
+      http.get('/client/coinslots', cb);
     };
-    this.queForPayment = function (opts, cb) {
+    http.queForPayment = function (opts, cb) {
       var data = {
         coinslot_id: opts.coinslot_id,
         type: opts.type,
         is_voucher: opts.is_voucher
       };
-      this.post('/client/payments/que', data, cb);
+      http.post('/client/payments/que', data, cb);
     };
-    this.getDevice = function (cb) {
-      this.get('/client/device', cb);
+    http.getDevice = function (cb) {
+      http.get('/client/device', cb);
     };
-    this.currentPaymentQue = function (cb) {
-      this.get('/client/payments/current', cb);
+    http.currentPaymentQue = function (cb) {
+      http.get('/client/payments/current', cb);
     };
-    this.timerConfig = function (cb) {
-      this.get('/settings/timer/config', cb);
+    http.timerConfig = function (cb) {
+      http.get('/settings/timer/config', cb);
     };
-    this.donePayment = function (coinslot_id, cb) {
-      this.post('/client/payments/done', {coinslot_id: coinslot_id}, cb);
+    http.donePayment = function (coinslot_id, cb) {
+      http.post('/client/payments/done', {coinslot_id: coinslot_id}, cb);
+    };
+    http.activateVoucher = function(code, cb) {
+      return http.post('/vouchers/activate', {code: code}, cb);
     };
   }
   return new Http();

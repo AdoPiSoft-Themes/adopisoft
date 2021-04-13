@@ -53,6 +53,10 @@ define([
         self.session.data_mb(data.session.data_mb);
         self.session.time_seconds(data.session.time_seconds);
       }
+      if (data.voucher) {
+        self.session.data_mb(data.voucher.megabytes);
+        self.session.time_seconds(data.voucher.minutes * 60);
+      }
       if (self.session.data_mb() > 0 || self.session.time_seconds() > 0) {
         sounds.coinInserted.play();
         toast.success('Total Amount: ' + rates.currency() + ' ' + self.que.total_amount(), 'Total Credits: ' + self.totalCredits());
@@ -69,10 +73,12 @@ define([
       console.log('DONE:', data);
       device.is_paying(false);
       if (self.hasPayment()) {
-        receipt.sessionId(data.session.id);
+        receipt.isVoucher(payment.isVoucher());
         receipt.amount(data.total_amount);
         receipt.type(data.type);
         receipt.credits(self.totalCredits());
+        if (payment.isVoucher()) receipt.voucherCode(data.voucher.code);
+        if (!payment.isVoucher()) receipt.sessionId(data.session.id);
         rootVM.navigate('receipt-page');
       } else {
         rootVM.navigate('home-page');

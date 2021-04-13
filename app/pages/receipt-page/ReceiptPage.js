@@ -4,7 +4,9 @@ define([
   'app/observables/receipt',
   'app/services/sessions',
   'app/observables/session',
-  'app/services/http'
+  'app/services/http',
+  'app/components/voucher-form/VoucherForm',
+  'app/bindings/clipboard'
 ], function(ko, rootVM, receipt, sessions, Session, http) {
   ko.components.register('receipt-page', {
     viewModel: function ReceiptPage() {

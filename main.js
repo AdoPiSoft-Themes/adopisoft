@@ -8,6 +8,7 @@ requirejs.config({
     knockout: 'libs/knockout/knockout-latest',
     howler: 'libs/howler/howler.core.min',
     domready: 'libs/domready',
+    clipboard: 'libs/clipboard.min',
     getElementsByClassName: 'libs/polyfills/getElementsByClassName',
     toast: 'app/services/toast',
     rootVM: 'app/root/RootVM'

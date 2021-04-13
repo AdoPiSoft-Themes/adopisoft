@@ -14,6 +14,13 @@ define([
       payment.rateType('');
       rootVM.navigate('buy-wifi-buttons');
     };
+    this.buyVoucher = function () {
+      this.loading(true);
+      payment.intent('wifi');
+      payment.isVoucher(true);
+      payment.rateType('');
+      rootVM.navigate('buy-wifi-buttons');
+    };
     this.koDescendantsComplete = function () {
       rootVM.showingStatusNav(true);
       rootVM.showingBanners(true);

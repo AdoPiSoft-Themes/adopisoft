@@ -1,12 +1,12 @@
 <div class="row">
   <div class="col-sm-6 col-sm-offset-3">
-    <form class="form-inline">
+    <form class="form-inline" data-bind="submit: activate">
 
       <div class="input-group">
-        <input type="text" class="form-control input-lg" placeholder="Voucher Code">
+        <input id="voucher-code-input" data-bind="value: value" type="text" class="form-control input-lg" placeholder="Voucher Code">
         <span class="input-group-btn" id="basic-addon2">
-          <button class="btn btn-lg btn-primary">
-            <i class="glyphicon glyphicon-chevron-right"></i>
+          <button type="submit" class="btn btn-lg btn-primary">
+            Activate
           </button>
         </span>
       </div>

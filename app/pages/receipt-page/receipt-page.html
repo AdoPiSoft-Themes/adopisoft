@@ -1,40 +1,55 @@
 <div class="container text-center padd-top" id="receipt-page">
   <h1 class="text-success">Thank You!</h1>
 
-  <div class="panel panel-primary">
-    <div class="panel-heading">Transaction Summary</div>
-    <table class="table table-bordered">
-      <thead>
-        <tr>
-          <th class="text-center">Amount</th>
-          <th class="text-center">Credits</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>
-            <span data-bind="text: receipt.currency"></span>
-            <span data-bind="text: receipt.amount"></span>
-          </td>
-          <td>
-            <span data-bind="text: receipt.credits"></span>
-          </td>
-        </tr>
-      </tbody>
-    </table>
-    <div class="panel-footer">
-      <!-- ko if: sessions.hasRunning -->
-      <a class="btn btn-lg btn-success" data-bind="navigate: 'home-page'">
-        Done
-      </a>
-      <!-- /ko -->
+  <div class="padd-top">
+    <div class="panel panel-primary">
+      <div class="panel-heading">Transaction Summary</div>
+      <table class="table table-bordered">
+        <thead>
+          <tr>
+            <th class="text-center">Amount</th>
+            <th class="text-center">Credits</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>
+              <span data-bind="text: receipt.currency"></span>
+              <span data-bind="text: receipt.amount"></span>
+            </td>
+            <td>
+              <span data-bind="text: receipt.credits"></span>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <div class="panel-footer">
 
-      <!-- ko ifnot: sessions.hasRunning -->
-      <a class="btn btn-lg btn-primary" data-bind="click: connect">
-        Connect Now
-      </a>
-      <!-- /ko -->
+        <!-- ko if: receipt.isVoucher -->
+        <h3 class="text-center">Voucher Code: <span class="text-primary" data-bind="text: receipt.voucherCode"></span></h3>
+        <div data-bind="component: {name: 'voucher-form', params: receipt.voucherCode}"></div>
+        <div class="padd-top">
+          <a class="btn btn-lg btn-success" data-bind="clipboard: {targetId: 'voucher-code-input'}">
+            Copy Voucher
+          </a>
+        </div>
+        <!-- /ko -->
+
+        <!-- ko ifnot: receipt.isVoucher -->
+        <!-- ko if: sessions.hasRunning -->
+        <a class="btn btn-lg btn-success" data-bind="navigate: 'home-page'">
+          Done
+        </a>
+        <!-- /ko -->
+        <!-- ko ifnot: sessions.hasRunning -->
+        <a class="btn btn-lg btn-primary" data-bind="click: connect">
+          Connect Now
+        </a>
+        <!-- /ko -->
+        <!-- /ko -->
+
+      </div>
     </div>
-  </div>
 
+  </div>
 </div>
