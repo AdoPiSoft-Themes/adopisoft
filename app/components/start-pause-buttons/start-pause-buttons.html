@@ -1,14 +1,14 @@
 <!-- ko if: sessions.hasSessions() -->
 
 <!-- ko if: sessions.hasRunning() -->
-<button class="btn btn-lg btn-warning" data-bind="click: pauseSession, enable: allowPause" disabled="disabled">
+<button class="btn btn-lg btn-warning" data-bind="click: pauseSession, enable: allowPause">
   Pause
   <i class="glyphicon glyphicon-pause"></i>
 </button>
 <!-- /ko -->
 
 <!-- ko ifnot: sessions.hasRunning() -->
-<button class="btn btn-lg btn-primary" data-bind="click: startSession">
+<button class="btn btn-lg btn-primary" data-bind="click: startSession, disable: starting">
   Start
   <i class="glyphicon glyphicon-play"></i>
 </button>

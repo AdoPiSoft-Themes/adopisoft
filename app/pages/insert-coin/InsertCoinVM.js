@@ -60,7 +60,7 @@ define([
     self.donePayment = function () {
       self.loading(true);
       http.donePayment(self.que.coinslot_id(), function(err, data) {
-        self.loading(false);
+        if (err) self.loading(false);
         self.done(data);
       });
     };

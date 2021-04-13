@@ -1,44 +1,44 @@
 <div id="insert-coin-page" class="text-center">
-  <!-- ko if: loading -->
-  <p>Please wait...</p>
-  <!-- /ko -->
 
-  <!-- ko ifnot: loading -->
-  <h2 class="text-success">Insert Coin Now</h2>
-  <div style="width: 150px; margin: 15px auto;">
-    <img src="images/insert-coin.gif" class="img-full" />
+  <div data-bind="visible: loading">
+    <p>Please wait...</p>
   </div>
 
-  <h3>
-    Total Amount:
-    <span data-bind="css: que.total_amount() > 0 ? 'text-success' : 'text-danger'">
-      <span data-bind="text: rates.currency"></span>
-      <span data-bind="text: que.total_amount"></span>
-    </span>
-  </h3>
-  <!-- /ko -->
+  <div data-bind="invisible: loading">
+    <h2 class="text-success">Insert Coin Now</h2>
+    <div style="width: 150px; margin: 15px auto;">
+      <img src="images/insert-coin.gif" class="img-full" />
+    </div>
 
-  <h3>
-    Total Credits:
-    <!-- ko if: que.type() == 'time' -->
-    <span data-bind="class: hasPayment() ? 'text-success' : 'text-danger', component: {name: 'seconds-format', params: { seconds: session.time_seconds }}"></span>
+    <h3>
+      Total Amount:
+      <span data-bind="css: que.total_amount() > 0 ? 'text-success' : 'text-danger'">
+        <span data-bind="text: rates.currency"></span>
+        <span data-bind="text: que.total_amount"></span>
+      </span>
+    </h3>
+
+    <h3>
+      Total Credits:
+      <!-- ko if: que.type() == 'time' -->
+      <span data-bind="class: hasPayment() ? 'text-success' : 'text-danger', component: {name: 'seconds-format', params: { seconds: session.time_seconds }}"></span>
+      <!-- /ko -->
+    </h3>
+
+    <!-- ko if: hasPayment -->
+    <a class="btn btn-lg btn-primary" data-bind="click: donePayment, loadingBtn: loading">I'm Done Paying</a>
     <!-- /ko -->
-  </h3>
+    <!-- ko ifnot: hasPayment -->
+    <a class="btn btn-lg btn-warning" data-bind="click: donePayment, loadingBtn: loading">Cancel</a>
+    <!-- /ko -->
 
-  <!-- ko if: hasPayment -->
-  <a class="btn btn-lg btn-primary" data-bind="click: donePayment, loadingBtn: loading">I'm Done Paying</a>
-  <!-- /ko -->
-  <!-- ko ifnot: hasPayment -->
-  <a class="btn btn-lg btn-warning" data-bind="click: donePayment, loadingBtn: loading">Cancel</a>
-  <!-- /ko -->
-
-  <div class="container padd-top">
-    <div class="row">
-      <div class="col-sm-6 col-sm-offset-3">
-        <div data-bind="component: {name: 'progress-bar', params: {current: que.wait_payment_seconds, total: config.wait_payment_seconds}}"></div>
+    <div class="container padd-top">
+      <div class="row">
+        <div class="col-sm-6 col-sm-offset-3">
+          <div data-bind="component: {name: 'progress-bar', params: {current: que.wait_payment_seconds, total: config.wait_payment_seconds}}"></div>
+        </div>
       </div>
     </div>
+
   </div>
-
-
 </div>

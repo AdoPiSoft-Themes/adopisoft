@@ -2,15 +2,13 @@
 
   <!-- ko if: $root.currentPage -->
 
-  <!-- ko if: $root.showingStatusNav -->
-  <div id="status-nav-con" data-bind="component: 'status-nav'"></div>
-  <!-- /ko -->
+  <div data-bind="visible: $root.showingStatusNav">
+    <div id="status-nav-con" data-bind="component: 'status-nav'"></div>
+  </div>
 
-  <!-- ko if: $root.showingBanners -->
-  <div class="container text-center">
+  <div class="container text-center" data-bind="visible: $root.showingBanners">
     <div id="banners-con" data-bind="component: 'banners'"></div>
   </div>
-  <!-- /ko -->
 
   <div data-bind="component: $root.currentPage"></div>
 

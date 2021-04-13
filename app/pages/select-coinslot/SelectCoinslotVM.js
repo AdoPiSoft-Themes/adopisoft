@@ -23,7 +23,9 @@ define([
         if (err) return toast.error(err.toString());
         self.coinslots(coinslots);
         self.loading(false);
+        if (coinslots.length === 1) self.selectCoinslot(coinslots[0].id);
       });
+
     };
     self.selectCoinslot = function(coinslot_id) {
       self.loading(true);
@@ -32,9 +34,10 @@ define([
         type: payment.rateType(),
         is_voucher: payment.isVoucher()
       }, function(err) {
-        self.loading(false);
-        if (err) http.catchError(err);
-        if (!err) {
+        if (err) {
+          http.catchError(err);
+          self.loading(false);
+        } else {
           device.is_paying(true);
         }
       });
