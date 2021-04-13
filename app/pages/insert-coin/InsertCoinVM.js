@@ -10,8 +10,9 @@ define([
   'app/observables/wifiRates',
   'app/observables/payment',
   'app/services/socket',
-  'app/utils/shortSecondsFormat'
-], function (ko, rootVM, device, receipt, http, sounds, toast, timerConfig, rates, payment, socket, secondsFormat) {
+  'app/utils/shortSecondsFormat',
+  'app/utils/formatBytes'
+], function (ko, rootVM, device, receipt, http, sounds, toast, timerConfig, rates, payment, socket, secondsFormat, formatBytes) {
   function VM () {
     console.log(payment);
     var self = this;
@@ -54,7 +55,7 @@ define([
       }
       if (self.session.data_mb() > 0 || self.session.time_seconds() > 0) {
         sounds.coinInserted.play();
-        toast.success('Total Amount: ' + rates.currency() + ' ' + self.que.total_amount(), 'Total Credits:</b>' + self.totalCredits());
+        toast.success('Total Amount: ' + rates.currency() + ' ' + self.que.total_amount(), 'Total Credits: ' + self.totalCredits());
       }
     };
     self.donePayment = function () {
@@ -80,6 +81,14 @@ define([
     self.totalCredits = ko.pureComputed(function() {
       if (self.que.type() === 'time') {
         return secondsFormat(self.session.time_seconds());
+      }
+      if (self.que.type() === 'data') {
+        return formatBytes(self.session.data_mb());
+      }
+      if (self.que.type() === 'time_or_data') {
+        var s = secondsFormat(self.session.time_seconds());
+        var d = formatBytes(self.session.data_mb());
+        return s + '/' + d;
       }
     });
     self.hasPayment = ko.pureComputed(function() {

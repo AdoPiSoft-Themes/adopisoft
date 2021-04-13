@@ -16,7 +16,7 @@ define([
       messages.push(this);
       setTimeout(function () {
         self.remove();
-      }, 3000);
+      }, 5000);
     };
     this.remove = function () {
       messages.remove(self); 
