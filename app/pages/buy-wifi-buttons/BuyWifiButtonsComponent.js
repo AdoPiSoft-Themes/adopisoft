@@ -1,5 +1,6 @@
 define([
-  'knockout'
+  'knockout',
+  'app/components/device-info/DeviceInfo'
 ], function (ko) {
   ko.components.register('buy-wifi-buttons', {
     viewModel: {require: 'app/pages/buy-wifi-buttons/BuyWifiButtonsVM'},

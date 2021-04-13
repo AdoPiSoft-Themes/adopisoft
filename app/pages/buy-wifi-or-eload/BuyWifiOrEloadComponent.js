@@ -1,6 +1,7 @@
 define([
   'knockout',
-  'app/components/start-pause-buttons/StartPauseButtonsComponent'
+  'app/components/start-pause-buttons/StartPauseButtonsComponent',
+  'app/components/device-info/DeviceInfo'
 ], function(ko) {
   ko.components.register('buy-wifi-or-eload', {
     viewModel: {require: 'app/pages/buy-wifi-or-eload/BuyWifiOrEloadVM'},

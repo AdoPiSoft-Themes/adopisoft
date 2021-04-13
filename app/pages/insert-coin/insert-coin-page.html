@@ -1,6 +1,6 @@
 <div id="insert-coin-page" class="text-center">
 
-  <div data-bind="visible: loading">
+  <div class="alert alert-info" data-bind="visible: loading">
     <p>Please wait...</p>
   </div>
 
@@ -11,31 +11,33 @@
     </div>
 
     <div class="container">
-      <div class="list-group">
-        <div class="list-group-item">
-          <h3>
-            Total Amount:
-            <span data-bind="css: que.total_amount() > 0 ? 'text-success' : 'text-danger'">
-              <span data-bind="text: rates.currency"></span>
-              <span data-bind="text: que.total_amount"></span>
-            </span>
-          </h3>
-        </div>
-        <div class="list-group-item">
-          <h3>
-            Total Credits:
-            <!-- ko if: que.type() == 'time' -->
-            <span data-bind="class: hasPayment() ? 'text-success' : 'text-danger', component: {name: 'seconds-format', params: { seconds: session.time_seconds }}"></span>
-            <!-- /ko -->
-          </h3>
-        </div>
-        <div class="list-group-item">
-          <!-- ko if: hasPayment -->
-          <a class="btn btn-lg btn-primary" data-bind="click: donePayment, loadingBtn: loading">I'm Done Paying</a>
-          <!-- /ko -->
-          <!-- ko ifnot: hasPayment -->
-          <a class="btn btn-lg btn-warning" data-bind="click: donePayment, loadingBtn: loading">Cancel</a>
-          <!-- /ko -->
+      <div class="row">
+        <div class="col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3">
+          <div class="list-group">
+            <div class="list-group-item">
+              <h3>
+                Total Amount:
+                <span data-bind="css: que.total_amount() > 0 ? 'text-success' : 'text-danger'">
+                  <span data-bind="text: rates.currency"></span>
+                  <span data-bind="text: que.total_amount"></span>
+                </span>
+              </h3>
+            </div>
+            <div class="list-group-item">
+              <h3>
+                Total Credits:
+                <span data-bind="class: hasPayment() ? 'text-success' : 'text-danger', text: totalCredits"></span>
+              </h3>
+            </div>
+            <div class="list-group-item">
+              <!-- ko if: hasPayment -->
+              <a class="btn btn-lg btn-primary" data-bind="click: donePayment, loadingBtn: loading">I'm Done Paying</a>
+              <!-- /ko -->
+              <!-- ko ifnot: hasPayment -->
+              <a class="btn btn-lg btn-warning" data-bind="click: donePayment, loadingBtn: loading">Cancel</a>
+              <!-- /ko -->
+            </div>
+          </div>
         </div>
       </div>
     </div>
