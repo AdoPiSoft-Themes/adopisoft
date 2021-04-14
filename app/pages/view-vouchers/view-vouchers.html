@@ -1,4 +1,14 @@
 <div id="vouchers-list" class="container text-center">
+  <div data-bind="component: 'device-info'"></div>
+  <div class="btn-group-padded">
+    <a class="btn btn-lg btn-default" data-bind="navigate: 'home-page'">
+      <i class="glyphicon glyphicon-chevron-left"></i>
+      Back
+    </a>
+  </div>
+
+  <div class="padd-bottom padd-top" data-bind="component: 'voucher-form'"></div>
+
   <div class="panel panel-primary">
     <div class="panel-heading">Your Vouchers</div>
     <table class="table">
