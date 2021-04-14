@@ -1,10 +1,9 @@
 define([
   'knockout',
   'rootVM',
-  'app/routes',
-  'app/utils/config',
+  'app/services/config',
   'app/observables/payment'
-], function (ko, rootVM, routes, config, payment) {
+], function (ko, rootVM, config, payment) {
 
   return function AppVM() {
     this.favicon = ko.observable(config.favicon());

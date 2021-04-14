@@ -1,6 +1,6 @@
 define([
   'knockout',
-  'app/utils/config',
+  'app/services/config',
   'app/observables/device'
 ], function (ko, config, device) {
 

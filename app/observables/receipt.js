@@ -1,6 +1,6 @@
 define([
   'knockout',
-  'app/observables/wifiRates'
+  'wifiRates'
 ], function(ko, wifiRates) {
   var receipt = {
     isVoucher: ko.observable(false),

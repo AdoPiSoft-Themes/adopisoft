@@ -1,6 +1,6 @@
 define([
   'knockout',
-  'app/services/sessions'
+  'sessions'
 ], function (ko, sessionsUtil) {
   ko.components.register('session-summary', {
     viewModel: function () {

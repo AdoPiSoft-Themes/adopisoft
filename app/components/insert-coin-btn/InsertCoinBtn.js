@@ -1,6 +1,6 @@
 define([
   'knockout',
-  'app/utils/config',
+  'app/services/config',
   'text!app/components/insert-coin-btn/insert-coin-btn.html'
 ], function(ko, config, tpl) {
 

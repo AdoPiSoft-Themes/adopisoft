@@ -1,13 +1,13 @@
 define([
   'knockout',
   'rootVM',
+  'http',
+  'sessions',
   'app/observables/receipt',
-  'app/services/sessions',
   'app/observables/session',
-  'app/services/http',
   'app/components/voucher-form/VoucherForm',
   'app/bindings/clipboard'
-], function(ko, rootVM, receipt, sessions, Session, http) {
+], function(ko, rootVM, http, sessions, receipt, Session) {
   return function ReceiptPage() {
     var self = this;
     self.receipt = receipt;

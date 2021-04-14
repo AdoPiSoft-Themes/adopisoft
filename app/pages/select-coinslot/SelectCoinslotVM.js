@@ -2,10 +2,10 @@ define([
   'knockout',
   'rootVM',
   'toast',
+  'http',
   'app/observables/payment',
-  'app/observables/device',
-  'app/services/http'
-], function (ko, rootVM, toast, payment, device, http) {
+  'app/observables/device'
+], function (ko, rootVM, toast, http, payment, device) {
 
   return function () {
     var self = this;

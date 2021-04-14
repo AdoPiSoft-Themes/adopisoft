@@ -4,7 +4,7 @@ define([
   './session-summary/SessionSummaryComponent'
 ], function(ko) {
   ko.components.register('status-nav', {
-    viewModel: {require: 'app/components/status-nav/StatusNavVM'},
+    viewModel: function () {},
     template: {require: 'text!app/components/status-nav/status-nav.html'}
   });
 });

@@ -1,12 +1,12 @@
 define([
   'knockout',
   'toast',
+  'http',
   'app/observables/session',
   'app/utils/array.find',
   'app/utils/array.map',
-  'app/utils/sessionSummary',
-  'app/services/http'
-], function(ko, toast, Session, find, map, sessionSummary, http) {
+  'app/utils/sessionSummary'
+], function(ko, toast, http, Session, find, map, sessionSummary) {
 
   var sessions = ko.observableArray([]);
 

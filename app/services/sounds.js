@@ -1,4 +1,4 @@
-define(['howler', 'app/utils/config'], function (howler, config) {
+define(['howler', 'app/services/config'], function (howler, config) {
 
   var Howl = howler.Howl;
   var noop = function() {};

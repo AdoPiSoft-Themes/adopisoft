@@ -1,20 +1,20 @@
 define([
   'knockout',
   'rootVM',
+  'http',
+  'sounds',
+  'toast',
+  'timerConfig',
+  'wifiRates',
+  'socket',
   'app/observables/device',
   'app/observables/receipt',
-  'app/services/http',
-  'app/services/sounds',
-  'toast',
-  'app/utils/timerConfig',
-  'app/observables/wifiRates',
   'app/observables/payment',
-  'app/services/socket',
   'app/utils/shortSecondsFormat',
   'app/utils/formatBytes',
   'app/components/progress-bar/ProgressBar',
   'app/components/seconds-format/SecondsFormat'
-], function (ko, rootVM, device, receipt, http, sounds, toast, timerConfig, rates, payment, socket, secondsFormat, formatBytes) {
+], function (ko, rootVM, http, sounds, toast, timerConfig, rates, socket, device, receipt, payment, secondsFormat, formatBytes) {
   function VM () {
     console.log(payment);
     var self = this;

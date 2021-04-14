@@ -2,7 +2,7 @@ define([
   'knockout',
   'socketIO',
   'toast',
-  'app/services/sounds'
+  'sounds'
 ], function (ko, socketIO, toast, sounds) {
 
   var socket;

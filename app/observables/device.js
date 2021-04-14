@@ -1,7 +1,7 @@
 define([
   'knockout',
   'toast',
-  'app/services/http'
+  'http'
 ], function(ko, toast, http) {
   var d = {
     id: ko.observable(0),

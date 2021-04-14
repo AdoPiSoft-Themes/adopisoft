@@ -1,6 +1,6 @@
 define([
   'app/observables/device',
-  'app/services/socket'
+  'socket'
 ], function (device, socket) {
   return function init(cb) {
     device.fetch(function (d) {

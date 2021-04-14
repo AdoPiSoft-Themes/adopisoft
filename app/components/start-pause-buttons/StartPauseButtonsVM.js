@@ -1,6 +1,6 @@
 define([
   'knockout',
-  'app/services/sessions'
+  'sessions'
 ], function(ko, sessions) {
 
   return function() {

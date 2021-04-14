@@ -1,6 +1,6 @@
 define([
   'knockout',
-  'app/utils/config'
+  'app/services/config'
 ], function(ko, config) {
   ko.components.register('more-buttons', {
     viewModel: function () {

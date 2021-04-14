@@ -1,6 +1,6 @@
 define([
   'knockout',
-  'app/services/sessions'
+  'sessions'
 ], function(ko, sessions) {
   ko.components.register('sessions-table', {
     viewModel: function() {

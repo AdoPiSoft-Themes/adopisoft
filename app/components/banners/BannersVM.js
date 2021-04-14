@@ -1,6 +1,6 @@
 define([
   'knockout',
-  'app/utils/config'
+  'app/services/config'
 ], function (ko, config) {
   var banner_field = config.findField('banners', 'banners');
   var slogan_field = config.findField('page_properties', 'banner_text');

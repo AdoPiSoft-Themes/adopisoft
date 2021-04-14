@@ -2,10 +2,10 @@ define([
   'knockout',
   'toast',
   'rootVM',
-  'app/services/http',
-  'app/observables/session',
-  'app/services/sessions'
-], function (ko, toast, rootVM, http, Session, sessions) {
+  'http',
+  'sessions',
+  'app/observables/session'
+], function (ko, toast, rootVM, http, sessions, Session) {
   ko.components.register('voucher-form', {
     viewModel: function(code) {
       if (code) this.value = (typeof code === 'function') ? code : ko.observable(code);

@@ -1,7 +1,7 @@
 define([
   'knockout',
   'rootVM',
-  'app/utils/config',
+  'app/services/config',
   'app/observables/payment'
 ],function (ko, rootVM, config, payment) {
   return function () {

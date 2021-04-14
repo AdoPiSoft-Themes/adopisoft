@@ -1,7 +1,7 @@
 define([
   'knockout',
   'rootVM',
-  'app/services/http',
+  'http',
   'app/utils/array.map'
 ], function(ko, rootVM, http, map) {
   ko.components.register('view-vouchers', {

@@ -10,7 +10,16 @@ requirejs.config({
     domready: 'libs/domready',
     clipboard: 'libs/clipboard.min',
     getElementsByClassName: 'libs/polyfills/getElementsByClassName',
+
+    // app services
+    timerConfig: 'app/services/timerConfig',
     toast: 'app/services/toast',
+    http: 'app/services/http',
+    redirect: 'app/services/redirect',
+    socket: 'app/services/socket',
+    sounds: 'app/services/sounds',
+    sessions: 'app/services/sessions',
+    wifiRates: 'app/services/wifiRates',
     rootVM: 'app/root/RootVM'
   },
   packages: [
@@ -27,7 +36,7 @@ require([
   'app/init',
   'app/bindings',
   'app/pages',
-  'app/utils/config',
+  'app/services/config',
   'app/components/app-root/AppComponent'
 ], function(ko, rootVM, domready, init) {
 

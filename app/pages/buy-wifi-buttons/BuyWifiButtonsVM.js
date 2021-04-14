@@ -1,9 +1,9 @@
 define([
   'knockout',
-  'app/observables/wifiRates',
-  'app/observables/payment',
-  'rootVM'
-], function (ko, rates, payment, rootVM) {
+  'rootVM',
+  'wifiRates',
+  'app/observables/payment'
+], function (ko, rootVM, rates, payment) {
   return function () {
     var self = this;
     self.sampleText = ko.observable('txt-1');
