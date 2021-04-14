@@ -8,8 +8,8 @@ define([
     var self = this;
     var index = 0;
     self.src = ko.observable('');
-    self.bannerText = slogan_field.value;
-    self.imgUrls = banner_field.value;
+    self.bannerText = slogan_field;
+    self.imgUrls = banner_field;
     self.changeImage = function () {
       if (index === self.imgUrls.length) index = 0;
       self.src(self.imgUrls[index]);

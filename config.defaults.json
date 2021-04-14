@@ -1,0 +1,58 @@
+{
+  "page_properties": {
+    "favicon": "favicon.ico",
+    "page_title": "AdoPiSoft WiFi Hotspot",
+    "banner_text": "Affordable internet connectivity",
+    "footer_content": "Powered By <b><a href=\"//www.adopisoft.com\">AdoPiSoft</a>",
+    "redirect_to": "https://www.adopisoft.com/cp"
+  },
+  "buttons": {
+    "button_insert_coin": true,
+    "button_buy_voucher": true,
+    "button_view_vouochers": true,
+    "button_view_rates": true
+  },
+  "banners": {
+    "banners": ["images/banner.jpg"]
+  },
+  "sounds": {
+    "countdown_sound": [
+      "sounds/count-down-beep.mp3",
+      "sounds/count-down-beep.wav"
+    ],
+    "connected_sound": [
+      "sounds/connected.mp3",
+      "sounds/connected.wav"
+    ],
+    "disconnected_sound": [
+      "sounds/disconnected.mp3",
+      "sounds/disconnected.wav"
+    ],
+    "coin_inserted": [
+      "sounds/coin-inserted.mp3",
+      "sounds/coin-inserted.wav"
+    ],
+    "error_sound": [
+      "sounds/error.mp3"
+    ]
+  },
+  "css": {
+    "css_files": [
+      "libs/bootstrap/css/bootstrap.min.css",
+      "fonts/fonts.css",
+      "styles/ie10-viewport-bug-workaround.css",
+      "styles/sticky-footer-navbar.css",
+      "styles/ellipsis.css",
+      "styles/portal.css"
+    ]
+  },
+  "fonts": {
+    "font_files": [
+      "libs/bootstrap/fonts/glyphicons-halflings-regular.eot",
+      "libs/bootstrap/fonts/glyphicons-halflings-regular.svg",
+      "libs/bootstrap/fonts/glyphicons-halflings-regular.ttf",
+      "libs/bootstrap/fonts/glyphicons-halflings-regular.woff",
+      "libs/bootstrap/fonts/glyphicons-halflings-regular.woff2"
+    ]
+  }
+}

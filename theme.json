@@ -1,4 +1,129 @@
 {
   "name": "AdoPiSoft Default Theme",
-  "version": "1.0.0"
+  "version": "1.0.0",
+  "fields": [
+    {
+      "field_group_id": "page_properties",
+      "legend": "Page Properties",
+      "fields": [
+        {
+          "field_id": "favicon",
+          "label": "Favicon Image",
+          "type": "image"
+        },
+        {
+          "field_id": "page_title",
+          "label": "Page Title",
+          "type": "text"
+        },
+        {
+          "field_id": "banner_text",
+          "label": "Banner Text",
+          "type": "text"
+        },
+        {
+          "field_id": "footer_content",
+          "label": "Footer Content",
+          "type": "textarea"
+        },
+        {
+          "field_id": "redirect_to",
+          "label": "Redirect To",
+          "type": "text"
+        }
+      ]
+    },
+    {
+      "field_group_id": "buttons",
+      "legend": "Buttons",
+      "fields": [
+        {
+          "field_id": "button_insert_coin",
+          "label": "Show Insert Coin Button",
+          "type": "checkbox"
+        },
+        {
+          "field_id": "button_buy_voucher",
+          "label": "Show Buy Voucher Button",
+          "type": "checkbox"
+        },
+        {
+          "field_id": "button_view_vouchers",
+          "label": "Show View Vouchers Button",
+          "type": "checkbox"
+        },
+        {
+          "field_id": "button_view_rates",
+          "label": "Show View Rates Button",
+          "type": "checkbox"
+        }
+      ]
+    },
+    {
+      "field_group_id": "banners",
+      "legend": "Banners",
+      "fields": [
+        {
+          "field_id": "banners",
+          "label": "Banners",
+          "type": "images"
+        }
+      ]
+    },
+    {
+      "field_group_id": "sounds",
+      "legend": "Sounds",
+      "fields": [
+        {
+          "field_id": "countdown_sound",
+          "label":  "Payment Countdown Sound",
+          "type": "sounds"
+        },
+        {
+          "field_id": "connected_sound",
+          "label": "Connected Sound",
+          "type": "sounds"
+        },
+        {
+          "field_id": "disconnected_sound",
+          "label": "Disconnected Sound",
+          "type": "sounds"
+        },
+        {
+          "field_id": "coin_inserted",
+          "label":  "Coin Inserted Sound",
+          "type": "sounds"
+        },
+
+        {
+          "field_id": "error_sound",
+          "label":  "Error Sound",
+          "type": "sound"
+        }
+      ]
+    },
+    {
+      "field_group_id": "css",
+      "legend": "Stylesheets",
+      "fields": [
+        {
+          "field_id": "css_files",
+          "label": "CSS Files",
+          "type": "stylesheets"
+        }
+      ]
+    },
+    {
+      "field_group_id": "fonts",
+      "legend": "Fonts",
+      "fields": [
+        {
+          "field_id": "font_files",
+          "label": "Font files",
+          "type": "fonts"
+        }
+      ]
+    }
+  ]
 }
+

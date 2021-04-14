@@ -1,5 +1,5 @@
 define(['app/services/config'], function (config) {
-  var redirect_url = config.findField('page_properties', 'redirect_to').value;
+  var redirect_url = config.findField('page_properties', 'redirect_to');
   var timeout;
 
   function cancel() {

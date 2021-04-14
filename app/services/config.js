@@ -1,35 +1,23 @@
 define([
-  'json!../../config.json',
-  'app/utils/array.reduce',
-  'app/utils/array.find'
+  'json!../../config.json'
 ],
-function (config, reduce, find) {
+function (config) {
 
   function Config () {
     this.favicon = function () {
-      return this.findField('page_properties', 'favicon').value;
+      return config.page_properties.favicon;
     };
     this.pageTitle = function () {
-      return this.findField('page_properties', 'page_title').value;
+      return config.page_properties.page_title;
     };
     this.footerHtml = function () {
-      return this.findField('page_properties', 'footer_content').value;
+      return config.page_properties.footer_content;
     };
     this.styles = function () {
-      return this.findField('css', 'css_files').value;
+      return config.css.css_files;
     };
     this.findField = function (g_id, f_id) {
-      var field = reduce(config, function(ret, field_group) {
-        if (ret) return ret;
-        if (field_group.field_group_id === g_id) {
-          return find(field_group.fields, function(f) {
-            if (f.field_id === f_id) return true;
-            return false;
-          });
-        }
-        return ret;
-      }, null);
-      return field;
+      if (config[g_id] && config[g_id][f_id]) return config[g_id][f_id];
     };
   }
 

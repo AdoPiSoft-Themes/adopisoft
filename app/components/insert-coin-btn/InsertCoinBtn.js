@@ -5,11 +5,12 @@ define([
 ], function(ko, config, tpl) {
 
   function VM() {
-    this.showInsertCoinBtn = ko.observable(config.findField('buttons', 'button_insert_coin').value);
+    this.showInsertCoinBtn = ko.observable(config.findField('buttons', 'button_insert_coin'));
   }
 
   ko.components.register('insert-coin-btn', {
     viewModel: VM,
     template: tpl
   });
+
 });

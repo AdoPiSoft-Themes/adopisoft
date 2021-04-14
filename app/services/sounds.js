@@ -1,8 +1,8 @@
 define(['howler', 'app/services/config'], function (howler, config) {
 
-  var Howl = howler.Howl;
   var noop = function() {};
   var noopSound = {play: noop, stop: noop};
+  var Howl = howler.Howl;
 
   function Sound(src, loopDelay) {
     var self = this;
@@ -26,16 +26,18 @@ define(['howler', 'app/services/config'], function (howler, config) {
 
   try {
 
-    var disconnected = new Sound(config.findField('sounds', 'disconnected_sound').value);
-    var connected = new Sound(config.findField('sounds', 'connected_sound').value);
-    var insertCoin = new Sound(config.findField('sounds', 'countdown_sound').value, 1000);
-    var coinInserted = new Sound(config.findField('sounds', 'coin_inserted').value);
+    var disconnected = new Sound(config.findField('sounds', 'disconnected_sound'));
+    var connected = new Sound(config.findField('sounds', 'connected_sound'));
+    var insertCoin = new Sound(config.findField('sounds', 'countdown_sound'), 1000);
+    var coinInserted = new Sound(config.findField('sounds', 'coin_inserted'));
+    var error = new Sound(config.findField('sounds', 'error_sound'));
 
     return {
       connected: connected,
       disconnected: disconnected,
       insertCoin: insertCoin,
-      coinInserted: coinInserted
+      coinInserted: coinInserted,
+      error: error
     };
 
   } catch(e) {
@@ -43,7 +45,8 @@ define(['howler', 'app/services/config'], function (howler, config) {
       connected: noopSound,
       disconnected: noopSound,
       insertCoin: noopSound,
-      coinInserted: noopSound
+      coinInserted: noopSound,
+      error: noopSound
     };
   }
 

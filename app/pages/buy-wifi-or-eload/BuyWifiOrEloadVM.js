@@ -6,7 +6,7 @@ define([
 ],function (ko, rootVM, config, payment) {
   return function () {
     this.loading = ko.observable(false);
-    this.showBuyVoucherBtn = ko.observable(config.findField('buttons', 'button_buy_voucher').value);
+    this.showBuyVoucherBtn = ko.observable(config.findField('buttons', 'button_buy_voucher'));
     this.buyWifi = function () {
       this.loading(true);
       payment.intent('wifi');
