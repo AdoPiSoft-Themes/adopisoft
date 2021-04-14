@@ -1,9 +1,9 @@
 define([
   'knockout',
-  'app/utils/config',
   'rootVM',
+  'app/utils/config',
   'app/observables/payment'
-],function (ko, config, rootVM, payment) {
+],function (ko, rootVM, config, payment) {
   return function () {
     this.loading = ko.observable(false);
     this.showBuyVoucherBtn = ko.observable(config.findField('buttons', 'button_buy_voucher').value);

@@ -1,7 +1,5 @@
 define([
-  'knockout',
-  'app/components/progress-bar/ProgressBar',
-  'app/components/seconds-format/SecondsFormat'
+  'knockout'
 ], function (ko) {
 
   ko.components.register('insert-coin-page', {

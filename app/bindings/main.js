@@ -1,5 +1,4 @@
 define([
-  './imageSlider',
   './navigate',
   './loadingBtn'
 ]);
