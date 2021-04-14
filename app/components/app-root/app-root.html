@@ -1,22 +1,21 @@
 <div class="wrapper">
 
-  <!-- ko if: $root.currentPage -->
+  <div data-bind="if: $root.currentPage">
 
-  <div data-bind="visible: $root.showingStatusNav">
-    <div id="status-nav-con" data-bind="component: 'status-nav'"></div>
+    <div data-bind="visible: $root.showingStatusNav">
+      <div id="status-nav-con" data-bind="component: 'status-nav'"></div>
+    </div>
+
+    <div class="container text-center" data-bind="visible: $root.showingBanners">
+      <div id="banners-con" data-bind="component: 'banners'"></div>
+    </div>
+
+    <div data-bind="component: $root.currentPage"></div>
+
+    <div data-bind="if: $root.showingSessionsTable">
+      <div class="container text-center" id="sessions-list-con" data-bind="component: 'sessions-table'"></div>
+    </div>
   </div>
-
-  <div class="container text-center" data-bind="visible: $root.showingBanners">
-    <div id="banners-con" data-bind="component: 'banners'"></div>
-  </div>
-
-  <div data-bind="component: $root.currentPage"></div>
-
-  <!-- ko if: $root.showingSessionsTable -->
-  <div class="container text-center" id="sessions-list-con" data-bind="component: 'sessions-table'"></div>
-  <!-- /ko -->
-
-  <!-- /ko -->
 
   <div data-bind="component: 'toast'"></div>
 
