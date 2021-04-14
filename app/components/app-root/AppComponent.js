@@ -1,10 +1,5 @@
 define([
-  'knockout',
-  'app/components/toast/ToastComponent',
-  'app/components/status-nav/StatusNavComponent',
-  'app/components/banners/BannersComponent',
-  'app/components/status-nav/StatusNavComponent',
-  'app/components/sessions-table/SessionsTableComponent'
+  'knockout'
 ], function(ko) {
 
   ko.components.register('app', {

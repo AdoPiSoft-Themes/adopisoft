@@ -2,7 +2,12 @@ define([
   'knockout',
   'rootVM',
   'app/services/config',
-  'app/observables/payment'
+  'app/observables/payment',
+  'app/components/toast/ToastComponent',
+  'app/components/status-nav/StatusNavComponent',
+  'app/components/banners/BannersComponent',
+  'app/components/status-nav/StatusNavComponent',
+  'app/components/sessions-table/SessionsTableComponent'
 ], function (ko, rootVM, config, payment) {
 
   return function AppVM() {
