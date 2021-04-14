@@ -87,7 +87,10 @@
         "field_id": "countdown_sound",
         "label":  "Payment Countdown Sound",
         "type": "sounds",
-        "value": "sounds/count-down.mp3"
+        "value": [
+          "sounds/count-down-beep.mp3",
+          "sounds/count-down-beep.wav"
+        ]
       },
       {
         "field_id": "connected_sound",
