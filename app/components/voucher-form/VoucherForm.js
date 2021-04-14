@@ -8,10 +8,11 @@ define([
 ], function (ko, toast, rootVM, http, sessions, Session) {
   ko.components.register('voucher-form', {
     viewModel: function(code) {
-      if (code) this.value = (typeof code === 'function') ? code : ko.observable(code);
-      else this.value = ko.observable('');
-      this.activate = function() {
-        var code = this.value();
+      var self = this;
+      if (code) self.value = (typeof code === 'function') ? code : ko.observable(code);
+      else self.value = ko.observable('');
+      self.activate = function() {
+        var code = self.value();
         http.activateVoucher(code, function(err, data) {
           if (err) return toast.error(err);
           var s = new Session(data);
@@ -21,6 +22,7 @@ define([
           } else {
             s.startSession();
           }
+          self.value('');
           rootVM.navigate('home-page');
         });
       };
