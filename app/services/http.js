@@ -75,7 +75,10 @@ define([
       http.post('/client/payments/done', {coinslot_id: coinslot_id}, cb);
     };
     http.activateVoucher = function(code, cb) {
-      return http.post('/vouchers/activate', {code: code}, cb);
+      http.post('/vouchers/activate', {code: code}, cb);
+    };
+    http.getVouchers = function(cb) {
+      http.get('/vouchers/list', cb);
     };
   }
   return new Http();

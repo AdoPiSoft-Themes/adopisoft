@@ -1,0 +1,21 @@
+<div id="vouchers-list" class="container text-center">
+  <div class="panel panel-primary">
+    <div class="panel-heading">Your Vouchers</div>
+    <table class="table">
+      <thead>
+        <tr>
+          <th class="text-center">Code</th>
+          <th class="text-center">Status</th>
+        </tr>
+      </thead>
+      <tbody>
+        <!-- ko foreach: vouchers -->
+        <tr data-bind="class: activated_at ? 'text-danger' : 'text-success'">
+          <td data-bind="text: code"></td>
+          <td data-bind="text: activated_at ? 'Used' : 'Available'"></td>
+        </tr>
+        <!-- /ko -->
+      </tbody>
+    </table>
+  </div>
+</div>

@@ -5,5 +5,6 @@ define([
   './buy-wifi-or-eload/BuyWifiOrEloadComponent',
   './buy-wifi-buttons/BuyWifiButtonsComponent',
   './more-buttons/MoreButtons',
-  './receipt-page/ReceiptPage'
+  './receipt-page/ReceiptPage',
+  './view-vouchers/ViewVouchers'
 ]);
