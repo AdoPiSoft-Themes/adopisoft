@@ -3,7 +3,6 @@
     "favicon": "favicon.ico",
     "page_title": "AdoPiSoft WiFi Hotspot",
     "banner_text": "Affordable internet connectivity",
-    "footer_content": "Powered By <b><a href=\"//www.adopisoft.com\">AdoPiSoft</a>",
     "redirect_to": "https://www.adopisoft.com/cp"
   },
   "buttons": {
@@ -35,6 +34,9 @@
     "error_sound": [
       "sounds/error.mp3"
     ]
+  },
+  "html": {
+    "footer": "Powered By <b><a href=\"//www.adopisoft.com\">AdoPiSoft</a>"
   },
   "css": {
     "css_files": [
