@@ -1,14 +1,13 @@
 define([
   'knockout',
   'toast',
-  'sounds',
   'http',
   'redirect',
   'app/services/config',
   'app/utils/parseCredits',
   'app/utils/formatDate'
 ],
-function (ko, toast, sounds, http, redirect, config, parseCredits, formatDate) {
+function (ko, toast, http, redirect, config, parseCredits, formatDate) {
 
   return function Session(data) {
     var self = this;
