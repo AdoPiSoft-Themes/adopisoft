@@ -80,6 +80,20 @@ define([
     http.getVouchers = function(cb) {
       http.get('/vouchers/list', cb);
     };
+
+    // Eload
+    http.checkEloadAvailability = function(cb){
+      http.get("/client/eload/is-available", cb)
+    }
+
+    http.getEloadClientData = function(acc_number, cb) {
+     http.get("/client/eload/customer-data?account_number=" + acc_number, cb)
+   }
+
+    http.getEloadProviders = function(acc_number, cb){
+      http.get("/client/eload/providers?account_number=" + acc_number, cb)
+    }
+    // /eload
   }
   return new Http();
 });

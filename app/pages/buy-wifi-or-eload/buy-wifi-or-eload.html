@@ -2,7 +2,10 @@
 
 <div class="btn-group-padded text-center">
   <a class="btn btn-lg btn-primary" data-bind="click: buyWifi, loadingBtn: loading">Buy WiFi</a>
-  <a class="btn btn-lg btn-success">Buy E-Load</a>
+
+  <!-- ko if: showBuyEloadBtn -->
+  <a class="btn btn-lg btn-success" data-bind="click: buyEload, loadingBtn: eloadLoading">Buy eLoad</a>
+  <!-- /ko -->
 
   <!-- ko if: showBuyVoucherBtn -->
   <a class="btn btn-lg btn-info" data-bind="click: buyVoucher, loadingBtn: loading">Buy Voucher</a>

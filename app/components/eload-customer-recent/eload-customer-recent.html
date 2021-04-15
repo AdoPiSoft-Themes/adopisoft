@@ -1,0 +1,15 @@
+<h4>Wallet Balance: <span data-bind="text: customer().credits.toFixed(2)"></span></h4>
+<!-- ko if: last_purchase.id -->
+<p style="margin-bottom:3px;border-bottom:1px dotted gray;">Recent Purchase:</p>
+<small>
+  <strong>
+    <!-- ko if: !isNaN(last_purchase.product_keyword) -->
+    <span>Php</span>
+    <!-- /ko -->
+    <span data-bind="text: last_purchase().product_keyword"></span>
+  </strong>
+  <span data-bind="text: last_purchase().created_at"></span>
+  <span data-bind="text: last_purchase().status"></span>
+</small>
+<!-- /ko -->
+<hr>

@@ -37,3 +37,9 @@ img.img-full {
   border-bottom-left-radius: 0px;
   border-bottom-right-radius: 0px;
 }
+
+.phone-input{
+  font-weight: bold;
+  font-size: 25px;
+  letter-spacing: 8px;
+}

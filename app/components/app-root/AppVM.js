@@ -20,10 +20,16 @@ define([
       payment.intent('wifi');
       this.navigate('select-coinslot-page');
     };
+
     this.buyVoucher = function () {
       this.intent('buy_voucher');
       this.navigate('select-coinslot-page');
     };
+
+    this.buyEload = function () {
+      this.navigate('buy-eload-page');
+    };
+
     rootVM.page('home-page');
   };
 

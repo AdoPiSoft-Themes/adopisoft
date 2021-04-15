@@ -1,0 +1,29 @@
+<div class="row">
+  <div class="col-md-12">
+    <ul class="providers" id="provider_con" data-bind="foreach: {data: providers}">
+      <li data-bind="attr: {class: (active_provider && active_provider.id == id ? 'selected' : '')}" on:click="selectProvider(p, this)">
+        <span>
+          <!-- ko if: logoUrl(short_name) -->
+          <img class="provider-logo" data-bind="attr: {src: logoUrl(short_name), alt: short_name}">
+          <!-- /ko -->
+
+          <!-- ko ifnot: logoUrl(short_name) -->
+          <span data-bind="text: short_name"></span>
+          <!-- /ko -->
+
+        </span>
+      </li>
+    </ul>
+  </div>
+
+  <!-- ko if: active_provider -->
+  <BuyLoadProducts
+    provider_id="{selected_provider.id}"
+    bind:acc_number="acc_number"
+    bind:customer="customer"
+    bind:selected_product="selected_product"
+    bind:voucher="voucher"
+    on:productSelected="selectProduct(event)"
+  />
+  <!-- /ko -->
+</div>
