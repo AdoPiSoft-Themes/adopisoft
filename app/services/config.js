@@ -1,8 +1,7 @@
 define([
-  'json!../../config.json',
-  'json!../../config.defaults.json'
+  'json!/settings/portal/config.json'
 ],
-function (config, defaults) {
+function (config) {
 
   function Config () {
     this.favicon = function () {
@@ -19,7 +18,6 @@ function (config, defaults) {
     };
     this.findField = function (g_id, f_id) {
       if (config[g_id] && config[g_id][f_id]) return config[g_id][f_id];
-      if (defaults[g_id] && defaults[g_id][f_id]) return defaults[g_id][f_id];
     };
   }
 
