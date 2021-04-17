@@ -9,12 +9,18 @@ define([
   function VM(params) {
     var self = this;
     self.active_provider = params.active_provider;
+    self.active_provider_id = params.active_provider().id;
     self.customer = params.customer;
     self.voucher = params.voucher;
     self.selected_product = params.selected_product;
     self.product = params.selected_product();
     self.acc_number = params.acc_number();
     self.related_txn = ko.observable(false);
+    self.is_provider_available = ko.observable(false);
+    self.checking_provider = ko.observable(true);
+    self.checking_related_txn = ko.observable(true);
+    self.activating_voucher = ko.observable(false);
+
     self.voucher_code = ko.observable("");
     self.back = function(){
       self.selected_product(null);
@@ -29,13 +35,11 @@ define([
     self.confirmPurchase = function(){
     }
 
-    var activatingVoucher = false;
     self.activateVoucher = function(){
-      if(activatingVoucher) return false;
-      activatingVoucher = true;
-
+      if(self.activating_voucher()) return false;
+      self.activating_voucher(true);
       http.activateEloadVoucher(self.acc_number, self.voucher_code(), function(err, data){
-        activatingVoucher = false;
+        self.activating_voucher(false);
 
         if(err){
           var msg = JSON.parse(err.responseText)
@@ -50,6 +54,18 @@ define([
     }
 
     self.formatDate = formatDate;
+
+    self.koDescendantsComplete = function () {
+      http.checkEloadProvider(self.active_provider_id, function(err, data){
+        self.checking_provider(false);
+
+        http.getRelatedTxn(self.acc_number, self.product.keyword, function(err, data2){
+          self.checking_related_txn(false);
+          self.related_txn((data || {}).related_txn);
+        })
+        self.is_provider_available(!err);
+      })
+    }
   }
 
   ko.components.register('eload-to-pay', {

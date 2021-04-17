@@ -23,6 +23,7 @@ define([
     self.has_search = ko.observable(true);
     self.supports_regular_denom = ko.observable(false);
     self.loading_products = ko.observable(false);
+    self.activating_voucher = ko.observable(false);
     self.min_regular_load = ko.observable(0);
     self.max_regular_load = ko.observable(0);
     self.search_entry = ko.observable("");
@@ -138,15 +139,14 @@ define([
       })
     }
 
-    var activatingVoucher;
     self.activateVoucher = function(){
       var code = self.search_entry();
       if(!code) return;
-      if(activatingVoucher) return false
-      activatingVoucher = true
+      if(self.activating_voucher()) return false
+      self.activating_voucher(true);
       var acc_number = self.acc_number();
       http.activateEloadVoucher(acc_number, code, function(err, data){
-        activatingVoucher = false;
+        self.activating_voucher(false);
         if(err){
           var msg = JSON.parse(err.responseText);
           return toast.error(msg.error);

@@ -5,7 +5,7 @@
         <a data-toggle="tab" href="javascript:void(0);" data-bind="click: function(d, e){ $parent.selectProvider(p) }">
           <span>
             <!-- ko if: $parent.logoUrl(p.short_name) -->
-            <img class="provider-logo" data-bind="attr: {src: $parent.logoUrl(p.short_name), alt: p.short_name}" style="height:35px">
+            <img class="provider-logo" data-bind="attr: {src: $parent.logoUrl(p.short_name), alt: p.short_name}" style="height:35px; min-width: 35px;">
             <!-- /ko -->
 
             <!-- ko ifnot: $parent.logoUrl(p.short_name) -->

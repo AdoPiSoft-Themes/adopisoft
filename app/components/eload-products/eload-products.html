@@ -24,7 +24,7 @@
     <!-- /ko -->
 
     <!-- ko if: is_voucher() -->
-    <li data-bind="click: activateVoucher" class="btn-success btn">
+    <li data-bind="click: activateVoucher, attr: {disabled: activating_voucher() }" class="btn-success btn">
       <h4>
         <strong>Activate Voucher</strong>
       </h4>

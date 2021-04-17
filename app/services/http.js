@@ -112,6 +112,22 @@ define([
       }, cb)
     }
 
+    http.checkEloadProvider = function(id, cb) {
+      http.post("/client/eload/check-provider", { id }, cb)
+    }
+
+    http.getRelatedTxn = function(account_number, product_keyword, cb) {
+      http.get("/client/eload/related-txn?account_number="+account_number+"&product_keyword="+product_keyword, cb)
+    }
+
+    http.getCurrentUser = function(cb) {
+      http.get("/user/me", cb)
+    }
+
+    http.customerPurchase = function(opts, cb) {
+      http.post("/customer/purchase", opts, cb)
+    }
+
     // /eload
   }
 
