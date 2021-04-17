@@ -91,9 +91,29 @@ define([
    }
 
     http.getEloadProviders = function(acc_number, cb){
-      http.get("/client/eload/providers?account_number=" + acc_number, cb)
+      http.get("/client/eload/providers?account_number=" + acc_number, cb);
     }
+
+    http.getEloadPromos = function(opts, cb){
+      var params = Object.keys(opts).map(function (k) {
+        return encodeURIComponent(k) + "=" + encodeURIComponent(opts[k]);
+      }).join("&");
+      http.get("/client/eload/promos?" + params, cb);
+    }
+
+    http.getRegularDenoms = function(provider_id, cb) {
+      http.get("/client/eload/regular-denoms?provider_id=" + provider_id, cb)
+    }
+
+    http.activateEloadVoucher = function(account_number, code, cb) {
+      http.post("/client/eload/activate-voucher", {
+        account_number,
+        code,
+      }, cb)
+    }
+
     // /eload
   }
+
   return new Http();
 });

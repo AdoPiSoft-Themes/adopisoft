@@ -4,7 +4,9 @@ define([
   'toast',
   'http',
   'app/components/eload-customer-recent/EloadCustomerRecent',
-  'app/components/eload-providers/EloadProviders'
+  'app/components/eload-providers/EloadProviders',
+  'app/components/eload-products/EloadProducts',
+  'app/components/eload-to-pay/EloadToPay'
 ], function (ko, rootVM, toast, http) {
 
   return function () {
@@ -18,13 +20,17 @@ define([
 
     self.acc_number = ko.observable("");
     self.customer = ko.observable();
+    self.selected_product = ko.observable();
+    self.voucher = ko.observable();
     self.last_purchase = ko.observable();
     self.loadingCustomer = ko.observable(false);
     self.loadingProviders = ko.observable(false);
 
     self.acc_number.subscribe(function(acc_number) {
       self.providers([]);
-      self.active_provider();
+      self.active_provider(null);
+      self.customer(null);
+      self.last_purchase(null);
 
       var is_valid = acc_number.length > 5 && !isNaN(acc_number);
       self.isValidPhoneAcc(is_valid);
@@ -34,8 +40,6 @@ define([
       }
 
       self.loadingCustomer(true);
-      self.customer(null);
-      self.last_purchase(null);
       http.getEloadClientData(acc_number, function(err, data){
         self.loadingCustomer(false);
         if(err){

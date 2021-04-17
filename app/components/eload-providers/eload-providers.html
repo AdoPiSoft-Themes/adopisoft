@@ -1,29 +1,20 @@
 <div class="row">
-  <div class="col-md-12">
-    <ul class="providers" id="provider_con" data-bind="foreach: {data: providers}">
-      <li data-bind="attr: {class: (active_provider && active_provider.id == id ? 'selected' : '')}" on:click="selectProvider(p, this)">
-        <span>
-          <!-- ko if: logoUrl(short_name) -->
-          <img class="provider-logo" data-bind="attr: {src: logoUrl(short_name), alt: short_name}">
-          <!-- /ko -->
+  <div class="col-md-12 no-scrollbar" style="overflow-x: scroll;overflow-y: hidden;">
+    <ul class="providers nav nav-tabs" id="provider_con" data-bind="foreach: {data: providers, as: 'p'}" style="min-width: 840px;">
+      <li data-bind="attr: {class: ($parent.active_provider() && $parent.active_provider().id == p.id ? 'active' : '')}">
+        <a data-toggle="tab" href="javascript:void(0);" data-bind="click: function(d, e){ $parent.selectProvider(p) }">
+          <span>
+            <!-- ko if: $parent.logoUrl(p.short_name) -->
+            <img class="provider-logo" data-bind="attr: {src: $parent.logoUrl(p.short_name), alt: p.short_name}" style="height:35px">
+            <!-- /ko -->
 
-          <!-- ko ifnot: logoUrl(short_name) -->
-          <span data-bind="text: short_name"></span>
-          <!-- /ko -->
+            <!-- ko ifnot: $parent.logoUrl(p.short_name) -->
+            <strong style="font-size: 22px;line-height: 35px;" data-bind="text: p.short_name"></strong>
+            <!-- /ko -->
 
-        </span>
+          </span>
+        </a>
       </li>
     </ul>
   </div>
-
-  <!-- ko if: active_provider -->
-  <BuyLoadProducts
-    provider_id="{selected_provider.id}"
-    bind:acc_number="acc_number"
-    bind:customer="customer"
-    bind:selected_product="selected_product"
-    bind:voucher="voucher"
-    on:productSelected="selectProduct(event)"
-  />
-  <!-- /ko -->
 </div>

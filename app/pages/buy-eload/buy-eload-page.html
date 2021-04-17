@@ -9,13 +9,18 @@
     <div class="col-md-4 col-md-offset-4">
       <div class="form-group">
         <label for="acc_number" class="h4" style="line-height: 15px;">Enter account or phone number</label>
-        <input class="phone-input form-control input-lg text-center" type="tel" pattern="\d*" required="" id="acc_number" name="acc_number" placeholder="09xxxxxxxx" maxlength="15" minlength="5" autocomplete="off" data-bind="textInput: acc_number" >
+        <input class="phone-input form-control input-lg text-center" type="tel" pattern="\d*" required="" id="acc_number" name="acc_number" placeholder="09xxxxxxxx" maxlength="15" minlength="5" autocomplete="off" data-bind="textInput: acc_number, attr: {disabled: selected_product()}" >
       </div>
 
       <!-- ko if: loadingCustomer -->
       <p>Loading customer data ...</p><br/>
       <!-- /ko -->
 
+      <!-- ko if: selected_product -->
+      <div id="eload-to-pay" data-bind="component: {name: 'eload-to-pay', params: {customer: customer, acc_number: acc_number, active_provider: active_provider, selected_product: selected_product, voucher: voucher}}"></div>
+      <!-- /ko -->
+
+      <!-- ko ifnot: selected_product() -->
       <!-- ko if: isValidPhoneAcc && customer -->
       <div id="customer_recent" data-bind="component: {name: 'eload-customer-recent', params: {customer: customer, last_purchase: last_purchase}}"></div>
       <!-- /ko -->
@@ -26,6 +31,11 @@
 
       <!-- ko if: providers().length -->
       <div id="providers" data-bind="component: {name: 'eload-providers', params: {providers: providers, active_provider: active_provider }}"></div>
+      <!-- /ko -->
+
+      <!-- ko if: active_provider() -->
+      <div id="eload-products" data-bind="component: {name: 'eload-products', params: {active_provider: active_provider, acc_number: acc_number, customer: customer, voucher: voucher, selected_product: selected_product }}"></div>
+      <!-- /ko -->
       <!-- /ko -->
 
       <!-- ko if: showInstructionTxt -->
@@ -43,15 +53,18 @@
       </div>
       <!-- /ko -->
 
+      <!-- ko ifnot: selected_product -->
       <br>
       <button class="btn btn-success" data-bind="navigate: 'buy-wifi-or-eload'">Back</button>
+      <!-- /ko -->
+
     </div>
   </div>
   <!-- /ko -->
 
   <!-- ko ifnot: isEloadAvailable -->
   <p class="alert alert-danger">E-loading service is temporary unavailable.</p>
-  <button class="btn btn-success" data-bind="navigate: 'buy-wifi-or-eload'">Back</button>
+  <button class="btn btn-default" data-bind="navigate: 'buy-wifi-or-eload'">Back</button>
   <!-- /ko -->
 
   <!-- /ko -->
