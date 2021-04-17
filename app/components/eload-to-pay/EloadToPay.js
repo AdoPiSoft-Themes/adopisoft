@@ -28,7 +28,7 @@ define([
 
     self.calcToPay = function(){
       var customer = self.customer() || {}
-      var credits = self.customer.credits || 0;
+      var credits = customer.credits || 0;
       return Math.max(0, self.product.price - credits).toFixed(2);
     }
 
