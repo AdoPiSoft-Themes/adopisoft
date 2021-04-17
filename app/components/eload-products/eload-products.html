@@ -3,14 +3,11 @@
     <!-- ko if: has_search -->
     <li>
       <div class="form-group" style="padding: 30px 30px 1px">
-        <input type="text" name="search" class="form-control text-center" autocomplete="off" data-bind="textInput: search_entry">
+        <input type="text" name="search" class="form-control text-center input-lg" autocomplete="off" data-bind="textInput: search_entry">
         <p style="margin-bottom: 15px">
           <small>
             <strong>
-            Enter Promo
-            , Voucher
-            <!-- ko if: supports_regular_denom -->
-            , or Regular load(
+            Enter Promo, Voucher<!-- ko if: supports_regular_denom -->, or Regular load(
             <span data-bind="text: min_regular_load"></span>
             - 
             <span data-bind="text: max_regular_load"></span>

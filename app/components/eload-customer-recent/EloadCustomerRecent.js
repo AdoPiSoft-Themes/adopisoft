@@ -8,6 +8,7 @@ define([
     var self = this;
     var customer = params.customer() || {};
     customer.credits = customer.credits || 0;
+    self.customer = customer;
 
     var last_purchase = params.last_purchase;
     if(last_purchase){
@@ -15,7 +16,6 @@ define([
     }
 
     self.last_purchase = ko.observable(last_purchase)
-    self.customer = ko.observable(customer);
   }
 
   ko.components.register('eload-customer-recent', {
