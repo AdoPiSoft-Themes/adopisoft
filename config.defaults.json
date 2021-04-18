@@ -15,25 +15,28 @@
     "banners": ["images/banner.jpg"]
   },
   "sounds": {
-    "countdown_sound": [
-      "sounds/count-down-beep.mp3",
-      "sounds/count-down-beep.wav"
-    ],
-    "connected_sound": [
-      "sounds/connected.mp3",
-      "sounds/connected.wav"
-    ],
-    "disconnected_sound": [
-      "sounds/disconnected.mp3",
-      "sounds/disconnected.wav"
-    ],
-    "coin_inserted": [
-      "sounds/coin-inserted.mp3",
-      "sounds/coin-inserted.wav"
-    ],
-    "error_sound": [
-      "sounds/error.mp3"
-    ]
+    "countdown_sound": {
+      "src": "sounds/count-down-beep.mp3",
+      "format": "audio/mpeg",
+      "loop": true,
+      "loop_delay": 1000
+    },
+    "connected_sound": {
+      "src": "sounds/connected.mp3",
+      "format": "audio/mpeg"
+    },
+    "disconnected_sound": {
+      "src": "sounds/disconnected.mp3",
+      "format": "audio/mpeg"
+    },
+    "coin_inserted": {
+      "src": "sounds/coin-inserted.mp3",
+      "format": "audio/mpeg"
+    },
+    "error_sound": {
+      "src": "sounds/error.mp3",
+      "format": "audio/mpeg"
+    }
   },
   "html": {
     "footer": "Powered By <b><a href=\"//www.adopisoft.com\">AdoPiSoft</a>"
