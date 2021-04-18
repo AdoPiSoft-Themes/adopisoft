@@ -17,7 +17,11 @@ define([
       } catch(e) { cb(e); }
     };
     http.post = function (url, data, cb) {
-      var callback = typeof data === 'function' ? data : cb; 
+      var callback = cb;
+      if (typeof data === 'function') {
+        callback = data;
+        data = {};
+      }
       try {
         ajax({
           url: url,

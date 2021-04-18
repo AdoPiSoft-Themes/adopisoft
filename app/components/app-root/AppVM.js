@@ -5,8 +5,7 @@ define([
   'app/observables/payment',
   'app/components/toast/ToastComponent',
   'app/components/status-nav/StatusNavComponent',
-  'app/components/banners/BannersComponent',
-  'app/components/status-nav/StatusNavComponent',
+  'app/components/banners/Banners',
   'app/components/sessions-table/SessionsTableComponent'
 ], function (ko, rootVM, config, payment) {
 

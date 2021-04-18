@@ -22,11 +22,6 @@
           "type": "text"
         },
         {
-          "field_id": "footer_content",
-          "label": "Footer Content",
-          "type": "textarea"
-        },
-        {
           "field_id": "redirect_to",
           "label": "Redirect To",
           "type": "text"
@@ -77,22 +72,22 @@
         {
           "field_id": "countdown_sound",
           "label":  "Payment Countdown Sound",
-          "type": "sounds"
+          "type": "sound"
         },
         {
           "field_id": "connected_sound",
           "label": "Connected Sound",
-          "type": "sounds"
+          "type": "sound"
         },
         {
           "field_id": "disconnected_sound",
           "label": "Disconnected Sound",
-          "type": "sounds"
+          "type": "sound"
         },
         {
           "field_id": "coin_inserted",
           "label":  "Coin Inserted Sound",
-          "type": "sounds"
+          "type": "sound"
         },
 
         {
@@ -121,6 +116,17 @@
           "field_id": "font_files",
           "label": "Font files",
           "type": "fonts"
+        }
+      ]
+    },
+    {
+      "field_group_id": "HTML",
+      "legend": "HTML Contents",
+      "fields": [
+        {
+          "field_id": "footer_content",
+          "label": "Footer HTML",
+          "type": "textarea"
         }
       ]
     }

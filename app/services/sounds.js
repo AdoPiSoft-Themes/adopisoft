@@ -6,21 +6,21 @@ define(['howler', 'app/services/config'], function (howler, config) {
 
   function Sound(src, loopDelay) {
     var self = this;
-    this._sound = new Howl({src: src});
-    this.play = function () {
+    self._sound = new Howl({src: src});
+    self.play = function () {
       if (loopDelay) {
-        this._sound.play();
-        this._timeout = setTimeout(function () {
+        self._sound.play();
+        self._timeout = setTimeout(function () {
           self.play();
         }, loopDelay);
       } else {
         self._sound.play();
       }
     };
-    this.stop = function() {
-      if (this._timeout) clearTimeout(this._timeout);
-      this._sound.stop();
-      this._timeout = null;
+    self.stop = function() {
+      if (self._timeout) clearTimeout(self._timeout);
+      self._sound.stop();
+      self._timeout = null;
     };
   }
 

@@ -1,7 +1,8 @@
 define([
   'knockout',
+  'redirect',
   'app/utils/addClass'
-], function(ko, addClass) {
+], function(ko, redirect, addClass) {
 
   ko.bindingHandlers.navigate = {
     init: function(element, valueAccessor, allBindingsAccessor, viewModel, bindingContext) {
@@ -11,14 +12,13 @@ define([
       var hasClick = allBindingsAccessor.get('click');
 
       element.onclick = function (e) {
-
+        redirect.cancel();
         if (!hasClick) {
           if (e) {
             e.returnValue = false;
             if (e.preventDefault) e.preventDefault();
           }
         }
-
         if (tagName === 'a') {
           addClass(element, 'disabled');
           element.innerHTML = 'Loading...';

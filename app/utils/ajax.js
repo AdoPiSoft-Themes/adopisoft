@@ -1,6 +1,6 @@
 define(['knockout'], function (ko) {
 
-  function getHttp() {
+  function httpClient() {
     return window.ActiveXObject
       ? new window.ActiveXObject('Microsoft.XMLHTTP')
       : new window.XMLHttpRequest();
@@ -9,11 +9,11 @@ define(['knockout'], function (ko) {
   return function Ajax(opts) {
     var method = opts.method || 'GET';
     var url = opts.url;
-    var data = opts.data;
+    var data = opts.data || {};
     var successCb = opts.success;
     var errorCb = opts.error;
 
-    var http = getHttp();
+    var http = httpClient();
 
     http.onreadystatechange = function() {
       if (http.readyState === 4) { // XMLHttpRequest.DONE == 4
@@ -26,7 +26,7 @@ define(['knockout'], function (ko) {
       }
     };
       
-    http.open(method, url, true);
+    http.open(method.toUpperCase(), url, true);
     http.setRequestHeader('Accept', 'application/json');
 
     if (method.toLowerCase() === 'post') {
