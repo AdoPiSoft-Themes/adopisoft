@@ -62,7 +62,10 @@ define([
       var data = {
         coinslot_id: opts.coinslot_id,
         type: opts.type,
-        is_voucher: opts.is_voucher
+        is_voucher: opts.is_voucher,
+        provider_id: opts.provider_id,
+        account_number: opts.account_number,
+        product_keyword: opts.product_keyword,
       };
       http.post('/client/payments/que', data, cb);
     };
@@ -130,6 +133,15 @@ define([
 
     http.customerPurchase = function(opts, cb) {
       http.post("/customer/purchase", opts, cb)
+    }
+
+    http.purchaseLoad = function(account_number, provider_id, product_keyword, voucher_id, cb){
+      http.post("/client/eload/purchase", {
+        account_number: account_number,
+        provider_id: provider_id,
+        product_keyword: product_keyword,
+        voucher_id: voucher_id,
+      }, cb)
     }
 
     // /eload

@@ -10,12 +10,12 @@ define([
     customer.credits = customer.credits || 0;
     self.customer = customer;
 
-    var last_purchase = params.last_purchase;
+    var last_purchase = params.last_purchase();
     if(last_purchase){
       last_purchase.created_at = formatDate(last_purchase.created_at);
     }
 
-    self.last_purchase = ko.observable(last_purchase)
+    self.last_purchase = last_purchase;
   }
 
   ko.components.register('eload-customer-recent', {

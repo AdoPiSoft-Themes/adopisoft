@@ -3,14 +3,17 @@ define([
   'rootVM',
   'toast',
   'http',
+  'app/observables/payment',
   'app/components/eload-customer-recent/EloadCustomerRecent',
   'app/components/eload-providers/EloadProviders',
   'app/components/eload-products/EloadProducts',
   'app/components/eload-to-pay/EloadToPay'
-], function (ko, rootVM, toast, http) {
+], function (ko, rootVM, toast, http, payment) {
 
   return function () {
     var self = this;
+
+    var cachedData = payment.eloadOptions();
     self.isPageReady = ko.observable(false);
     self.isEloadAvailable = ko.observable(true);
     self.showInstructionTxt = ko.observable(true);
@@ -67,6 +70,8 @@ define([
       rootVM.showingStatusNav(false);
       rootVM.showingBanners(false);
       rootVM.showingSessionsTable(false);
+
+      self.acc_number(cachedData.account_number || ""); //pre-populate cached number
 
       http.checkEloadAvailability(function(err, data) {
         self.isPageReady(true);

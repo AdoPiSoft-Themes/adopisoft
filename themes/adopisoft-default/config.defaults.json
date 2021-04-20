@@ -3,11 +3,13 @@
     "favicon": "favicon.ico",
     "page_title": "AdoPiSoft WiFi Hotspot",
     "banner_text": "Affordable internet connectivity",
+    "footer_content": "Powered By <b><a href=\"//www.adopisoft.com\">AdoPiSoft</a>",
     "redirect_to": "https://www.adopisoft.com/cp"
   },
   "buttons": {
     "button_insert_coin": true,
     "button_buy_voucher": true,
+    "button_buy_eload": true,
     "button_view_vouochers": true,
     "button_view_rates": true
   },
@@ -15,28 +17,25 @@
     "banners": ["images/banner.jpg"]
   },
   "sounds": {
-    "countdown_sound": {
-      "src": "sounds/count-down-beep.mp3",
-      "format": "audio/mpeg",
-      "loop": true,
-      "loop_delay": 1000
-    },
-    "connected_sound": {
-      "src": "sounds/connected.mp3",
-      "format": "audio/mpeg"
-    },
-    "disconnected_sound": {
-      "src": "sounds/disconnected.mp3",
-      "format": "audio/mpeg"
-    },
-    "coin_inserted": {
-      "src": "sounds/coin-inserted.mp3",
-      "format": "audio/mpeg"
-    },
-    "error_sound": {
-      "src": "sounds/error.mp3",
-      "format": "audio/mpeg"
-    },
+    "countdown_sound": [
+      "sounds/count-down-beep.mp3",
+      "sounds/count-down-beep.wav"
+    ],
+    "connected_sound": [
+      "sounds/connected.mp3",
+      "sounds/connected.wav"
+    ],
+    "disconnected_sound": [
+      "sounds/disconnected.mp3",
+      "sounds/disconnected.wav"
+    ],
+    "coin_inserted": [
+      "sounds/coin-inserted.mp3",
+      "sounds/coin-inserted.wav"
+    ],
+    "error_sound": [
+      "sounds/error.mp3"
+    ],
     "eload_successful": [
       "sounds/eload-successful.mp3"
     ],
@@ -50,9 +49,6 @@
       "sounds/eload_queued.mp3"
     ]
   },
-  "html": {
-    "footer": "Powered By <b><a href=\"//www.adopisoft.com\">AdoPiSoft</a>"
-  },
   "css": {
     "css_files": [
       "libs/bootstrap/css/bootstrap.min.css",
@@ -60,8 +56,8 @@
       "styles/ie10-viewport-bug-workaround.css",
       "styles/sticky-footer-navbar.css",
       "styles/ellipsis.css",
-      "styles/portal.css",
-      "styles/modal.css"
+      "styles/modal.css",
+      "styles/portal.css"
     ]
   },
   "fonts": {

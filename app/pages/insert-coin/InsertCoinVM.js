@@ -13,7 +13,9 @@ define([
   'app/utils/shortSecondsFormat',
   'app/utils/formatBytes',
   'app/components/progress-bar/ProgressBar',
-  'app/components/seconds-format/SecondsFormat'
+  'app/components/seconds-format/SecondsFormat',
+  'app/components/eload-payment/EloadPayment',
+  'app/components/wallet-topup/WalletTopup',
 ], function (ko, rootVM, http, sounds, toast, timerConfig, rates, socket, device, receipt, payment, secondsFormat, formatBytes) {
   function VM () {
     console.log(payment);
@@ -27,7 +29,12 @@ define([
       total_amount: ko.observable(0),
       type: ko.observable(''),
       voucher: {},
-      wait_payment_seconds: ko.observable(100)
+      wait_payment_seconds: ko.observable(100),
+
+      eload_price: ko.observable(0),
+      customer_credits: ko.observable(0),
+      account_number: ko.observable(""),
+      product_keyword: ko.observable("")
     };
     self.session = {
       data_mb: ko.observable(0),
@@ -45,12 +52,19 @@ define([
         self.onPaymentReceived(data);
       });
     };
+
     self.onPaymentReceived = function (data) {
       console.log(data);
       self.que.coinslot_id(data.coinslot_id);
       self.que.total_amount(data.total_amount);
       self.que.type(data.type);
       self.que.wait_payment_seconds(data.wait_payment_seconds);
+
+      self.que.product_keyword(data.product_keyword);
+      self.que.eload_price(data.eload_price);
+      self.que.account_number(data.account_number);
+      self.que.customer_credits(data.customer_credits);
+
       if (data.session) {
         self.session.data_mb(data.session.data_mb);
         self.session.time_seconds(data.session.time_seconds);
@@ -62,6 +76,9 @@ define([
       if (self.session.data_mb() > 0 || self.session.time_seconds() > 0) {
         sounds.coinInserted.play();
         toast.success('Total Amount: ' + rates.currency() + ' ' + self.que.total_amount(), 'Total Credits: ' + self.totalCredits());
+      }else if (data.amount > 0){
+        sounds.coinInserted.play();
+        toast.success('Payment Received: ' + rates.currency() + data.amount.toFixed(2)); 
       }
     };
     self.donePayment = function () {
@@ -99,6 +116,7 @@ define([
         return s + '/' + d;
       }
     });
+
     self.hasPayment = ko.pureComputed(function() {
       return self.que.total_amount() > 0;
     });

@@ -57,11 +57,11 @@
         <!-- /ko -->
 
         <!-- ko if: related_txn() && related_txn().is_paid -->
-        <span>
+        <p class="text-danger">
           Related Unconfirmed Transaction Found:
           <br/>
           <strong data-bind="text: formatDate(related_txn().created_at)"></strong>
-        </span>
+        </p>
         <!-- /ko -->
 
         <!-- ko ifnot: related_txn() && related_txn().is_paid -->
@@ -93,14 +93,14 @@
         <button type="button" class="btn btn-success btn-lg" data-bind="click: confirmPurchase">
 
           <!-- ko if: related_txn() && related_txn().is_paid -->
-          Re-submit
+          Re-Process
           <!-- /ko -->
 
           <!-- ko if: calcToPay() > 0 -->
           Pay Now
           <!-- /ko -->
 
-          <!-- ko ifnot: calcToPay() > 0 -->
+          <!-- ko if: calcToPay() <= 0 && !(related_txn() && related_txn().is_paid) -->
           Submit
           <!-- /ko -->
 

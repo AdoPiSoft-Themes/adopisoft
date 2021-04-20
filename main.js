@@ -14,6 +14,7 @@ requirejs.config({
     // app services
     timerConfig: 'app/services/timerConfig',
     toast: 'app/services/toast',
+    modal: 'app/services/modal',
     http: 'app/services/http',
     redirect: 'app/services/redirect',
     socket: 'app/services/socket',
