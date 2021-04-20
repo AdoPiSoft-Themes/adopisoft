@@ -38,7 +38,7 @@ define([
         self.promos(data.promos);
         self.has_more_promos(data.has_more_promos);
         self.page(data.page);
-        // self.has_search(data.promos_count > data.per_page);
+        self.has_search(data.promos_count > data.per_page);
         self.supports_regular_denom(false);
         self.regular_denoms([]);
 
@@ -52,7 +52,7 @@ define([
           if(data.length <= 0) return;
 
           self.supports_regular_denom(true);
-          // self.has_search(true);
+          self.has_search(true);
 
           var amounts = [];
           for(var i = 0; i < data.length; i++){
@@ -121,7 +121,7 @@ define([
         for(var i = 0; i < data.promos.length; i++){
           promos.push(data.promos[i]);
         }
-        var is_voucher = promos.length <= 0 && q && q.length >= 6
+        var is_voucher = promos.length <= 0 && q && q.length >= 6 && self.supports_regular_denom() // eload voucher is for regular load only for now
         self.promos(promos);
         self.has_more_promos(data.has_more_promos);
         self.is_voucher(is_voucher);

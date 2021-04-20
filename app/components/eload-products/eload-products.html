@@ -7,11 +7,16 @@
         <p style="margin-bottom: 15px">
           <small>
             <strong>
-            Enter Promo, Voucher<!-- ko if: supports_regular_denom -->, or Regular load(
+            <!-- ko if: supports_regular_denom -->
+            Enter Promo, Voucher, or Regular load(
             <span data-bind="text: min_regular_load"></span>
             - 
             <span data-bind="text: max_regular_load"></span>
             )
+            <!-- /ko -->
+
+            <!-- ko ifnot: supports_regular_denom -->
+            Search Promo
             <!-- /ko -->
             </strong>
           </small>
