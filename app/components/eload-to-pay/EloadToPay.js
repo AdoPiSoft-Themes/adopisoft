@@ -70,6 +70,7 @@ define([
       }else if(toPay > 0){
         payment.intent("eload");
         payment.rateType("eload");
+        payment.isVoucher(false);
         rootVM.navigate('select-coinslot-page');
       }
     }

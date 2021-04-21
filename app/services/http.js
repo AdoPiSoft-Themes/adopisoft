@@ -88,6 +88,10 @@ define([
       http.get('/vouchers/list', cb);
     };
 
+    http.getCurrentUser = function(cb){
+      http.get("/user/me", cb)
+    }
+
     // Eload
     http.checkEloadAvailability = function(cb){
       http.get("/client/eload/is-available", cb)

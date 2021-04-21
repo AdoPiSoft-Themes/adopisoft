@@ -31,6 +31,7 @@ define([
       voucher: {},
       wait_payment_seconds: ko.observable(100),
 
+      customer: ko.observable(0),
       eload_price: ko.observable(0),
       customer_credits: ko.observable(0),
       account_number: ko.observable(""),
@@ -63,6 +64,7 @@ define([
       self.que.product_keyword(data.product_keyword);
       self.que.eload_price(data.eload_price);
       self.que.account_number(data.account_number);
+      self.que.customer(data.customer);
       self.que.customer_credits(data.customer_credits);
 
       if (data.session) {
@@ -97,7 +99,7 @@ define([
         receipt.type(data.type);
         receipt.credits(self.totalCredits());
         if (payment.isVoucher()) receipt.voucherCode(data.voucher.code);
-        if (!payment.isVoucher()) receipt.sessionId(data.session.id);
+        if (!payment.isVoucher() && data.session) receipt.sessionId(data.session.id);
         rootVM.navigate('receipt-page');
       } else {
         rootVM.navigate('home-page');

@@ -11,4 +11,8 @@
   <a class="btn btn-lg btn-info" data-bind="click: buyVoucher, loadingBtn: loading">Buy Voucher</a>
   <!-- /ko -->
 
+  <!-- ko if: customer.id -->
+  <a class="btn btn-lg btn-warning" data-bind="click: topupWallet, loadingBtn: loading">Top-up Wallet</a>
+  <!-- /ko -->
+
 </div>
