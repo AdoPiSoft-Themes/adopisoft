@@ -37,18 +37,22 @@
       "src": "sounds/error.mp3",
       "format": "audio/mpeg"
     },
-    "eload_successful": [
-      "sounds/eload-successful.mp3"
-    ],
-    "eload_processing": [
-      "sounds/eload_processing.mp3"
-    ],
-    "eload_failed": [
-      "sounds/eload-failed.mp3"
-    ],
-    "eload_queued": [
-      "sounds/eload_queued.mp3"
-    ]
+    "eload_successful": {
+      "src": "sounds/eload-successful.mp3",
+      "format": "audio/mpeg"
+    },
+    "eload_failed": {
+      "src": "sounds/eload-failed.mp3",
+      "format": "audio/mpeg"
+    },
+    "eload_processing": {
+      "src": "sounds/eload_processing.mp3",
+      "format": "audio/mpeg"
+    },
+    "eload_queued": {
+      "src": "sounds/eload_queued.mp3",
+      "format": "audio/mpeg"
+    }
   },
   "html": {
     "footer": "Powered By <b><a href=\"//www.adopisoft.com\">AdoPiSoft</a>"
