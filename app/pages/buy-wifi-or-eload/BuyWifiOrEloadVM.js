@@ -13,6 +13,7 @@ define([
 
     this.showBuyVoucherBtn = ko.observable(config.findField('buttons', 'button_buy_voucher'));
     this.showBuyEloadBtn = ko.observable(config.findField('buttons', 'button_buy_eload'));
+    
     this.buyWifi = function () {
       this.loading(true);
       payment.intent('wifi');

@@ -10,7 +10,8 @@
     "button_buy_voucher": true,
     "button_view_vouochers": true,
     "button_view_rates": true,
-    "button_buy_eload": true
+    "button_buy_eload": true,
+    "button_login": true
   },
   "banners": {
     "banners": ["images/banner.jpg"]
