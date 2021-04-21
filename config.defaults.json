@@ -9,7 +9,8 @@
     "button_insert_coin": true,
     "button_buy_voucher": true,
     "button_view_vouochers": true,
-    "button_view_rates": true
+    "button_view_rates": true,
+    "button_buy_eload": true
   },
   "banners": {
     "banners": ["images/banner.jpg"]
