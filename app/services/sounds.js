@@ -4,15 +4,18 @@ define(['howler', 'app/services/config'], function (howler, config) {
   var noopSound = {play: noop, stop: noop};
   var Howl = howler.Howl;
 
-  function Sound(src, loopDelay) {
+  function Sound(sound) {
     var self = this;
-    self._sound = new Howl({src: src});
+    self._loop = sound.loop;
+    self._loopDelay = sound.loop_delay;
+    self._loopOnly = sound.loop && !sound.loop_delay;
+    self._sound = new Howl({src: sound.src, loop: self._loopOnly});
     self.play = function () {
-      if (loopDelay) {
+      if (self._loopDelay) {
         self._sound.play();
         self._timeout = setTimeout(function () {
           self.play();
-        }, loopDelay);
+        }, self._loopDelay);
       } else {
         self._sound.play();
       }
@@ -28,7 +31,7 @@ define(['howler', 'app/services/config'], function (howler, config) {
 
     var disconnected = new Sound(config.findField('sounds', 'disconnected_sound'));
     var connected = new Sound(config.findField('sounds', 'connected_sound'));
-    var insertCoin = new Sound(config.findField('sounds', 'countdown_sound'), 1000);
+    var insertCoin = new Sound(config.findField('sounds', 'countdown_sound'));
     var coinInserted = new Sound(config.findField('sounds', 'coin_inserted'));
     var error = new Sound(config.findField('sounds', 'error_sound'));
 
