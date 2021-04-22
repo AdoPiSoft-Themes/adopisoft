@@ -25,6 +25,15 @@
           "field_id": "redirect_to",
           "label": "Redirect To",
           "type": "text"
+        },
+        {
+          "field_id": "footer",
+          "label": "Footer HTML",
+          "type": "textarea"
+        },
+        {
+          "field_id": "submit",
+          "type": "submit"
         }
       ]
     },
@@ -51,6 +60,10 @@
           "field_id": "button_view_rates",
           "label": "Show View Rates Button",
           "type": "checkbox"
+        },
+        {
+          "field_id": "submit",
+          "type": "submit"
         }
       ]
     },
@@ -117,17 +130,6 @@
           "field_id": "font_files",
           "label": "Font files",
           "type": "fonts"
-        }
-      ]
-    },
-    {
-      "field_group_id": "HTML",
-      "legend": "HTML Contents",
-      "fields": [
-        {
-          "field_id": "footer_content",
-          "label": "Footer HTML",
-          "type": "textarea"
         }
       ]
     }

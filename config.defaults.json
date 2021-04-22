@@ -3,7 +3,8 @@
     "favicon": "favicon.ico",
     "page_title": "AdoPiSoft WiFi Hotspot",
     "banner_text": "Affordable internet connectivity",
-    "redirect_to": "https://www.adopisoft.com/cp"
+    "redirect_to": "https://www.adopisoft.com/cp",
+    "footer": "Powered By <b><a href=\"//www.adopisoft.com\">AdoPiSoft</a>"
   },
   "buttons": {
     "button_insert_coin": true,
@@ -37,9 +38,6 @@
       "src": "sounds/error.mp3",
       "format": "audio/mpeg"
     }
-  },
-  "html": {
-    "footer": "Powered By <b><a href=\"//www.adopisoft.com\">AdoPiSoft</a>"
   },
   "css": {
     "css_files": [
