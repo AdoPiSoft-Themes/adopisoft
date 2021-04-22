@@ -61,7 +61,8 @@
         {
           "field_id": "banners",
           "label": "Banners",
-          "type": "images"
+          "type": "images",
+          "min": 1
         }
       ]
     },
