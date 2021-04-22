@@ -41,8 +41,8 @@
   },
   "css": {
     "css_files": [
-      "libs/bootstrap/css/bootstrap.min.css",
       "fonts/fonts.css",
+      "styles/bootstrap.min.css",
       "styles/ie10-viewport-bug-workaround.css",
       "styles/sticky-footer-navbar.css",
       "styles/ellipsis.css",
