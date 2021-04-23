@@ -9,7 +9,7 @@
   "buttons": {
     "button_insert_coin": true,
     "button_buy_voucher": true,
-    "button_view_vouochers": true,
+    "button_view_vouchers": true,
     "button_view_rates": true
   },
   "banners": {
@@ -51,11 +51,11 @@
   },
   "fonts": {
     "font_files": [
-      "libs/bootstrap/fonts/glyphicons-halflings-regular.eot",
-      "libs/bootstrap/fonts/glyphicons-halflings-regular.svg",
-      "libs/bootstrap/fonts/glyphicons-halflings-regular.ttf",
-      "libs/bootstrap/fonts/glyphicons-halflings-regular.woff",
-      "libs/bootstrap/fonts/glyphicons-halflings-regular.woff2"
+      "fonts/glyphicons-halflings-regular.eot",
+      "fonts/glyphicons-halflings-regular.svg",
+      "fonts/glyphicons-halflings-regular.ttf",
+      "fonts/glyphicons-halflings-regular.woff",
+      "fonts/glyphicons-halflings-regular.woff2"
     ]
   }
 }
