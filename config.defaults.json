@@ -12,6 +12,10 @@
     "button_view_vouchers": true,
     "button_view_rates": true
   },
+  "wifi_icons": {
+    "wifi_connected_icon": "images/wifi-connected.png",
+    "wifi_disconnected_icon": "images/wifi-disconnected.png"
+  },
   "banners": {
     "banners": ["images/banner.jpg"]
   },
@@ -47,15 +51,6 @@
       "styles/sticky-footer-navbar.css",
       "styles/ellipsis.css",
       "styles/portal.css"
-    ]
-  },
-  "fonts": {
-    "font_files": [
-      "fonts/glyphicons-halflings-regular.eot",
-      "fonts/glyphicons-halflings-regular.svg",
-      "fonts/glyphicons-halflings-regular.ttf",
-      "fonts/glyphicons-halflings-regular.woff",
-      "fonts/glyphicons-halflings-regular.woff2"
     ]
   }
 }

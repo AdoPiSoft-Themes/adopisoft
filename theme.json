@@ -29,7 +29,8 @@
         {
           "field_id": "footer",
           "label": "Footer HTML",
-          "type": "textarea"
+          "type": "textarea",
+          "rows": 5
         },
         {
           "field_id": "submit",
@@ -64,6 +65,22 @@
         {
           "field_id": "submit",
           "type": "submit"
+        }
+      ]
+    },
+    {
+      "field_group_id": "wifi_icons",
+      "legend": "WiFi Icons",
+      "fields": [
+        {
+          "field_id": "wifi_connected_icon",
+          "label": "Connected Icon",
+          "type": "image"
+        },
+        {
+          "field_id": "wifi_disconnected_icon",
+          "label": "Disconnected Icon",
+          "type": "image"
         }
       ]
     },
@@ -119,17 +136,6 @@
           "field_id": "css_files",
           "label": "CSS Files",
           "type": "stylesheets"
-        }
-      ]
-    },
-    {
-      "field_group_id": "fonts",
-      "legend": "Fonts",
-      "fields": [
-        {
-          "field_id": "font_files",
-          "label": "Font files",
-          "type": "fonts"
         }
       ]
     }
