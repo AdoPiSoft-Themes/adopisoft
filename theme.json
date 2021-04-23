@@ -91,7 +91,7 @@
           "field_id": "wifi_disconnected_icon",
           "label": "Disconnected Icon",
           "type": "image",
-          "defaultValue": "images/wifi-connected.png"
+          "defaultValue": "images/wifi-disconnected.png"
         }
       ]
     },
