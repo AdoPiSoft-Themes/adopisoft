@@ -9,22 +9,37 @@
         {
           "field_id": "favicon",
           "label": "Favicon Image",
-          "type": "image"
+          "type": "image",
+          "defaultValue": "favicon.ico"
         },
         {
           "field_id": "page_title",
           "label": "Page Title",
-          "type": "text"
+          "type": "text",
+          "defaultValue": "AdoPiSoft WiFi Hostspot"
         },
         {
           "field_id": "banner_text",
           "label": "Banner Text",
-          "type": "text"
+          "type": "text",
+          "defaultValue": "Affordable Internet Connectivity"
         },
         {
           "field_id": "redirect_to",
           "label": "Redirect To",
-          "type": "text"
+          "type": "text",
+          "defaultValue": "https://www.adopisoft.com/cp"
+        },
+        {
+          "field_id": "footer",
+          "label": "Footer HTML",
+          "type": "textarea",
+          "rows": 5,
+          "defaultValue": "Powered By <b><a href=\"//www.adopisoft.com\">AdoPiSoft</a>"
+        },
+        {
+          "field_id": "submit",
+          "type": "submit"
         }
       ]
     },
@@ -35,22 +50,58 @@
         {
           "field_id": "button_insert_coin",
           "label": "Show Insert Coin Button",
-          "type": "checkbox"
+          "type": "checkbox",
+          "defaultValue": true
         },
         {
           "field_id": "button_buy_voucher",
           "label": "Show Buy Voucher Button",
-          "type": "checkbox"
+          "type": "checkbox",
+          "defaultValue": true
         },
         {
           "field_id": "button_view_vouchers",
           "label": "Show View Vouchers Button",
-          "type": "checkbox"
+          "type": "checkbox",
+          "defaultValue": true
         },
         {
           "field_id": "button_view_rates",
           "label": "Show View Rates Button",
-          "type": "checkbox"
+          "type": "checkbox",
+          "defaultValue": true
+        },
+        {
+          "field_id": "button_buy_eload",
+          "label": "Show Buy E-Load Button",
+          "defaultValue": true
+        },
+        {
+          "field_id": "button_my_account",
+          "label": "Show My Account Button",
+          "defaultValue": true
+        },
+        {
+          "field_id": "submit",
+          "type": "submit"
+        }
+      ]
+    },
+    {
+      "field_group_id": "wifi_icons",
+      "legend": "WiFi Icons",
+      "fields": [
+        {
+          "field_id": "wifi_connected_icon",
+          "label": "Connected Icon",
+          "type": "image",
+          "defaultValue": "images/wifi-connected.png"
+        },
+        {
+          "field_id": "wifi_disconnected_icon",
+          "label": "Disconnected Icon",
+          "type": "image",
+          "defaultValue": "images/wifi-disconnected.png"
         }
       ]
     },
@@ -61,7 +112,9 @@
         {
           "field_id": "banners",
           "label": "Banners",
-          "type": "images"
+          "type": "images",
+          "min": 1,
+          "defaultValue": ["images/banner.jpg"]
         }
       ]
     },
@@ -72,28 +125,85 @@
         {
           "field_id": "countdown_sound",
           "label":  "Payment Countdown Sound",
-          "type": "sound"
+          "type": "sound",
+          "defaultValue": {
+            "src": "sounds/count-down-beep.mp3",
+            "format": "audio/mpeg",
+            "loop": true,
+            "loop_delay": 1000
+          }
         },
         {
           "field_id": "connected_sound",
           "label": "Connected Sound",
-          "type": "sound"
+          "type": "sound",
+          "defaultValue": {
+            "src": "sounds/connected.mp3",
+            "format": "audio/mpeg"
+          }
         },
         {
           "field_id": "disconnected_sound",
           "label": "Disconnected Sound",
-          "type": "sound"
+          "type": "sound",
+          "defaultValue": {
+            "src": "sounds/disconnected.mp3",
+            "format": "audio/mpeg"
+          }
         },
         {
           "field_id": "coin_inserted",
           "label":  "Coin Inserted Sound",
-          "type": "sound"
+          "type": "sound",
+          "defaultValue": {
+            "src": "sounds/coin-inserted.mp3",
+            "format": "audio/mpeg"
+          }
         },
-
         {
           "field_id": "error_sound",
           "label":  "Error Sound",
-          "type": "sound"
+          "type": "sound",
+          "defaultValue": {
+            "src": "sounds/error.mp3",
+            "format": "audio/mpeg"
+          }
+        },
+        {
+          "field_id": "eload_successful",
+          "label": "E-Load Success Sound",
+          "type": "sound",
+          "defaultValue":{
+            "src": "sounds/eload-successful.mp3",
+            "format": "audio/mpeg"
+          }
+        },
+        {
+          "field_id": "eload_failed",
+          "label": "E-Load Failed Sound",
+          "type": "sound",
+          "defaultValue":{
+            "src": "sounds/eload-failed.mp3",
+            "format": "audio/mpeg"
+          }
+        },
+        {
+          "field_id": "eload_processing",
+          "label": "E-Load Processing Sound",
+          "type": "sound",
+          "defaultValue":{
+            "src": "sounds/eload_processing.mp3",
+            "format": "audio/mpeg"
+          }
+        },
+        {
+          "field_id": "eload_queued",
+          "label": "E-Load Queued Sound",
+          "type": "sound",
+          "defaultValue":{
+            "src": "sounds/eload_queued.mp3",
+            "format": "audio/mpeg"
+          }
         }
       ]
     },
@@ -104,29 +214,16 @@
         {
           "field_id": "css_files",
           "label": "CSS Files",
-          "type": "stylesheets"
-        }
-      ]
-    },
-    {
-      "field_group_id": "fonts",
-      "legend": "Fonts",
-      "fields": [
-        {
-          "field_id": "font_files",
-          "label": "Font files",
-          "type": "fonts"
-        }
-      ]
-    },
-    {
-      "field_group_id": "HTML",
-      "legend": "HTML Contents",
-      "fields": [
-        {
-          "field_id": "footer_content",
-          "label": "Footer HTML",
-          "type": "textarea"
+          "type": "stylesheets",
+          "defaultValue": [
+            "fonts/fonts.css",
+            "styles/bootstrap.min.css",
+            "styles/ie10-viewport-bug-workaround.css",
+            "styles/sticky-footer-navbar.css",
+            "styles/ellipsis.css",
+            "styles/portal.css",
+            "styles/modal.css"
+          ]
         }
       ]
     }

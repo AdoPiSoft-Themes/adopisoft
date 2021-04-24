@@ -11,7 +11,7 @@ function (config) {
       return this.findField('page_properties', 'page_title');
     };
     this.footerHtml = function () {
-      return this.findField('html', 'footer');
+      return this.findField('page_properties', 'footer');
     };
     this.styles = function () {
       return this.findField('css', 'css_files');

@@ -1,7 +1,7 @@
 <!-- ko if: connected -->
-<img src="images/wifi-connected.png" />
+<img data-bind="attr: {src: connectedIcon}" />
 <!-- /ko -->
 
 <!-- ko ifnot: connected -->
-<img src="images/wifi-disconnected.png" />
+<img data-bind="attr: {src: disconnectedIcon}" />
 <!-- /ko -->
