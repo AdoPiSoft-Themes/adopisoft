@@ -11,7 +11,7 @@
     "button_view_vouochers": true,
     "button_view_rates": true,
     "button_buy_eload": true,
-    "button_login": true
+    "button_my_account": true
   },
   "banners": {
     "banners": ["images/banner.jpg"]
