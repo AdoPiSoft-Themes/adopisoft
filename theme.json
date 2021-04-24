@@ -74,11 +74,13 @@
         {
           "field_id": "button_buy_eload",
           "label": "Show Buy E-Load Button",
+          "type": "checkbox",
           "defaultValue": true
         },
         {
           "field_id": "button_my_account",
           "label": "Show My Account Button",
+          "type": "checkbox",
           "defaultValue": true
         },
         {
