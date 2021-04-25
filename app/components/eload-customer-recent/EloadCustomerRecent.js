@@ -1,7 +1,7 @@
 define([
   'knockout',
   'text!app/components/eload-customer-recent/eload-customer-recent.html',
-  'app/utils/formatDate',
+  'app/utils/formatDate'
 ], function(ko, tpl, formatDate) {
 
   function VM(params) {
@@ -11,7 +11,7 @@ define([
     self.customer = customer;
 
     var last_purchase = params.last_purchase();
-    if(last_purchase){
+    if(last_purchase) {
       last_purchase.created_at = formatDate(last_purchase.created_at);
     }
 

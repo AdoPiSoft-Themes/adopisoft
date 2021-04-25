@@ -21,7 +21,7 @@ define([
     self.isValidPhoneAcc = ko.observable(false);
     self.providers = ko.observableArray([]);
 
-    self.acc_number = ko.observable("");
+    self.acc_number = ko.observable('');
     self.customer = ko.observable();
     self.selected_product = ko.observable();
     self.voucher = ko.observable();
@@ -38,26 +38,26 @@ define([
       var is_valid = acc_number.length > 5 && !isNaN(acc_number);
       self.isValidPhoneAcc(is_valid);
       self.showInstructionTxt(!is_valid);
-      if (!is_valid){
+      if (!is_valid) {
         return false;
       }
 
       self.loadingCustomer(true);
-      http.getEloadClientData(acc_number, function(err, data){
+      http.getEloadClientData(acc_number, function(err, data) {
         self.loadingCustomer(false);
-        if(err){
+        if(err) {
           return false;
         }
 
-        if(data.customer && data.customer.id){
-          self.customer(data.customer)
-          self.last_purchase(data.last_purchase)
+        if(data.customer && data.customer.id) {
+          self.customer(data.customer);
+          self.last_purchase(data.last_purchase);
         }
 
       });
 
       self.loadingProviders(true);
-      http.getEloadProviders(acc_number, function(err, data){
+      http.getEloadProviders(acc_number, function(err, data) {
         self.loadingProviders(false);
         var providers = data || [];
         self.active_provider(providers[0]);
@@ -71,11 +71,11 @@ define([
       rootVM.showingBanners(false);
       rootVM.showingSessionsTable(false);
 
-      self.acc_number(cachedData.account_number || ""); //pre-populate cached number
+      self.acc_number(cachedData.account_number || ''); //pre-populate cached number
 
       http.checkEloadAvailability(function(err, data) {
         self.isPageReady(true);
-        if(err){
+        if(err) {
           self.isEloadAvailable(false);
           return toast.error(err.toString());
         }

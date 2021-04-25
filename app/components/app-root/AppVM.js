@@ -7,7 +7,7 @@ define([
   'app/components/status-nav/StatusNavComponent',
   'app/components/banners/Banners',
   'app/components/sessions-table/SessionsTableComponent',
-  'app/components/modal/Modal',
+  'app/components/modal/Modal'
 ], function (ko, rootVM, config, payment) {
 
   return function AppVM() {

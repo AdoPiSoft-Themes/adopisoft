@@ -3,7 +3,7 @@ define([
   'rootVM',
   'app/services/config',
   'app/observables/payment',
-  'app/observables/customer',
+  'app/observables/customer'
 ],function (ko, rootVM, config, payment, customer) {
   return function () {
     var self = this;
@@ -35,13 +35,13 @@ define([
       rootVM.navigate('buy-eload-page');
     };
 
-    this.topupWallet = function(){
+    this.topupWallet = function() {
       self.loading(true);
       payment.isVoucher(false);
       payment.intent('wallet_topup');
       payment.rateType('wallet_topup');
       rootVM.navigate('select-coinslot-page');
-    }
+    };
 
     this.koDescendantsComplete = function () {
       rootVM.showingStatusNav(true);
@@ -49,6 +49,6 @@ define([
       rootVM.showingSessionsTable(true);
     };
 
-    customer.fetch(function(){});
+    customer.fetch(function() { });
   };
 });

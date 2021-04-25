@@ -25,33 +25,34 @@ define([
     self.checking_related_txn = ko.observable(true);
     self.activating_voucher = ko.observable(false);
 
-    self.voucher_code = ko.observable("");
-    self.back = function(){
+    self.voucher_code = ko.observable('');
+    self.back = function() {
       self.selected_product(null);
-    }
+    };
 
-    self.calcToPay = function(){
+    self.calcToPay = function() {
       var dupTxn = self.related_txn();
-      if( dupTxn && dupTxn.is_paid){
+      if(dupTxn && dupTxn.is_paid) {
         return 0;
       }
 
-      var customer = self.customer() || {}
+      var customer = self.customer() || {};
       var credits = customer.credits || 0;
       return Math.max(0, self.product.price - credits).toFixed(2);
-    }
+    };
 
-    self.confirmPurchase = function(){
+    self.confirmPurchase = function() {
 
       var provider_id = self.active_provider_id;
       var product = self.product;
       var related_txn = self.related_txn;
       var voucher = self.voucher;
 
-      if(!product.type || product.type != 'regular')
+      if(!product.type || product.type !== 'regular') {
         product.type = 'promo';
+      }
       
-      var voucher_id = (voucher || {}).id
+      var voucher_id = (voucher || {}).id;
       var toPay = self.calcToPay();
 
       payment.eloadOptions({
@@ -60,52 +61,52 @@ define([
         product_keyword: product.keyword
       });
 
-      if( (related_txn && related_txn.is_paid) || toPay <= 0 ){
-        http.purchaseLoad(self.acc_number, provider_id, product.keyword, voucher_id, function(err){
-          if(!err){
+      if((related_txn && related_txn.is_paid) || toPay <= 0) {
+        http.purchaseLoad(self.acc_number, provider_id, product.keyword, voucher_id, function(err) {
+          if(!err) {
             rootVM.navigate('home-page');
-            modal.show("eload-processing", {account_number: acc_number, product_keyword: product.keyword});
+            modal.show('eload-processing', {account_number: self.acc_number, product_keyword: product.keyword});
           }
-        })
-      }else if(toPay > 0){
-        payment.intent("eload");
-        payment.rateType("eload");
+        });
+      }else if(toPay > 0) {
+        payment.intent('eload');
+        payment.rateType('eload');
         payment.isVoucher(false);
         rootVM.navigate('select-coinslot-page');
       }
-    }
+    };
 
-    self.activateVoucher = function(){
+    self.activateVoucher = function() {
       if(self.activating_voucher()) return false;
       self.activating_voucher(true);
-      http.activateEloadVoucher(self.acc_number, self.voucher_code(), function(err, data){
+      http.activateEloadVoucher(self.acc_number, self.voucher_code(), function(err, data) {
         self.activating_voucher(false);
 
-        if(err){
-          var msg = JSON.parse(err.responseText)
+        if(err) {
+          var msg = JSON.parse(err.responseText);
           return toast.error(msg.error);
         }
 
-        toast.success("Voucher successfully activated");
+        toast.success('Voucher successfully activated');
 
-        self.voucher_code("");
-        self.customer(data.customer)
-      })
-    }
+        self.voucher_code('');
+        self.customer(data.customer);
+      });
+    };
 
     self.formatDate = formatDate;
 
     self.koDescendantsComplete = function () {
-      http.checkEloadProvider(self.active_provider_id, function(err, data){
+      http.checkEloadProvider(self.active_provider_id, function(err) {
         self.checking_provider(false);
 
-        http.getRelatedTxn(self.acc_number, self.product.keyword, function(err, data2){
+        http.getRelatedTxn(self.acc_number, self.product.keyword, function(err, data2) {
           self.checking_related_txn(false);
           self.related_txn((data2 || {}).related_txn);
-        })
+        });
         self.is_provider_available(!err);
-      })
-    }
+      });
+    };
   }
 
   ko.components.register('eload-to-pay', {

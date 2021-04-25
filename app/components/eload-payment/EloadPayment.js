@@ -16,29 +16,29 @@ define([
     self.donePayment = params.donePayment;
     self.hasPayment = params.hasPayment;
 
-    self.calcEloadPayable = ko.pureComputed(function(){
+    self.calcEloadPayable = ko.pureComputed(function() {
       var que = self.que;
-      return Math.max(que.eload_price() - que.customer_credits(), 0).toFixed(2)
-    })
+      return Math.max(que.eload_price() - que.customer_credits(), 0).toFixed(2);
+    });
 
-    self.cancelEloadPayment = function(){
+    self.cancelEloadPayment = function() {
       device.is_paying(false);
-      http.donePayment(self.que.coinslot_id(), function(err, data) {
+      http.donePayment(self.que.coinslot_id(), function() {
         rootVM.navigate('buy-eload-page');
       });
-    }
+    };
 
-    self.handleFullyPaidEload = function(data){
-      if(data && data.type != 'eload') return
-      var is_paid = data.eload_price - data.customer_credits <= 0
-      if(is_paid){
-        http.donePayment(data.coinslot_id, function(err){
-          if(!err){
-            modal.show("eload-processing", {account_number: self.que.account_number(), product_keyword: self.que.product_keyword()});
+    self.handleFullyPaidEload = function(data) {
+      if(data && data.type !== 'eload') return;
+      var is_paid = data.eload_price - data.customer_credits <= 0;
+      if(is_paid) {
+        http.donePayment(data.coinslot_id, function(err) {
+          if(!err) {
+            modal.show('eload-processing', {account_number: self.que.account_number(), product_keyword: self.que.product_keyword()});
           }
         });
       }
-    }
+    };
 
     socket().on('payment:received', self.handleFullyPaidEload);
 

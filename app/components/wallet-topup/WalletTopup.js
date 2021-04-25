@@ -1,10 +1,8 @@
 define([
   'knockout',
   'rootVM',
-  'text!app/components/wallet-topup/wallet-topup.html',
-  'http',
-  'toast'
-], function(ko, rootVM, tpl, http, toast) {
+  'text!app/components/wallet-topup/wallet-topup.html'
+], function(ko, rootVM, tpl) {
 
   function VM(params) {
     var self = this;
