@@ -4,4 +4,3 @@ tags
 tags.*
 .DS_Store
 *.js_eslint_tmp*.js
-config.json
