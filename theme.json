@@ -179,6 +179,18 @@
           ]
         }
       ]
+    },
+    {
+      "field_group_id": "other",
+      "legend": "Uploads",
+      "fields": [
+        {
+          "field_id": "upload_files",
+          "label": "Upload Your Files",
+          "type": "files",
+          "defaultValue": []
+        }
+      ]
     }
   ]
 }
