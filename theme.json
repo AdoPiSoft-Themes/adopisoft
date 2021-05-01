@@ -124,6 +124,18 @@
           }
         },
         {
+          "field_id": "countdown_bg_sound",
+          "label":  "Countdown Background Sound",
+          "type": "sound",
+          "defaultValue": {
+            "src": "sounds/silent.mp3",
+            "format": "audio/mpeg",
+            "loop": true,
+            "loop_delay": 1000
+          }
+        },
+
+        {
           "field_id": "connected_sound",
           "label": "Connected Sound",
           "type": "sound",

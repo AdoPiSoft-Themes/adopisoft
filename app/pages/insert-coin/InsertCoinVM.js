@@ -106,10 +106,12 @@ define([
       socket().removeListener('payment:received', self.onPaymentReceived);
       socket().removeListener('payment:done', self.done);
       sounds.insertCoin.stop();
+      sounds.insertCoinBg.stop();
     };
 
     receipt.reset();
     sounds.insertCoin.play();
+    sounds.insertCoinBg.play();
     socket().on('payment:received', self.onPaymentReceived);
     socket().on('payment:done', self.done);
 

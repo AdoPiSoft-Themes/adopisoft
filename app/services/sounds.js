@@ -32,6 +32,7 @@ define(['howler', 'app/services/config'], function (howler, config) {
     var disconnected = new Sound(config.findField('sounds', 'disconnected_sound'));
     var connected = new Sound(config.findField('sounds', 'connected_sound'));
     var insertCoin = new Sound(config.findField('sounds', 'countdown_sound'));
+    var insertCoinBg = new Sound(config.findField('sounds', 'countdown_bg_sound'));
     var coinInserted = new Sound(config.findField('sounds', 'coin_inserted'));
     var error = new Sound(config.findField('sounds', 'error_sound'));
 
@@ -39,6 +40,7 @@ define(['howler', 'app/services/config'], function (howler, config) {
       connected: connected,
       disconnected: disconnected,
       insertCoin: insertCoin,
+      insertCoinBg: insertCoinBg,
       coinInserted: coinInserted,
       error: error
     };
@@ -48,6 +50,7 @@ define(['howler', 'app/services/config'], function (howler, config) {
       connected: noopSound,
       disconnected: noopSound,
       insertCoin: noopSound,
+      insertCoinBg: noopSound,
       coinInserted: noopSound,
       error: noopSound
     };
