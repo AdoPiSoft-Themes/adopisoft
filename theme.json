@@ -131,7 +131,7 @@
             "src": "sounds/silent.mp3",
             "format": "audio/mpeg",
             "loop": true,
-            "loop_delay": 1000
+            "loop_delay": 0
           }
         },
 
