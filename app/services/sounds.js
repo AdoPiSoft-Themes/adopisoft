@@ -29,6 +29,8 @@ define(['howler', 'app/services/config'], function (howler, config) {
 
   try {
 
+    var insertCoinBgOpts = config.findField('sounds', 'countdown_bg_sound');
+    var insertCoinBg = insertCoinBgOpts ? new Sound(insertCoinBgOpts) : noopSound;
     var disconnected = new Sound(config.findField('sounds', 'disconnected_sound'));
     var connected = new Sound(config.findField('sounds', 'connected_sound'));
     var insertCoin = new Sound(config.findField('sounds', 'countdown_sound'));
@@ -43,6 +45,7 @@ define(['howler', 'app/services/config'], function (howler, config) {
       connected: connected,
       disconnected: disconnected,
       insertCoin: insertCoin,
+      insertCoinBg: insertCoinBg,
       coinInserted: coinInserted,
       error: error,
       eload_processing: eload_processing,
@@ -56,6 +59,7 @@ define(['howler', 'app/services/config'], function (howler, config) {
       connected: noopSound,
       disconnected: noopSound,
       insertCoin: noopSound,
+      insertCoinBg: noopSound,
       coinInserted: noopSound,
       error: noopSound,
       eload_processing: noopSound,

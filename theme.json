@@ -10,6 +10,7 @@
           "field_id": "favicon",
           "label": "Favicon Image",
           "type": "image",
+          "required": true,
           "defaultValue": "favicon.ico"
         },
         {
@@ -36,6 +37,13 @@
           "type": "textarea",
           "rows": 5,
           "defaultValue": "Powered By <b><a href=\"//www.adopisoft.com\">AdoPiSoft</a>"
+        },
+        {
+          "field_id": "background_image",
+          "label": "Background Image",
+          "type": "image",
+          "required": false,
+          "defaultValue": null
         },
         {
           "field_id": "submit",
@@ -97,12 +105,14 @@
           "field_id": "wifi_connected_icon",
           "label": "Connected Icon",
           "type": "image",
+          "required": true,
           "defaultValue": "images/wifi-connected.png"
         },
         {
           "field_id": "wifi_disconnected_icon",
           "label": "Disconnected Icon",
           "type": "image",
+          "required": true,
           "defaultValue": "images/wifi-disconnected.png"
         }
       ]
@@ -128,6 +138,7 @@
           "field_id": "countdown_sound",
           "label":  "Payment Countdown Sound",
           "type": "sound",
+          "required": true,
           "defaultValue": {
             "src": "sounds/count-down-beep.mp3",
             "format": "audio/mpeg",
@@ -136,9 +147,18 @@
           }
         },
         {
+          "field_id": "countdown_bg_sound",
+          "label":  "Countdown Background Sound",
+          "type": "sound",
+          "required": false,
+          "defaultValue": null
+        },
+
+        {
           "field_id": "connected_sound",
           "label": "Connected Sound",
           "type": "sound",
+          "required": true,
           "defaultValue": {
             "src": "sounds/connected.mp3",
             "format": "audio/mpeg"
@@ -148,6 +168,7 @@
           "field_id": "disconnected_sound",
           "label": "Disconnected Sound",
           "type": "sound",
+          "required": true,
           "defaultValue": {
             "src": "sounds/disconnected.mp3",
             "format": "audio/mpeg"
@@ -157,6 +178,7 @@
           "field_id": "coin_inserted",
           "label":  "Coin Inserted Sound",
           "type": "sound",
+          "required": true,
           "defaultValue": {
             "src": "sounds/coin-inserted.mp3",
             "format": "audio/mpeg"
@@ -166,6 +188,7 @@
           "field_id": "error_sound",
           "label":  "Error Sound",
           "type": "sound",
+          "required": true,
           "defaultValue": {
             "src": "sounds/error.mp3",
             "format": "audio/mpeg"
@@ -226,6 +249,18 @@
             "styles/portal.css",
             "styles/modal.css"
           ]
+        }
+      ]
+    },
+    {
+      "field_group_id": "other",
+      "legend": "Uploads",
+      "fields": [
+        {
+          "field_id": "upload_files",
+          "label": "Upload Your Files",
+          "type": "files",
+          "defaultValue": []
         }
       ]
     }

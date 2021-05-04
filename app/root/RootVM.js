@@ -6,11 +6,14 @@ define([
 
   function RootVm() {
     var self = this;
+    var imageBg = config.findField('page_properties', 'background_image');
     this.baseUrl = ko.observable(location.href);
     this.favicon = ko.observable(config.favicon());
     this.pageTitle = ko.observable(config.pageTitle());
     this.styles = ko.observableArray(config.styles());
     this.footerHtml = config.footerHtml();
+    this.bodyClass = imageBg ? 'has-image-bg' : '';
+    this.bodyStyle = imageBg ? {'background-image': 'url(' + imageBg + ')'} : {};
 
     this.page = ko.observable('');
     this.showingStatusNav = ko.observable(true);

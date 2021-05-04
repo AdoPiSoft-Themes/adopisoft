@@ -1,7 +1,6 @@
 define([
   'knockout',
   'rootVM',
-  'app/components/banner-text/BannerTextComponent',
   'app/components/start-pause-buttons/StartPauseButtonsComponent',
   'app/components/insert-coin-btn/InsertCoinBtn',
   'app/components/voucher-form/VoucherForm',
