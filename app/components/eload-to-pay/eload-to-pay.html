@@ -1,0 +1,118 @@
+<hr>
+<!-- ko if: checking_provider -->
+<p>Checking provider availability ...</p>
+<!-- /ko -->
+
+<!-- ko if: !is_provider_available() && !checking_provider() -->
+<p class="alert alert-danger" data-bind="text: active_provider().name+' is temporarily unavailable'"></p>
+<!-- /ko -->
+
+<div data-bind="visible: is_provider_available() && !checking_provider()">
+  <div class="row">
+    <div class="col-md-12">
+
+      <table style="width:100%;" class="summary-table">
+        <tr>
+          <td class="text-left" width="70%" style="vertical-align: top;">
+            <strong>
+              <!-- ko if: !isNaN(product.keyword) -->
+              <span>Php</span>
+              <!-- /ko -->
+              <span data-bind="text: product.keyword"></span>
+            </strong>
+            <p data-bind="text: product.description"></p>
+          </td>
+          <td width="30%" style="vertical-align:top; padding-left:20px;" class="text-left">
+            <span class='product-price'>
+              <strong>Price</strong>
+              <p>
+                <span data-bind="text: product.price.toFixed(2)"></span>
+                <small> Php</small>
+              </p>
+            </span>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </div>
+  <hr>
+
+  <div class="row">
+    <div class="col-md-12">
+      <div>
+        <span>
+          Wallet Balance:
+          <strong data-bind="text: ((customer() || {}).credits || 0).toFixed(2)"></strong>
+        </span>
+      </div>
+    </div>
+  </div>
+  <hr style="width: 60%">
+
+  <div class="row">
+    <div class="col-md-12">
+      <div>
+        <!-- ko if: checking_related_txn -->
+        <p>Checking duplicate transaction ...</p>
+        <!-- /ko -->
+
+        <!-- ko if: related_txn() && related_txn().is_paid -->
+        <p class="text-danger">
+          Related Unconfirmed Transaction Found:
+          <br/>
+          <strong data-bind="text: formatDate(related_txn().created_at)"></strong>
+        </p>
+        <!-- /ko -->
+
+        <!-- ko ifnot: related_txn() && related_txn().is_paid -->
+        <h3>
+          To Pay:
+          <span data-bind="text: calcToPay()"></span>
+        </h3>
+        <!-- /ko -->
+      </div>
+    </div>
+  </div>
+
+  <hr>
+  <!-- ko if: calcToPay() > 0 -->
+  <form data-bind="submit: activateVoucher">
+    <div class="form-group">
+      <input type="text" data-bind="textInput: voucher_code" name="code" class="form-control text-center input-lg" placeholder="Voucher code here...">
+    </div>
+    <button type="submit" class="btn btn-primary btn-lg" data-bind="attr: {disabled: !voucher_code() || activating_voucher()}">
+      Use Voucher
+    </button>
+  </form>
+  <hr>
+  <!-- /ko -->
+
+  <div class="row">
+    <div class="col-md-12">
+      <div class="buttons-con text-center">
+        <button type="button" class="btn btn-success btn-lg" data-bind="click: confirmPurchase">
+
+          <!-- ko if: related_txn() && related_txn().is_paid -->
+          Re-Process
+          <!-- /ko -->
+
+          <!-- ko if: calcToPay() > 0 -->
+          Pay Now
+          <!-- /ko -->
+
+          <!-- ko if: calcToPay() <= 0 && !(related_txn() && related_txn().is_paid) -->
+          Submit
+          <!-- /ko -->
+
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<br>
+<button type="button" class="btn btn-default btn-lg" data-bind="click: back">
+  Back
+</button>
+<br>
+<br>

@@ -58,14 +58,20 @@ define([
     http.fetchCoinslots = function (cb) {
       http.get('/client/coinslots', cb);
     };
+
     http.queForPayment = function (opts, cb) {
       var data = {
         coinslot_id: opts.coinslot_id,
         type: opts.type,
-        is_voucher: opts.is_voucher
+        is_voucher: opts.is_voucher,
+        provider_id: opts.provider_id,
+        account_number: opts.account_number,
+        product_keyword: opts.product_keyword
       };
+
       http.post('/client/payments/que', data, cb);
     };
+
     http.getDevice = function (cb) {
       http.get('/client/device', cb);
     };
@@ -148,5 +154,6 @@ define([
     }
 
   }
+
   return new Http();
 });

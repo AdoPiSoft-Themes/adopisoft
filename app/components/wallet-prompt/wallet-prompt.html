@@ -1,0 +1,25 @@
+<div class="modal-header text-center">
+   <h2 class="modal-title" class="text-success">
+     You have <span data-bind="text: currency + customer.credits().toFixed(2)" class="text-warning"></span> wallet balance, do you want to use it instead?
+   </h2>
+</div>
+
+<div class="modal-body text-center">
+  <form id="wallet-amount-form" data-bind="submit: payNow">
+    <div class="form-group">
+      <label class="label" for="amount"></label>
+      <input type="number" id="wallet-amount" name="amount" class="text-center input-lg form-control" min='1' data-bind="textInput: amount, attr: {max: customer.credits, placeholder: currency + customer.credits().toFixed(2)}" required style="width: 200px; margin: 0 auto;">
+    </div>
+
+    <div style="text-align: center;">
+       <button class="btn-lg btn btn-success">
+         Pay Now
+       </button>
+       &nbsp;
+       <a class="btn-lg btn btn-default" data-bind="click: close">
+         Close
+       </a>
+    </div>
+  </form>
+</div>
+

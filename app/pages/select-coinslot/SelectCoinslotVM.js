@@ -4,8 +4,11 @@ define([
   'toast',
   'http',
   'app/observables/payment',
-  'app/observables/device'
-], function (ko, rootVM, toast, http, payment, device) {
+  'app/observables/device',
+  'app/observables/customer',
+  'modal',
+  'app/components/wallet-prompt/WalletPrompt'
+], function (ko, rootVM, toast, http, payment, device, customer, modal) {
 
   return function () {
     var self = this;
@@ -24,18 +27,32 @@ define([
         if (err) return toast.error(err.toString());
         self.coinslots(coinslots);
         self.loading(false);
-        if (coinslots.length === 1) self.selectCoinslot(coinslots[0].id);
+
+        var is_wifi_rate = ['time', 'data', 'time_or_data'].includes(payment.rateType());
+        if (is_wifi_rate && customer.credits() > 0) {
+          modal.show('wallet-prompt', {customer: customer, rate_type: payment.rateType(), is_voucher: payment.isVoucher()});
+        } else if (coinslots.length === 1) {
+          self.selectCoinslot(coinslots[0].id);
+        }
       });
 
     };
     self.selectCoinslot = function(coinslot_id) {
       self.selectedId(coinslot_id);
       self.loading(true);
-      http.queForPayment({
+      var params = {
         coinslot_id: coinslot_id,
         type: payment.rateType(),
         is_voucher: payment.isVoucher()
-      }, function(err) {
+      };
+      if(params.type === 'eload') {
+        var opts = payment.eloadOptions();
+        params.provider_id = opts.provider_id;
+        params.account_number = opts.account_number;
+        params.product_keyword = opts.product_keyword;
+      }
+
+      http.queForPayment(params, function(err) {
         if (err) {
           http.catchError(err);
           self.loading(false);
