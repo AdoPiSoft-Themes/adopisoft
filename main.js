@@ -34,12 +34,12 @@ require([
   'rootVM',
   'domready',
   'app/init',
+  'app/plugins/init',
   'app/bindings',
   'app/pages',
   'app/services/config',
   'app/components/app-root/AppComponent'
-], function(ko, rootVM, domready, init) {
-
+], function(ko, rootVM, domready, init, initPlugins) {
   function onLoad() {
     init(function () {
       var headEl = document.getElementsByTagName('head')[0];
@@ -47,6 +47,7 @@ require([
       ko.applyBindings(rootVM, headEl);
       ko.applyBindings(rootVM, bodyEl);
     });
+    initPlugins();
   }
 
   domready(onLoad);
