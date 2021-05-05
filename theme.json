@@ -32,7 +32,7 @@
           "defaultValue": "https://www.adopisoft.com/cp"
         },
         {
-          "field_id": "footer",
+          "field_id": "footer_html",
           "label": "Footer HTML",
           "type": "textarea",
           "rows": 5,
