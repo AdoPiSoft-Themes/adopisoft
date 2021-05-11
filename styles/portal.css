@@ -37,3 +37,9 @@ img.img-full {
   border-bottom-left-radius: 0px;
   border-bottom-right-radius: 0px;
 }
+
+.has-image-bg {
+  background-size: cover;
+  background-position: fixed;
+  background-repeat: none;
+}
