@@ -10,9 +10,6 @@ function (config) {
     this.pageTitle = function () {
       return this.findField('page_properties', 'page_title');
     };
-    this.footerHtml = function () {
-      return this.findField('page_properties', 'footer_html');
-    };
     this.styles = function () {
       return this.findField('css', 'css_files');
     };
