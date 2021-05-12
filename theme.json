@@ -33,13 +33,13 @@
         },
         {
           "field_id": "footer_text",
-          "label": "Footer Text",
+          "label": "Powered By Text",
           "type": "text",
           "defaultValue": "AdoPiSoft"
         },
         {
           "field_id": "footer_url",
-          "label": "Footer URL",
+          "label": "Powered By URL",
           "type": "text",
           "defaultValue": "https://adopisoft.com"
         },
