@@ -7,14 +7,14 @@ define([
   'app/components/status-nav/StatusNavComponent',
   'app/components/banners/Banners',
   'app/components/sessions-table/SessionsTableComponent',
-  'app/components/modal/Modal'
+  'app/components/modal/Modal',
+  'app/components/footer/Footer'
 ], function (ko, rootVM, config, payment) {
 
   return function AppVM() {
     this.favicon = ko.observable(config.favicon());
     this.pageTitle = ko.observable(config.pageTitle());
     this.styles = ko.observableArray(config.styles());
-    this.footerHtml = ko.observable(config.footerHtml());
     
     this.buyWifi = function () {
       payment.intent('wifi');

@@ -11,7 +11,6 @@ define([
     this.favicon = ko.observable(config.favicon());
     this.pageTitle = ko.observable(config.pageTitle());
     this.styles = ko.observableArray(config.styles());
-    this.footerHtml = config.footerHtml();
     this.bodyClass = imageBg ? 'has-image-bg' : '';
     this.bodyStyle = imageBg ? {'background-image': 'url(' + imageBg + ')'} : {};
 

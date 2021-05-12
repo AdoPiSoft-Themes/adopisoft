@@ -104,3 +104,9 @@ img.img-full {
 .unread-indicator {
   z-index: 999;
 }
+
+.has-image-bg {
+  background-size: cover;
+  background-position: fixed;
+  background-repeat: none;
+}
