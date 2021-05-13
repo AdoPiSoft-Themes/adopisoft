@@ -24,6 +24,7 @@ define([
     self.checking_provider = ko.observable(true);
     self.checking_related_txn = ko.observable(true);
     self.activating_voucher = ko.observable(false);
+    self.error_msg = ko.observable('');
 
     self.voucher_code = ko.observable('');
     self.back = function() {
@@ -97,14 +98,18 @@ define([
     self.formatDate = formatDate;
 
     self.koDescendantsComplete = function () {
-      http.checkEloadProvider(self.active_provider_id, function(err) {
+      http.checkEloadProvider(self.active_provider_id, self.product.keyword, function(err) {
         self.checking_provider(false);
 
         http.getRelatedTxn(self.acc_number, self.product.keyword, function(err, data2) {
           self.checking_related_txn(false);
           self.related_txn((data2 || {}).related_txn);
         });
+
         self.is_provider_available(!err);
+        if(err) {
+          self.error_msg(err.response.replaceAll('"', ''));
+        }
       });
     };
   }
