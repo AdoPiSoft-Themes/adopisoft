@@ -53,3 +53,10 @@ img.img-full {
   -ms-overflow-style: none;  /* IE and Edge */
   scrollbar-width: none;  /* Firefox */
 }
+
+.has-image-bg {
+  background-size: cover;
+  background-position: fixed;
+  background-repeat: none;
+}
+

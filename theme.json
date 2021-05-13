@@ -32,22 +32,34 @@
           "defaultValue": "https://www.adopisoft.com/cp"
         },
         {
-          "field_id": "footer",
-          "label": "Footer HTML",
-          "type": "textarea",
-          "rows": 5,
-          "defaultValue": "Powered By <b><a href=\"//www.adopisoft.com\">AdoPiSoft</a>"
+          "field_id": "footer_text",
+          "label": "Powered By Text",
+          "type": "text",
+          "defaultValue": "AdoPiSoft"
         },
+        {
+          "field_id": "footer_url",
+          "label": "Powered By URL",
+          "type": "text",
+          "defaultValue": "https://adopisoft.com"
+        },
+
+        {
+          "field_id": "submit",
+          "type": "submit"
+        }
+      ]
+    },
+    {
+      "field_group_id": "page_background",
+      "legend": "Background Style",
+      "fields": [
         {
           "field_id": "background_image",
           "label": "Background Image",
           "type": "image",
           "required": false,
           "defaultValue": null
-        },
-        {
-          "field_id": "submit",
-          "type": "submit"
         }
       ]
     },
