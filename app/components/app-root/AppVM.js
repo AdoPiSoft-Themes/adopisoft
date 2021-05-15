@@ -8,7 +8,6 @@ define([
   'app/components/banners/Banners',
   'app/components/sessions-table/SessionsTableComponent',
   'app/components/modal/Modal',
-  'app/components/footer/Footer',
   'app/components/footer/Footer'
 ], function (ko, rootVM, config, payment) {
 
