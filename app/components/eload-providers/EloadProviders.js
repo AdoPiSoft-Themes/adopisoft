@@ -6,17 +6,17 @@ define([
   function VM(params) {
     var self = this;
     self.logo_urls = {
-      Globe: '/captive-portal/images/eload-logos/globe-logo.png',
-      SMART: '/captive-portal/images/eload-logos/smart-logo.png',
-      SUN: '/captive-portal/images/eload-logos/sun-logo.png',
-      TNT: '/captive-portal/images/eload-logos/tnt-logo.png',
-      TM: '/captive-portal/images/eload-logos/tm-logo.png',
-      CIGNAL: '/captive-portal/images/eload-logos/cignal-logo.png',
-      GSAT: '/captive-portal/images/eload-logos/gsat-logo.png',
-      MERALCO: '/captive-portal/images/eload-logos/meralco-prepaid-logo.png',
-      'SKY CABLE': '/captive-portal/images/eload-logos/sky-direct-logo.png',
-      'CHERRY PREPA.': '/captive-portal/images/eload-logos/cherry-prepaid-logo.png',
-      'CHERRY PREPAID': '/captive-portal/images/eload-logos/cherry-prepaid-logo.png'
+      Globe: '/uploads/img/eload-logos/globe-logo.png',
+      SMART: '/uploads/img/eload-logos/smart-logo.png',
+      SUN: '/uploads/img/eload-logos/sun-logo.png',
+      TNT: '/uploads/img/eload-logos/tnt-logo.png',
+      TM: '/uploads/img/eload-logos/tm-logo.png',
+      CIGNAL: '/uploads/img/eload-logos/cignal-logo.png',
+      GSAT: '/uploads/img/eload-logos/gsat-logo.png',
+      MERALCO: '/uploads/img/eload-logos/meralco-prepaid-logo.png',
+      'SKY CABLE': '/uploads/img/eload-logos/sky-direct-logo.png',
+      'CHERRY PREPA.': '/uploads/img/eload-logos/cherry-prepaid-logo.png',
+      'CHERRY PREPAID': '/uploads/img/eload-logos/cherry-prepaid-logo.png'
     };
     self.logoUrl = function(p) {
       p = p || '';
