@@ -134,10 +134,6 @@ define([
       http.get('/client/eload/related-txn?account_number=' + account_number + '&product_keyword=' + product_keyword, cb);
     };
 
-    http.getCurrentUser = function(cb) {
-      http.get('/user/me', cb);
-    };
-
     http.customerPurchase = function(opts, cb) {
       http.post('/customer/purchase', opts, cb);
     };
