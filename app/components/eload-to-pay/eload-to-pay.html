@@ -4,7 +4,7 @@
 <!-- /ko -->
 
 <!-- ko if: !is_provider_available() && !checking_provider() -->
-<p class="alert alert-danger" data-bind="text: active_provider().name+' is temporarily unavailable'"></p>
+<p class="alert alert-danger" data-bind="text: error_msg"></p>
 <!-- /ko -->
 
 <div data-bind="visible: is_provider_available() && !checking_provider()">
