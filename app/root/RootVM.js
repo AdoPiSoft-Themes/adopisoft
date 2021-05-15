@@ -1,8 +1,9 @@
 define([
   'knockout',
   'app/services/config',
+  'app/services/plugin_assets',
   'app/observables/device'
-], function (ko, config, device) {
+], function (ko, config, assets, device) {
 
   function RootVm() {
     var self = this;
