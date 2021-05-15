@@ -3,7 +3,7 @@
   <div data-bind="if: $root.currentPage">
 
     <div data-bind="visible: $root.showingStatusNav">
-      <div id="status-nav-con" class="container" data-bind="component: 'status-nav'"></div>
+      <div id="status-nav-con" data-bind="component: 'status-nav'"></div>
     </div>
 
     <div class="container text-center" data-bind="visible: $root.showingBanners">
@@ -24,3 +24,4 @@
 
 <div data-bind="component: 'footer'"></div>
 
+<!-- ko component: 'plugins-js' --><!-- /ko -->
