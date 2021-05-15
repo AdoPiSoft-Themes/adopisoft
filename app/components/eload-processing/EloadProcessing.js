@@ -6,7 +6,7 @@ define([
   'sounds'
 ], function(ko, rootVM, tpl, socket, sounds) {
   function VM(params) {
-    var loader_icon = '<img src="/captive-portal/images/preloader.gif" style="width: 20px;margin: 10px;"/>';
+    var loader_icon = '<img src="/uploads/img/preloader.gif" style="width: 20px;margin: 10px;"/>';
     var self = this;
     self.account_number = ko.observable(params.account_number);
     self.title = ko.observable('Submitting Request');
