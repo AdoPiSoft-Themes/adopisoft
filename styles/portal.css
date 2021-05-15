@@ -43,3 +43,56 @@ img.img-full {
   background-position: fixed;
   background-repeat: none;
 }
+
+.fa {
+  position: relative;
+  top: 1px;
+  display: inline-block;
+  font-family: "Glyphicons Halflings";
+  font-style: normal;
+  font-weight: 400;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale
+}
+
+/*Plugins*/
+.fa-comments{
+  left: 35px;
+}
+
+.fa-comments:before {
+  content: "\e111";
+}
+
+.fa-close:before{
+  content: "\e014";
+}
+
+.fa-chevron-circle-right:before{
+  content: "\e171";
+}
+
+.voucher-code-input{
+
+}
+
+.fa-qrcode{
+  z-index: 99;
+  top: 10px !important;
+  margin-left: -15px !important;
+}
+
+.fa-qrcode:before{
+  content: "\e039"
+}
+
+.input-group-btn .btn{
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+}
+
+.unread-indicator {
+  z-index: 999;
+}
+
