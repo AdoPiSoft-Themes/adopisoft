@@ -7,8 +7,7 @@ define([
   'app/components/status-nav/StatusNavComponent',
   'app/components/banners/Banners',
   'app/components/sessions-table/SessionsTableComponent',
-  'app/components/footer/Footer',
-  'app/components/plugins/scripts/Scripts'
+  'app/components/footer/Footer'
 ], function (ko, rootVM, config, payment) {
 
   return function AppVM() {
