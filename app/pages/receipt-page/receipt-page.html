@@ -42,13 +42,13 @@
         <!-- /ko -->
 
         <!-- ko ifnot: receipt.isVoucher -->
-        <!-- ko if: sessions.hasRunning -->
+        <!-- ko if: sessions.hasRunning() || !receipt.sessionId()-->
         <a class="btn btn-lg btn-success" data-bind="navigate: 'home-page'">
           Done
           <i class="glyphicon glyphicon-chevron-right"></i>
         </a>
         <!-- /ko -->
-        <!-- ko ifnot: sessions.hasRunning -->
+        <!-- ko if: !sessions.hasRunning() && receipt.sessionId()-->
         <a class="btn btn-lg btn-primary" data-bind="click: connect">
           Connect Now
         </a>

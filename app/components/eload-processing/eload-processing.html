@@ -1,0 +1,28 @@
+<div class="modal-header text-center">
+   <h2 class="modal-title" data-bind="text: title, attr: {class: status() == 'failed' ? 'text-danger' : status() == 'queued' ? 'text-warning' : 'text-success'}">Processing eLoad Transaction</h2>
+</div>
+
+<div class="modal-body text-center">
+   <h4 data-bind="html: message">Please wait ...</h4>
+</div>
+
+<div class="modal-footer" style="text-align: center;">
+   <!-- ko if: allow_retry() -->
+   <p class="text-warning">If it takes too long, just retry for free</p>
+   <button class="btn btn-warning" data-bind="click: retry">
+     Re-Try Now
+   </button>
+   <!-- /ko -->
+
+   <!-- ko if: status() == 'succeed' -->
+   <button class="btn btn-success" data-bind="click: close">
+     OK
+   </button>
+   <!-- /ko -->
+
+   <!-- ko if: status() == 'failed' -->
+   <button class="btn btn-success" data-bind="click: retry">
+     Re-Try
+   </button>
+   <!-- /ko -->
+</div>

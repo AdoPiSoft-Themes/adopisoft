@@ -2,12 +2,23 @@
   <div class="text-center">
     <div class="btn-group-padded">
       <div data-bind="component: 'device-info'"></div>
+
+      <!-- ko if: showMyAccountBtn() || customer.id() -->
+      <a class="btn btn-info btn-lg" href="/u">
+        My Account
+      </a>
+      <!-- /ko -->
+
+      <!-- ko if: showBuyVoucherBtn() && !customer.id() -->
       <a class="btn btn-info btn-lg" data-bind="navigate: 'view-vouchers'">
         View Vouchers
       </a>
+      <!-- /ko -->
+
       <a class="btn btn-info btn-lg" data-bind="navigate: 'view-rates'">
         View Rates
       </a>
+
       <a class="btn btn-lg btn-default" data-bind="navigate: 'home-page'">
         <i class="glyphicon glyphicon-chevron-left"></i>
         Back

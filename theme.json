@@ -92,6 +92,18 @@
           "defaultValue": true
         },
         {
+          "field_id": "button_buy_eload",
+          "label": "Show Buy E-Load Button",
+          "type": "checkbox",
+          "defaultValue": true
+        },
+        {
+          "field_id": "button_my_account",
+          "label": "Show My Account Button",
+          "type": "checkbox",
+          "defaultValue": true
+        },
+        {
           "field_id": "submit",
           "type": "submit"
         }
@@ -193,6 +205,42 @@
             "src": "sounds/error.mp3",
             "format": "audio/mpeg"
           }
+        },
+        {
+          "field_id": "eload_successful",
+          "label": "E-Load Success Sound",
+          "type": "sound",
+          "defaultValue":{
+            "src": "sounds/eload-successful.mp3",
+            "format": "audio/mpeg"
+          }
+        },
+        {
+          "field_id": "eload_failed",
+          "label": "E-Load Failed Sound",
+          "type": "sound",
+          "defaultValue":{
+            "src": "sounds/eload-failed.mp3",
+            "format": "audio/mpeg"
+          }
+        },
+        {
+          "field_id": "eload_processing",
+          "label": "E-Load Processing Sound",
+          "type": "sound",
+          "defaultValue":{
+            "src": "sounds/eload_processing.mp3",
+            "format": "audio/mpeg"
+          }
+        },
+        {
+          "field_id": "eload_queued",
+          "label": "E-Load Queued Sound",
+          "type": "sound",
+          "defaultValue":{
+            "src": "sounds/eload_queued.mp3",
+            "format": "audio/mpeg"
+          }
         }
       ]
     },
@@ -210,7 +258,8 @@
             "styles/ie10-viewport-bug-workaround.css",
             "styles/sticky-footer-navbar.css",
             "styles/ellipsis.css",
-            "styles/portal.css"
+            "styles/portal.css",
+            "styles/modal.css"
           ]
         }
       ]

@@ -1,0 +1,51 @@
+<div class="container" data-bind="visible: !['eload', 'wallet_topup'].includes(que.type)">
+  <div class="row">
+    <div class="col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3">
+      <div class="list-group">
+
+        <div class="list-group-item">
+          <h3>
+            To Pay:
+            <span class="text-danger">
+              <span>Php</span>
+              <span data-bind="text: calcEloadPayable()"></span>
+            </span>
+          </h3>
+        </div>
+        <div class="list-group-item">
+          <h3>
+            Total Credits:
+            <span class="text-success">
+              <span>Php</span>
+              <span data-bind="text: que.customer_credits().toFixed(2)"></span>
+            </span>
+          </h3>
+        </div>
+
+        <div class="list-group-item">
+          <h3>
+            Acc. Number:
+            <span class="text-success">
+              <span data-bind="text: que.account_number()"></span>
+            </span>
+          </h3>
+        </div>
+
+        <div class="list-group-item">
+          <h3>
+            eLoad Product:
+            <span class="text-success">
+              <span data-bind="text: que.product_keyword()"></span>
+            </span>
+          </h3>
+        </div>
+
+        <div class="list-group-item">
+          <!-- ko ifnot: hasPayment -->
+          <a class="btn btn-lg btn-warning" data-bind="click: cancelEloadPayment">Cancel</a>
+          <!-- /ko -->
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

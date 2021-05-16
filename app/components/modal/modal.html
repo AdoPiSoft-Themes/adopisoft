@@ -1,0 +1,12 @@
+<!-- ko if: modalComponent() -->
+<div class="modal-backdrop fade in"></div>
+
+<div class="modal fade in" role="dialog" id="myModal" tabindex="-1" aria-labelledby="myModalLabel" style="display: block; padding-left: 0px;">
+   <div class="modal-dialog" role="document">
+      <div class="modal-content">
+         <div data-bind="component: {name: modalComponent(), params: modalOptions()}"></div>
+      </div>
+   </div>
+</div>
+
+<!-- /ko -->
