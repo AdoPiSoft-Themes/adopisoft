@@ -126,7 +126,7 @@
           "label": "Banners",
           "type": "images",
           "min": 1,
-          "defaultValue": ["images/banner.jpg"]
+          "defaultValue": ["images/adopisoft-default-banner.png"]
         }
       ]
     },
