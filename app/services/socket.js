@@ -2,8 +2,9 @@ define([
   'knockout',
   'socketIO',
   'toast',
-  'sounds'
-], function (ko, socketIO, toast, sounds) {
+  'sounds',
+  'redirect'
+], function (ko, socketIO, toast, sounds, redirect) {
 
   var socket;
 
@@ -18,8 +19,10 @@ define([
         d.set(device);
         toast.success('Yehey!', 'Connected to internet.');
         sounds.connected.play();
+        redirect.redirect();
       });
       socket.on('device:disconnected', function(device) {
+        redirect.cancel();
         d.set(device);
         toast.error('Oppps!', 'Disconnected from internet.');
         sounds.disconnected.play();

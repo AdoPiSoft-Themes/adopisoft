@@ -60,7 +60,6 @@ function (ko, toast, http, redirect, config, parseCredits, formatDate) {
           toast.error(err.toString());
         } else {
           self.status('running'); 
-          redirect.redirect(); 
         }
       });
     };
