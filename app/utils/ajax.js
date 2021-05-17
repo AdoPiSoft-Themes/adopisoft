@@ -6,8 +6,17 @@ define(['knockout'], function (ko) {
       : new window.XMLHttpRequest();
   }
 
+  function serialize(obj) {
+    var str = [];
+    for (var p in obj)
+      if (obj.hasOwnProperty(p)) {
+        str.push(encodeURIComponent(p) + "=" + encodeURIComponent(obj[p]));
+      }
+    return str.join("&");
+  }
+
   return function Ajax(opts) {
-    var method = opts.method || 'GET';
+    var method = (opts.method || 'GET').toUpperCase();
     var url = opts.url;
     var data = opts.data || {};
     var successCb = opts.success;
@@ -25,13 +34,20 @@ define(['knockout'], function (ko) {
         }
       }
     };
-      
-    http.open(method.toUpperCase(), url, true);
+
+    // prevent ajax caching
+    if (method === 'GET') {
+      var cache_bust = Math.random().toString().replace('.', '');
+      url += url.indexOf('?') > -1 ? '' : '?';
+      url += serialize({cache_bust: cache_bust});
+    }
+
+    http.open(method, url, true);
     http.setRequestHeader('Accept', 'application/json');
 
-    if (method.toLowerCase() === 'post') {
+    if (method === 'POST') {
       try {
-      //Send the proper header information along with the request
+        //Send the proper header information along with the request
         http.setRequestHeader('Content-type', 'application/json');
         var params = ko.toJSON(data);
         http.send(params);
@@ -45,3 +61,4 @@ define(['knockout'], function (ko) {
   };
 
 });
+

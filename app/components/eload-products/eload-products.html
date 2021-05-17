@@ -1,0 +1,67 @@
+<div>
+  <ul class="product-list nav" style="margin-top: 15px;">
+    <!-- ko if: has_search -->
+    <li>
+      <div class="form-group" style="padding: 30px 30px 1px">
+        <input type="text" name="search" class="form-control text-center input-lg" autocomplete="off" data-bind="textInput: search_entry">
+        <p style="margin-bottom: 15px">
+          <small>
+            <strong>
+            <!-- ko if: supports_regular_denom -->
+            Enter Promo, Voucher, or Regular load(
+            <span data-bind="text: min_regular_load"></span>
+            - 
+            <span data-bind="text: max_regular_load"></span>
+            )
+            <!-- /ko -->
+
+            <!-- ko ifnot: supports_regular_denom -->
+            Search Promo
+            <!-- /ko -->
+            </strong>
+          </small>
+        </p>
+      </div>
+    </li>
+    <!-- /ko -->
+
+    <!-- ko if: is_voucher() -->
+    <li data-bind="click: activateVoucher, attr: {disabled: activating_voucher() }" class="btn-success btn">
+      <h4>
+        <strong>Activate Voucher</strong>
+      </h4>
+      <p></p>
+    </li>
+    <!-- /ko -->
+
+    <!-- ko foreach: { data: promos, as: 'promo' } -->
+    <li data-bind="click: function(d, e){ $parent.selectProduct(promo) }" class="btn btn-default">
+      <h4>
+        <strong>
+          <!-- ko if: !isNaN(promo.keyword) -->
+          <span>Php</span>
+          <!-- /ko -->
+
+          <span data-bind="text: promo.keyword"></span>
+        </strong>
+      </h4>
+      <p data-bind="text: promo.description" style="white-space: pre-wrap;"></p>
+    </li>
+    <!-- /ko -->
+
+    <!-- ko if: has_more_promos -->
+    <li data-bind="click: function(d, e){ loadMorePromos(page()) }" class="btn btn-default">
+      <div style="padding:20px; color:gray;">Click to load more ...</div>
+    </li>
+    <!-- /ko -->
+
+  </ul>
+
+  <!-- ko if: loading_products()-->
+  <p>Fetching eload products, please wait...</p>
+  <!-- /ko -->
+
+  <!-- ko if: !promos().length && !loading_products() && !is_voucher()-->
+  <p class="alert alert-warning">No eload products found</p>
+  <!-- /ko -->
+</div>

@@ -10,6 +10,15 @@
       <img src="images/insert-coin.gif" class="img-full" />
     </div>
 
+    <!-- ko if: que.type() == 'eload' -->
+    <div id="eload-payment" data-bind="component: {name: 'eload-payment', params: {que: que, loading: loading, hasPayment: hasPayment, donePayment: donePayment}}"></div>
+    <!-- /ko -->
+
+    <!-- ko if: que.type() == 'wallet_topup' -->
+    <div id="wallet-topup" data-bind="component: {name: 'wallet-topup', params: {que: que, loading: loading, rates: rates, hasPayment: hasPayment, donePayment: donePayment}}"></div>
+    <!-- /ko -->
+
+    <!-- ko ifnot: ['eload', 'wallet_topup'].includes(que.type()) -->
     <div class="container">
       <div class="row">
         <div class="col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3">
@@ -41,6 +50,7 @@
         </div>
       </div>
     </div>
+    <!-- /ko -->
 
     <div class="container padd-top">
       <div class="row">

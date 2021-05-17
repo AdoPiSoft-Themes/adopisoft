@@ -38,6 +38,22 @@ img.img-full {
   border-bottom-right-radius: 0px;
 }
 
+.phone-input{
+  font-weight: bold;
+  font-size: 25px;
+  letter-spacing: 8px;
+}
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+/* Hide scrollbar for IE, Edge and Firefox */
+.no-scrollbar {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+}
+
 .has-image-bg {
   background-size: cover;
   background-position: fixed;
@@ -95,4 +111,3 @@ img.img-full {
 .unread-indicator {
   z-index: 999;
 }
-

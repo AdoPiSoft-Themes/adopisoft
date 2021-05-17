@@ -58,14 +58,20 @@ define([
     http.fetchCoinslots = function (cb) {
       http.get('/client/coinslots', cb);
     };
+
     http.queForPayment = function (opts, cb) {
       var data = {
         coinslot_id: opts.coinslot_id,
         type: opts.type,
-        is_voucher: opts.is_voucher
+        is_voucher: opts.is_voucher,
+        provider_id: opts.provider_id,
+        account_number: opts.account_number,
+        product_keyword: opts.product_keyword
       };
+
       http.post('/client/payments/que', data, cb);
     };
+
     http.getDevice = function (cb) {
       http.get('/client/device', cb);
     };
@@ -84,6 +90,65 @@ define([
     http.getVouchers = function(cb) {
       http.get('/vouchers/list', cb);
     };
+
+    http.getCurrentUser = function(cb) {
+      http.get('/user/me', cb);
+    };
+
+    // Eload
+    http.checkEloadAvailability = function(cb) {
+      http.get('/client/eload/is-available', cb);
+    };
+
+    http.getEloadClientData = function(acc_number, cb) {
+      http.get('/client/eload/customer-data?account_number=' + acc_number, cb);
+    };
+
+    http.getEloadProviders = function(acc_number, cb) {
+      http.get('/client/eload/providers?account_number=' + acc_number, cb);
+    };
+
+    http.getEloadPromos = function(opts, cb) {
+      var params = Object.keys(opts).map(function (k) {
+        return encodeURIComponent(k) + '=' + encodeURIComponent(opts[k]);
+      }).join('&');
+      http.get('/client/eload/promos?' + params, cb);
+    };
+
+    http.getRegularDenoms = function(provider_id, cb) {
+      http.get('/client/eload/regular-denoms?provider_id=' + provider_id, cb);
+    };
+
+    http.activateEloadVoucher = function(account_number, code, cb) {
+      http.post('/client/eload/activate-voucher', {
+        account_number: account_number,
+        code: code
+      }, cb);
+    };
+
+    http.checkEloadProvider = function(id, product_keyword, cb) {
+      http.post('/client/eload/check-provider', { id: id, product_keyword: product_keyword }, cb);
+    };
+
+    http.getRelatedTxn = function(account_number, product_keyword, cb) {
+      http.get('/client/eload/related-txn?account_number=' + account_number + '&product_keyword=' + product_keyword, cb);
+    };
+
+    http.customerPurchase = function(opts, cb) {
+      http.post('/customer/purchase', opts, cb);
+    };
+
+    http.purchaseLoad = function(account_number, provider_id, product_keyword, voucher_id, cb) {
+      http.post('/client/eload/purchase', {
+        account_number: account_number,
+        provider_id: provider_id,
+        product_keyword: product_keyword,
+        voucher_id: voucher_id
+      }, cb);
+    };
+
+    // /eload
   }
+
   return new Http();
 });
