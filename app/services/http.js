@@ -147,6 +147,10 @@ define([
       }, cb);
     };
 
+    http.systemNotifications = function (cb) {
+      http.get('/client/system/notifications', cb);
+    };
+
     // /eload
   }
 

@@ -4,7 +4,8 @@ define([
   'app/components/start-pause-buttons/StartPauseButtonsComponent',
   'app/components/insert-coin-btn/InsertCoinBtn',
   'app/components/voucher-form/VoucherForm',
-  'app/components/device-info/DeviceInfo'
+  'app/components/device-info/DeviceInfo',
+  'app/components/internet-status/InternetStatus'
 ],
 function (ko, rootVM) {
   function HomePageVM() {

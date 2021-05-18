@@ -12,9 +12,7 @@ define([
     if (d && !socket) {
       var dJSON = ko.toJSON(d);
       socket = socketIO({ query: JSON.parse(dJSON) });
-      socket.on('connect', function() {
-        console.log('connected!');
-      });
+      socket.on('connect', function() {});
       socket.on('device:connected', function(device) {
         d.set(device);
         toast.success('Yehey!', 'Connected to internet.');
