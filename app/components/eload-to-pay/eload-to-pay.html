@@ -76,9 +76,9 @@
 
   <hr>
   <!-- ko if: calcToPay() > 0 -->
-  <form data-bind="submit: activateVoucher">
+  <form data-bind="submit: activateVoucher" class="eload-voucher">
     <div class="form-group">
-      <input type="text" data-bind="textInput: voucher_code" name="code" class="form-control text-center input-lg" placeholder="Voucher code here...">
+      <input type="text" data-bind="textInput: voucher_code" class="form-control text-center input-lg" placeholder="Voucher code here...">
     </div>
     <button type="submit" class="btn btn-primary btn-lg" data-bind="attr: {disabled: !voucher_code() || activating_voucher()}">
       Use Voucher
