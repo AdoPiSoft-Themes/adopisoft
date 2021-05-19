@@ -82,10 +82,11 @@ define([
       }
       if (self.session.data_mb() > 0 || self.session.time_seconds() > 0) {
         toast.success('Total Amount: ' + rates.currency() + ' ' + self.que.total_amount(), 'Total Credits: ' + self.totalCredits());
+        sounds.coinInserted.play();
       } else if (data.amount > 0) {
         toast.success('Payment Received: ' + rates.currency() + data.amount.toFixed(2));
+        sounds.coinInserted.play();
       }
-      sounds.coinInserted.play();
     };
 
     self.donePayment = function () {
