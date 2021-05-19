@@ -1,8 +1,7 @@
 define([
   'knockout',
-  'text!app/components/eload-customer-recent/eload-customer-recent.html',
   'app/utils/formatDate'
-], function(ko, tpl, formatDate) {
+], function(ko, formatDate) {
 
   function VM(params) {
     var self = this;
@@ -20,7 +19,7 @@ define([
 
   ko.components.register('eload-customer-recent', {
     viewModel: VM,
-    template: tpl
+    template: {require: 'text!app/components/eload-customer-recent/eload-customer-recent.html'}
   });
 
 });

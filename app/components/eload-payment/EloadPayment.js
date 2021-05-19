@@ -1,20 +1,23 @@
 define([
   'rootVM',
   'knockout',
-  'text!app/components/eload-payment/eload-payment.html',
   'app/observables/device',
   'http',
   'toast',
   'socket',
   'modal',
+  'app/utils/array.includes',
   'app/components/eload-processing/EloadProcessing'
-], function(rootVM, ko, tpl, device, http, toast, socket, modal) {
+], function(rootVM, ko, device, http, toast, socket, modal, includes) {
 
   function VM(params) {
     var self = this;
     self.que = params.que;
     self.donePayment = params.donePayment;
     self.hasPayment = params.hasPayment;
+
+    self.eload_wallet_topup = ko.observable(false);
+    self.eload_wallet_topup(includes(['eload', 'wallet_topup'], self.que.type()));
 
     self.calcEloadPayable = ko.pureComputed(function() {
       var que = self.que;
@@ -49,7 +52,7 @@ define([
 
   ko.components.register('eload-payment', {
     viewModel: VM,
-    template: tpl
+    template: {require: 'text!app/components/eload-payment/eload-payment.html'}
   });
 
 });

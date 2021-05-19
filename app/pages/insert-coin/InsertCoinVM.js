@@ -68,7 +68,7 @@ define([
       self.que.customer(data.customer);
       self.que.customer_credits(data.customer_credits);
 
-      self.eload_wallet_topup(includes(['eload', 'wallet_topup'], self.que.type()))
+      self.eload_wallet_topup(includes(['eload', 'wallet_topup'], self.que.type()));
 
       if (data.session) {
         self.session.data_mb(data.session.data_mb);

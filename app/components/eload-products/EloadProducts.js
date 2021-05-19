@@ -1,9 +1,9 @@
 define([
   'knockout',
-  'text!app/components/eload-products/eload-products.html',
   'http',
-  'toast'
-], function(ko, tpl, http, toast) {
+  'toast',
+  'app/utils/array.includes'
+], function(ko, http, toast, includes) {
 
   function VM(params) {
     var self = this;
@@ -118,7 +118,7 @@ define([
         }
 
         data = data || {};
-        
+
         for(var i = 0; i < data.promos.length; i++) {
           promos.push(data.promos[i]);
         }
@@ -136,7 +136,7 @@ define([
         if(d.type === 'range') {
           return d.denominations[0] <= amount && d.denominations[1] >= amount;
         }else{
-          return d.denominations.includes(amount);
+          return includes(d.denominations, amount);
         }
       });
     };
@@ -175,7 +175,7 @@ define([
 
   ko.components.register('eload-products', {
     viewModel: VM,
-    template: tpl
+    template: {require: 'text!app/components/eload-products/eload-products.html'}
   });
 
 });
