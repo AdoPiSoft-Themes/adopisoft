@@ -8,11 +8,12 @@ define(['knockout'], function (ko) {
 
   function serialize(obj) {
     var str = [];
-    for (var p in obj)
-      if (obj.hasOwnProperty(p)) {
-        str.push(encodeURIComponent(p) + "=" + encodeURIComponent(obj[p]));
+    for (var p in obj) {
+      if (Object.prototype.hasOwnProperty.call(obj, p)) {
+        str.push(encodeURIComponent(p) + '=' + encodeURIComponent(obj[p]));
       }
-    return str.join("&");
+    }
+    return str.join('&');
   }
 
   return function Ajax(opts) {
