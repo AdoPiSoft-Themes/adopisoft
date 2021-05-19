@@ -11,8 +11,10 @@ define([
     self.hasPayment = params.hasPayment;
     self.donePayment = params.donePayment;
 
-    self.eload_wallet_topup = ko.observable(false);
-    self.eload_wallet_topup(includes(['eload', 'wallet_topup'], self.que.type()));
+    self.eload_wallet_topup = ko.pureComputed(function() {
+      return includes(['eload', 'wallet_topup'], self.que.type());
+    });
+
   }
 
   ko.components.register('wallet-topup', {

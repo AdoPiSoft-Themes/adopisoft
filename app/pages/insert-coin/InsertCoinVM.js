@@ -25,7 +25,6 @@ define([
     self.config = timerConfig;
     self.rates = rates;
     self.loading = ko.observable(false);
-    self.eload_wallet_topup = ko.observable(false);
     self.que = {
       coinslot_id: ko.observable(0),
       total_amount: ko.observable(0),
@@ -39,6 +38,11 @@ define([
       account_number: ko.observable(''),
       product_keyword: ko.observable('')
     };
+
+    self.eload_wallet_topup = ko.pureComputed(function() {
+      return includes(['eload', 'wallet_topup'], self.que.type());
+    });
+
     self.session = {
       data_mb: ko.observable(0),
       time_seconds: ko.observable(0)
@@ -67,8 +71,6 @@ define([
       self.que.account_number(data.account_number);
       self.que.customer(data.customer);
       self.que.customer_credits(data.customer_credits);
-
-      self.eload_wallet_topup(includes(['eload', 'wallet_topup'], self.que.type()));
 
       if (data.session) {
         self.session.data_mb(data.session.data_mb);
