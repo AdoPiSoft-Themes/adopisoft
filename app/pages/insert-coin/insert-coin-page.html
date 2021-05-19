@@ -18,7 +18,7 @@
     <div id="wallet-topup" data-bind="component: {name: 'wallet-topup', params: {que: que, loading: loading, rates: rates, hasPayment: hasPayment, donePayment: donePayment}}"></div>
     <!-- /ko -->
 
-    <!-- ko ifnot: ['eload', 'wallet_topup'].includes(que.type()) -->
+    <!-- ko ifnot: eload_wallet_topup -->
     <div class="container">
       <div class="row">
         <div class="col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3">

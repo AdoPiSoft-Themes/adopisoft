@@ -12,17 +12,20 @@ define([
   'app/observables/payment',
   'app/utils/shortSecondsFormat',
   'app/utils/formatBytes',
+  'app/utils/array.includes',
   'app/components/progress-bar/ProgressBar',
   'app/components/seconds-format/SecondsFormat',
   'app/components/eload-payment/EloadPayment',
   'app/components/wallet-topup/WalletTopup'
-], function (ko, rootVM, http, sounds, toast, timerConfig, rates, socket, device, receipt, payment, secondsFormat, formatBytes) {
+], function (ko, rootVM, http, sounds, toast, timerConfig, rates, socket, device, receipt, payment, secondsFormat, formatBytes, includes) {
+
   function VM () {
     var self = this;
     self.payment = payment;
     self.config = timerConfig;
     self.rates = rates;
     self.loading = ko.observable(false);
+    self.eload_wallet_topup = ko.observable(false);
     self.que = {
       coinslot_id: ko.observable(0),
       total_amount: ko.observable(0),
@@ -48,6 +51,7 @@ define([
     };
     self.fetch = function () {
       http.currentPaymentQue(function (err, data) {
+        if (err) return http.catchError(err);
         self.onPaymentReceived(data);
       });
     };
@@ -64,6 +68,8 @@ define([
       self.que.customer(data.customer);
       self.que.customer_credits(data.customer_credits);
 
+      self.eload_wallet_topup(includes(['eload', 'wallet_topup'], self.que.type()))
+
       if (data.session) {
         self.session.data_mb(data.session.data_mb);
         self.session.time_seconds(data.session.time_seconds);
@@ -77,16 +83,21 @@ define([
         toast.success('Total Amount: ' + rates.currency() + ' ' + self.que.total_amount(), 'Total Credits: ' + self.totalCredits());
       } else if (data.amount > 0) {
         sounds.coinInserted.play();
-        toast.success('Payment Received: ' + rates.currency() + data.amount.toFixed(2)); 
+        toast.success('Payment Received: ' + rates.currency() + data.amount.toFixed(2));
       }
     };
+
     self.donePayment = function () {
       self.loading(true);
       http.donePayment(self.que.coinslot_id(), function(err, data) {
-        if (err) self.loading(false);
+        if (err) {
+          self.loading(false);
+          http.catchError(err);
+        }
         self.done(data);
       });
     };
+
     self.done = function (data) {
       device.is_paying(false);
       if (self.hasPayment()) {
@@ -101,6 +112,7 @@ define([
         rootVM.navigate('home-page');
       }
     };
+
     self.totalCredits = ko.pureComputed(function() {
       if (self.que.type() === 'time') {
         return secondsFormat(self.session.time_seconds());
@@ -118,6 +130,7 @@ define([
     self.hasPayment = ko.pureComputed(function() {
       return self.que.total_amount() > 0;
     });
+
     self.dispose = function () {
       socket().removeListener('payment:received', self.onPaymentReceived);
       socket().removeListener('payment:done', self.done);
@@ -134,4 +147,5 @@ define([
   }
 
   return VM;
+
 });
