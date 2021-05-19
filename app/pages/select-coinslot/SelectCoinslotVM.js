@@ -12,9 +12,7 @@ define([
 
   return function () {
     var self = this;
-    rootVM.showingStatusNav(true);
-    rootVM.showingBanners(true);
-    rootVM.showingSessionsTable(false);
+
     self.selectedId = ko.observable('');
     self.loading = ko.observable(true);
     self.coinslots = ko.observableArray([]);
@@ -24,11 +22,15 @@ define([
       rootVM.showingSessionsTable(false);
 
       http.fetchCoinslots(function(err, coinslots) {
-        if (err) return toast.error(err.toString());
+        if (err) return http.catchError(err);
         self.coinslots(coinslots);
         self.loading(false);
 
-        var is_wifi_rate = ['time', 'data', 'time_or_data'].includes(payment.rateType());
+        var wifi_rates = ['time', 'data', 'time_or_data'];
+        var is_wifi_rate = false;
+        for (var x = 0; x < wifi_rates.length; x++) {
+          if (wifi_rates[x] === payment.rateType()) is_wifi_rate = true;
+        }
         if (is_wifi_rate && customer.credits() > 0) {
           modal.show('wallet-prompt', {customer: customer, rate_type: payment.rateType(), is_voucher: payment.isVoucher()});
         } else if (coinslots.length === 1) {
