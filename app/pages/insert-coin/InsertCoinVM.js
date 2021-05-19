@@ -79,12 +79,11 @@ define([
         self.session.time_seconds(data.voucher.minutes * 60);
       }
       if (self.session.data_mb() > 0 || self.session.time_seconds() > 0) {
-        sounds.coinInserted.play();
         toast.success('Total Amount: ' + rates.currency() + ' ' + self.que.total_amount(), 'Total Credits: ' + self.totalCredits());
       } else if (data.amount > 0) {
-        sounds.coinInserted.play();
         toast.success('Payment Received: ' + rates.currency() + data.amount.toFixed(2));
       }
+      sounds.coinInserted.play();
     };
 
     self.donePayment = function () {
