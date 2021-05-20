@@ -8,11 +8,12 @@ define(['knockout'], function (ko) {
 
   function serialize(obj) {
     var str = [];
-    for (var p in obj)
+    for (var p in obj){
       if (obj.hasOwnProperty(p)) {
-        str.push(encodeURIComponent(p) + "=" + encodeURIComponent(obj[p]));
+        str.push(encodeURIComponent(p) + '=' + encodeURIComponent(obj[p]));
       }
-    return str.join("&");
+    }
+    return str.join('&');
   }
 
   return function Ajax(opts) {
@@ -38,7 +39,7 @@ define(['knockout'], function (ko) {
     // prevent ajax caching
     if (method === 'GET') {
       var cache_bust = Math.random().toString().replace('.', '');
-      url += url.indexOf('?') > -1 ? '' : '?';
+      url += url.indexOf('?') > -1 ? '&' : '?';
       url += serialize({cache_bust: cache_bust});
     }
 
