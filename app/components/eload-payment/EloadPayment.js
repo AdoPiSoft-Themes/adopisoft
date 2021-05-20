@@ -1,14 +1,13 @@
 define([
   'rootVM',
   'knockout',
-  'text!app/components/eload-payment/eload-payment.html',
   'app/observables/device',
   'http',
   'toast',
   'socket',
   'modal',
   'app/components/eload-processing/EloadProcessing'
-], function(rootVM, ko, tpl, device, http, toast, socket, modal) {
+], function(rootVM, ko, device, http, toast, socket, modal) {
 
   function VM(params) {
     var self = this;
@@ -49,7 +48,7 @@ define([
 
   ko.components.register('eload-payment', {
     viewModel: VM,
-    template: tpl
+    template: {require: 'text!app/components/eload-payment/eload-payment.html'}
   });
 
 });

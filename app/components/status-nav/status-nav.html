@@ -1,4 +1,7 @@
 <div id="status-nav">
-  <span id="session-summary" data-bind="component: 'session-summary'"></span>
-  <span id="connection-status" data-bind="component: 'connection-status'"></span>
+  <span id="session-summary" data-bind="text: summary"></span>
+  <span id="connection-status">
+    <img data-bind="attr: {src: icon_src}"/>
+  </span>
 </div>
+

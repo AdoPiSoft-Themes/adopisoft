@@ -1,7 +1,6 @@
 define([
-  'knockout',
-  'text!app/components/eload-providers/eload-providers.html'
-], function(ko, tpl) {
+  'knockout'
+], function(ko) {
 
   function VM(params) {
     var self = this;
@@ -33,7 +32,7 @@ define([
 
   ko.components.register('eload-providers', {
     viewModel: VM,
-    template: tpl
+    template: {require: 'text!app/components/eload-providers/eload-providers.html'}
   });
 
 });

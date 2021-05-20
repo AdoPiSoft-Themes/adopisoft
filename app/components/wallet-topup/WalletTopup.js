@@ -1,8 +1,6 @@
 define([
-  'knockout',
-  'rootVM',
-  'text!app/components/wallet-topup/wallet-topup.html'
-], function(ko, rootVM, tpl) {
+  'knockout'
+], function(ko) {
 
   function VM(params) {
     var self = this;
@@ -15,7 +13,7 @@ define([
 
   ko.components.register('wallet-topup', {
     viewModel: VM,
-    template: tpl
+    template: {require: 'text!app/components/wallet-topup/wallet-topup.html'}
   });
 
 });
