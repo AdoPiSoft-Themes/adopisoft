@@ -6,19 +6,14 @@ define([
   'toast',
   'socket',
   'modal',
-  'app/utils/array.includes',
   'app/components/eload-processing/EloadProcessing'
-], function(rootVM, ko, device, http, toast, socket, modal, includes) {
+], function(rootVM, ko, device, http, toast, socket, modal) {
 
   function VM(params) {
     var self = this;
     self.que = params.que;
     self.donePayment = params.donePayment;
     self.hasPayment = params.hasPayment;
-
-    self.eload_wallet_topup = ko.pureComputed(function() {
-      return includes(['eload', 'wallet_topup'], self.que.type());
-    });
 
     self.calcEloadPayable = ko.pureComputed(function() {
       var que = self.que;

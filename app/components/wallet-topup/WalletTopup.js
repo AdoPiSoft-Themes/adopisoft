@@ -1,7 +1,6 @@
 define([
-  'knockout',
-  'app/utils/array.includes'
-], function(ko, includes) {
+  'knockout'
+], function(ko) {
 
   function VM(params) {
     var self = this;
@@ -10,11 +9,6 @@ define([
     self.rates = params.rates;
     self.hasPayment = params.hasPayment;
     self.donePayment = params.donePayment;
-
-    self.eload_wallet_topup = ko.pureComputed(function() {
-      return includes(['eload', 'wallet_topup'], self.que.type());
-    });
-
   }
 
   ko.components.register('wallet-topup', {

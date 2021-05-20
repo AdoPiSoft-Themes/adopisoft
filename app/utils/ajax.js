@@ -8,6 +8,7 @@ define(['knockout'], function (ko) {
 
   function serialize(obj) {
     var str = [];
+
     for (var p in obj) {
       if (Object.prototype.hasOwnProperty.call(obj, p)) {
         str.push(encodeURIComponent(p) + '=' + encodeURIComponent(obj[p]));
@@ -39,7 +40,7 @@ define(['knockout'], function (ko) {
     // prevent ajax caching
     if (method === 'GET') {
       var cache_bust = Math.random().toString().replace('.', '');
-      url += url.indexOf('?') > -1 ? '' : '?';
+      url += url.indexOf('?') > -1 ? '&' : '?';
       url += serialize({cache_bust: cache_bust});
     }
 
