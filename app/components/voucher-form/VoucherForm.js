@@ -17,7 +17,7 @@ define([
           if (err) {
             try{
               var resp = JSON.parse(err.responseText);
-              return toast.error(resp.error);
+              return toast.error(resp.error || err);
             }catch(e) {
               return toast.error(err);
             }
