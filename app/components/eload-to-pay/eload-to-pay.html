@@ -90,7 +90,7 @@
   <div class="row">
     <div class="col-md-12">
       <div class="buttons-con text-center">
-        <button type="button" class="btn btn-success btn-lg" data-bind="click: confirmPurchase">
+        <button type="button" class="btn btn-success btn-lg" data-bind="click: confirmPurchase, attr: {disabled: submitting}">
 
           <!-- ko if: related_txn() && related_txn().is_paid -->
           Re-Process
