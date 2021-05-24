@@ -24,6 +24,7 @@ define([
     self.checking_related_txn = ko.observable(true);
     self.activating_voucher = ko.observable(false);
     self.error_msg = ko.observable('');
+    self.submitting = ko.observable(false);
 
     self.voucher_code = ko.observable('');
     self.back = function() {
@@ -42,7 +43,7 @@ define([
     };
 
     self.confirmPurchase = function() {
-
+      self.submitting(true);
       var provider_id = self.active_provider_id;
       var product = self.product;
       var related_txn = self.related_txn;
