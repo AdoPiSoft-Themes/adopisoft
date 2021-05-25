@@ -21,8 +21,8 @@ define([
     });
 
     self.cancelEloadPayment = function() {
-      device.is_paying(false);
       http.donePayment(self.que.coinslot_id(), function() {
+        device.is_paying(false);
         rootVM.navigate('buy-eload-page');
       });
     };
