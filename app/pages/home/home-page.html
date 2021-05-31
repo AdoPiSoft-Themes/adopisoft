@@ -5,12 +5,13 @@
 
     <!-- ko component: 'buy-wifi-or-eload' --><!-- /ko -->
 
-    <div data-bind="component: 'start-pause-buttons'" style="display: inline-block;"></div>
+    <!-- ko component: 'start-pause-buttons' --><!-- /ko -->
 
-    <a class="btn btn-lg btn-info" data-bind="navigate: 'more-buttons'">
+    <a class="btn btn-lg btn-default" data-bind="navigate: 'more-buttons'">
       More
       <i class="glyphicon glyphicon-chevron-right"></i>
     </a>
+
   </div>
   <div class="padd-top" data-bind="component: 'voucher-form'"></div>
   <!-- ko component: {name: 'internet-status'} --><!-- /ko -->
