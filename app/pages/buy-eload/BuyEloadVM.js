@@ -45,9 +45,7 @@ define([
       self.loadingCustomer(true);
       http.getEloadClientData(acc_number, function(err, data) {
         self.loadingCustomer(false);
-        if(err) {
-          return false;
-        }
+        if (err) return http.catchError(err);
 
         if(data.customer && data.customer.id) {
           self.customer(data.customer);
@@ -58,6 +56,8 @@ define([
 
       self.loadingProviders(true);
       http.getEloadProviders(acc_number, function(err, data) {
+        if (err) return http.catchError(err);
+
         self.loadingProviders(false);
         var providers = data || [];
         self.active_provider(providers[0]);
@@ -75,9 +75,9 @@ define([
 
       http.checkEloadAvailability(function(err, data) {
         self.isPageReady(true);
-        if(err) {
+        if (err) {
           self.isEloadAvailable(false);
-          return toast.error(err.toString());
+          return http.catchError(err);
         }
         self.isEloadAvailable(data.is_available);
       });

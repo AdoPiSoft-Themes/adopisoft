@@ -68,14 +68,20 @@
       "legend": "Buttons",
       "fields": [
         {
-          "field_id": "button_insert_coin",
-          "label": "Show Insert Coin Button",
+          "field_id": "button_buy_wifi",
+          "label": "Show Buy Wifi Button",
           "type": "checkbox",
           "defaultValue": true
         },
         {
           "field_id": "button_buy_voucher",
           "label": "Show Buy Voucher Button",
+          "type": "checkbox",
+          "defaultValue": true
+        },
+        {
+          "field_id": "button_buy_eload",
+          "label": "Show Buy E-Load Button",
           "type": "checkbox",
           "defaultValue": true
         },
@@ -91,12 +97,7 @@
           "type": "checkbox",
           "defaultValue": true
         },
-        {
-          "field_id": "button_buy_eload",
-          "label": "Show Buy E-Load Button",
-          "type": "checkbox",
-          "defaultValue": true
-        },
+
         {
           "field_id": "button_my_account",
           "label": "Show My Account Button",

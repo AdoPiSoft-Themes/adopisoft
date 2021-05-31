@@ -4,7 +4,7 @@ define([
   'app/services/config',
   'app/observables/payment',
   'app/observables/customer'
-],function (ko, rootVM, config, payment, customer) {
+], function (ko, rootVM, config, payment, customer) {
   return function () {
     var self = this;
     this.loading = ko.observable(false);
@@ -13,7 +13,8 @@ define([
 
     this.showBuyVoucherBtn = ko.observable(config.findField('buttons', 'button_buy_voucher'));
     this.showBuyEloadBtn = ko.observable(config.findField('buttons', 'button_buy_eload'));
-    
+    this.showBuyWifiBtn = ko.observable(config.findField('buttons', 'button_buy_wifi'));
+
     this.buyWifi = function () {
       this.loading(true);
       payment.intent('wifi');
@@ -50,5 +51,6 @@ define([
     };
 
     customer.fetch(function() { });
+
   };
 });

@@ -1,4 +1,14 @@
 h1, h2, h3, h4, h5, h6,
+
+#banners-con {
+  margin: 0 auto;
+  max-width: 1080px;
+}
+
+#banner-text {
+  margin: 15px 0;
+}
+
 #banner-text, .btn, th, #footer {
   font-family: 'Righteous';
 }
