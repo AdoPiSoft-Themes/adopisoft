@@ -24,7 +24,8 @@
   },
   "banners": {
     "banners": [
-      "images/adopisoft-default-banner.png"
+      "images/adopisoft-default-banner.png",
+      "images/220742.jpg"
     ]
   },
   "banners_transition": {
