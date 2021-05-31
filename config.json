@@ -28,7 +28,7 @@
     ]
   },
   "banners_transition": {
-    "banner_interval": 3
+    "banner_interval": 1
   },
   "sounds": {
     "countdown_sound": {
