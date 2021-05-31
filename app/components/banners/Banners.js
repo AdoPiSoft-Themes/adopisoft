@@ -1,7 +1,18 @@
 define([
   'knockout',
+  'modal',
   'app/services/config'
-], function (ko, config) {
+], function (ko, modal, config) {
+
+  ko.components.register('banner-popup', {
+    viewModel: function (params) {
+      this.src = params.src;
+      this.close = function () {
+        modal.hide();
+      };
+    },
+    template: '<img data-bind="attr: {src: src}" style="width: 100%;">'
+  });
 
   var banner_field = config.findField('banners', 'banners');
   var slogan_field = config.findField('page_properties', 'banner_text');
@@ -28,6 +39,13 @@ define([
     self.dispose = function () {
       if (self._timeout) clearTimeout(self._timeout);
       self._timeout = null;
+    };
+    self.showBanner = function (src) {
+      modal.show('banner-popup', {
+        src: src,
+        full_screen: true,
+        backdrop_close: true
+      }, 'func');
     };
   }
 

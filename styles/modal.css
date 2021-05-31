@@ -1,3 +1,7 @@
+.modal-full .modal-dialog {
+  width: 95%;
+}
+
 .modal-open {
   overflow: hidden;
 }
