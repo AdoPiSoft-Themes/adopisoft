@@ -151,6 +151,7 @@
           "field_id": "banner_interval",
           "label": "Interval in seconds",
           "type": "number",
+          "min": 1,
           "defaultValue": 5
         },
         {
