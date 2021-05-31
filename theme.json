@@ -80,6 +80,12 @@
           "defaultValue": true
         },
         {
+          "field_id": "button_buy_eload",
+          "label": "Show Buy E-Load Button",
+          "type": "checkbox",
+          "defaultValue": true
+        },
+        {
           "field_id": "button_view_vouchers",
           "label": "Show View Vouchers Button",
           "type": "checkbox",
@@ -91,12 +97,7 @@
           "type": "checkbox",
           "defaultValue": true
         },
-        {
-          "field_id": "button_buy_eload",
-          "label": "Show Buy E-Load Button",
-          "type": "checkbox",
-          "defaultValue": true
-        },
+
         {
           "field_id": "button_my_account",
           "label": "Show My Account Button",
