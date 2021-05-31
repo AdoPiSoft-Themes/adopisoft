@@ -2,6 +2,7 @@ define([
   'knockout',
   'rootVM',
   'app/components/start-pause-buttons/StartPauseButtonsComponent',
+  'app/components/buy-wifi-or-eload/BuyWifiOrEloadComponent',
   'app/components/insert-coin-btn/InsertCoinBtn',
   'app/components/voucher-form/VoucherForm',
   'app/components/device-info/DeviceInfo',

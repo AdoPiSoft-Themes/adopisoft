@@ -68,8 +68,8 @@
       "legend": "Buttons",
       "fields": [
         {
-          "field_id": "button_insert_coin",
-          "label": "Show Insert Coin Button",
+          "field_id": "button_buy_wifi",
+          "label": "Show Buy Wifi Button",
           "type": "checkbox",
           "defaultValue": true
         },
