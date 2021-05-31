@@ -15,7 +15,7 @@ define([
   });
 
   var banner_field = config.findField('banners', 'banners');
-  var transition_s = parseInt(config.findField('banners_transition', 'banner_interval') || 0);
+  var transition_s = parseInt(config.findField('banners_transition', 'banner_interval') || 0) * 1000;
   var slogan_field = config.findField('page_properties', 'banner_text');
 
   function BannersVM () {
