@@ -140,10 +140,16 @@
           "type": "images",
           "min": 1,
           "defaultValue": ["images/adopisoft-default-banner.png"]
-        },
+        }
+      ]
+    },
+    {
+      "field_group_id": "banners_transition",
+      "legend": "Banners Transition",
+      "fields": [
         {
           "field_id": "banner_interval",
-          "label": "Banner Transition Interval",
+          "label": "Interval in seconds",
           "type": "text",
           "defaultValue": 5
         },

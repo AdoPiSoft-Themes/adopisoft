@@ -25,7 +25,9 @@
   "banners": {
     "banners": [
       "images/adopisoft-default-banner.png"
-    ],
+    ]
+  },
+  "banners_transition": {
     "banner_interval": "3"
   },
   "sounds": {
