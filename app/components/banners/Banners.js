@@ -37,9 +37,12 @@ define([
     self.koDescendantsComplete = function () {
       if (self.imgUrls.length > 0) self.changeImage();
     };
-    self.dispose = function () {
+    self.stop = function () {
       if (self._timeout) clearTimeout(self._timeout);
       self._timeout = null;
+    };
+    self.dispose = function () {
+      self.stop();
     };
     self.showBanner = function (src) {
       modal.show('banner-popup', {

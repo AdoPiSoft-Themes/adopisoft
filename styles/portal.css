@@ -7,6 +7,9 @@ h1, h2, h3, h4, h5, h6,
 
 #banners-con img {
   cursor: pointer;
+  max-width: 100%;
+  height: auto;
+  max-height: 400px;
 }
 
 #banner-text {

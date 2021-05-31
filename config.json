@@ -24,12 +24,11 @@
   },
   "banners": {
     "banners": [
-      "images/adopisoft-default-banner.png",
-      "images/220742.jpg"
+      "images/ado_ID.jpg"
     ]
   },
   "banners_transition": {
-    "banner_interval": 1
+    "banner_interval": 5
   },
   "sounds": {
     "countdown_sound": {
