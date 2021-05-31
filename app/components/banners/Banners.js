@@ -15,6 +15,7 @@ define([
   });
 
   var banner_field = config.findField('banners', 'banners');
+  var transition_s = parseInt(config.findField('banners_transition', 'banner_interval') || 0);
   var slogan_field = config.findField('page_properties', 'banner_text');
 
   function BannersVM () {
@@ -30,7 +31,7 @@ define([
       if (self.imgUrls.length > 1) {
         self._timeout = setTimeout(function () {
           self.changeImage();
-        }, 3000);
+        }, transition_s);
       }
     };
     self.koDescendantsComplete = function () {
@@ -45,7 +46,7 @@ define([
         src: src,
         full_screen: true,
         backdrop_close: true
-      }, 'func');
+      });
     };
   }
 
