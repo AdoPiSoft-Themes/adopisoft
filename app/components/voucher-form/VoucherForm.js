@@ -2,10 +2,8 @@ define([
   'knockout',
   'toast',
   'rootVM',
-  'http',
-  'sessions',
-  'app/observables/session'
-], function (ko, toast, rootVM, http, sessions, Session) {
+  'http'
+], function (ko, toast, rootVM, http) {
   ko.components.register('voucher-form', {
     viewModel: function(code) {
       var self = this;
@@ -13,14 +11,9 @@ define([
       else self.value = ko.observable('');
       self.activate = function() {
         var code = self.value();
-        http.activateVoucher(code, function(err, data) {
+        http.activateVoucher(code, function(err) {
           if (err) return http.catchError(err);
-          var s = new Session(data);
-          if (sessions.hasRunning()) {
-            toast.success('Voucher activated successfully!');
-          } else {
-            s.startSession();
-          }
+          toast.success('Voucher activated successfully!');
           self.value('');
           rootVM.navigate('home-page');
         });

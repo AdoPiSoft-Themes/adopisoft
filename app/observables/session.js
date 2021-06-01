@@ -57,7 +57,7 @@ function (ko, toast, http, redirect, config, parseCredits, formatDate) {
     self.startSession = function() {
       http.startSession(data.id, function (err) {
         if (err) {
-          toast.error(err.toString());
+          http.catchError(err);
         } else {
           self.status('running'); 
         }
