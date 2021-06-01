@@ -52,7 +52,6 @@ define([
     })
   };
 
-  util.fetch();
   return util;
 
 });
