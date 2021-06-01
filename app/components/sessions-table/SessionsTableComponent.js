@@ -5,6 +5,9 @@ define([
   ko.components.register('sessions-table', {
     viewModel: function() {
       this.sessions = sessions.get();
+      this.koDescendantsComplete = function () {
+        sessions.fetch();
+      };
     },
     template: {require: 'text!app/components/sessions-table/sessions-table.html'}
   });

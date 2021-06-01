@@ -17,11 +17,7 @@ define([
           if (err) return http.catchError(err);
           var s = new Session(data);
           sessions.get().push(s);
-          if (sessions.hasRunning()) {
-            toast.success('Voucher activated successfully!');
-          } else {
-            s.startSession();
-          }
+          toast.success('Voucher activated successfully!');
           self.value('');
           rootVM.navigate('home-page');
         });
