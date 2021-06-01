@@ -1,7 +1,8 @@
 define([
   'app/utils/ajax',
-  'toast'
-], function (ajax, toast) {
+  'toast',
+  'sounds'
+], function (ajax, toast, sounds) {
 
   function Http () {
     var http = this;
@@ -41,6 +42,7 @@ define([
     http.catchError = function(http) {
       var e = http.responseText ? JSON.parse(http.responseText) : {};
       var message = e.error || e.message || 'Something went wrong';
+      sounds.error.play();
       toast.error(message);
     };
     http.fetchSessions = function (cb) {
