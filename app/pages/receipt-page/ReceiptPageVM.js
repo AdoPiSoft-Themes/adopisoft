@@ -4,10 +4,9 @@ define([
   'http',
   'sessions',
   'app/observables/receipt',
-  'app/observables/session',
   'app/components/voucher-form/VoucherForm',
   'app/bindings/clipboard'
-], function(ko, rootVM, http, sessions, receipt, Session) {
+], function(ko, rootVM, http, sessions, receipt) {
   return function ReceiptPage() {
     var self = this;
     self.receipt = receipt;
@@ -22,9 +21,8 @@ define([
       self.copied(true);
     };
     self.connect = function() {
-      http.startSession(receipt.sessionId(), function(err, data) {
-        var s = new Session(data);
-        sessions.get().push(s);
+      http.startSession(receipt.sessionId(), function(err) {
+        if (err) return http.catchError(err);
         rootVM.navigate('home-page');
       });
     };

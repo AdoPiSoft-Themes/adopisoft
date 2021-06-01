@@ -14,16 +14,8 @@ define([
       self.activate = function() {
         var code = self.value();
         http.activateVoucher(code, function(err, data) {
-          if (err) {
-            try{
-              var resp = JSON.parse(err.responseText);
-              return toast.error(resp.error || err);
-            }catch(e) {
-              return toast.error(err);
-            }
-          } 
+          if (err) return http.catchError(err);
           var s = new Session(data);
-          sessions.get().push(s);
           if (sessions.hasRunning()) {
             toast.success('Voucher activated successfully!');
           } else {
