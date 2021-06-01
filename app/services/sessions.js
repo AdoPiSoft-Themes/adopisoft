@@ -13,7 +13,7 @@ define([
   var util = {
     fetch: function() {
       http.fetchSessions(function(err, data) {
-        if (err) return toast.error('Error fetching sessions list!');
+        if (err) return http.catchError(err);
         util.stopSessionsTick();
         sessions(map(data, function (s) {
           return new Session(s);
