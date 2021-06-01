@@ -10,6 +10,7 @@ define([
       SUN: '/uploads/img/eload-logos/sun-logo.png',
       TNT: '/uploads/img/eload-logos/tnt-logo.png',
       TM: '/uploads/img/eload-logos/tm-logo.png',
+      DITO: '/uploads/img/eload-logos/dito-logo.png',
       CIGNAL: '/uploads/img/eload-logos/cignal-logo.png',
       GSAT: '/uploads/img/eload-logos/gsat-logo.png',
       MERALCO: '/uploads/img/eload-logos/meralco-prepaid-logo.png',
