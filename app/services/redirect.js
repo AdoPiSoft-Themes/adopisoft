@@ -14,7 +14,7 @@ define(['app/services/config'], function (config) {
           location.href = redirect_url;
           timeout = null;
           var body = document.getElementById('body');
-          body.innerHTML = '<h1 class="text-center">Please wait. <br/> Redirecting to ' + redirect_url + '</h1>';
+          body.innerHTML = '<h3 class="text-center">Please wait. <br/> Redirecting to ' + redirect_url + '</h3>';
         } else {
           window.location.reload();
         }
