@@ -10,10 +10,14 @@ define(['app/services/config'], function (config) {
   return {
     redirect: function () {
       timeout = setTimeout(function () {
-        location.href = redirect_url;
-        timeout = null;
-        var body = document.getElementById('body');
-        body.innerHTML = '<h1 class="text-center">Please wait. <br/> Redirecting to ' + redirect_url + '</h1>';
+        if (redirect_url) {
+          location.href = redirect_url;
+          timeout = null;
+          var body = document.getElementById('body');
+          body.innerHTML = '<h3 class="text-center">Please wait. <br/> Redirecting to ' + redirect_url + '</h3>';
+        } else {
+          window.location.reload();
+        }
       }, 3000);
     },
     cancel: cancel
