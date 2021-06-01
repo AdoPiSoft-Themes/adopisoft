@@ -11,6 +11,7 @@ define([
 
       this.showMyAccountBtn = ko.observable(config.findField('buttons', 'button_my_account'));
       this.showBuyVoucherBtn = ko.observable(config.findField('buttons', 'button_buy_voucher'));
+      this.showViewRatesBtn = ko.observable(config.findField('buttons', 'button_view_rates'));
 
       this.koDescendantsComplete = function () {
         rootVM.showingStatusNav(true);
