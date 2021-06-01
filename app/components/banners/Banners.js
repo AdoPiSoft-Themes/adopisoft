@@ -5,6 +5,7 @@ define([
 
   var banner_field = config.findField('banners', 'banners');
   var slogan_field = config.findField('page_properties', 'banner_text');
+  var transition_s = parseInt(config.findField('banners_transition', 'banner_interval') || 0) * 1000;
 
   function BannersVM () {
     var self = this;
@@ -19,7 +20,7 @@ define([
       if (self.imgUrls.length > 1) {
         self._timeout = setTimeout(function () {
           self.changeImage();
-        }, 3000);
+        }, transition_s);
       }
     };
     self.koDescendantsComplete = function () {
