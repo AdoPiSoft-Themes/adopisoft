@@ -10,7 +10,7 @@ define([
       this.customer = customer;
 
       this.showMyAccountBtn = ko.observable(config.findField('buttons', 'button_my_account'));
-      this.showBuyVoucherBtn = ko.observable(config.findField('buttons', 'button_buy_voucher'));
+      this.showViewVouchersBtn = ko.observable(config.findField('buttons', 'button_view_vouchers'));
       this.showViewRatesBtn = ko.observable(config.findField('buttons', 'button_view_rates'));
 
       this.koDescendantsComplete = function () {
