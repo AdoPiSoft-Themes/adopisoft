@@ -14,7 +14,7 @@ define([
     self.src = ko.observable('');
     self.bannerText = slogan_field;
     self.imgUrls = map(banner_field, function (url) {
-      return encodeURIComponent(url);
+      return encodeURI(url);
     });
     self.changeImage = function () {
       if (index === self.imgUrls.length) index = 0;

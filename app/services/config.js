@@ -6,7 +6,7 @@ function (config, map) {
 
   function Config () {
     this.favicon = function () {
-      return encodeURIComponent(this.findField('page_properties', 'favicon'));
+      return encodeURI(this.findField('page_properties', 'favicon'));
     };
     this.pageTitle = function () {
       return this.findField('page_properties', 'page_title');
@@ -14,7 +14,7 @@ function (config, map) {
     this.styles = function () {
       var styles = this.findField('css', 'css_files');
       return map(styles, function (s) {
-        return encodeURIComponent(s);
+        return encodeURI(s);
       });
     };
     this.findField = function (g_id, f_id) {
