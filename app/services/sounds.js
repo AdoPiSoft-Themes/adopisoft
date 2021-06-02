@@ -9,7 +9,7 @@ define(['howler', 'app/services/config'], function (howler, config) {
     self._loop = sound.loop;
     self._loopDelay = sound.loop_delay;
     self._loopOnly = sound.loop && !sound.loop_delay;
-    self._sound = new Howl({src: sound.src, loop: self._loopOnly});
+    self._sound = new Howl({src: encodeURI(sound.src), loop: self._loopOnly});
     self.play = function () {
       if (self._loopDelay) {
         self._sound.play();
@@ -29,6 +29,8 @@ define(['howler', 'app/services/config'], function (howler, config) {
 
   try {
 
+    var background_src = config.findField('sounds', 'background_music');
+    var background = background_src ? new Sound(background_src) : noopSound;
     var insertCoinBgOpts = config.findField('sounds', 'countdown_bg_sound');
     var insertCoinBg = insertCoinBgOpts ? new Sound(insertCoinBgOpts) : noopSound;
     var disconnected = new Sound(config.findField('sounds', 'disconnected_sound'));
@@ -42,6 +44,7 @@ define(['howler', 'app/services/config'], function (howler, config) {
     var eload_failed = new Sound(config.findField('sounds', 'eload_failed'));
 
     return {
+      background: background,
       connected: connected,
       disconnected: disconnected,
       insertCoin: insertCoin,
@@ -56,6 +59,7 @@ define(['howler', 'app/services/config'], function (howler, config) {
 
   } catch(e) {
     return {
+      background: noopSound,
       connected: noopSound,
       disconnected: noopSound,
       insertCoin: noopSound,

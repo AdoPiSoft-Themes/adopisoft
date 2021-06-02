@@ -165,6 +165,17 @@
       "legend": "Sounds",
       "fields": [
         {
+          "field_id": "background_music",
+          "label":  "Homepage Background Music",
+          "type": "sound",
+          "required": false,
+          "defaultValue": {
+            "src": "sounds/loop-beat-intro.wav",
+            "format": "audio/wav",
+            "loop": true
+          }
+        },
+        {
           "field_id": "countdown_sound",
           "label":  "Payment Countdown Sound",
           "type": "sound",

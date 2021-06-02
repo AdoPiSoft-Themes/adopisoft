@@ -1,8 +1,9 @@
 define([
   'knockout',
+  'sounds',
   'app/services/config',
   'app/utils/array.map'
-], function (ko, config, map) {
+], function (ko, sounds, config, map) {
 
   var banner_field = config.findField('banners', 'banners');
   var slogan_field = config.findField('page_properties', 'banner_text');
@@ -28,10 +29,12 @@ define([
     };
     self.koDescendantsComplete = function () {
       if (self.imgUrls.length > 0) self.changeImage();
+      sounds.background.play();
     };
     self.dispose = function () {
       if (self._timeout) clearTimeout(self._timeout);
       self._timeout = null;
+      sounds.background.stop();
     };
   }
 
