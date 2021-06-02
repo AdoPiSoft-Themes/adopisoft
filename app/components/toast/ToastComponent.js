@@ -8,11 +8,21 @@ define([
 
   var messages = ko.observableArray([]);
 
+  function formatText(text) {
+    try{
+      text = text.replace('toast.error.', '');
+      text = text.replace('toast.success.', '');
+      text = text.replace('toast.warning.', '');
+      text = text.replaceAll('_', ' ');
+    }catch(e) { console.log(e); }
+    return text;
+  }
+
   function Message(type, title, message) {
     var self = this;
     this.type = ko.observable(type);
     this.title = ko.observable(title);
-    this.message = ko.observable(message);
+    this.message = ko.observable(formatText(message));
     this.show = function () {
       messages.push(this);
       setTimeout(function () {

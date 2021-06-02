@@ -65,12 +65,10 @@ function (ko, toast, http, redirect, config, parseCredits, formatDate) {
     };
     self.pauseSession = function() {
       http.pauseSession(data.id, function (err) {
-        if (err) {
-          toast.error(err.toString());
-        } else {
-          self.status('available'); 
-          redirect.cancel();
-        }
+        if (err) return http.catchError(err);
+        self.status('available'); 
+        redirect.cancel();
+
       });
     };
     self.startTick();
