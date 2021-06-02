@@ -15,10 +15,12 @@ define([
             return wifiRates.currency() + ' ' + r.amount;
           }),
           timeRate: ko.pureComputed(function () {
-            return secondsFormat(r.minutes * 60);
+            var t = wifiRates.time_or_data_rates() || wifiRates.time_rates();
+            return t ? secondsFormat(r.minutes * 60) : 'Unlimited';
           }),
           dataRate: ko.pureComputed(function () {
-            return formatBytes(r.data_mb);
+            var d = wifiRates.time_or_data_rates() || wifiRates.data_rates();
+            return d ? formatBytes(r.data_mb) : 'Unlimited';
           })
         };
       }));
