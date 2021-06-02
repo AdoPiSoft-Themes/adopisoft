@@ -14,10 +14,13 @@ define([
           unitAmount: ko.pureComputed(function () {
             return wifiRates.currency() + ' ' + r.amount;
           }),
-          credits: ko.pureComputed(function () {
-            var s = secondsFormat(r.minutes * 60);
-            var mb = formatBytes(r.data_mb);
-            return s + '/' + mb;
+          timeRate: ko.pureComputed(function () {
+            var t = wifiRates.time_or_data_rates() || wifiRates.time_rates();
+            return t ? secondsFormat(r.minutes * 60) : 'Unlimited';
+          }),
+          dataRate: ko.pureComputed(function () {
+            var d = wifiRates.time_or_data_rates() || wifiRates.data_rates();
+            return d ? formatBytes(r.data_mb) : 'Unlimited';
           })
         };
       }));
