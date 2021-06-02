@@ -11,6 +11,12 @@ define(['app/services/config'], function (config) {
     redirect: function () {
       timeout = setTimeout(function () {
         if (redirect_url) {
+
+          var prefix = 'http';
+          if (redirect_url.substr(0, prefix.length) !== prefix) {
+            redirect_url = prefix + '://' + redirect_url;
+          }
+
           location.href = redirect_url;
           timeout = null;
           var body = document.getElementById('body');
