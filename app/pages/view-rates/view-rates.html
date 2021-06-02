@@ -8,12 +8,13 @@
   </div>
 
   <div class="panel panel-info">
-    <div class="panel-heading">Package Rates</div>
+    <div class="panel-heading">Wifi Rates</div>
     <table class="table">
       <thead>
         <tr>
           <th class="text-center">Amount</th>
-          <th class="text-center">Credits</th>
+          <th class="text-center">Time</th>
+          <th class="text-center">Data</th>
         </tr>
       </thead>
       <tbody>
@@ -23,8 +24,12 @@
             <span data-bind="text: unitAmount"></span>
           </td>
           <td>
-            <span data-bind="text: credits"></span>
+            <span data-bind="text: timeRate"></span>
           </td>
+          <td>
+            <span data-bind="text: dataRate"></span>
+          </td>
+
         </tr>
         <!-- /ko -->
       </tbody>

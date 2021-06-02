@@ -14,10 +14,11 @@ define([
           unitAmount: ko.pureComputed(function () {
             return wifiRates.currency() + ' ' + r.amount;
           }),
-          credits: ko.pureComputed(function () {
-            var s = secondsFormat(r.minutes * 60);
-            var mb = formatBytes(r.data_mb);
-            return s + '/' + mb;
+          timeRate: ko.pureComputed(function () {
+            return secondsFormat(r.minutes * 60);
+          }),
+          dataRate: ko.pureComputed(function () {
+            return formatBytes(r.data_mb);
           })
         };
       }));
