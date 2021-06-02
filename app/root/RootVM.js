@@ -12,7 +12,7 @@ define([
     this.pageTitle = ko.observable(config.pageTitle());
     this.styles = ko.observableArray(config.styles());
     this.bodyClass = imageBg ? 'has-image-bg' : '';
-    this.bodyStyle = imageBg ? {'background-image': 'url(' + imageBg + ')'} : {};
+    this.bodyStyle = imageBg ? {'background-image': 'url(' + encodeURI(imageBg) + ')'} : {};
 
     this.page = ko.observable('');
     this.showingStatusNav = ko.observable(true);

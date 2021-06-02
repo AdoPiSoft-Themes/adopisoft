@@ -9,7 +9,7 @@ define(['howler', 'app/services/config'], function (howler, config) {
     self._loop = sound.loop;
     self._loopDelay = sound.loop_delay;
     self._loopOnly = sound.loop && !sound.loop_delay;
-    self._sound = new Howl({src: sound.src, loop: self._loopOnly});
+    self._sound = new Howl({src: encodeURI(sound.src), loop: self._loopOnly});
     self.play = function () {
       if (self._loopDelay) {
         self._sound.play();

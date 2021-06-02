@@ -52,7 +52,7 @@
     },
     {
       "field_group_id": "page_background",
-      "legend": "Background Style",
+      "legend": "Page Background Image",
       "fields": [
         {
           "field_id": "background_image",
