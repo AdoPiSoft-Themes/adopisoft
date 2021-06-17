@@ -16,8 +16,10 @@ define([
       MERALCO: '/uploads/img/eload-logos/meralco-prepaid-logo.png',
       'SKY CABLE': '/uploads/img/eload-logos/sky-direct-logo.png',
       'CHERRY PREPA.': '/uploads/img/eload-logos/cherry-prepaid-logo.png',
-      'CHERRY PREPAID': '/uploads/img/eload-logos/cherry-prepaid-logo.png'
+      'CHERRY PREPAID': '/uploads/img/eload-logos/cherry-prepaid-logo.png',
+      'GCASH CASH-IN': '/uploads/img/eload-logos/gcash_cash_in_logo.png'
     };
+    
     self.logoUrl = function(p) {
       p = p || '';
       return self.logo_urls[p] || self.logo_urls[p.toUpperCase()];
