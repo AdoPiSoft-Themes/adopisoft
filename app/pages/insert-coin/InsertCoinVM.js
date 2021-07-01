@@ -20,6 +20,8 @@ define([
 ], function (ko, rootVM, http, sounds, toast, timerConfig, rates, socket, device, receipt, payment, secondsFormat, formatBytes, includes) {
 
   function VM () {
+    var prev_amount = 0;
+    var fetch_timeout = null;
     var self = this;
     self.payment = payment;
     self.config = timerConfig;
@@ -57,9 +59,11 @@ define([
       http.currentPaymentQue(function (err, data) {
         if (err) return http.catchError(err);
         self.onPaymentReceived(data);
+        fetch_timeout = setTimeout(function () {
+          self.fetch()
+        }, 2000);
       });
     };
-
     self.onPaymentReceived = function (data) {
       self.que.coinslot_id(data.coinslot_id);
       self.que.total_amount(data.total_amount);
@@ -80,11 +84,13 @@ define([
         self.session.data_mb(data.voucher.megabytes);
         self.session.time_seconds(data.voucher.minutes * 60);
       }
-      if (self.session.data_mb() > 0 || self.session.time_seconds() > 0) {
-        toast.success('Total Amount: ' + rates.currency() + ' ' + self.que.total_amount(), 'Total Credits: ' + self.totalCredits());
-        sounds.coinInserted.play();
-      } else if (data.amount > 0) {
-        toast.success('Payment Received: ' + rates.currency() + data.amount.toFixed(2));
+      if (data.total_amount > prev_amount) {
+        if (self.session.data_mb() > 0 || self.session.time_seconds() > 0) {
+          toast.success('Total Amount: ' + rates.currency() + ' ' + self.que.total_amount(), 'Total Credits: ' + self.totalCredits());
+        } else if (data.amount > 0) {
+          toast.success('Payment Received: ' + rates.currency() + data.amount.toFixed(2));
+        }
+        prev_amount = data.total_amount;
         sounds.coinInserted.play();
       }
     };
@@ -112,6 +118,9 @@ define([
         rootVM.navigate('receipt-page');
       } else {
         rootVM.navigate('home-page');
+      }
+      if (fetch_timeout) {
+        clearTimeout(fetch_timeout)
       }
     };
 
