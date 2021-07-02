@@ -87,11 +87,12 @@ define([
       if (data.total_amount > prev_amount) {
         if (self.session.data_mb() > 0 || self.session.time_seconds() > 0) {
           toast.success('Total Amount: ' + rates.currency() + ' ' + self.que.total_amount(), 'Total Credits: ' + self.totalCredits());
+          sounds.coinInserted.play();
         } else if (data.amount > 0) {
           toast.success('Payment Received: ' + rates.currency() + data.amount.toFixed(2));
+          sounds.coinInserted.play();
         }
         prev_amount = data.total_amount;
-        sounds.coinInserted.play();
       }
     };
 
@@ -119,9 +120,6 @@ define([
       } else {
         rootVM.navigate('home-page');
       }
-      if (fetch_timeout) {
-        clearTimeout(fetch_timeout)
-      }
     };
 
     self.totalCredits = ko.pureComputed(function() {
@@ -147,6 +145,9 @@ define([
       socket().removeListener('payment:done', self.done);
       sounds.insertCoin.stop();
       sounds.insertCoinBg.stop();
+      if (fetch_timeout) {
+        clearTimeout(fetch_timeout);
+      }
     };
 
     receipt.reset();
