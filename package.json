@@ -24,5 +24,8 @@
   "devDependencies": {
     "eslint": "^7.23.0",
     "eslint-config-es3": "^1.0.0"
-  }
+  },
+  "eslintIgnore": [
+    "./node_modules"
+  ]
 }
