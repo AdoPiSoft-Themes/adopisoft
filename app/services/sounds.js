@@ -6,23 +6,25 @@ define(['howler', 'app/services/config'], function (howler, config) {
 
   function Sound(sound) {
     var self = this;
-    self._loop = sound.loop;
-    self._loopDelay = sound.loop_delay;
-    self._loopOnly = sound.loop && !sound.loop_delay;
-    self._sound = new Howl({src: encodeURI(sound.src), loop: self._loopOnly});
     self.play = function () {
+      self._loop = sound.loop;
+      self._loopDelay = sound.loop_delay;
+      self._loopOnly = sound.loop && !sound.loop_delay;
+      self._sound = new Howl({src: encodeURI(sound.src), loop: self._loopOnly});
       if (self._loopDelay) {
         self._sound.play();
-        self._timeout = setTimeout(function () {
-          self.play();
-        }, self._loopDelay);
+        self._sound.on('end', function () {
+          self._timeout = setTimeout(function () {
+            self.play();
+          }, self._loopDelay);
+        });
       } else {
         self._sound.play();
       }
     };
     self.stop = function() {
       if (self._timeout) clearTimeout(self._timeout);
-      self._sound.stop();
+      if (self._sound) self._sound.stop();
       self._timeout = null;
     };
   }
