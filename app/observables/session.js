@@ -54,8 +54,11 @@ function (ko, toast, http, redirect, config, parseCredits, formatDate) {
     self.showStartBtn = ko.pureComputed(function () {
       return self.status() !== 'running';
     });
+    self.starting = ko.observable(false);
     self.startSession = function() {
+      self.starting(true);
       http.startSession(data.id, function (err) {
+        self.starting(false);
         if (err) {
           http.catchError(err);
         } else {
@@ -63,12 +66,14 @@ function (ko, toast, http, redirect, config, parseCredits, formatDate) {
         }
       });
     };
+    self.pausing = ko.observable(false);
     self.pauseSession = function() {
+      self.pausing(true);
       http.pauseSession(data.id, function (err) {
+        self.pausing(false);
         if (err) return http.catchError(err);
         self.status('available'); 
         redirect.cancel();
-
       });
     };
     self.startTick();

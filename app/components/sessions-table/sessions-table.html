@@ -19,12 +19,12 @@
           <td data-bind="text: formatted_expiry_date"></td>
           <td>
             <!-- ko if: showPauseBtn -->
-            <button class="btn btn-warning" data-bind="enable: allow_pause, click: pauseSession">
+            <button class="btn btn-warning" data-bind="disable: !allow_pause() || pausing(), click: pauseSession">
               <i class="glyphicon glyphicon-pause"></i>
             </button>
             <!-- /ko -->
             <!-- ko if: showStartBtn -->
-            <button class="btn btn-primary" data-bind="click: startSession">
+            <button class="btn btn-primary" data-bind="disable: starting(), click: startSession">
               <i class="glyphicon glyphicon-play"></i>
             </button>
             <!-- /ko -->

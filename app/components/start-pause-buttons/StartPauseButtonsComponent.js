@@ -27,7 +27,7 @@ define([
       self.starting(true);
       self._startTimeout = setTimeout(function() {
         self.starting(false);
-      }, 1000);
+      }, 5000);
     };
     self.clearStarting = function() {
       if(self._startTimeout) clearTimeout(self._startTimeout);
@@ -38,7 +38,7 @@ define([
       self.pausing(true);
       self._pauseTimeout = setTimeout(function() {
         self.pausing(false);
-      }, 1000);
+      }, 5000);
     };
     self.clearPausing = function() {
       if(self._pauseTimeout) clearTimeout(self._pauseTimeout);
