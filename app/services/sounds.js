@@ -11,7 +11,7 @@ define(['howler', 'app/services/config'], function (howler, config) {
       self._loopDelay = sound.loop_delay;
       self._loopOnly = sound.loop && !sound.loop_delay;
       self._sound = new Howl({src: encodeURI(sound.src), loop: self._loopOnly});
-      if (self._loopDelay) {
+      if (self._loop && self._loopDelay) {
         self._sound.play();
         self._sound.on('end', function () {
           self._timeout = setTimeout(function () {
@@ -30,7 +30,6 @@ define(['howler', 'app/services/config'], function (howler, config) {
   }
 
   try {
-
     var background_src = config.findField('sounds', 'background_music');
     var background = background_src ? new Sound(background_src) : noopSound;
     var insertCoinBgOpts = config.findField('sounds', 'countdown_bg_sound');
