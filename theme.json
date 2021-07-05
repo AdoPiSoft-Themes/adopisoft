@@ -169,6 +169,7 @@
           "label":  "Homepage Background Music",
           "type": "sound",
           "required": false,
+          "allow_loop": true,
           "defaultValue": {
             "src": "sounds/loop-beat-intro.wav",
             "format": "audio/wav",
@@ -180,6 +181,7 @@
           "label":  "Payment Countdown Sound",
           "type": "sound",
           "required": true,
+          "allow_loop": true,
           "defaultValue": {
             "src": "sounds/count-down-beep.mp3",
             "format": "audio/mpeg",
@@ -192,6 +194,7 @@
           "label":  "Countdown Background Sound",
           "type": "sound",
           "required": false,
+          "allow_loop": true,
           "defaultValue": null
         },
 
