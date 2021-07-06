@@ -3,11 +3,12 @@ define([
   'toast',
   'http',
   'redirect',
+  'socket',
   'app/services/config',
   'app/utils/parseCredits',
   'app/utils/formatDate'
 ],
-function (ko, toast, http, redirect, config, parseCredits, formatDate) {
+function (ko, toast, http, redirect, socket, config, parseCredits, formatDate) {
 
   return function Session(data) {
     var self = this;
@@ -34,7 +35,7 @@ function (ko, toast, http, redirect, config, parseCredits, formatDate) {
       self.interval = setInterval(self.tick, 1000);
     };
     self.tick = function () {
-      if (self.status() === 'running' && self.isTimeSession() && self.remaining_time_seconds() > 0) {
+      if (self.status() === 'running' && self.isTimeSession() && self.remaining_time_seconds() > 0 && socket().connected) {
         self.running_time_seconds(self.running_time_seconds() + 1);
       }
       self.credits(parseCredits(self));
