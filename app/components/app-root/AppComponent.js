@@ -1,6 +1,8 @@
 define([
   'knockout',
   'rootVM',
+  'socket',
+  'modal',
   'app/services/config',
   'app/observables/payment',
   'app/components/toast/ToastComponent',
@@ -8,8 +10,9 @@ define([
   'app/components/banners/Banners',
   'app/components/sessions-table/SessionsTableComponent',
   'app/components/modal/Modal',
+  'app/components/socket-disconnected-alert/SocketDisconnectedAlert',
   'app/components/footer/Footer'
-], function (ko, rootVM, config, payment) {
+], function (ko, rootVM, socket, modal, config, payment) {
 
   function AppVM() {
     this.favicon = ko.observable(config.favicon());
@@ -31,6 +34,21 @@ define([
     };
 
     rootVM.page('home-page');
+
+    this.showAlert = false;
+    this.socket = socket();
+    this.socket.on('connect', function () {
+      if (this.showAlert) {
+        modal.hide();
+        this.showAlert = false;
+      }
+    });
+    this.socket.on('disconnect', function () {
+      if (!this.showAlert) {
+        modal.show('socket-disconnected-alert');
+        this.showAlert = true;
+      }
+    });
   }
 
   ko.components.register('app', {
