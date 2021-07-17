@@ -3,8 +3,9 @@ define([
   'socketIO',
   'toast',
   'sounds',
-  'redirect'
-], function (ko, socketIO, toast, sounds, redirect) {
+  'redirect',
+  'http'
+], function (ko, socketIO, toast, sounds, redirect, http) {
 
   var socket;
 
@@ -24,6 +25,10 @@ define([
         d.set(device);
         toast.error('Oppps!', 'Disconnected from internet.');
         sounds.disconnected.play();
+      });
+
+      socket.on('customer:logout', function() {
+        http.logoutCustomer();
       });
     }
     return socket;

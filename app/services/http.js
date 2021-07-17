@@ -154,6 +154,10 @@ define([
     };
 
     // /eload
+
+    http.logoutCustomer = function() {
+      http.post('/customer/logout');
+    };
   }
 
   return new Http();
