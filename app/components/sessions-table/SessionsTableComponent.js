@@ -8,6 +8,9 @@ define([
       this.koDescendantsComplete = function () {
         sessions.fetch();
       };
+      this.dispose = function () {
+        sessions.stopSync();
+      };
     },
     template: {require: 'text!app/components/sessions-table/sessions-table.html'}
   });
