@@ -31,6 +31,12 @@ define([
         return s.stopTick();
       });
     },
+    stopSync: function () {
+      if (util._fetchTimeout) {
+        clearTimeout(util._fetchTimeout);
+        util._fetchTimeout = null;
+      }
+    },
     hasSessions: ko.pureComputed(function() {
       return sessions().length > 0;
     }),
