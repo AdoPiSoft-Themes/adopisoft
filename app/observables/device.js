@@ -21,7 +21,7 @@ define([
     fetch: function(cb) {
       http.getDevice(function(err, device) {
         if (err) {
-          window.alert('Unable to sync device information.');
+          window.alert('Unable to sync device information. The page will have to reload.');
           window.location.reload();
         } else {
           d.set(device);
