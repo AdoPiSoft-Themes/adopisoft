@@ -20,9 +20,13 @@ define([
     },
     fetch: function(cb) {
       http.getDevice(function(err, device) {
-        if (err) return toast.error('Unable to sync device information.');
-        d.set(device);
-        cb(d);
+        if (err) {
+          window.alert('Unable to sync device information.');
+          window.location.reload();
+        } else {
+          d.set(device);
+          cb(d);
+        }
       });
     }
   };
