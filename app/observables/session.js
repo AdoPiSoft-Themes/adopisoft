@@ -13,6 +13,7 @@ function (ko, toast, http, redirect, socket, config, parseCredits, formatDate) {
   return function Session(data) {
     var self = this;
     self.type = data.type;
+    self.is_free_trial = data.is_free_trial;
     self.data_mb = ko.observable(data.data_mb);
     self.data_consumption_mb = ko.observable(data.data_consumption_mb);
     self.remaining_time_seconds = ko.pureComputed(function () {
