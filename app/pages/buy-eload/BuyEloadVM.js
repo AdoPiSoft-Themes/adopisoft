@@ -44,6 +44,7 @@ define([
 
       self.loadingCustomer(true);
       http.getEloadClientData(acc_number, function(err, data) {
+        self.customer(null);
         self.loadingCustomer(false);
         if (err) return http.catchError(err);
 
@@ -56,6 +57,7 @@ define([
 
       self.loadingProviders(true);
       http.getEloadProviders(acc_number, function(err, data) {
+        self.active_provider(null);
         if (err) return http.catchError(err);
 
         self.loadingProviders(false);
