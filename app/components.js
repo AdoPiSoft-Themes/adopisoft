@@ -15,13 +15,6 @@ define([
   'app/observables/customer',
   'app/observables/device',
   'app/observables/session'
-  // eload components
-  //'app/components/eload-customer-recent/EloadCustomerRecent',
-  //'app/components/eload-payment/EloadPayment',
-  //'app/components/eload-processing/EloadProcessing',
-  //'app/components/eload-products/EloadProducts',
-  //'app/components/eload-providers/EloadProviders',
-  //'app/components/eload-to-pay/EloadToPay'
 ], function (ko, rootVM, socket, sounds, modal, toast, http, rates, sessions, Utils, getElementsByClassName, config, payment, customer, device, Session) {
 
   ko.components.register('app', {

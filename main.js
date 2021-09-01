@@ -36,6 +36,7 @@ require([
   'app/init',
   'app/bindings',
   'app/components',
+  'app/eload-components',
   'app/pages',
   'app/services/config'
 ], function(ko, rootVM, domready, init) {

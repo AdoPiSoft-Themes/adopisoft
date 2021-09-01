@@ -3,13 +3,7 @@ define([
   'rootVM',
   'toast',
   'http',
-  'app/observables/payment',
-  'app/components/eload-customer-recent/EloadCustomerRecent',
-  'app/components/eload-payment/EloadPayment',
-  'app/components/eload-processing/EloadProcessing',
-  'app/components/eload-products/EloadProducts',
-  'app/components/eload-providers/EloadProviders',
-  'app/components/eload-to-pay/EloadToPay'
+  'app/observables/payment'
 ], function (ko, rootVM, toast, http, payment) {
 
   ko.components.register('buy-eload-page', {
