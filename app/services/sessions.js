@@ -3,10 +3,8 @@ define([
   'toast',
   'http',
   'app/observables/session',
-  'app/utils/array.find',
-  'app/utils/array.map',
-  'app/utils/sessionSummary'
-], function(ko, toast, http, Session, find, map, sessionSummary) {
+  'app/utils'
+], function(ko, toast, http, Session, Utils) {
 
   var sessions = ko.observableArray([]);
 
@@ -15,7 +13,7 @@ define([
       http.fetchSessions(function(err, data) {
         if (err) return http.catchError(err);
         util.stopSessionsTick();
-        sessions(map(data, function (s) {
+        sessions(Utils.array.map(data, function (s) {
           return new Session(s);
         }));
         util._fetchTimeout = setTimeout(function() {
@@ -27,7 +25,7 @@ define([
       return sessions;
     },
     stopSessionsTick: function() {
-      map(sessions(), function(s) {
+      Utils.array.map(sessions(), function(s) {
         return s.stopTick();
       });
     },
@@ -54,7 +52,7 @@ define([
       });
     }),
     summary: ko.pureComputed(function() {
-      return sessionSummary(sessions());
+      return Utils.sessionSummary(sessions());
     })
   };
 

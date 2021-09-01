@@ -2,8 +2,8 @@ define([
   'knockout',
   'rootVM',
   'http',
-  'app/utils/array.map'
-], function(ko, rootVM, http, map) {
+  'app/utils'
+], function(ko, rootVM, http, Utils) {
   ko.components.register('view-vouchers', {
     viewModel: function () {
       var self = this;
@@ -15,7 +15,7 @@ define([
       };
 
       http.getVouchers(function (err, vouchers) {
-        map(vouchers, function(v) {
+        Utils.array.map(vouchers, function(v) {
           self.vouchers.push(v);
         });
       });

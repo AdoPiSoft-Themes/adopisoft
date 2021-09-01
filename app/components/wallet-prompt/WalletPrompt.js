@@ -5,11 +5,10 @@ define([
   'http',
   'app/observables/receipt',
   'text!app/components/wallet-prompt/wallet-prompt.html',
-  'app/utils/shortSecondsFormat',
-  'app/utils/formatBytes',
+  'app/utils',
   'toast',
   'app/components/seconds-format/SecondsFormat'
-], function(ko, rootVM, wifiRates, http, receipt, tpl, secondsFormat, formatBytes, toast) {
+], function(ko, rootVM, wifiRates, http, receipt, tpl, Utils, toast) {
 
   function VM(params) {
     var self = this;
@@ -65,14 +64,14 @@ define([
 
     self.totalCredits = function(data) {
       if (rate_type === 'time') {
-        return secondsFormat(data.session.time_seconds);
+        return Utils.seconds.short(data.session.time_seconds);
       }
       if (rate_type === 'data') {
-        return formatBytes(data.session.data_mb);
+        return Utils.formatBytes(data.session.data_mb);
       }
       if (rate_type === 'time_or_data') {
-        var s = secondsFormat(data.session.time_seconds);
-        var d = formatBytes(data.session.data_mb);
+        var s = Utils.seconds.short(data.session.time_seconds);
+        var d = Utils.formatBytes(data.session.data_mb);
         return s + '/' + d;
       }
     };

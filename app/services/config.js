@@ -1,8 +1,8 @@
 define([
   'json!/settings/portal/config.json',
-  'app/utils/array.map'
+  'app/utils'
 ],
-function (config, map) {
+function (config, Utils) {
 
   function Config () {
     this.favicon = function () {
@@ -13,7 +13,7 @@ function (config, map) {
     };
     this.styles = function () {
       var styles = this.findField('css', 'css_files');
-      return map(styles, function (s) {
+      return Utils.array.map(styles, function (s) {
         return encodeURI(s);
       });
     };

@@ -1,13 +1,13 @@
 define([
   'knockout',
   'rootVM',
-  'app/utils/formatDate',
+  'app/utils',
   'app/observables/payment',
   'http',
   'toast',
   'modal',
   'app/components/eload-processing/EloadProcessing'
-], function(ko, rootVM, formatDate, payment, http, toast, modal) {
+], function(ko, rootVM, Utils, payment, http, toast, modal) {
 
   function VM(params) {
     var self = this;
@@ -95,7 +95,7 @@ define([
       });
     };
 
-    self.formatDate = formatDate;
+    self.formatDate = Utils.formatDate;
 
     self.koDescendantsComplete = function () {
       http.checkEloadProvider(self.active_provider_id, self.product.keyword, function(err) {

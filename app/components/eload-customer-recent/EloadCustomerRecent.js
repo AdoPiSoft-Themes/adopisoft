@@ -1,7 +1,7 @@
 define([
   'knockout',
-  'app/utils/formatDate'
-], function(ko, formatDate) {
+  'app/utils'
+], function(ko, Utils) {
 
   function VM(params) {
     var self = this;
@@ -11,7 +11,7 @@ define([
 
     var last_purchase = params.last_purchase();
     if(last_purchase) {
-      last_purchase.created_at = formatDate(last_purchase.created_at);
+      last_purchase.created_at = Utils.formatDate(last_purchase.created_at);
     }
 
     self.last_purchase = last_purchase;

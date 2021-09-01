@@ -2,25 +2,23 @@ define([
   'knockout',
   'rootVM',
   'wifiRates',
-  'app/utils/shortSecondsFormat',
-  'app/utils/formatBytes',
-  'app/utils/array.map'
-], function(ko, rootVM, wifiRates, secondsFormat, formatBytes, map) {
+  'app/utils'
+], function(ko, rootVM, wifiRates, Utils) {
   ko.components.register('view-rates', {
     viewModel: function () {
       var self = this;
-      self.rates = ko.observableArray(map(wifiRates.rates(), function(r) {
+      self.rates = ko.observableArray(Utils.array.map(wifiRates.rates(), function(r) {
         return {
           unitAmount: ko.pureComputed(function () {
             return wifiRates.currency() + ' ' + r.amount;
           }),
           timeRate: ko.pureComputed(function () {
             var t = wifiRates.time_or_data_rates() || wifiRates.time_rates();
-            return t ? secondsFormat(r.minutes * 60) : 'Unlimited';
+            return t ? Utils.seconds.short(r.minutes * 60) : 'Unlimited';
           }),
           dataRate: ko.pureComputed(function () {
             var d = wifiRates.time_or_data_rates() || wifiRates.data_rates();
-            return d ? formatBytes(r.data_mb) : 'Unlimited';
+            return d ? Utils.formatBytes(r.data_mb) : 'Unlimited';
           })
         };
       }));

@@ -1,14 +1,14 @@
 define([
-  'app/utils/ajax',
+  'app/utils',
   'toast',
   'sounds'
-], function (ajax, toast, sounds) {
+], function (Utils, toast, sounds) {
 
   function Http () {
     var http = this;
     http.get = function (url, cb) {
       try {
-        ajax({
+        Utils.ajax({
           url: url,
           success: function (data) {
             cb(null, data);
@@ -24,7 +24,7 @@ define([
         data = {};
       }
       try {
-        ajax({
+        Utils.ajax({
           url: url,
           method: 'POST',
           data: data,

@@ -7,9 +7,9 @@ define([
   'app/observables/device',
   'app/observables/customer',
   'modal',
-  'app/utils/array.includes',
+  'app/utils',
   'app/components/wallet-prompt/WalletPrompt'
-], function (ko, rootVM, toast, http, payment, device, customer, modal, includes) {
+], function (ko, rootVM, toast, http, payment, device, customer, modal, Utils) {
 
   return function () {
     var self = this;
@@ -29,7 +29,7 @@ define([
         self.loading(false);
 
         var wifi_rates = ['time', 'data', 'time_or_data'];
-        var is_wifi_rate = includes(wifi_rates, payment.rateType());
+        var is_wifi_rate = Utils.array.includes(wifi_rates, payment.rateType());
 
         if (is_wifi_rate && customer.credits() > 0) {
           modal.show('wallet-prompt', {customer: customer, rate_type: payment.rateType(), is_voucher: payment.isVoucher()});

@@ -2,8 +2,8 @@ define([
   'knockout',
   'http',
   'toast',
-  'app/utils/array.includes'
-], function(ko, http, toast, includes) {
+  'app/utils'
+], function(ko, http, toast, Utils) {
 
   function VM(params) {
     var self = this;
@@ -136,7 +136,7 @@ define([
         if(d.type === 'range') {
           return d.denominations[0] <= amount && d.denominations[1] >= amount;
         }else{
-          return includes(d.denominations, amount);
+          return Utils.array.includes(d.denominations, amount);
         }
       });
     };

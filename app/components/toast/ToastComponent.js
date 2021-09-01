@@ -1,9 +1,9 @@
 define([
   'knockout',
   'toast',
-  'app/utils/array.reduce',
+  'app/utils',
   'getElementsByClassName'
-],function(ko, toast, reduce, getElementsByClassName) {
+],function(ko, toast, Utils, getElementsByClassName) {
 
 
   var messages = ko.observableArray([]);
@@ -69,7 +69,7 @@ define([
       var toasts = findToasts();
       var el = toasts[index];
       applyToastStyles(el);
-      var totalHeight = reduce(toasts, function (sum, t) {
+      var totalHeight = Utils.array.reduce(toasts, function (sum, t) {
         return sum + t.offsetHeight;
       }, 0) - el.offsetHeight;
       el.style.bottom = totalHeight + 'px';

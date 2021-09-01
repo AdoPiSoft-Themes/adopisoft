@@ -2,8 +2,8 @@ define([
   'knockout',
   'sounds',
   'app/services/config',
-  'app/utils/array.map'
-], function (ko, sounds, config, map) {
+  'app/utils'
+], function (ko, sounds, config, Utils) {
 
   var banner_field = config.findField('banners', 'banners');
   var slogan_field = config.findField('page_properties', 'banner_text');
@@ -14,7 +14,7 @@ define([
     var index = 0;
     self.src = ko.observable('');
     self.bannerText = slogan_field;
-    self.imgUrls = map(banner_field, function (url) {
+    self.imgUrls = Utils.array.map(banner_field, function (url) {
       return encodeURI(url);
     });
     self.changeImage = function () {

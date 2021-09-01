@@ -10,14 +10,12 @@ define([
   'app/observables/device',
   'app/observables/receipt',
   'app/observables/payment',
-  'app/utils/shortSecondsFormat',
-  'app/utils/formatBytes',
-  'app/utils/array.includes',
+  'app/utils',
   'app/components/progress-bar/ProgressBar',
   'app/components/seconds-format/SecondsFormat',
   'app/components/eload-payment/EloadPayment',
   'app/components/wallet-topup/WalletTopup'
-], function (ko, rootVM, http, sounds, toast, timerConfig, rates, socket, device, receipt, payment, secondsFormat, formatBytes, includes) {
+], function (ko, rootVM, http, sounds, toast, timerConfig, rates, socket, device, receipt, payment, Utils) {
 
   function VM () {
     var prev_amount = 0;
@@ -42,7 +40,7 @@ define([
     };
 
     self.eload_wallet_topup = ko.pureComputed(function() {
-      return includes(['eload', 'wallet_topup'], self.que.type());
+      return Utils.array.includes(['eload', 'wallet_topup'], self.que.type());
     });
 
     self.session = {
@@ -124,14 +122,14 @@ define([
 
     self.totalCredits = ko.pureComputed(function() {
       if (self.que.type() === 'time') {
-        return secondsFormat(self.session.time_seconds());
+        return Utils.seconds.short(self.session.time_seconds());
       }
       if (self.que.type() === 'data') {
-        return formatBytes(self.session.data_mb());
+        return Utils.formatBytes(self.session.data_mb());
       }
       if (self.que.type() === 'time_or_data') {
-        var s = secondsFormat(self.session.time_seconds());
-        var d = formatBytes(self.session.data_mb());
+        var s = Utils.seconds.short(self.session.time_seconds());
+        var d = Utils.formatBytes(self.session.data_mb());
         return s + '/' + d;
       }
     });

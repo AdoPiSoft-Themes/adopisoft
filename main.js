@@ -24,7 +24,6 @@ requirejs.config({
     rootVM: 'app/root/RootVM'
   },
   packages: [
-    'app/bindings',
     'app/pages'
   ]
 });
