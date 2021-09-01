@@ -10,11 +10,7 @@ define([
   'app/observables/device',
   'app/observables/receipt',
   'app/observables/payment',
-  'app/utils',
-  'app/components/progress-bar/ProgressBar',
-  'app/components/seconds-format/SecondsFormat',
-  'app/components/eload-payment/EloadPayment',
-  'app/components/wallet-topup/WalletTopup'
+  'app/utils'
 ], function (ko, rootVM, http, sounds, toast, timerConfig, rates, socket, device, receipt, payment, Utils) {
 
   function VM () {

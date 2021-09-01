@@ -3,9 +3,7 @@ define([
   'rootVM',
   'http',
   'sessions',
-  'app/observables/receipt',
-  'app/components/voucher-form/VoucherForm',
-  'app/bindings/clipboard'
+  'app/observables/receipt'
 ], function(ko, rootVM, http, sessions, receipt) {
   return function ReceiptPage() {
     var self = this;

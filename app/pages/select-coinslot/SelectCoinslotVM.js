@@ -7,8 +7,7 @@ define([
   'app/observables/device',
   'app/observables/customer',
   'modal',
-  'app/utils',
-  'app/components/wallet-prompt/WalletPrompt'
+  'app/utils'
 ], function (ko, rootVM, toast, http, payment, device, customer, modal, Utils) {
 
   return function () {

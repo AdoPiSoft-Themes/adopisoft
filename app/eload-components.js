@@ -437,5 +437,21 @@ define([
     template: {require: 'text!app/components/eload-to-pay/eload-to-pay.html'}
   });
 
+  ko.components.register('wallet-prompt', {
+    viewModel: {require: 'app/components/wallet-prompt/WalletPromptVM'},
+    template: {require: 'text!app/components/wallet-prompt/wallet-prompt.html'}
+  });
+
+  ko.components.register('wallet-topup', {
+    viewModel: function VM(params) {
+      var self = this;
+      self.loading = params.loading;
+      self.que = params.que;
+      self.rates = params.rates;
+      self.hasPayment = params.hasPayment;
+      self.donePayment = params.donePayment;
+    },
+    template: {require: 'text!app/components/wallet-topup/wallet-topup.html'}
+  });
 
 });

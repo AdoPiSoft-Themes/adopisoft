@@ -10,7 +10,7 @@ define([
   'app/components/seconds-format/SecondsFormat'
 ], function(ko, rootVM, wifiRates, http, receipt, tpl, Utils, toast) {
 
-  function VM(params) {
+  return function VM(params) {
     var self = this;
     var is_voucher = params.is_voucher;
     var rate_type = params.rate_type;
@@ -22,7 +22,7 @@ define([
     self.payNow = function() {
       var amount = self.amount();
       if(amount > 0 && amount <= self.customer.credits()) {
-        
+
         var opts = {amount: amount, rate_type: rate_type};
         if(is_voucher) opts.is_voucher = true;
 
@@ -80,10 +80,5 @@ define([
       document.getElementById('wallet-amount').focus();
     };
   }
-
-  ko.components.register('wallet-prompt', {
-    viewModel: VM,
-    template: tpl
-  });
 
 });

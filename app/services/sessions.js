@@ -39,7 +39,7 @@ define([
       return sessions().length > 0;
     }),
     runningSession: ko.pureComputed(function() {
-      return find(sessions(), function(s) {
+      return Utils.array.find(sessions(), function(s) {
         return s.status() === 'running';
       });
     }),
@@ -47,7 +47,7 @@ define([
       return !!util.runningSession();
     }),
     available: ko.pureComputed(function() {
-      return find(sessions(), function(s) {
+      return Utils.array.find(sessions(), function(s) {
         return s.status() === 'available';
       });
     }),
