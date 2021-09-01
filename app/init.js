@@ -1,8 +1,8 @@
 define([
-  'app/observables/device',
   'socket',
-  'app/services/plugin_assets'
-], function (device, socket, assets) {
+  'app/observables/device',
+  'json!/client/plugins/assets.json'
+], function (socket, device, assets) {
   return function init(cb) {
     device.fetch(function (d) {
       var socket_instance = socket(d);
