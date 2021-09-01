@@ -5,8 +5,10 @@ define([
   'http',
   'app/observables/payment',
   'app/components/eload-customer-recent/EloadCustomerRecent',
-  'app/components/eload-providers/EloadProviders',
+  'app/components/eload-payment/EloadPayment',
+  'app/components/eload-processing/EloadProcessing',
   'app/components/eload-products/EloadProducts',
+  'app/components/eload-providers/EloadProviders',
   'app/components/eload-to-pay/EloadToPay'
 ], function (ko, rootVM, toast, http, payment) {
 

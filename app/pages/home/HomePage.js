@@ -1,12 +1,6 @@
 define([
   'knockout',
-  'rootVM',
-  'app/components/start-pause-buttons/StartPauseButtonsComponent',
-  'app/components/buy-wifi-or-eload/BuyWifiOrEloadComponent',
-  'app/components/voucher-form/VoucherForm',
-  'app/components/device-info/DeviceInfo',
-  'app/components/internet-status/InternetStatus'
-
+  'rootVM'
 ], function (ko, rootVM) {
   ko.components.register('home-page', {
     viewModel: function () {

@@ -35,9 +35,9 @@ require([
   'domready',
   'app/init',
   'app/bindings',
+  'app/components',
   'app/pages',
-  'app/services/config',
-  'app/components/app-root/AppComponent'
+  'app/services/config'
 ], function(ko, rootVM, domready, init) {
 
   function onLoad() {
