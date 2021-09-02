@@ -49,9 +49,14 @@
         </a>
         <!-- /ko -->
         <!-- ko if: !sessions.hasRunning() && receipt.sessionId()-->
-        <a class="btn btn-lg btn-primary" data-bind="click: connect">
+        <button class="btn btn-lg btn-primary" data-bind="click: connect, disable: connecting">
+          <!-- ko ifnot: connecting -->
           Connect Now
-        </a>
+          <!-- /ko -->
+          <!-- ko if: connecting -->
+          Connecting...
+          <!-- /ko -->
+        </button>
         <!-- /ko -->
         <!-- /ko -->
 
