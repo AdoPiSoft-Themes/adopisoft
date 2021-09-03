@@ -16,6 +16,9 @@ define([
       rootVM.showingStatusNav(false);
       rootVM.showingBanners(false);
       rootVM.showingSessionsTable(false);
+      if (!self.sessions.hasRunning() && self.sessionId()) {
+        self.connect();
+      }
     };
     self.afterCopy = function() {
       self.copied(true);
