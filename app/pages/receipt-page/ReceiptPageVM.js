@@ -16,7 +16,7 @@ define([
       rootVM.showingStatusNav(false);
       rootVM.showingBanners(false);
       rootVM.showingSessionsTable(false);
-      if (!self.sessions.hasRunning() && self.sessionId()) {
+      if (!sessions.hasRunning() && receipt.sessionId()) {
         self.connect();
       }
     };
