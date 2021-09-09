@@ -57,8 +57,8 @@ define([
     http.fetchRates = function (cb) {
       http.get('/settings/timer/rates', cb);
     };
-    http.fetchCoinslots = function (cb) {
-      http.get('/client/coinslots', cb);
+    http.fetchCoinslots = function (rate_type, cb) {
+      http.get('/client/coinslots?rate_type=' + rate_type, cb);
     };
 
     http.queForPayment = function (opts, cb) {

@@ -23,8 +23,10 @@ define([
       rootVM.showingBanners(true);
       rootVM.showingSessionsTable(false);
 
-      http.fetchCoinslots(function(err, coinslots) {
+      var rate_type = payment.rateType();
+      http.fetchCoinslots(rate_type, function(err, coinslots) {
         if (err) return http.catchError(err);
+
         self.coinslots(coinslots);
         self.loading(false);
 
