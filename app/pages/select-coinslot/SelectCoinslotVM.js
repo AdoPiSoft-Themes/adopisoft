@@ -31,10 +31,10 @@ define([
         self.loading(false);
 
         var wifi_rates = ['time', 'data', 'time_or_data'];
-        var is_wifi_rate = includes(wifi_rates, payment.rateType());
+        var is_wifi_rate = includes(wifi_rates, rate_type);
 
         if (is_wifi_rate && customer.credits() > 0) {
-          modal.show('wallet-prompt', {customer: customer, rate_type: payment.rateType(), is_voucher: payment.isVoucher()});
+          modal.show('wallet-prompt', {customer: customer, rate_type: rate_type, is_voucher: payment.isVoucher()});
         } else if (coinslots.length === 1) {
           self.selectCoinslot(coinslots[0].id);
         }
