@@ -3,18 +3,18 @@
   <div class="btn-group-padded">
     <a class="btn btn-lg btn-default" data-bind="navigate: 'more-buttons'">
       <i class="glyphicon glyphicon-chevron-left"></i>
-      Back
+      <span data-bind="translate: 'BACK'"></span>
     </a>
   </div>
 
   <div class="panel panel-info">
-    <div class="panel-heading">Wifi Rates</div>
+    <div class="panel-heading" data-bind="translate: 'WIFI_RATES'"></div>
     <table class="table">
       <thead>
         <tr>
-          <th class="text-center">Amount</th>
-          <th class="text-center">Time</th>
-          <th class="text-center">Data</th>
+          <th class="text-center" data-bind="translate: 'AMOUNT'"></th>
+          <th class="text-center" data-bind="translate: 'TIME'"></th>
+          <th class="text-center" data-bind="translate: 'DATA'"></th>
         </tr>
       </thead>
       <tbody>

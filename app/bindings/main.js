@@ -1,4 +1,5 @@
 define([
   './navigate',
-  './loadingBtn'
+  './loadingBtn',
+  './translate'
 ]);
