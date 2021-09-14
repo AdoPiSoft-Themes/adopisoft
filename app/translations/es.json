@@ -45,5 +45,6 @@
   "CONNECT_NOW": "Conecte Ahora",
   "CONNECTING": "Conectando",
   "CONNECTED_TO_INTERNET": "Conectado a internet",
-  "DISCONNECTED_FROM_INTERNET": "Desconectado a internet"
+  "DISCONNECTED_FROM_INTERNET": "Desconectado a internet",
+  "WAITING_FOR_PAYMENT": "A la espera del pago"
 }
