@@ -47,5 +47,6 @@
   "CONNECTED_TO_INTERNET": "Conectado a internet",
   "DISCONNECTED_FROM_INTERNET": "Desconectado a internet",
   "WAITING_FOR_PAYMENT": "A la espera del pago",
-  "POWERED_BY": "Desarrollado por"
+  "POWERED_BY": "Desarrollado por",
+  "PAYMENT_RECEIVED": "Pago Recibido"
 }
