@@ -4,9 +4,8 @@ define([
   'toast',
   'sounds',
   'redirect',
-  'translator',
   'http'
-], function (ko, socketIO, toast, sounds, redirect, translator, http) {
+], function (ko, socketIO, toast, sounds, redirect, http) {
 
   var socket;
 
@@ -17,14 +16,14 @@ define([
       socket.on('connect', function() {});
       socket.on('device:connected', function(device) {
         d.set(device);
-        toast.success('Yehey!', translator.print('CONNECTED_TO_INTERNET'));
+        toast.success('Yehey!', 'Connected to internet.');
         sounds.connected.play();
         redirect.redirect();
       });
       socket.on('device:disconnected', function(device) {
         redirect.cancel();
         d.set(device);
-        toast.error('Oppps!', translator.print('DISCONNECTED_FROM_INTERNET'));
+        toast.error('Oppps!', 'Disconnected from internet.');
         sounds.disconnected.play();
       });
 

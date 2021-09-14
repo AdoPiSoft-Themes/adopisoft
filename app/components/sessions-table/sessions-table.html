@@ -2,12 +2,14 @@
 <div class="padd-top">
   <div class="panel panel-primary" data-bind="sessions: $data.sessions">
 
-    <div class="panel panel-heading" data-bind="translate: 'AVAILABLE_SESSIONS'"></div>
+    <div class="panel panel-heading">
+      Available Sessions
+    </div>
 
     <table class="table">
       <thead>
-        <th class="text-center" data-bind="translate: 'CREDITS'"></th>
-        <th class="text-center" data-bind="translate: 'EXPIRY'"></th>
+        <th class="text-center">Credits</th>
+        <th class="text-center">Expiry</th>
         <th class="text-center"></th>
       </thead>
       <tbody>
@@ -33,7 +35,7 @@
       <tfoot>
         <tr>
           <td colspan="3">
-            <span class="text-muted" data-bind="translate: 'EXPIRY_FORMAT'"></span>
+            <span class="text-muted">Expiry date format is Month/Date/Year.</span>
           </td>
         </tr>
       </tfoot>
