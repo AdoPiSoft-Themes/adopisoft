@@ -1,4 +1,6 @@
-define(function () {
+define([
+  'translator'
+], function (translator) {
 
   function _alert (message) {
     window.alert(message);
@@ -10,14 +12,14 @@ define(function () {
       this.success = function (title, text) {
         if (!text) {
           text = title;
-          title = 'Success';
+          title = translator.print('SUCCESS');
         }
         vm.success(title, text);
       };
       this.error = function(title, text) {
         if (!text) {
           text = title;
-          title = 'Error';
+          title = translator.print('ERROR');
         }
         vm.error(title, text);
       };

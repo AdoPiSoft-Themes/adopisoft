@@ -1,5 +1,7 @@
 {
   "ERR_DEF": "Algo salió mal",
+  "SUCCESS": "Éxito",
+  "ERROR": "Error",
   "LOADING": "Cargando. Espere por favor",
   "BUY_WIFI": "Comprar WiFi",
   "BUY_ELOAD": "Comprar E-Load",
@@ -48,5 +50,6 @@
   "DISCONNECTED_FROM_INTERNET": "Desconectado a internet",
   "WAITING_FOR_PAYMENT": "A la espera del pago",
   "POWERED_BY": "Desarrollado por",
-  "PAYMENT_RECEIVED": "Pago Recibido"
+  "PAYMENT_RECEIVED": "Pago Recibido",
+  "VOUCHER_ACTIVATED": "Cupón activado con éxito!"
 }

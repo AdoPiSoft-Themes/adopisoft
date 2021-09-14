@@ -1,5 +1,7 @@
 {
   "ERR_DEF": "Ada yang salah",
+  "SUCCESS": "Kesuksesan",
+  "ERROR": "Kesalahan",
   "LOADING": "Memuat. Mohon tunggu",
   "BUY_WIFI": "Beli WiFi",
   "BUY_ELOAD": "Beli E-Load",
@@ -48,5 +50,6 @@
   "DISCONNECTED_FROM_INTERNET": "Terputus dari internet",
   "WAITING_FOR_PAYMENT": "Menunggu pembayaran",
   "POWERED_BY": "Didukung oleh",
-  "PAYMENT_RECEIVED": "Pembayaran Diterima"
+  "PAYMENT_RECEIVED": "Pembayaran Diterima",
+  "VOUCHER_ACTIVATED": "Voucher berhasil diaktifkan"
 }

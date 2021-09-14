@@ -4,8 +4,9 @@ define([
   'rootVM',
   'http',
   'sessions',
+  'translator',
   'app/observables/session'
-], function (ko, toast, rootVM, http, sessions, Session) {
+], function (ko, toast, rootVM, http, sessions, translator, Session) {
   ko.components.register('voucher-form', {
     viewModel: function(code) {
       var self = this;
@@ -17,7 +18,7 @@ define([
           if (err) return http.catchError(err);
           var s = new Session(data);
           sessions.get().push(s);
-          toast.success('Voucher activated successfully!');
+          toast.success(translator.print('VOUCHER_ACTIVATED'));
           self.value('');
           rootVM.navigate('home-page');
         });
