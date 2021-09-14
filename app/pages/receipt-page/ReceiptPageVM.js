@@ -12,6 +12,7 @@ define([
     self.receipt = receipt;
     self.sessions = sessions;
     self.copied = ko.observable(false);
+    self.connecting = ko.observable(false);
     self.koDescendantsComplete = function () {
       rootVM.showingStatusNav(false);
       rootVM.showingBanners(false);
@@ -21,7 +22,9 @@ define([
       self.copied(true);
     };
     self.connect = function() {
+      self.connecting(true);
       http.startSession(receipt.sessionId(), function(err) {
+        self.connecting(false);
         if (err) return http.catchError(err);
         rootVM.navigate('home-page');
       });

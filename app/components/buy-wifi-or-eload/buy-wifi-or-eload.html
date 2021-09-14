@@ -1,17 +1,25 @@
 
 <!-- ko if: showBuyWifiBtn -->
-<a class="btn btn-lg btn-primary" data-bind="click: buyWifi, loadingBtn: loading">Buy WiFi</a>
+<a class="btn btn-lg btn-primary" data-bind="click: buyWifi, loadingBtn: loading">
+  <span data-bind="translate: 'BUY_WIFI'"></span>
+</a>
 <!-- /ko -->
 
 <!-- ko if: showBuyEloadBtn -->
-<a class="btn btn-lg btn-success" data-bind="click: buyEload, loadingBtn: eloadLoading">Buy eLoad</a>
+<a class="btn btn-lg btn-success" data-bind="click: buyEload, loadingBtn: eloadLoading">
+  <span data-bind="translate: 'BUY_ELOAD'"></span>
+</a>
 <!-- /ko -->
 
 <!-- ko if: showBuyVoucherBtn -->
-<a class="btn btn-lg btn-info" data-bind="click: buyVoucher, loadingBtn: loading">Buy Voucher</a>
+<a class="btn btn-lg btn-info" data-bind="click: buyVoucher, loadingBtn: loading">
+  <span data-bind="translate: 'BUY_VOUCHER'"></span>
+</a>
 <!-- /ko -->
 
 <!-- ko if: customer.id -->
-<a class="btn btn-lg btn-warning" data-bind="click: topupWallet, loadingBtn: loading">Top-up Wallet</a>
+<a class="btn btn-lg btn-warning" data-bind="click: topupWallet, loadingBtn: loading">
+  <span data-bind="translate: 'TOPUP_WALLET'"></span>
+</a>
 <!-- /ko -->
 

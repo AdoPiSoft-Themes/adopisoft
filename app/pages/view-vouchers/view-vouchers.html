@@ -3,19 +3,22 @@
   <div class="btn-group-padded">
     <a class="btn btn-lg btn-default" data-bind="navigate: 'more-buttons'">
       <i class="glyphicon glyphicon-chevron-left"></i>
-      Back
+      <span data-bind="translate: 'BACK'"></span>
     </a>
   </div>
 
   <div class="padd-bottom padd-top" data-bind="component: 'voucher-form'"></div>
 
   <div class="panel panel-info">
-    <div class="panel-heading">Your Vouchers</div>
-    <table class="table">
+    <div class="panel-heading" data-bind="translate: 'YOUR_VOUCHERS'"></div>
+    <div class="panel-body" data-bind="ifnot vouchers.length">
+      <p class="alert alert-warning" data-bind="translate: 'NO_DATA'"></p>
+    </div>
+    <table class="table" data-bind="if: vouchers.length">
       <thead>
         <tr>
-          <th class="text-center">Code</th>
-          <th class="text-center">Status</th>
+          <th class="text-center" data-bind="translate: 'VOUCHER_CODE'"></th>
+          <th class="text-center" data-bind="translate: 'STATUS'"></th>
         </tr>
       </thead>
       <tbody>
