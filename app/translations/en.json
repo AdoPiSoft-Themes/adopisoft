@@ -46,5 +46,6 @@
   "CONNECTING": "Connecting",
   "CONNECTED_TO_INTERNET": "Connected to internet",
   "DISCONNECTED_FROM_INTERNET": "Disconnected from internet",
-  "WAITING_FOR_PAYMENT": "Waiting for payment"
+  "WAITING_FOR_PAYMENT": "Waiting for payment",
+  "POWERED_BY": "Powered by"
 }

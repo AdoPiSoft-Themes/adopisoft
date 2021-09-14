@@ -46,5 +46,6 @@
   "CONNECTING": "Connecting",
   "CONNECTED_TO_INTERNET": "Terhubung ke internet",
   "DISCONNECTED_FROM_INTERNET": "Terputus dari internet",
-  "WAITING_FOR_PAYMENT": "Menunggu pembayaran"
+  "WAITING_FOR_PAYMENT": "Menunggu pembayaran",
+  "POWERED_BY": "Didukung oleh"
 }
