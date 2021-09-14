@@ -17,6 +17,9 @@ define([
       rootVM.showingStatusNav(false);
       rootVM.showingBanners(false);
       rootVM.showingSessionsTable(false);
+      if (!sessions.hasRunning() && receipt.sessionId()) {
+        self.connect();
+      }
     };
     self.afterCopy = function() {
       self.copied(true);
