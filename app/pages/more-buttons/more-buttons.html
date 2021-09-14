@@ -4,20 +4,26 @@
       <div data-bind="component: 'device-info'"></div>
 
       <!-- ko if: showMyAccountBtn() || customer.id() -->
-      <a class="btn btn-info btn-lg" href="/u" data-bind="translate: 'MY_ACCT'"></a>
+      <a class="btn btn-info btn-lg" href="/u">
+        My Account
+      </a>
       <!-- /ko -->
 
       <!-- ko if: showViewVouchersBtn -->
-      <a class="btn btn-info btn-lg" data-bind="navigate: 'view-vouchers', translate: 'VIEW_VOUCHERS'"></a>
+      <a class="btn btn-info btn-lg" data-bind="navigate: 'view-vouchers'">
+        View Vouchers
+      </a>
       <!-- /ko -->
 
       <!-- ko if: showViewRatesBtn() -->
-      <a class="btn btn-info btn-lg" data-bind="navigate: 'view-rates', translate: 'VIEW_RATES'"></a>
+      <a class="btn btn-info btn-lg" data-bind="navigate: 'view-rates'">
+        View Rates
+      </a>
       <!-- /ko -->
 
       <a class="btn btn-lg btn-default" data-bind="navigate: 'home-page'">
         <i class="glyphicon glyphicon-chevron-left"></i>
-        <span data-bind="translate: 'BACK'"></span>
+        Back
       </a>
 
     </div>

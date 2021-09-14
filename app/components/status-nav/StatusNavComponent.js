@@ -1,9 +1,8 @@
 define([
   'knockout',
   'sessions',
-  'translator',
   'app/services/config'
-], function(ko, sessions, translator, config) {
+], function(ko, sessions, config) {
 
   function vm () {
     var self = this;
@@ -16,7 +15,7 @@ define([
       return self.connected() ? connectedIcon : disconnectedIcon;
     });
     this.summary = ko.pureComputed(function () {
-      return sessions.summary() || translator.print('DISCONNECTED');
+      return sessions.summary() || 'Disconnected';
     });
   }
 

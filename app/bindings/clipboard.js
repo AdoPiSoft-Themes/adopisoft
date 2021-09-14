@@ -1,8 +1,7 @@
 define([
   'knockout',
-  'clipboard',
-  'translator'
-], function(ko, Clipboard, translator) {
+  'clipboard'
+], function(ko, Clipboard) {
 
   // Usage:
   // <button data-bind="clipboard: {text: 'copy me', targetId: 'my-input-id'}">Copy</button>
@@ -20,7 +19,7 @@ define([
         text: textGetter, target: targetGetter
       });
       cb.on('success', function() {
-        element.innerText = translator.print('COPIED') + '!';
+        element.innerText = 'Copied!';
         if (params.done) params.done();
       });
       cb.on('error', function() {

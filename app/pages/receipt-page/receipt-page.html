@@ -1,14 +1,14 @@
 <div class="container text-center padd-top" id="receipt-page">
-  <h1 class="text-success" data-bind="translate: 'THANKS'"></h1>
+  <h1 class="text-success">Thank You!</h1>
 
   <div class="padd-top">
     <div class="panel panel-primary">
-      <div class="panel-heading" data-bind="translate: 'TRANSACTION_SUMMARY'"></div>
+      <div class="panel-heading">Transaction Summary</div>
       <table class="table table-bordered">
         <thead>
           <tr>
-            <th class="text-center" data-bind="translate: 'AMOUNT'"></th>
-            <th class="text-center" data-bind="translate: 'CREDITS'"></th>
+            <th class="text-center">Amount</th>
+            <th class="text-center">Credits</th>
           </tr>
         </thead>
         <tbody>
@@ -26,14 +26,15 @@
       <div class="panel-footer">
 
         <!-- ko if: receipt.isVoucher -->
-        <h3 class="text-center"><span data-bind="translate: 'VOUCHER_CODE'"></span>: <span class="text-primary" data-bind="text: receipt.voucherCode"></span></h3>
+        <h3 class="text-center">Voucher Code: <span class="text-primary" data-bind="text: receipt.voucherCode"></span></h3>
         <div data-bind="component: {name: 'voucher-form', params: receipt.voucherCode}"></div>
         <div class="padd-top">
-          <a class="btn btn-lg" data-bind="translate: 'COPY_VOUCHER', clipboard: {targetId: 'voucher-code-input', done: afterCopy }, class: copied() ? 'btn-default' : 'btn-success'">
+          <a class="btn btn-lg" data-bind="clipboard: {targetId: 'voucher-code-input', done: afterCopy }, class: copied() ? 'btn-default' : 'btn-success'">
+            Copy Voucher
           </a>
           <!-- ko if: copied -->
           <a class="btn btn-lg btn-success" data-bind="navigate: 'home-page'">
-            <span data-bind="translate: 'DONE'"></span>
+            Done
             <i class="glyphicon glyphicon-chevron-right"></i>
           </a>
           <!-- /ko -->
@@ -43,17 +44,17 @@
         <!-- ko ifnot: receipt.isVoucher -->
         <!-- ko if: sessions.hasRunning() || !receipt.sessionId()-->
         <a class="btn btn-lg btn-success" data-bind="navigate: 'home-page'">
-          <span data-bind="translate: 'DONE'"></span>
+          Done
           <i class="glyphicon glyphicon-chevron-right"></i>
         </a>
         <!-- /ko -->
         <!-- ko if: !sessions.hasRunning() && receipt.sessionId()-->
         <button class="btn btn-lg btn-primary" data-bind="click: connect, disable: connecting">
           <!-- ko ifnot: connecting -->
-          <span data-bind="translate: 'CONNECT_NOW'"></span>
+          Connect Now
           <!-- /ko -->
           <!-- ko if: connecting -->
-          <span data-bind="translate: 'CONNECTING'"></span>...
+          Connecting...
           <!-- /ko -->
         </button>
         <!-- /ko -->

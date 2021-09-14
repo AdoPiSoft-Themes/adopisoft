@@ -8,13 +8,13 @@
     <a
         class="btn btn-lg btn-success"
         data-bind="click: function () { selectRate('time') }">
-      <span data-bind="translate: 'WIFI_TIME'"></span>
+      Wifi Time
     </a>
     <!-- /ko -->
 
     <!-- ko if: rates.data_rates -->
     <a class="btn btn-lg btn-success" data-bind="click: function () { selectRate('data') }">
-      <span data-bind="translate: 'WIFI_DATA'"></span>
+      Wifi Data
     </a>
     <!-- /ko -->
 
@@ -22,7 +22,7 @@
 </div>
 
 <div data-bind="if: loading" class="container">
-  <p class="alert alert-info text-center"><span data-bind="translate: 'LOADING'"></span>...</p>
+  <p class="alert alert-info text-center">Loading, please wait...</p>
 </div>
 
 
