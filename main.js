@@ -19,6 +19,7 @@ requirejs.config({
     redirect: 'app/services/redirect',
     socket: 'app/services/socket',
     sounds: 'app/services/sounds',
+    translator: 'app/services/translator',
     sessions: 'app/services/sessions',
     wifiRates: 'app/services/wifiRates',
     rootVM: 'app/root/RootVM'
@@ -35,18 +36,21 @@ require([
   'rootVM',
   'domready',
   'app/init',
+  'translator',
   'app/bindings',
   'app/pages',
   'app/services/config',
   'app/components/app-root/AppComponent'
-], function(ko, rootVM, domready, init) {
+], function(ko, rootVM, domready, init, translator) {
 
   function onLoad() {
-    init(function () {
-      var headEl = document.getElementsByTagName('head')[0];
-      var bodyEl = document.getElementsByTagName('body')[0];
-      ko.applyBindings(rootVM, headEl);
-      ko.applyBindings(rootVM, bodyEl);
+    translator.init(function () {
+      init(function () {
+        var headEl = document.getElementsByTagName('head')[0];
+        var bodyEl = document.getElementsByTagName('body')[0];
+        ko.applyBindings(rootVM, headEl);
+        ko.applyBindings(rootVM, bodyEl);
+      });
     });
   }
 
