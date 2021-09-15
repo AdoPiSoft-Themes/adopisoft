@@ -40,6 +40,7 @@ define([
       }
     };
     http.catchError = function(http) {
+      console.log(http);
       var e = http.responseText ? JSON.parse(http.responseText) : {};
       var message = e.error || e.message || 'Something went wrong';
       sounds.error.play();
