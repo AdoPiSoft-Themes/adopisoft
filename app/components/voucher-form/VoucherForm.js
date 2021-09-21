@@ -23,6 +23,7 @@ define([
           rootVM.navigate('home-page');
         });
       };
+      self.voucher_code_text = translator.print('VOUCHER_CODE')
     },
     template: {require: 'text!app/components/voucher-form/voucher-form.html'}
   });
