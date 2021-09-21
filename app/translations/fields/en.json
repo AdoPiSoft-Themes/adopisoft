@@ -14,7 +14,7 @@
   "button_view_vouchers": "Show View Vouchers Button",
   "button_view_rates": "Show View Rates Button",
   "button_my_account": "Show My Account Button",
-  "wifi_icons": "WiFI Icons",
+  "wifi_icons": "WiFi Icons",
   "wifi_connected_icon": "Connected Icon",
   "wifi_disconnected_icon": "Disconnected Icon",
   "banners": "Banners",
@@ -36,5 +36,5 @@
   "css_files": "CSS Files",
   "other": "Uploads",
   "upload_files": "Upload Your Files",
-  "submit": "Submit"
+  "submit": "Save"
 }
