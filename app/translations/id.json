@@ -27,7 +27,7 @@
   "AVAILABLE_SESSIONS": "Sesi yang Tersedia",
   "CREDITS" : "Kredit",
   "EXPIRY": "Kedaluwarsa",
-  "EXPIRY_FORMAT": "Format tanggal kedaluwarsa Month/Date/Year",
+  "EXPIRY_FORMAT": "Format tanggal kedaluwarsa Bulan/Tanggal/Tahun",
   "MY_ACCT": "Akun Saya",
   "VIEW_VOUCHERS": "Lihat Voucher",
   "VIEW_RATES": "Lihat Tarif",
@@ -51,5 +51,8 @@
   "WAITING_FOR_PAYMENT": "Menunggu pembayaran",
   "POWERED_BY": "Didukung oleh",
   "PAYMENT_RECEIVED": "Pembayaran Diterima",
-  "VOUCHER_ACTIVATED": "Voucher berhasil diaktifkan"
+  "VOUCHER_ACTIVATED": "Voucher berhasil diaktifkan",
+  "PAGE_OUTDATED": "Halaman Kedaluwarsa",
+  "UNABLE_TO_SYNC_MSG": "Tidak dapat menyinkronkan ke server. Harap muat ulang halaman.",
+  "RELOAD_PAGE": "Muat Ulang Halaman"
 }

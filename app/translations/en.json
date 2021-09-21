@@ -51,5 +51,8 @@
   "WAITING_FOR_PAYMENT": "Waiting for payment",
   "POWERED_BY": "Powered by",
   "PAYMENT_RECEIVED": "Payment Received",
-  "VOUCHER_ACTIVATED": "Voucher activated successfully!"
+  "VOUCHER_ACTIVATED": "Voucher activated successfully!",
+  "PAGE_OUTDATED": "Page Outdated",
+  "UNABLE_TO_SYNC_MSG": "Unable to synchronize remaining time/data from server. Please reload the page.",
+  "RELOAD_PAGE": "Reload Page"
 }

@@ -27,7 +27,7 @@
   "AVAILABLE_SESSIONS": "Sesiones Disponibles",
   "CREDITS" : "Créditos",
   "EXPIRY": "Expiración",
-  "EXPIRY_FORMAT": "Formato de la fecha de vencimiento es Month/Date/Year",
+  "EXPIRY_FORMAT": "Formato de la fecha de vencimiento es Mes/Fecha/Año",
   "MY_ACCT": "Mi Cuenta",
   "VIEW_VOUCHERS": "Ver Cupones",
   "VIEW_RATES": "Ver Tarifas",
@@ -51,5 +51,8 @@
   "WAITING_FOR_PAYMENT": "A la espera del pago",
   "POWERED_BY": "Desarrollado por",
   "PAYMENT_RECEIVED": "Pago Recibido",
-  "VOUCHER_ACTIVATED": "Cupón activado con éxito!"
+  "VOUCHER_ACTIVATED": "Cupón activado con éxito!",
+  "PAGE_OUTDATED": "Página Desactualizada",
+  "UNABLE_TO_SYNC_MSG": "No se puede sincronizar con el servidor. Por favor recarga la página.",
+  "RELOAD_PAGE": "Recargar Página"
 }
