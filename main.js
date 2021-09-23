@@ -38,7 +38,7 @@ require([
   'app/bindings',
   'app/pages',
   'app/services/config',
-  'app/components/app-root/AppComponent'
+  'app/components/app-root/AppComponent',
 ], function(ko, rootVM, domready, init) {
 
   function onLoad() {

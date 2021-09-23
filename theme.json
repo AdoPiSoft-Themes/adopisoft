@@ -140,6 +140,16 @@
           "type": "images",
           "min": 1,
           "defaultValue": ["images/adopisoft-default-banner.png"]
+        },
+        {
+          "field_id": "popup_banner",
+          "label": "Popup Banner",
+          "type": "textarea",
+          "defaultValue": "<h1>This is a popup banner editable in Captive Portal settings.</h1>\n<hr>\n<p>To disable, just delete this content and leave this blank.</p>"
+        },
+        {
+          "field_id": "submit",
+          "type": "submit"
         }
       ]
     },

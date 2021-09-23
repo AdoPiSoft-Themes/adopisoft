@@ -5,6 +5,7 @@ define([
   'modal',
   'app/services/config',
   'app/observables/payment',
+  'app/components/popup-banner/init_popup_banner',
   'app/components/toast/ToastComponent',
   'app/components/status-nav/StatusNavComponent',
   'app/components/banners/Banners',
@@ -12,7 +13,7 @@ define([
   'app/components/modal/Modal',
   'app/components/socket-disconnected-alert/SocketDisconnectedAlert',
   'app/components/footer/Footer'
-], function (ko, rootVM, socket, modal, config, payment) {
+], function (ko, rootVM, socket, modal, config, payment, init_popup_banner) {
 
   function AppVM() {
     this.favicon = ko.observable(config.favicon());
@@ -49,6 +50,9 @@ define([
         this.showAlert = true;
       }
     });
+    this.koDescendantsComplete = function () {
+      init_popup_banner();
+    };
   }
 
   ko.components.register('app', {
