@@ -19,6 +19,7 @@
   "wifi_disconnected_icon": "Icono Desconectado",
   "banners": "Pancartas",
   "banners_transition": "Transición de Banner",
+  "popup_banner": "Banner emergente",
   "banner_interval": "Intervalo en segundos",
   "sounds": "Sonidos",
   "background_music": "Música de Fondo de la Página de Inicio",

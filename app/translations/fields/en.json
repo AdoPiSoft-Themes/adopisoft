@@ -19,6 +19,7 @@
   "wifi_disconnected_icon": "Disconnected Icon",
   "banners": "Banners",
   "banners_transition": "Banners Transistion",
+  "popup_banner": "Popup Banner",
   "banner_interval": "Interval in seconds",
   "sounds": "Sounds",
   "background_music": "Homepage Background Music",

@@ -18,6 +18,7 @@
   "wifi_connected_icon": "Ikon Koneksi",
   "wifi_disconnected_icon": "Ikon Pemutusan Hubungan",
   "banners": "Spanduk",
+  "popup_banner": "Spanduk Munculan",
   "banners_transition": "Transisi Spanduk",
   "banner_interval": "Interval dalam detik",
   "sounds": "Suara Musik",
