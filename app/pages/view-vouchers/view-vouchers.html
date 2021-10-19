@@ -11,10 +11,10 @@
 
   <div class="panel panel-info">
     <div class="panel-heading" data-bind="translate: 'YOUR_VOUCHERS'"></div>
-    <div class="panel-body" data-bind="ifnot vouchers.length">
+    <div class="panel-body" data-bind="ifnot: vouchers().length">
       <p class="alert alert-warning" data-bind="translate: 'NO_DATA'"></p>
     </div>
-    <table class="table" data-bind="if: vouchers.length">
+    <table class="table" data-bind="if: vouchers().length">
       <thead>
         <tr>
           <th class="text-center" data-bind="translate: 'VOUCHER_CODE'"></th>
