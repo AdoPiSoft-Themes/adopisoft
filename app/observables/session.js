@@ -51,7 +51,7 @@ function (ko, toast, http, redirect, socket, config, parseCredits, formatDate) {
       return self.allow_pause() && self.status() === 'running';
     });
     self.showPauseBtn = ko.pureComputed(function () {
-      return self.status() !== 'available';
+      return self.status() !== 'available' && self.status() !== 'paused';
     });
     self.showStartBtn = ko.pureComputed(function () {
       return self.status() !== 'running';
