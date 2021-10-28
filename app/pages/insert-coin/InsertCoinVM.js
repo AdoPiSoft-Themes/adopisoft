@@ -58,8 +58,9 @@ define([
     };
     self.fetch = function () {
       http.currentPaymentQue(function (err, data) {
-        if (err) return http.catchError(err);
-        self.onPaymentReceived(data);
+        if (!err) {
+          self.onPaymentReceived(data);
+        }
         fetch_timeout = setTimeout(function () {
           self.fetch();
         }, 2000);
