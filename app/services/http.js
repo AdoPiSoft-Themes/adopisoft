@@ -54,13 +54,9 @@ define([
     http.pauseSession = function (s_id, cb) {
       http.post('/portal/sessions/' + s_id + '/pause', cb);
     };
-    http.fetchRates = function (cb) {
-      http.get('/settings/timer/rates', cb);
-    };
     http.fetchCoinslots = function (cb) {
       http.get('/portal/coinslots', cb);
     };
-
     http.queForPayment = function (opts, cb) {
       var data = {
         coinslot_id: opts.coinslot_id,
@@ -80,8 +76,11 @@ define([
     http.currentPaymentQue = function (cb) {
       http.get('/portal/payments/current', cb);
     };
+    http.fetchRates = function (cb) {
+      http.get('/settings/timer/rates', cb);
+    };
     http.timerConfig = function (cb) {
-      http.get('/portal/settings/timer/config', cb);
+      http.get('/settings/timer/config', cb);
     };
     http.donePayment = function (coinslot_id, cb) {
       http.post('/portal/payments/done', {coinslot_id: coinslot_id}, cb);
