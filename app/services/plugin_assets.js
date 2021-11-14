@@ -1,5 +1,5 @@
 define([
-  'json!/plugins/assets.json'
+  'json!/portal/plugins/assets.json'
 ], function(assets) {
   return assets;
 });
