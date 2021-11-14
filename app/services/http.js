@@ -149,7 +149,7 @@ define([
     };
 
     http.systemNotifications = function (cb) {
-      http.get('/portal/system/notifications', cb);
+      http.get('/system/notifications', cb);
     };
 
     // /eload
