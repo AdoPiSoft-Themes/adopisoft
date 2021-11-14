@@ -19,8 +19,8 @@ define(['http'], function (http) {
         if (!message) return code;
 
         for (var i = 0; i < params.length; i++) {
-          var arg_index = i + 1
-          message = message.replace(`$${arg_index}`, params[i]);
+          var arg_index = i + 1;
+          message = message.replace('$' + arg_index, params[i]);
         }
         return message;
       } catch (e) {

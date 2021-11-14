@@ -81,7 +81,7 @@ define([
       http.get('/portal/payments/current', cb);
     };
     http.timerConfig = function (cb) {
-      http.get('/settings/timer/config', cb);
+      http.get('/portal/settings/timer/config', cb);
     };
     http.donePayment = function (coinslot_id, cb) {
       http.post('/portal/payments/done', {coinslot_id: coinslot_id}, cb);
