@@ -55,5 +55,7 @@
   "PAGE_OUTDATED": "Página Desactualizada",
   "UNABLE_TO_SYNC_MSG": "No se puede sincronizar con el servidor. Por favor recarga la página.",
   "RELOAD_PAGE": "Recargar Página",
-  "ANNOUNCEMENT": "Anuncio"
+  "ANNOUNCEMENT": "Anuncio",
+  "MUTE": "Mudo",
+  "UNMUTE": "Activar Sonido"
 }

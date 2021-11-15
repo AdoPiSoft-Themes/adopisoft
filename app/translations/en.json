@@ -55,5 +55,7 @@
   "PAGE_OUTDATED": "Page Outdated",
   "UNABLE_TO_SYNC_MSG": "Unable to synchronize remaining time/data from server. Please reload the page.",
   "RELOAD_PAGE": "Reload Page",
-  "ANNOUNCEMENT": "Announcement"
+  "ANNOUNCEMENT": "Announcement",
+  "MUTE": "Mute",
+  "UNMUTE": "Unmute"
 }
