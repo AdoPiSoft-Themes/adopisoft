@@ -5,7 +5,8 @@ define([
   'app/components/buy-wifi-or-eload/BuyWifiOrEloadComponent',
   'app/components/voucher-form/VoucherForm',
   'app/components/device-info/DeviceInfo',
-  'app/components/internet-status/InternetStatus'
+  'app/components/internet-status/InternetStatus',
+  'app/components/mute-button/muteButton'
 ],
 function (ko, rootVM) {
   function HomePageVM() {

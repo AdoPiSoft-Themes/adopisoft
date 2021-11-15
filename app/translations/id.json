@@ -55,5 +55,7 @@
   "PAGE_OUTDATED": "Halaman Kedaluwarsa",
   "UNABLE_TO_SYNC_MSG": "Tidak dapat menyinkronkan ke server. Harap muat ulang halaman.",
   "RELOAD_PAGE": "Muat Ulang Halaman",
-  "ANNOUNCEMENT": "Pengumuman"
+  "ANNOUNCEMENT": "Pengumuman",
+  "MUTE": "Bisu",
+  "UNMUTE": "Nyalakan Volume"
 }

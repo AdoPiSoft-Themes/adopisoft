@@ -55,5 +55,7 @@
   "PAGE_OUTDATED": "Halaman Tertinggal",
   "UNABLE_TO_SYNC_MSG": "Tidak dapat menyegerakkan sisa masa/data dari pelayan. Sila muatkan semula halaman.",
   "RELOAD_PAGE": "Muat semula Halaman",
-  "ANNOUNCEMENT": "Pengumuman"
+  "ANNOUNCEMENT": "Pengumuman",
+  "MUTE": "Matikan Bunyi",
+  "UNMUTE": "Nyahredam"
 }
