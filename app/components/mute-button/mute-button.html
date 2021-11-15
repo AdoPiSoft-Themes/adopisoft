@@ -1,0 +1,13 @@
+<!-- ko ifnot: is_muted -->
+<a class="btn btn-block btn-lg btn-danger" data-bind="click: muteBtn">
+	<span data-bind="translate: 'MUTE'"></span>
+	<i class="glyphicon glyphicon-volume-off"></i>
+</a>
+<!-- /ko -->
+
+<!-- ko if: is_muted -->
+<a class="btn btn-block btn-lg btn-info" data-bind="click: unMuteBtn">
+	<span data-bind="translate: 'UNMUTE'"></span>
+	<i class="glyphicon glyphicon-volume-up"></i>
+</a>
+<!-- /ko -->
