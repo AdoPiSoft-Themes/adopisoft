@@ -18,7 +18,14 @@
 
     <p id="loading">Loading...</p>
 
-    <div id="app" data-bind="component: 'app', childrenComplete: $root.showApp" style="display: none;"></div>
+    <div id="app"
+         data-bind="component: 'app', childrenComplete: $root.showApp"
+         style="display: none;">
+    </div>
+
+    <!-- ko foreach: $data.components -->
+    <div data-bind="component: $data"></div>
+    <!-- /ko -->
 
   </body>
 </html>

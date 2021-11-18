@@ -58,7 +58,7 @@ require([
 
 }, function(err) {
   var failedId = err.requireModules && err.requireModules[0];
-  if (failedId === 'json!/settings/portal/config.json' || failedId === 'json!/client/plugins/assets.json') {
+  if (failedId === 'json!/settings/portal/config.json') {
     window.location.reload();
   }
 });

@@ -1,8 +1,11 @@
 define([
   'knockout',
   'app/services/config',
-  'app/observables/device'
-], function (ko, config, device) {
+  'app/observables/device',
+  'json!/portal/plugins/components.json',
+  'json!/portal/plugins/styles.json',
+  '/portal/plugins/scripts.js'
+], function (ko, config, device, components, styles) {
 
   function RootVm() {
     var self = this;
@@ -10,7 +13,8 @@ define([
     this.baseUrl = ko.observable(location.href);
     this.favicon = ko.observable(config.favicon());
     this.pageTitle = ko.observable(config.pageTitle());
-    this.styles = ko.observableArray(config.styles());
+    this.styles = ko.observableArray(config.styles().concat(styles));
+    this.components = ko.observableArray(components || []);
     this.bodyClass = imageBg ? 'has-image-bg' : '';
     this.bodyStyle = imageBg ? {'background-image': 'url(' + encodeURI(imageBg) + ')'} : {};
 
