@@ -1,18 +1,19 @@
-define(['knockout', 'sounds', 'mute'],function(ko, sounds,mute){
+define(['knockout', 'sounds', 'app/utils/mutedCookie'],function(ko, sounds,muted){
 	
 	function vm(){
 		var self =  this;
-		self.is_muted = ko.observable(mute.is_sound_muted);
+		self.is_muted = ko.observable(muted.getMutedBoolean() || false);
 
 		self.muteBtn = function(){
-			mute.setMuted(true);
+			muted.setMutedCookie("muted");
 			sounds.background.pause();
-			self.is_muted(mute.is_sound_muted)
+			self.is_muted(muted.getMutedBoolean())
 		}
 		self.unMuteBtn = function(){
-			mute.setMuted(false)
+			muted.setMutedCookie("unmute")
 			sounds.background.play();
-			self.is_muted(mute.is_sound_muted)
+			self.is_muted(muted.getMutedBoolean())
+
 		}
 	}
 	ko.components.register('mute-button', {
