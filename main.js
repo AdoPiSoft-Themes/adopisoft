@@ -22,8 +22,7 @@ requirejs.config({
     translator: 'app/services/translator',
     sessions: 'app/services/sessions',
     wifiRates: 'app/services/wifiRates',
-    rootVM: 'app/root/RootVM',
-    mute: 'app/services/mute'
+    rootVM: 'app/root/RootVM'
   },
   packages: [
     'app/bindings',

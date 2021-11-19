@@ -1,4 +1,4 @@
-define(['howler', 'app/services/config', 'mute'], function (howler, config, mute) {
+define(['howler', 'app/services/config', 'app/utils/mutedCookie'], function (howler, config, is_muted) {
 
   var noop = function() {};
   var noopSound = {play: noop, stop: noop};
@@ -7,7 +7,7 @@ define(['howler', 'app/services/config', 'mute'], function (howler, config, mute
   function Sound(sound) {
     var self = this;
     self.play = function () {
-      if(mute.is_sound_muted)
+      if(is_muted.getMutedBoolean())
         self.pause()
       else {
         self._loop = sound.loop;
