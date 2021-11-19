@@ -1,13 +1,13 @@
 define([
   'knockout',
-  'rootVM',
-  'wifiRates',
-  'http',
+  'core/rootVM',
+  'app/services/wifiRates',
+  'app/services/http',
   'app/observables/receipt',
   'text!app/components/wallet-prompt/wallet-prompt.html',
-  'app/utils/shortSecondsFormat',
-  'app/utils/formatBytes',
-  'toast',
+  'core/utils/shortSecondsFormat',
+  'core/utils/formatBytes',
+  'app/services/toast',
   'app/components/seconds-format/SecondsFormat'
 ], function(ko, rootVM, wifiRates, http, receipt, tpl, secondsFormat, formatBytes, toast) {
 

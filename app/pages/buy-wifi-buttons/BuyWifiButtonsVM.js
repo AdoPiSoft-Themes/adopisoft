@@ -1,7 +1,7 @@
 define([
   'knockout',
-  'rootVM',
-  'wifiRates',
+  'core/rootVM',
+  'app/services/wifiRates',
   'app/observables/payment'
 ], function (ko, rootVM, rates, payment) {
   return function () {

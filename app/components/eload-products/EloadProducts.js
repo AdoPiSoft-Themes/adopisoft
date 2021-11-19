@@ -1,8 +1,8 @@
 define([
   'knockout',
-  'http',
-  'toast',
-  'app/utils/array.includes'
+  'app/services/http',
+  'app/services/toast',
+  'core/utils/array/includes'
 ], function(ko, http, toast, includes) {
 
   function VM(params) {

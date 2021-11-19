@@ -1,6 +1,6 @@
 define([
   'knockout',
-  'http'
+  'core/services/http'
 ], function (ko, http) {
   ko.components.register('internet-status', {
     viewModel: function () {

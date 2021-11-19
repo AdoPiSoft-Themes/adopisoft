@@ -1,13 +1,13 @@
 define([
-  'rootVM',
   'knockout',
-  'app/observables/device',
-  'http',
-  'toast',
-  'socket',
-  'modal',
+  'core/rootVM',
+  'core/observables/device',
+  'app/services/http',
+  'app/services/toast',
+  'core/services/socket',
+  'app/services/modal',
   'app/components/eload-processing/EloadProcessing'
-], function(rootVM, ko, device, http, toast, socket, modal) {
+], function(ko, rootVM, device, http, toast, socket, modal) {
 
   function VM(params) {
     var self = this;

@@ -1,13 +1,13 @@
 define([
   'knockout',
-  'rootVM',
-  'toast',
-  'http',
+  'core/rootVM',
+  'app/services/toast',
+  'app/services/http',
   'app/observables/payment',
-  'app/observables/device',
-  'app/observables/customer',
-  'modal',
-  'app/utils/array.includes',
+  'core/observables/device',
+  'core/observables/customer',
+  'app/services/modal',
+  'core/utils/array/includes',
   'app/components/wallet-prompt/WalletPrompt'
 ], function (ko, rootVM, toast, http, payment, device, customer, modal, includes) {
 

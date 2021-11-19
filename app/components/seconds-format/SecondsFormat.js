@@ -1,7 +1,7 @@
 define([
   'knockout',
-  'app/utils/shortSecondsFormat',
-  'app/utils/longSecondsFormat'
+  'core/utils/shortSecondsFormat',
+  'core/utils/longSecondsFormat'
 ], function (ko, short, long) {
 
   ko.components.register('seconds-format', {

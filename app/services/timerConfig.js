@@ -1,6 +1,6 @@
 define([
   'knockout',
-  'http'
+  'app/services/http'
 ], function(ko, http) {
   var timerConfig = {
     wait_payment_seconds: ko.observable(100)

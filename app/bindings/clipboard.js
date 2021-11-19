@@ -1,7 +1,7 @@
 define([
   'knockout',
-  'clipboard',
-  'translator'
+  'libs/clipboard.min',
+  'core/services/translator'
 ], function(ko, Clipboard, translator) {
 
   // Usage:

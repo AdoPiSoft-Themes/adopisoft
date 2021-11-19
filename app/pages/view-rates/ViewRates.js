@@ -1,10 +1,10 @@
 define([
   'knockout',
-  'rootVM',
-  'wifiRates',
-  'app/utils/shortSecondsFormat',
-  'app/utils/formatBytes',
-  'app/utils/array.map'
+  'core/rootVM',
+  'app/services/wifiRates',
+  'core/utils/shortSecondsFormat',
+  'core/utils/formatBytes',
+  'core/utils/array/map'
 ], function(ko, rootVM, wifiRates, secondsFormat, formatBytes, map) {
   ko.components.register('view-rates', {
     viewModel: function () {

@@ -1,8 +1,8 @@
 define([
   'knockout',
-  'toast',
-  'app/utils/array.reduce',
-  'getElementsByClassName'
+  'app/services/toast',
+  'core/utils/array/reduce',
+  'core/utils/dom/getElementsByClassName'
 ],function(ko, toast, reduce, getElementsByClassName) {
 
 

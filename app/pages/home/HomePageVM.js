@@ -1,6 +1,6 @@
 define([
   'knockout',
-  'rootVM',
+  'core/rootVM',
   'app/components/start-pause-buttons/StartPauseButtonsComponent',
   'app/components/buy-wifi-or-eload/BuyWifiOrEloadComponent',
   'app/components/voucher-form/VoucherForm',

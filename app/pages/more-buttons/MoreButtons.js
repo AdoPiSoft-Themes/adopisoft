@@ -1,8 +1,8 @@
 define([
   'knockout',
-  'rootVM',
-  'app/services/config',
-  'app/observables/customer'
+  'core/rootVM',
+  'core/services/config',
+  'core/observables/customer'
 ], function(ko, rootVM, config, customer) {
   ko.components.register('more-buttons', {
     viewModel: function () {

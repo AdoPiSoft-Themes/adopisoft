@@ -1,5 +1,0 @@
-define([
-  './navigate',
-  './loadingBtn',
-  './translate'
-]);

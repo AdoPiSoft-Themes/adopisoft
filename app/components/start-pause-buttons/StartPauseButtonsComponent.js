@@ -1,6 +1,6 @@
 define([
   'knockout',
-  'sessions'
+  'core/services/sessions'
 ], function(ko, sessions) {
 
   function vm () {

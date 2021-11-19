@@ -1,6 +1,6 @@
 define([
   'knockout',
-  'modal'
+  'app/services/modal'
 ],function (ko, modal) {
 
   function ModalVM () {

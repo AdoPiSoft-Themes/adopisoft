@@ -1,6 +1,6 @@
 define([
   'knockout',
-  'app/utils/formatDate'
+  'core/utils/formatDate'
 ], function(ko, formatDate) {
 
   function VM(params) {

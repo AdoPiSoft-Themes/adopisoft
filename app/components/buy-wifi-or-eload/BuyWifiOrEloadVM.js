@@ -1,9 +1,9 @@
 define([
   'knockout',
-  'rootVM',
-  'app/services/config',
+  'core/rootVM',
+  'core/services/config',
   'app/observables/payment',
-  'app/observables/customer'
+  'core/observables/customer'
 ], function (ko, rootVM, config, payment, customer) {
   return function () {
     var self = this;

@@ -1,9 +1,9 @@
 define([
   'knockout',
-  'rootVM',
+  'core/rootVM',
   'text!app/components/eload-processing/eload-processing.html',
-  'socket',
-  'sounds'
+  'core/services/socket',
+  'app/services/sounds'
 ], function(ko, rootVM, tpl, socket, sounds) {
   function VM(params) {
     var loader_icon = '<img src="/uploads/img/preloader.gif" style="width: 20px;margin: 10px;"/>';

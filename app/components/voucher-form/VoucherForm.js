@@ -1,11 +1,11 @@
 define([
   'knockout',
-  'toast',
-  'rootVM',
-  'http',
-  'sessions',
-  'translator',
-  'app/observables/session'
+  'app/services/toast',
+  'core/rootVM',
+  'app/services/http',
+  'core/services/sessions',
+  'core/services/translator',
+  'core/observables/session'
 ], function (ko, toast, rootVM, http, sessions, translator, Session) {
   ko.components.register('voucher-form', {
     viewModel: function(code) {

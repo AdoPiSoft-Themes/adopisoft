@@ -1,11 +1,11 @@
 define([
   'knockout',
-  'rootVM',
+  'core/rootVM',
   'app/utils/formatDate',
   'app/observables/payment',
-  'http',
-  'toast',
-  'modal',
+  'app/services/http',
+  'app/services/toast',
+  'app/services/modal',
   'app/components/eload-processing/EloadProcessing'
 ], function(ko, rootVM, formatDate, payment, http, toast, modal) {
 

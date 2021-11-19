@@ -6,7 +6,7 @@
     <!-- ko foreach: $data.styles -->
     <link data-bind="attr: {href: $data}" rel="stylesheet" media="all">
     <!-- /ko -->
-    <script data-main="main.js" src="libs/requirejs/require-2.3.6.min.js"></script>
+    <script data-main="/portal/main.js" src="/captive-portal/core/libs/requirejs/require-2.3.6.min.js"></script>
     <!-- ko if: baseUrl -->
     <base data-bind="attr: {href: baseUrl}">
     <!-- /ko -->
@@ -23,9 +23,6 @@
          style="display: none;">
     </div>
 
-    <!-- ko foreach: $data.components -->
-    <div data-bind="component: $data"></div>
-    <!-- /ko -->
-
+    <div data-bind="component: 'plugins'"></div> 
   </body>
 </html>

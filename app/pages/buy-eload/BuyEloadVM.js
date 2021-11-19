@@ -1,8 +1,8 @@
 define([
   'knockout',
-  'rootVM',
-  'toast',
-  'http',
+  'core/rootVM',
+  'app/services/toast',
+  'app/services/http',
   'app/observables/payment',
   'app/components/eload-customer-recent/EloadCustomerRecent',
   'app/components/eload-providers/EloadProviders',

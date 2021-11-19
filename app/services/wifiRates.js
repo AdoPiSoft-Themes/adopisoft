@@ -1,6 +1,6 @@
 define([
   'knockout',
-  'http'
+  'app/services/http'
 ], function(ko, http) {
 
   var wifiRates = {

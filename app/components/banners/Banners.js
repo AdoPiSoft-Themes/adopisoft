@@ -1,8 +1,8 @@
 define([
   'knockout',
-  'sounds',
-  'app/services/config',
-  'app/utils/array.map'
+  'app/services/sounds',
+  'core/services/config',
+  'core/utils/array/map'
 ], function (ko, sounds, config, map) {
 
   var banner_field = config.findField('banners', 'banners');

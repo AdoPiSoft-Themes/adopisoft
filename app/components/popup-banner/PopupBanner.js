@@ -1,6 +1,6 @@
 define([
   'knockout',
-  'app/services/config'
+  'core/services/config'
 ], function (ko, config) {
 
   var tpl = '<div class="modal-header text-center">' +
@@ -9,7 +9,7 @@ define([
     '<div class="modal-body">' +
     config.findField('banners', 'popup_banner') +
     '</div>' +
-    '<div class="modal-footer"><button class="btn btn-default" data-bind="click: close">'+
+    '<div class="modal-footer"><button class="btn btn-default" data-bind="click: close">' +
     '<span data-bind="translate: \'CANCEL\'"></span>' +
     '</button></div>';
 

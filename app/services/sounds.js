@@ -1,4 +1,7 @@
-define(['howler', 'app/services/config'], function (howler, config) {
+define([
+  'howler',
+  'core/services/config'
+], function (howler, config) {
 
   var noop = function() {};
   var noopSound = {play: noop, stop: noop};

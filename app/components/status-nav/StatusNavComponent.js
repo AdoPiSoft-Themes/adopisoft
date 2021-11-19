@@ -1,8 +1,8 @@
 define([
   'knockout',
-  'sessions',
-  'translator',
-  'app/services/config'
+  'core/services/sessions',
+  'core/services/translator',
+  'core/services/config'
 ], function(ko, sessions, translator, config) {
 
   function vm () {

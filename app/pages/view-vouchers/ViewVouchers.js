@@ -1,8 +1,8 @@
 define([
   'knockout',
-  'rootVM',
-  'http',
-  'app/utils/array.map'
+  'core/rootVM',
+  'app/services/http',
+  'core/utils/array/map'
 ], function(ko, rootVM, http, map) {
   ko.components.register('view-vouchers', {
     viewModel: function () {

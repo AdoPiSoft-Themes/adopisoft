@@ -1,12 +1,13 @@
 define([
   'knockout',
-  'rootVM',
-  'http',
-  'sessions',
+  'core/rootVM',
+  'core/services/http',
+  'app/services/http',
+  'core/services/sessions',
   'app/observables/receipt',
   'app/components/voucher-form/VoucherForm',
   'app/bindings/clipboard'
-], function(ko, rootVM, http, sessions, receipt) {
+], function(ko, rootVM, core_http, app_http, sessions, receipt) {
   return function ReceiptPage() {
     var self = this;
     self.receipt = receipt;
@@ -23,9 +24,9 @@ define([
     };
     self.connect = function() {
       self.connecting(true);
-      http.startSession(receipt.sessionId(), function(err) {
+      core_http.startSession(receipt.sessionId(), function(err) {
         self.connecting(false);
-        if (err) return http.catchError(err);
+        if (err) return app_http.catchError(err);
         rootVM.navigate('home-page');
       });
     };

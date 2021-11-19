@@ -1,6 +1,6 @@
 define([
   'knockout',
-  'app/services/config'
+  'core/services/config'
 ], function(ko, config) {
   ko.components.register('footer', {
     viewModel: function () {

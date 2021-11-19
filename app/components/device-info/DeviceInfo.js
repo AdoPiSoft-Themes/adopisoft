@@ -1,6 +1,6 @@
 define([
   'knockout',
-  'app/observables/device'
+  'core/observables/device'
 ], function(ko, device) {
   ko.components.register('device-info', {
     viewModel: function() {

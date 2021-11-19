@@ -1,7 +1,7 @@
 define([
   './home/HomePage',
   './insert-coin/InsertCoinPage',
-  './select-coinslot/SelectCoinslotPage.js',
+  './select-coinslot/SelectCoinslotPage',
   './buy-eload/BuyEloadPage.js',
   './buy-wifi-buttons/BuyWifiButtonsComponent',
   './more-buttons/MoreButtons',
