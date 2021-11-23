@@ -1,4 +1,4 @@
-define(['howler', 'app/services/config'], function (howler, config) {
+define(['howler', 'app/services/config', 'app/utils/mutedCookie'], function (howler, config, is_muted) {
 
   var noop = function() {};
   var noopSound = {play: noop, stop: noop};
@@ -7,19 +7,23 @@ define(['howler', 'app/services/config'], function (howler, config) {
   function Sound(sound) {
     var self = this;
     self.play = function () {
-      self._loop = sound.loop;
-      self._loopDelay = sound.loop_delay;
-      self._loopOnly = sound.loop && !sound.loop_delay;
-      self._sound = new Howl({src: encodeURI(sound.src), loop: self._loopOnly});
-      if (self._loop && self._loopDelay) {
-        self._sound.play();
-        self._sound.on('end', function () {
-          self._timeout = setTimeout(function () {
-            self.play();
-          }, self._loopDelay);
-        });
-      } else {
-        self._sound.play();
+      if(is_muted.getMutedBoolean())
+        self.pause()
+      else {
+        self._loop = sound.loop;
+        self._loopDelay = sound.loop_delay;
+        self._loopOnly = sound.loop && !sound.loop_delay;
+        self._sound = new Howl({src: encodeURI(sound.src), loop: self._loopOnly});
+        if (self._loop && self._loopDelay) {
+          self._sound.play();
+          self._sound.on('end', function () {
+            self._timeout = setTimeout(function () {
+              self.play();
+            }, self._loopDelay);
+          });
+        } else {
+          self._sound.play();
+        }
       }
     };
     self.stop = function() {
@@ -27,6 +31,10 @@ define(['howler', 'app/services/config'], function (howler, config) {
       if (self._sound) self._sound.stop();
       self._timeout = null;
     };
+    self.pause = function(){
+      if (self._sound) self._sound.pause();
+    }
+
   }
 
   try {
