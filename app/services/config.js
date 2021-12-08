@@ -1,5 +1,5 @@
 define([
-  'json!/settings/portal/config.json',
+  'json!/portal/config.json',
   'app/utils/array.map'
 ],
 function (config, map) {
