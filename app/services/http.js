@@ -137,7 +137,7 @@ define([
     };
 
     http.customerPurchase = function(opts, cb) {
-      http.post('/customer/purchase', opts, cb);
+      http.post('/u/api/customer/purchase', opts, cb);
     };
 
     http.purchaseLoad = function(account_number, provider_id, product_keyword, voucher_id, cb) {
@@ -156,7 +156,7 @@ define([
     // /eload
 
     http.logoutCustomer = function() {
-      http.post('/customer/logout');
+      http.post('/u/api/customer/logout');
     };
   }
 
