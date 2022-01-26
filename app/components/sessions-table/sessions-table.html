@@ -2,20 +2,18 @@
 <div class="padd-top">
   <div class="panel panel-primary" data-bind="sessions: $data.sessions">
 
-    <div class="panel panel-heading">
-      Available Sessions
-    </div>
+    <div class="panel panel-heading" data-bind="translate: 'AVAILABLE_SESSIONS'"></div>
 
     <table class="table">
       <thead>
-        <th class="text-center">Credits</th>
-        <th class="text-center">Expiry</th>
+        <th class="text-center" data-bind="translate: 'CREDITS'"></th>
+        <th class="text-center" data-bind="translate: 'EXPIRY'"></th>
         <th class="text-center"></th>
       </thead>
       <tbody>
         <!-- ko foreach: { data: sessions } -->
         <tr>
-          <td data-bind="text: credits() + (is_free_trial ? ' (FREE)' : ''), css: {'text-success': status() == 'running'}"></td>
+          <td data-bind="text: credits() + (is_free_trial ? ' (FREE)' : is_bonus ? ' (BONUS)' : '' ), css: {'text-success': status() == 'running'}"></td>
           <td data-bind="text: formatted_expiry_date"></td>
           <td>
             <!-- ko if: showPauseBtn() && allow_pause() -->
@@ -35,7 +33,7 @@
       <tfoot>
         <tr>
           <td colspan="3">
-            <span class="text-muted">Expiry date format is Month/Date/Year.</span>
+            <span class="text-muted" data-bind="translate: 'EXPIRY_FORMAT'"></span>
           </td>
         </tr>
       </tfoot>
