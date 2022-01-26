@@ -15,7 +15,7 @@
       <tbody>
         <!-- ko foreach: { data: sessions } -->
         <tr>
-          <td data-bind="text: credits() + (is_free_trial ? ' (FREE)' : ''), css: {'text-success': status() == 'running'}"></td>
+          <td data-bind="text: credits() + (is_free_trial ? ' (FREE)' : is_bonus ? ' (BONUS)' : ''), css: {'text-success': status() == 'running'}"></td>
           <td data-bind="text: formatted_expiry_date"></td>
           <td>
             <!-- ko if: showPauseBtn() && allow_pause() -->
