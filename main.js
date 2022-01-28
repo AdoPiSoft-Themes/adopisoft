@@ -57,6 +57,7 @@ require([
   domready(onLoad);
 
 }, function(err) {
+  console.log(err)
   var failedId = err.requireModules && err.requireModules[0];
   if (failedId === 'json!/settings/portal/config.json' || failedId === 'json!/client/plugins/assets.json') {
     //window.location.reload();

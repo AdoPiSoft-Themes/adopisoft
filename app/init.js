@@ -1,7 +1,7 @@
 define([
   'app/observables/device',
   'socket',
-  'app/services/plugin_assets'
+  'app/services/plugin_styles'
 ], function (device, socket, assets) {
   return function init(cb) {
     device.fetch(function (d) {
@@ -12,23 +12,22 @@ define([
         }
       };
 
-      // insert plugin assets
+      // insert plugin scripts
+      var today = new Date();
+      var id = today.getFullYear()+today.getMonth()+today.getDate()+today.getHours()
+      var js_src = '/portal/plugins/scripts.js' + '?ref=' + id
+      var s = document.createElement('script');
+      s.src = encodeURI(js_src);
+      document.getElementsByTagName('head')[0].appendChild(s);
+
+      // insert plugin style assets
       for(var i = 0; i < assets.length; i++) {
-        var p = assets[i];
-        for (var x = 0; x < p.assets.scripts.length; x++) {
-          var js_src = p.assets.scripts[x];
-          var s = document.createElement('script');
-          s.src = encodeURI(js_src);
-          document.getElementsByTagName('head')[0].appendChild(s);
-        }
-        for (var y = 0; y < p.assets.styles.length; y++) {
-          var css_src = p.assets.styles[y];
-          var link = document.createElement('link');
-          link.href = encodeURI(css_src);
-          link.type = 'text/css';
-          link.rel = 'stylesheet';
-          document.getElementsByTagName('head')[0].appendChild(link);
-        }
+        var css_src = assets[i];
+        var link = document.createElement('link');
+        link.href = encodeURI(css_src);
+        link.type = 'text/css';
+        link.rel = 'stylesheet';
+        document.getElementsByTagName('head')[0].appendChild(link);
       }
 
       cb();
