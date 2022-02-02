@@ -20,5 +20,8 @@
     "jquery": "readonly",
     "define": "readonly",
     "ActiveXObject": "readonly"
-  }
+  },
+  "ignorePatterns": [
+    "dist/**/*.js"
+  ]
 }
