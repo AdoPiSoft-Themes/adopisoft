@@ -19,7 +19,12 @@ define([
   ko.components.register('popup-banner', {
     template: tpl,
     viewModel: function (opts) {
-      this.close = opts.close;
+      this.close = function() {
+        opts.close();
+        if (opts.onClose) {
+          opts.onClose();
+        }
+      };
     }
   });
 });

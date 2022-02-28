@@ -97,6 +97,10 @@ define([
       http.get('/user/me', cb);
     };
 
+    http.submitPasscode = function(passcode, cb) {
+      http.post('/passcode', {passcode: passcode}, cb);
+    };
+
     // Eload
     http.checkEloadAvailability = function(cb) {
       http.get('/client/eload/is-available', cb);

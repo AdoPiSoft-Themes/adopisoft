@@ -10,11 +10,15 @@ define([
     hostname: ko.observable(''),
     is_paying: ko.observable(''),
     status: ko.observable(''),
+    passcode: ko.observable(''),
+    is_clone: ko.observable(false),
     set: function(device) {
       d.id(device.id);
       d.mac_address(device.mac_address);
       d.ip_address(device.ip_address);
       d.hostname(device.hostname);
+      d.passcode(device.passcode);
+      d.is_clone(device.is_clone);
       d.is_paying(device.is_paying);
       d.status(device.status);
     },
