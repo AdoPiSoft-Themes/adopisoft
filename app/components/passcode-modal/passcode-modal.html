@@ -15,8 +15,8 @@
   <div class="alert alert-success">
     <p>
       <span class="glyphicon glyphicon-info-sign"></span>
-      Passcode is your second unique device identifier. Please always keep a copy of your passcode.
-      If your sessions got lost caused by your device changing of mac address, just enter your previous passcode and your data will retain.
+      Passcode is your second unique device identifier. This will be used to sync your sessions across different device mac address.
+      Please always keep a copy of your passcode.
     </p>
     <p>
       For your security, please do not share this passcode with anyone.
@@ -30,7 +30,7 @@
     </div>
 
     <div style="text-align: center;">
-       <button class="btn-lg btn btn-success">
+       <button class="btn-lg btn btn-success" data-bind="disable: submitting">
          Submit
        </button>
        &nbsp;

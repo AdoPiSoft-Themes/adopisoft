@@ -11,8 +11,11 @@ define([
     var self = this;
     self.device = device;
     self.passcode = ko.observable(device.passcode());
+    self.submitting = ko.observable(false);
     self.submitPasscode = function () {
+      self.submitting(true)
       http.submitPasscode(self.passcode(), function(err) {
+        self.submitting(false)
         if (err) {
           http.catchError(err)
         } else {
