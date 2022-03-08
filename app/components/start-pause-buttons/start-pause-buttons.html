@@ -2,7 +2,7 @@
 
 <!-- ko if: sessions.hasRunning() && allowPause() -->
 <button class="btn btn-block btn-lg btn-warning" data-bind="click: pauseSession, enable: allowPause">
-  Pause
+  Pause <span data-bind="text: pause_limit() "></span>
   <i class="glyphicon glyphicon-pause"></i>
 </button>
 <!-- /ko -->
