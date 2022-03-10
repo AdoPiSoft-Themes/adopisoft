@@ -3,7 +3,7 @@ define([
   'http',
   'app/observables/device',
   'modal',
-  'app/components/passcode-modal/PasscodeModal',
+  'app/components/passcode-modal/PasscodeModal'
 ], function(ko,http, device, modal) {
   ko.components.register('device-info', {
     viewModel: function() {
