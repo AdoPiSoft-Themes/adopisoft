@@ -13,6 +13,9 @@ define([
     passcode: ko.observable(''),
     is_clone: ko.observable(false),
     set: function(device) {
+
+      http.tmp_client_id = device.tmp_client_id
+
       d.id(device.id);
       d.mac_address(device.mac_address);
       d.ip_address(device.ip_address);

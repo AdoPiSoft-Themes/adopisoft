@@ -6,7 +6,8 @@
 
 <!-- ko if: enablePasscode() -->
 <p>
-  Passcode: <code data-bind="text: device.passcode() || '-'"></code>
+  Passcode: <code data-bind="text: passcodeShown() ? device.passcode() || '-' : '********', click: showPasscode"></code>
+
   <a href="javascript:void(0)" data-bind="click: editPasscode">
     <i class="glyphicon glyphicon-pencil">&nbsp;</i>
   </a>

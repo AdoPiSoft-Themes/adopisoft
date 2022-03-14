@@ -7,7 +7,14 @@ define([
   function Http () {
     var http = this;
     http.get = function (url, cb) {
+      var tmp_client_id = http.tmp_client_id;
       try {
+        if (url.includes('?')) {
+          url = url + '&tmp_client_id=' + tmp_client_id;
+        } else {
+          url = url + '?tmp_client_id=' + tmp_client_id;
+        }
+
         ajax({
           url: url,
           success: function (data) {
@@ -24,6 +31,7 @@ define([
         data = {};
       }
       try {
+        data.tmp_client_id = http.tmp_client_id;
         ajax({
           url: url,
           method: 'POST',
