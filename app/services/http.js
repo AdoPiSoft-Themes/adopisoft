@@ -9,7 +9,7 @@ define([
     http.get = function (url, cb) {
       var tmp_client_id = http.tmp_client_id;
       try {
-        if (url.includes('?')) {
+        if (url.indexOf('?') > 0) {
           url = url + '&tmp_client_id=' + tmp_client_id;
         } else {
           url = url + '?tmp_client_id=' + tmp_client_id;
