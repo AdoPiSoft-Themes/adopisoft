@@ -110,6 +110,22 @@
         }
       ]
     },
+     {
+      "field_group_id": "forms",
+      "legend": "Forms",
+      "fields": [
+        {
+          "field_id": "activate_voucher_form",
+          "label": "Show Activate Voucher Form",
+          "type": "checkbox",
+          "defaultValue": true
+        },
+        {
+          "field_id": "submit",
+          "type": "submit"
+        }
+      ]
+    },
     {
       "field_group_id": "wifi_icons",
       "legend": "WiFi Icons",
