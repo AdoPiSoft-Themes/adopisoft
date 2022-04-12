@@ -13,27 +13,18 @@ define([
     self.passcode = ko.observable(device.passcode());
     self.submitting = ko.observable(false);
     self.submitPasscode = function () {
-      if(self.validPasscode()){
-        self.submitting(true)
-        http.submitPasscode(self.passcode(), function(err) {
-          self.submitting(false)
-          if (err) {
-            http.catchError(err)
-          } else {
-            toast.success('Passcode successfully set');
-            device.passcode(self.passcode());
-            params.close();
-          }
-        });
-      }else{
-        toast.error("Error", "Combination of letters and numbers required.")
-      }
+      self.submitting(true)
+      http.submitPasscode(self.passcode(), function(err) {
+        self.submitting(false)
+        if (err) {
+          http.catchError(err)
+        } else {
+          toast.success('Passcode successfully set');
+          device.passcode(self.passcode());
+          params.close();
+        }
+      });
     };
-
-    self.validPasscode = function() {
-      const alpha_numberic_regex = /(?!^[0-9]*$)(?!^[a-zA-Z]*$)^([a-zA-Z0-9]{6,15})$/
-      return alpha_numberic_regex.test(self.passcode())
-    }
 
     self.koDescendantsComplete = function () {
       document.getElementById('passcode').focus();
