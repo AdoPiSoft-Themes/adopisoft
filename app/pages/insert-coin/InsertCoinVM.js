@@ -95,6 +95,12 @@ define([
         }
         prev_amount = data.total_amount;
       }
+
+      if (data.wait_payment_seconds <= 0) { // 3s allowance
+        self.doneTimeout = setTimeout(self.donePayment, 3000);
+      } else if(self.doneTimeout && data.wait_payment_seconds > 0) {
+        clearTimeout(self.doneTimeout);
+      }
     };
 
     self.donePayment = function () {
@@ -112,10 +118,13 @@ define([
       device.is_paying(false);
       if (self.hasPayment()) {
         receipt.isVoucher(payment.isVoucher());
-        receipt.amount(data.total_amount);
-        receipt.type(data.type);
+        var total_amount = data.total_amount || self.que.total_amount();
+        var type = data.type || self.que.type();
+        receipt.amount(total_amount);
+        receipt.type(type);
+
         receipt.credits(self.totalCredits());
-        if (payment.isVoucher()) receipt.voucherCode(data.voucher.code);
+        if (payment.isVoucher() && data.voucher) receipt.voucherCode(data.voucher.code);
         if (!payment.isVoucher() && data.session) receipt.sessionId(data.session.id);
         rootVM.navigate('receipt-page');
       } else {
