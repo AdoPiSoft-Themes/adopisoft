@@ -46,6 +46,7 @@ define([
     });
 
     self.session = {
+      id: ko.observable(0),
       data_mb: ko.observable(0),
       time_seconds: ko.observable(0)
     };
@@ -79,6 +80,7 @@ define([
       self.que.customer_credits(data.customer_credits);
 
       if (data.session) {
+        self.session.id(data.session.id);
         self.session.data_mb(data.session.data_mb);
         self.session.time_seconds(data.session.time_seconds);
       }
@@ -122,7 +124,7 @@ define([
         var is_voucher = payment.isVoucher();
         var total_amount = data.total_amount || self.que.total_amount();
         var type = data.type || self.que.type();
-        var session = data.session || self.session;
+        var session_id = (data.session || {}).id || self.session.id();
         var voucher = data.voucher || self.que.voucher();
 
         console.log(is_voucher, total_amount, type);
@@ -133,7 +135,7 @@ define([
 
         receipt.credits(self.totalCredits());
         if (is_voucher && voucher) receipt.voucherCode(voucher.code);
-        if (!is_voucher && session) receipt.sessionId(session.id);
+        if (!is_voucher && session_id) receipt.sessionId(session_id);
         rootVM.navigate('receipt-page');
       } else {
         rootVM.navigate('home-page');
