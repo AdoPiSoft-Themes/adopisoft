@@ -13,7 +13,7 @@ define([
         modal.show('passcode-modal');
       }
     }
-
+    if (device.is_paying()) return;
     if (bannerHtml) {
       modal.show('popup-banner', {onClose: showPasscodePrompt});
     } else {

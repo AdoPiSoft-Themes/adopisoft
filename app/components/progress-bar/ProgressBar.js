@@ -17,7 +17,7 @@ define([
         self.tick();
       }, 1000);
       self.tick = function () {
-        self.current(self.current() - 1);
+        self.current(Math.max(self.current() - 1, 0));
       };
       self.dispose = function() {
         clearInterval(self.interval);
