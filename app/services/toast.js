@@ -10,14 +10,14 @@ define(function () {
       this.success = function (title, text) {
         if (!text) {
           text = title;
-          title = 'Success';
+          title = 'SUCCESS';
         }
         vm.success(title, text);
       };
       this.error = function(title, text) {
         if (!text) {
           text = title;
-          title = 'Error';
+          title = 'ERROR';
         }
         vm.error(title, text);
       };

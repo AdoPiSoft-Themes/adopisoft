@@ -9,12 +9,12 @@ define([
   var messages = ko.observableArray([]);
 
   function formatText(text) {
-    try{
+    try {
       text = text.replace('toast.error.', '');
       text = text.replace('toast.success.', '');
       text = text.replace('toast.warning.', '');
       text = text.replaceAll('_', ' ');
-    }catch(e) { console.log(e); }
+    } catch(e) { console.log(e); }
     return text;
   }
 

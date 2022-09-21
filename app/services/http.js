@@ -46,19 +46,19 @@ define([
       toast.error(message);
     };
     http.fetchSessions = function (cb) {
-      http.get('/client/sessions', cb);
+      http.get('/portal/sessions', cb);
     };
     http.startSession = function(s_id, cb) {
-      http.post('/client/sessions/' + s_id + '/start', cb);
+      http.post('/portal/sessions/' + s_id + '/start', cb);
     };
     http.pauseSession = function (s_id, cb) {
-      http.post('/client/sessions/' + s_id + '/pause', cb);
+      http.post('/portal/sessions/' + s_id + '/pause', cb);
     };
     http.fetchRates = function (cb) {
       http.get('/settings/timer/rates', cb);
     };
-    http.fetchCoinslots = function (rate_type, cb) {
-      http.get('/client/coinslots?rate_type=' + rate_type, cb);
+    http.fetchCoinslots = function (cb) {
+      http.get('/portal/coinslots', cb);
     };
 
     http.queForPayment = function (opts, cb) {
@@ -71,30 +71,30 @@ define([
         product_keyword: opts.product_keyword
       };
 
-      http.post('/client/payments/que', data, cb);
+      http.post('/portal/payments/que', data, cb);
     };
 
     http.getDevice = function (cb) {
-      http.get('/client/device', cb);
+      http.get('/portal/device', cb);
     };
     http.currentPaymentQue = function (cb) {
-      http.get('/client/payments/current', cb);
+      http.get('/portal/payments/current', cb);
     };
     http.timerConfig = function (cb) {
       http.get('/settings/timer/config', cb);
     };
     http.donePayment = function (coinslot_id, cb) {
-      http.post('/client/payments/done', {coinslot_id: coinslot_id}, cb);
+      http.post('/portal/payments/done', {coinslot_id: coinslot_id}, cb);
     };
     http.activateVoucher = function(code, cb) {
-      http.post('/vouchers/activate', {code: code}, cb);
+      http.post('/portal/vouchers/activate', {code: code}, cb);
     };
     http.getVouchers = function(cb) {
-      http.get('/vouchers/list', cb);
+      http.get('/portal/vouchers/list', cb);
     };
 
     http.getCurrentUser = function(cb) {
-      http.get('/user/me', cb);
+      http.get('/u/api/user/me', cb);
     };
 
     // Eload
@@ -137,7 +137,7 @@ define([
     };
 
     http.customerPurchase = function(opts, cb) {
-      http.post('/customer/purchase', opts, cb);
+      http.post('/u/api/customer/purchase', opts, cb);
     };
 
     http.purchaseLoad = function(account_number, provider_id, product_keyword, voucher_id, cb) {
@@ -150,13 +150,13 @@ define([
     };
 
     http.systemNotifications = function (cb) {
-      http.get('/client/system/notifications', cb);
+      http.get('/system/notifications', cb);
     };
 
     // /eload
 
     http.logoutCustomer = function() {
-      http.post('/customer/logout');
+      http.post('/u/api/customer/logout');
     };
   }
 

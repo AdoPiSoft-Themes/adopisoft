@@ -1,16 +1,20 @@
 <div id="home" class="container text-center">
   <div data-bind="component: 'device-info'"></div>
 
-  <div class="btn-group-padded">
+  <div class="row">
+    <div class="col-md-6 col-md-offset-3">
 
-    <!-- ko component: 'buy-wifi-or-eload' --><!-- /ko -->
+      <!-- ko component: 'buy-wifi-or-eload' --><!-- /ko -->
 
-    <!-- ko component: 'start-pause-buttons' --><!-- /ko -->
+      <!-- ko component: 'start-pause-buttons' --><!-- /ko -->
+      <!-- ko component: 'mute-button' --> <!-- /ko -->
+      
+      <a class="btn btn-block btn-lg btn-default" data-bind="navigate: 'more-buttons'">
+        <span data-bind="translate: 'MORE'"></span>
+        <i class="glyphicon glyphicon-chevron-right"></i>
+      </a>
 
-    <a class="btn btn-lg btn-default" data-bind="navigate: 'more-buttons'">
-      More
-      <i class="glyphicon glyphicon-chevron-right"></i>
-    </a>
+    </div>
 
   </div>
   <div class="padd-top" data-bind="component: 'voucher-form'"></div>
