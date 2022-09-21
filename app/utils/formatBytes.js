@@ -2,7 +2,7 @@ define(function () {
   // converts megabytes to with unit
   return function formatBytes(megabytes, decimals) {
     decimals = decimals || 2;
-    var k = 1000; // or 1024 ???
+    var k = 1024;
     var bytes = (megabytes || 0) * k * k;
     if (bytes === 0) return '0 Bytes';
     var dm = decimals < 0 ? 0 : decimals;

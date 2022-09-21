@@ -4,6 +4,9 @@ define([
 ], function (ko, config) {
 
   var tpl = '<div class="modal-header text-center">' +
+    '<button type="button" class="close" aria-label="Close" data-bind="click: close">' +
+    '<span aria-hidden="true">&times;</span>' +
+    '</button>' +
     '<h2>' + '<span data-bind="translate: \'ANNOUNCEMENT\'"></span>' + '</h2>' +
     '</div>' +
     '<div class="modal-body">' +
