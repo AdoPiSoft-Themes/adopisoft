@@ -7,7 +7,14 @@ define([
   function Http () {
     var http = this;
     http.get = function (url, cb) {
+      var tmp_client_id = http.tmp_client_id;
       try {
+        if (url.indexOf('?') > 0) {
+          url = url + '&tmp_client_id=' + tmp_client_id;
+        } else {
+          url = url + '?tmp_client_id=' + tmp_client_id;
+        }
+
         ajax({
           url: url,
           success: function (data) {
@@ -24,6 +31,7 @@ define([
         data = {};
       }
       try {
+        data.tmp_client_id = http.tmp_client_id
         ajax({
           url: url,
           method: 'POST',
@@ -96,6 +104,14 @@ define([
     http.getCurrentUser = function(cb) {
       http.get('/u/api/user/me', cb);
     };
+
+    http.submitPasscode = function(passcode, cb) {
+      http.post('/portal/passcode', {passcode}, cb)
+    }
+
+    http.securityConfig = function (cb) {
+      http.get('/settings/security/config', cb)
+    }
 
     // Eload
     http.checkEloadAvailability = function(cb) {

@@ -18,6 +18,7 @@ define([
     self.hide = function() {
       self.modalComponent(null);
     };
+    self.close = self.hide
 
     return modal.init(self);
   }

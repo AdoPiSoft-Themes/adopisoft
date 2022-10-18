@@ -28,7 +28,6 @@ function (ko, toast, http, redirect, socket, config, parseCredits, formatDate) {
     self.allow_pause = ko.observable(data.allow_pause);
     self.status = ko.observable(data.status);
     self.expiration_date = data.expiration_date;
-    data.pause_limit = self.allow_pause && data.pause_limit !== 99 ? '(' + data.pause_limit + 'x)'  : ''
     self.pause_limit = ko.observable(data.pause_limit)
     self.formatted_expiry_date = data.expiration_date
       ? formatDate(data.expiration_date)

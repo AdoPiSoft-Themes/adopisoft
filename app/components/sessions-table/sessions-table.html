@@ -19,7 +19,9 @@
             <!-- ko if: showPauseBtn() && allow_pause() -->
             <button class="btn btn-warning" data-bind="disable: !allow_pause() || pausing(), click: pauseSession">
               <i class="glyphicon glyphicon-pause"></i>
-              <span data-bind="text: pause_limit()"></span>
+              <!-- ko if: pause_limit() > 0 && pause_limit() != 99 -->
+              (<small data-bind="text: pause_limit"></small>x)
+              <!-- /ko -->
             </button>
             <!-- /ko -->
             <!-- ko if: showStartBtn -->

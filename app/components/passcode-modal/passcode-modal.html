@@ -1,0 +1,42 @@
+<div class="modal-header text-center">
+   <h2 class="modal-title text-warning">
+    <span class="glyphicon glyphicon-lock"></span>
+    <!-- ko if: device.is_clone -->
+    Enter
+    <!-- /ko -->
+    <!-- ko ifnot: device.is_clone -->
+    Change
+    <!-- /ko -->
+    Passcode:
+   </h2>
+</div>
+
+<div class="modal-body text-center">
+  <div class="alert alert-success">
+    <p>
+      <span class="glyphicon glyphicon-info-sign"></span>
+      Passcode is your second unique device identifier. This will be used to sync your sessions across different device mac address.
+      Please always keep a copy of your passcode.
+    </p>
+    <p>
+      For your security, please do not share this passcode with anyone.
+    </p>
+  </div>
+
+  <form id="passcode-form" data-bind="submit: submitPasscode">
+    <div class="form-group">
+      <label class="label" for="amount"></label>
+      <input type="text" id="passcode" name="passcode" class="text-center input-lg form-control" minlength="5" maxlength="10" data-bind="textInput: passcode" placeholder="Enter Passcode" required style="width: 200px; margin: 0 auto;">
+    </div>
+
+    <div style="text-align: center;">
+       <button class="btn-lg btn btn-success" data-bind="disable: submitting">
+         Submit
+       </button>
+       &nbsp;
+       <a class="btn-lg btn btn-default" data-bind="click: close">
+         Close
+       </a>
+    </div>
+  </form>
+</div>
