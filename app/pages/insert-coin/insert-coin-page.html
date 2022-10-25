@@ -9,7 +9,6 @@
     <div style="width: 150px; margin: 15px auto;">
       <img src="images/insert-coin.gif" class="img-full" />
     </div>
-    <div class="text-info" style="margin-top: 10px; margin-bottom: 5px" data-bind="text: coinslot_alias()"></div>
     <!-- ko if: que.type() == 'eload' -->
     <div id="eload-payment" data-bind="component: {name: 'eload-payment', params: {que: que, loading: loading, hasPayment: hasPayment, donePayment: donePayment}}"></div>
     <!-- /ko -->
@@ -51,7 +50,7 @@
       </div>
     </div>
     <!-- /ko -->
-
+    <div class="text-info" data-bind="text: coinslot_alias()"></div>
     <div class="container padd-top">
       <div class="row">
         <div class="col-sm-6 col-sm-offset-3">
