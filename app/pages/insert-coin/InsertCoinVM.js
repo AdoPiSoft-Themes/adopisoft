@@ -62,7 +62,7 @@ define([
       http.currentPaymentQue(function (err, data) {
         if (!err) {
           self.onPaymentReceived(data);
-          self.coinslotInfo(data.coinslot_id, data.type)
+          self.coinslotInfo(data.coinslot_id)
         }
         fetch_timeout = setTimeout(function () {
           self.fetch();
@@ -101,8 +101,8 @@ define([
       }
     };
 
-    self.coinslotInfo = function (coinslot_id, rate_type) {
-      http.fetchCoinslots(rate_type, function(err, data) {
+    self.coinslotInfo = function (coinslot_id,) {
+      http.fetchCoinslots(function(err, data) {
         const activeCoinslot = data.filter(d => d.id === coinslot_id)[0]
         if(activeCoinslot) {
           self.coinslot_alias('Coinslot: ' + activeCoinslot.alias.toUpperCase())
