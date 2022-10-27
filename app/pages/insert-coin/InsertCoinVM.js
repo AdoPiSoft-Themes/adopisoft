@@ -27,6 +27,7 @@ define([
     self.config = timerConfig;
     self.rates = rates;
     self.loading = ko.observable(false);
+    self.coinslot_alias = ko.observable('')
     self.que = {
       coinslot_id: ko.observable(0),
       total_amount: ko.observable(0),
@@ -40,6 +41,7 @@ define([
       account_number: ko.observable(''),
       product_keyword: ko.observable('')
     };
+
 
     self.eload_wallet_topup = ko.pureComputed(function() {
       return includes(['eload', 'wallet_topup'], self.que.type());
@@ -59,6 +61,7 @@ define([
       http.currentPaymentQue(function (err, data) {
         if (!err) {
           self.onPaymentReceived(data);
+          self.coinslotInfo(data.coinslot_id, data.type)
         }
         fetch_timeout = setTimeout(function () {
           self.fetch();
@@ -97,6 +100,14 @@ define([
       }
     };
 
+    self.coinslotInfo = function (coinslot_id, rate_type) {
+      http.fetchCoinslots(rate_type, function(err, data) {
+        const activeCoinslot = data.filter(d => d.id === coinslot_id)[0]
+        if(activeCoinslot) {
+          self.coinslot_alias('Coinslot: ' + activeCoinslot.alias.toUpperCase())
+        }
+      })
+    }
     self.donePayment = function () {
       self.loading(true);
       http.donePayment(self.que.coinslot_id(), function(err, data) {
@@ -150,6 +161,7 @@ define([
         clearTimeout(fetch_timeout);
       }
     };
+
 
     receipt.reset();
     sounds.insertCoin.play();
