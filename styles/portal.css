@@ -110,7 +110,7 @@ img.img-full {
 .fa-qrcode{
   z-index: 99;
   top: 10px !important;
-  margin-left: -15px !important;
+  margin-right: 30px !important;
 }
 
 .fa-qrcode:before{
@@ -118,6 +118,7 @@ img.img-full {
 }
 
 .input-group-btn .btn{
+  width: 140px !important;
   border-top-left-radius: 0;
   border-bottom-left-radius: 0;
 }

@@ -4,24 +4,29 @@ define([
   'rootVM',
   'http',
   'sessions',
-  'app/observables/session'
-], function (ko, toast, rootVM, http, sessions, Session) {
+  'translator',
+  'app/observables/session',
+  'app/services/config'
+], function (ko, toast, rootVM, http, sessions, translator, Session, config) {
   ko.components.register('voucher-form', {
     viewModel: function(code) {
       var self = this;
       if (code) self.value = (typeof code === 'function') ? code : ko.observable(code);
       else self.value = ko.observable('');
+
+      self.showActivateVoucherForm = ko.observable(config.findField('forms', 'activate_voucher_form'))
       self.activate = function() {
         var code = self.value();
         http.activateVoucher(code, function(err, data) {
           if (err) return http.catchError(err);
           var s = new Session(data);
           sessions.get().push(s);
-          toast.success('Voucher activated successfully!');
+          toast.success(translator.print('VOUCHER_ACTIVATED'));
           self.value('');
           rootVM.navigate('home-page');
         });
       };
+      self.voucher_code_text = translator.print('VOUCHER_CODE')
     },
     template: {require: 'text!app/components/voucher-form/voucher-form.html'}
   });

@@ -1,11 +1,11 @@
 <div id="insert-coin-page" class="text-center">
 
   <div class="alert alert-info" data-bind="visible: loading">
-    <p>Please wait...</p>
+    <p data-bind="translate: 'LOADING'"></p>
   </div>
 
   <div data-bind="invisible: loading">
-    <h2 class="text-success">Insert Coin Now</h2>
+    <h2 class="text-success" data-bind="translate: 'INSERT_COIN'"></h2>
     <div style="width: 150px; margin: 15px auto;">
       <img src="images/insert-coin.gif" class="img-full" />
     </div>
@@ -24,7 +24,7 @@
           <div class="list-group">
             <div class="list-group-item">
               <h3>
-                Total Amount:
+                <span data-bind="translate: 'TOTAL_AMOUNT'"></span>
                 <span data-bind="css: que.total_amount() > 0 ? 'text-success' : 'text-danger'">
                   <span data-bind="text: rates.currency"></span>
                   <span data-bind="text: que.total_amount"></span>
@@ -33,16 +33,20 @@
             </div>
             <div class="list-group-item">
               <h3>
-                Total Credits:
+                <span data-bind="translate: 'TOTAL_CREDITS'"></span>
                 <span data-bind="class: hasPayment() ? 'text-success' : 'text-danger', text: totalCredits"></span>
               </h3>
             </div>
             <div class="list-group-item">
               <!-- ko if: hasPayment -->
-              <a class="btn btn-lg btn-primary" data-bind="click: donePayment, loadingBtn: loading">I'm Done Paying</a>
+              <a class="btn btn-lg btn-primary" data-bind="click: donePayment, loadingBtn: loading">
+                <span data-bind="translate: 'DONE_PAYING'"></span>
+              </a>
               <!-- /ko -->
               <!-- ko ifnot: hasPayment -->
-              <a class="btn btn-lg btn-warning" data-bind="click: donePayment, loadingBtn: loading">Cancel</a>
+              <a class="btn btn-lg btn-warning" data-bind="click: donePayment, loadingBtn: loading">
+                <span data-bind="translate: 'CANCEL'"></span>
+              </a>
               <!-- /ko -->
             </div>
           </div>

@@ -7,6 +7,7 @@ define([
   'timerConfig',
   'wifiRates',
   'socket',
+  'translator',
   'app/observables/device',
   'app/observables/receipt',
   'app/observables/payment',
@@ -17,7 +18,7 @@ define([
   'app/components/seconds-format/SecondsFormat',
   'app/components/eload-payment/EloadPayment',
   'app/components/wallet-topup/WalletTopup'
-], function (ko, rootVM, http, sounds, toast, timerConfig, rates, socket, device, receipt, payment, secondsFormat, formatBytes, includes) {
+], function (ko, rootVM, http, sounds, toast, timerConfig, rates, socket, translator, device, receipt, payment, secondsFormat, formatBytes, includes) {
 
   function VM () {
     var prev_amount = 0;
@@ -90,10 +91,10 @@ define([
       }
       if (data.total_amount > prev_amount) {
         if (self.session.data_mb() > 0 || self.session.time_seconds() > 0) {
-          toast.success('Total Amount: ' + rates.currency() + ' ' + self.que.total_amount(), 'Total Credits: ' + self.totalCredits());
+          toast.success(translator.print('TOTAL_AMOUNT') + ': ' + rates.currency() + ' ' + self.que.total_amount(), translator.print('TOTAL_CREDITS') + ': ' + self.totalCredits());
           sounds.coinInserted.play();
         } else if (data.amount > 0) {
-          toast.success('Payment Received: ' + rates.currency() + data.amount.toFixed(2));
+          toast.success(translator.print('PAYMENT_RECEIVED') + ': ' + rates.currency() + data.amount.toFixed(2));
           sounds.coinInserted.play();
         }
         prev_amount = data.total_amount;
