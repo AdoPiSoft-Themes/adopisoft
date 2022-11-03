@@ -33,7 +33,7 @@ define([
       coinslot_id: ko.observable(0),
       total_amount: ko.observable(0),
       type: ko.observable(''),
-      voucher: {},
+      voucher: ko.observable(null),
       wait_payment_seconds: ko.observable(100),
 
       customer: ko.observable(0),
@@ -49,9 +49,11 @@ define([
     });
 
     self.session = {
+      id: ko.observable(0),
       data_mb: ko.observable(0),
       time_seconds: ko.observable(0)
     };
+
     self.koDescendantsComplete = function () {
       rootVM.showingStatusNav(false);
       rootVM.showingBanners(false);
@@ -82,10 +84,12 @@ define([
       self.que.customer_credits(data.customer_credits);
 
       if (data.session) {
+        self.session.id(data.session.id);
         self.session.data_mb(data.session.data_mb);
         self.session.time_seconds(data.session.time_seconds);
       }
       if (data.voucher) {
+        self.que.voucher(data.voucher);
         self.session.data_mb(data.voucher.megabytes);
         self.session.time_seconds(data.voucher.minutes * 60);
       }
@@ -98,6 +102,12 @@ define([
           sounds.coinInserted.play();
         }
         prev_amount = data.total_amount;
+      }
+
+      if (data.wait_payment_seconds <= 0) { // 3s allowance
+        self.doneTimeout = setTimeout(self.donePayment, 3000);
+      } else if(self.doneTimeout && data.wait_payment_seconds > 0) {
+        clearTimeout(self.doneTimeout);
       }
     };
 
@@ -123,12 +133,21 @@ define([
     self.done = function (data) {
       device.is_paying(false);
       if (self.hasPayment()) {
-        receipt.isVoucher(payment.isVoucher());
-        receipt.amount(data.total_amount);
-        receipt.type(data.type);
+        var is_voucher = payment.isVoucher();
+        var total_amount = data.total_amount || self.que.total_amount();
+        var type = data.type || self.que.type();
+        var session_id = (data.session || {}).id || self.session.id();
+        var voucher = data.voucher || self.que.voucher();
+
+        console.log(is_voucher, total_amount, type);
+
+        receipt.isVoucher(is_voucher);
+        receipt.amount(total_amount);
+        receipt.type(type);
+
         receipt.credits(self.totalCredits());
-        if (payment.isVoucher()) receipt.voucherCode(data.voucher.code);
-        if (!payment.isVoucher() && data.session) receipt.sessionId(data.session.id);
+        if (is_voucher && voucher) receipt.voucherCode(voucher.code);
+        if (!is_voucher && session_id) receipt.sessionId(session_id);
         rootVM.navigate('receipt-page');
       } else {
         rootVM.navigate('home-page');
@@ -160,6 +179,9 @@ define([
       sounds.insertCoinBg.stop();
       if (fetch_timeout) {
         clearTimeout(fetch_timeout);
+      }
+      if (self.doneTimeout) {
+        clearTimeout(self.doneTimeout);
       }
     };
 

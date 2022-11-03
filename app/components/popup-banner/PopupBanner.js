@@ -13,13 +13,18 @@ define([
     config.findField('banners', 'popup_banner') +
     '</div>' +
     '<div class="modal-footer"><button class="btn btn-default" data-bind="click: close">'+
-    '<span data-bind="translate: \'CANCEL\'"></span>' +
+    '<span data-bind="translate: \'CLOSE\'"></span>' +
     '</button></div>';
 
   ko.components.register('popup-banner', {
     template: tpl,
     viewModel: function (opts) {
-      this.close = opts.close;
+      this.close = function() {
+        opts.close();
+        if (opts.onClose) {
+          opts.onClose();
+        }
+      };
     }
   });
 });

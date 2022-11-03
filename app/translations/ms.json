@@ -57,5 +57,11 @@
   "RELOAD_PAGE": "Muat semula Halaman",
   "ANNOUNCEMENT": "Pengumuman",
   "MUTE": "Matikan Bunyi",
-  "UNMUTE": "Nyahredam"
+  "UNMUTE": "Nyahredam",
+  "ENTER_PASSCODE": "Masuk",
+  "CHANGE_PASSCODE": "Ubah",
+  "PASSCODE_HELPER_1": "Kod laluan ialah pengecam peranti unik kedua anda. Ini akan digunakan untuk menyegerakkan sesi anda merentas alamat mac peranti yang berbeza. Sila sentiasa simpan salinan kod laluan anda.",
+  "PASSCODE_HELPER_2": "Untuk keselamatan anda, sila jangan kongsi kod laluan ini dengan sesiapa pun.",
+  "SUBMIT": "Hantar",
+  "CLOSE": "Tutup"
 }

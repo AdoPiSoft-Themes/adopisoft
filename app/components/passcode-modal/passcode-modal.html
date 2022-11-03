@@ -1,0 +1,40 @@
+<div class="modal-header text-center">
+   <h2 class="modal-title text-warning">
+    <span class="glyphicon glyphicon-lock"></span>
+    <!-- ko if: device.is_clone -->
+    <span data-bind="translate: 'ENTER_PASSCODE'"></span>
+    <!-- /ko -->
+    <!-- ko ifnot: device.is_clone -->
+    <span data-bind="translate: 'CHANGE_PASSCODE'"></span>
+    <!-- /ko -->
+    Passcode:
+   </h2>
+</div>
+
+<div class="modal-body text-center">
+  <div class="alert alert-success">
+    <p>
+      <span class="glyphicon glyphicon-info-sign"></span>
+      <span data-bind="translate: 'PASSCODE_HELPER_1'"></span>
+    </p>
+    <p data-bind="translate: 'PASSCODE_HELPER_2'"></p>
+  </div>
+
+  <form id="passcode-form" data-bind="submit: submitPasscode">
+    <div class="form-group">
+      <label class="label" for="amount"></label>
+      <input type="text" id="passcode" name="passcode" class="text-center input-lg form-control" minlength="5" maxlength="10" data-bind="textInput: passcode" placeholder="Enter Passcode" required style="width: 200px; margin: 0 auto;">
+    </div>
+
+    <div style="text-align: center;">
+       <button class="btn-lg btn btn-success" data-bind="disable: submitting">
+         <span data-bind="translate: 'SUBMIT'"></span>
+       </button>
+       &nbsp;
+       <a class="btn-lg btn btn-default" data-bind="click: close">
+         <span data-bind="translate: 'CLOSE'"></span>
+       </a>
+    </div>
+  </form>
+</div>
+

@@ -57,5 +57,11 @@
   "RELOAD_PAGE": "Muat Ulang Halaman",
   "ANNOUNCEMENT": "Pengumuman",
   "MUTE": "Bisu",
-  "UNMUTE": "Nyalakan Volume"
+  "UNMUTE": "Nyalakan Volume",
+  "ENTER_PASSCODE": "Memasuki",
+  "CHANGE_PASSCODE": "Mengubah",
+  "PASSCODE_HELPER_1": "Kode sandi adalah pengidentifikasi perangkat unik kedua Anda. Ini akan digunakan untuk menyinkronkan sesi Anda di berbagai alamat mac perangkat. Harap selalu simpan salinan kode sandi Anda.",
+  "PASSCODE_HELPER_2": "Demi keamanan Anda, jangan bagikan kode sandi ini kepada siapa pun.",
+  "SUBMIT": "Kirim",
+  "CLOSE": "Menutup"
 }

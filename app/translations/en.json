@@ -57,5 +57,11 @@
   "RELOAD_PAGE": "Reload Page",
   "ANNOUNCEMENT": "Announcement",
   "MUTE": "Mute",
-  "UNMUTE": "Unmute"
+  "UNMUTE": "Unmute",
+  "ENTER_PASSCODE": "Enter",
+  "CHANGE_PASSCODE": "Change",
+  "PASSCODE_HELPER_1": "Passcode is your second unique device identifier. This will be used to sync your sessions across different device mac address.Please always keep a copy of your passcode.",
+  "PASSCODE_HELPER_2": "For your security, please do not share this passcode with anyone.",
+  "SUBMIT": "Submit",
+  "CLOSE": "Close"
 }

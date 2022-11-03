@@ -26,6 +26,7 @@ function (ko, toast, http, redirect, socket, config, parseCredits, formatDate) {
     self.running_time_seconds = ko.observable(data.running_time_seconds);
     self.credits = ko.observable('');
     self.allow_pause = ko.observable(data.allow_pause);
+    self.pause_limit = ko.observable(data.pause_limit);
     self.status = ko.observable(data.status);
     self.expiration_date = data.expiration_date;
     self.formatted_expiry_date = data.expiration_date
