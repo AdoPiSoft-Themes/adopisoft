@@ -1,3 +1,15 @@
-MAC: <code data-bind="text: device.mac_address"></code>
-<span class="glyphicon glyphicon-minus"></span>
-IP: <code data-bind="text: device.ip_address"></code>
+<p>
+  MAC: <code data-bind="text: device.mac_address"></code>
+  <span class="glyphicon glyphicon-minus"></span>
+  IP: <code data-bind="text: device.ip_address"></code>
+</p>
+
+<!-- ko if: enablePasscode() -->
+<p>
+  Passcode: <code data-bind="text: passcodeShown() ? device.passcode() || '-' : '********', click: showPasscode"></code>
+
+  <a href="javascript:void(0)" data-bind="click: editPasscode">
+    <i class="glyphicon glyphicon-pencil">&nbsp;</i>
+  </a>
+</p>
+<!-- /ko -->
