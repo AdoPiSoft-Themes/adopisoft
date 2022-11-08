@@ -63,5 +63,7 @@
   "PASSCODE_HELPER_1": "El código de acceso es su segundo identificador único de dispositivo. Esto se usará para sincronizar sus sesiones a través de diferentes direcciones mac de dispositivos. Conserve siempre una copia de su código de acceso.",
   "PASSCODE_HELPER_2": "Por su seguridad, no comparta este código de acceso con nadie.",
   "SUBMIT": "Enviar",
-  "CLOSE": "Cerca"
+  "CLOSE": "Cerca",
+  "PAUSE": "Pausa",
+  "CONNECT": "Conectar"
 }
