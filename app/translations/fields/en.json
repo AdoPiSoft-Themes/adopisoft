@@ -14,6 +14,8 @@
   "button_view_vouchers": "Show View Vouchers Button",
   "button_view_rates": "Show View Rates Button",
   "button_my_account": "Show My Account Button",
+  "more_button": "Show More Button",
+  "unmute_button": "Show mute/unmute Button",
   "buttons": "Buttons",
   "activate_voucher_form": "Show Activate Voucher Form",
   "forms": "Forms",

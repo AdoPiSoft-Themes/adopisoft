@@ -86,12 +86,6 @@
           "defaultValue": true
         },
         {
-          "field_id": "button_view_vouchers",
-          "label": "Show View Vouchers Button",
-          "type": "checkbox",
-          "defaultValue": true
-        },
-        {
           "field_id": "button_view_rates",
           "label": "Show View Rates Button",
           "type": "checkbox",
@@ -99,10 +93,25 @@
         },
 
         {
+          "field_id": "more_button",
+          "label": "Show More Button",
+          "type": "checkbox",
+          "defaultValue": true,
+          "parent": "more_button"
+        },
+        {
           "field_id": "button_my_account",
           "label": "Show My Account Button",
           "type": "checkbox",
-          "defaultValue": true
+          "defaultValue": true,
+          "parent": "more_button"
+        },
+        {
+          "field_id": "button_view_vouchers",
+          "label": "Show View Vouchers Button",
+          "type": "checkbox",
+          "defaultValue": true,
+          "parent": "more_button"
         },
         {
           "field_id": "submit",
