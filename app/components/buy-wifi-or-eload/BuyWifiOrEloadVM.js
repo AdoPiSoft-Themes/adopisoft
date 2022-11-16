@@ -23,14 +23,6 @@ define([
       rootVM.navigate('buy-wifi-buttons');
     };
 
-    this.buyVoucher = function () {
-      this.loading(true);
-      payment.intent('wifi');
-      payment.isVoucher(true);
-      payment.rateType('');
-      rootVM.navigate('buy-wifi-buttons');
-    };
-
     this.buyEload = function () {
       this.eloadLoading(true);
       rootVM.navigate('buy-eload-page');

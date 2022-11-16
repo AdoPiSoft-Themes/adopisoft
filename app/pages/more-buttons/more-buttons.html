@@ -7,13 +7,14 @@
         <!-- ko if: showMyAccountBtn() || customer.id() -->
         <a class="btn btn-block btn-info btn-lg" href="/u" data-bind="translate: 'MY_ACCT'"></a>
         <!-- /ko -->
-
+        <!-- ko if: showBuyVoucherBtn -->
+        <a class="btn btn-block btn-lg btn-info" data-bind="click: buyVoucher, loadingBtn: loading">
+          <span data-bind="translate: 'BUY_VOUCHER'"></span>
+        </a>
+        <!-- /ko -->
         <!-- ko if: showViewVouchersBtn -->
         <a class="btn btn-block btn-info btn-lg" data-bind="navigate: 'view-vouchers', translate: 'VIEW_VOUCHERS'"></a>
         <!-- /ko -->
-
-        <!-- ko component: 'mute-button' --> <!-- /ko -->
-
         <a class="btn btn-block btn-lg btn-default" data-bind="navigate: 'home-page'">
           <i class="glyphicon glyphicon-chevron-left"></i>
           <span data-bind="translate: 'BACK'"></span>

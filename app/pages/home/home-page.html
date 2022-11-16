@@ -9,10 +9,14 @@
       <!-- ko component: 'start-pause-buttons' --><!-- /ko -->
 
       <!-- ko if: showViewRatesBtn() -->
-        <a class="btn btn-block btn-lg" style="background: #5F9DF7; color: white;" data-bind="navigate: 'view-rates', translate: 'VIEW_RATES'"></a>
+        <a class="btn btn-block btn-lg btn-info" data-bind="navigate: 'view-rates', translate: 'VIEW_RATES'"></a>
       <!-- /ko -->
-      <!-- ko if: showMoreBtn() -->
-        <a class="btn btn-block btn-lg btn-default" data-bind="navigate: 'more-buttons'">
+      <span class="btn-block mute-unmute-button">
+        <!-- ko component: 'mute-button' --> <!-- /ko -->
+      </span>
+
+      <!-- ko if: showMoreBtn() && !hasNoMoreButtons() -->
+        <a class="btn btn-block btn-lg btn-default" id="more-button" data-bind="navigate: 'more-buttons'">
           <span data-bind="translate: 'MORE'"></span>
           <i class="glyphicon glyphicon-chevron-right"></i>
         </a>
