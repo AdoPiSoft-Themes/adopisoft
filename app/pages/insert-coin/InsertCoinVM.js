@@ -14,11 +14,12 @@ define([
   'app/utils/shortSecondsFormat',
   'app/utils/formatBytes',
   'app/utils/array.includes',
+  'app/utils/array.find',
   'app/components/progress-bar/ProgressBar',
   'app/components/seconds-format/SecondsFormat',
   'app/components/eload-payment/EloadPayment',
   'app/components/wallet-topup/WalletTopup'
-], function (ko, rootVM, http, sounds, toast, timerConfig, rates, socket, translator, device, receipt, payment, secondsFormat, formatBytes, includes) {
+], function (ko, rootVM, http, sounds, toast, timerConfig, rates, socket, translator, device, receipt, payment, secondsFormat, formatBytes, includes, find) {
 
   function VM () {
     var prev_amount = 0;
@@ -113,7 +114,9 @@ define([
 
     self.coinslotInfo = function (coinslot_id, rate_type) {
       http.fetchCoinslots(rate_type, function(err, data) {
-        const activeCoinslot = data.filter(d => d.id === coinslot_id)[0]
+        const activeCoinslot = find(data, function (c) {
+          return c.id === coinslot_id
+        })
         if(activeCoinslot) {
           self.coinslot_alias('Coinslot: ' + activeCoinslot.alias.toUpperCase())
         }

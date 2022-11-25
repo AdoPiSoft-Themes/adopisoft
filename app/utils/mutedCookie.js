@@ -1,7 +1,7 @@
 define(function () {
   const maxAge = (24 * 60 * 60 * 1000) * 30 // 30 days
   function Mute(){
-    this.setMutedCookie = (value) => {
+    this.setMutedCookie = function(value) {
       document.cookie = "is_muted=" + value + ";" + maxAge + "; path=/";
     }
     this.getMutedCookieStr = function(){
@@ -10,19 +10,19 @@ define(function () {
       var cookies = document.cookie.split(';');
       for(var i=0;i < cookies.length;i++) {
           var c = cookies[i];
-          while (c.charAt(0)==' ') c = c.substring(1,c.length);
-          if (c.indexOf(_name) == 0) return c.substring(_name.length,c.length);
+          while (c.charAt(0)==' ') { c = c.substring(1,c.length) };
+          if (c.indexOf(_name) == 0) return c.substring(_name.length, c.length);
       }
-      return null;
+      return '';
     }
     this.getMutedBoolean = function(){
+      var is_muted = null
       if(this.getMutedCookieStr() === 'muted')
-        return true;
+        is_muted = true
       else 
-        return false;
-      return null;
+        is_muted = false;
+      return is_muted;
     }
-
   }
   return new Mute()
 })

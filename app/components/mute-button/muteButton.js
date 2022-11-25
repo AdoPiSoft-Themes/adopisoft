@@ -14,9 +14,7 @@ define(['knockout', 'sounds', 'app/utils/mutedCookie'], function(ko, sounds, mut
       muted.setMutedCookie("unmute")
       sounds.background.play();
       self.is_muted(muted.getMutedBoolean())
-
     }
-
   }
   ko.components.register('mute-button', {
     viewModel: vm,

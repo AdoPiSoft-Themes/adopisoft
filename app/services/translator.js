@@ -20,7 +20,7 @@ define(['http'], function (http) {
 
         for (var i = 0; i < params.length; i++) {
           var arg_index = i + 1
-          message = message.replace(`$${arg_index}`, params[i]);
+          message = message.replace('$' + arg_index , params[i]);
         }
         return message
 
