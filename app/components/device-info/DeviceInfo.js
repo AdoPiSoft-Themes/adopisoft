@@ -2,9 +2,10 @@ define([
   'knockout',
   'http',
   'app/observables/device',
+  'text!app/components/device-info/device-info.html',
   'modal',
   'app/components/passcode-modal/PasscodeModal'
-], function(ko,http, device, modal) {
+], function(ko,http, device, tpl, modal) {
   ko.components.register('device-info', {
     viewModel: function() {
       var self = this;
@@ -29,6 +30,6 @@ define([
         });
       };
     },
-    template: {require: 'text!app/components/device-info/device-info.html'}
+    template: tpl
   });
 });

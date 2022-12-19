@@ -2,8 +2,9 @@ define([
   'knockout',
   'toast',
   'app/utils/array.reduce',
-  'getElementsByClassName'
-],function(ko, toast, reduce, getElementsByClassName) {
+  'getElementsByClassName',
+  'text!app/components/toast/toast.html'
+],function(ko, toast, reduce, getElementsByClassName, tpl) {
 
 
   var messages = ko.observableArray([]);
@@ -79,7 +80,7 @@ define([
 
   ko.components.register('toast', {
     viewModel: ToastVM,
-    template: {require: 'text!app/components/toast/toast.html'}
+    template: tpl
   });
 
 });

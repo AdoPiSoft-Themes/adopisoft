@@ -1,4 +1,4 @@
-define(['knockout', 'sounds', 'app/utils/mutedCookie'], function(ko, sounds, muted){
+define(['knockout', 'sounds', 'app/utils/mutedCookie', 'text!app/components/mute-button/mute-button.html'], function(ko, sounds, muted, tpl){
 
   function vm() {
     var self = this;
@@ -18,9 +18,7 @@ define(['knockout', 'sounds', 'app/utils/mutedCookie'], function(ko, sounds, mut
   }
   ko.components.register('mute-button', {
     viewModel: vm,
-    template: {
-      require: 'text!app/components/mute-button/mute-button.html'
-    }
+    template: tpl
   })
 
 })

@@ -2,8 +2,9 @@ define([
   'knockout',
   'sounds',
   'app/services/config',
-  'app/utils/array.map'
-], function (ko, sounds, config, map) {
+  'app/utils/array.map',
+  'text!app/components/banners/banners.html'
+], function (ko, sounds, config, map, tpl) {
 
   var banner_field = config.findField('banners', 'banners');
   var slogan_field = config.findField('page_properties', 'banner_text');
@@ -40,7 +41,7 @@ define([
 
   ko.components.register('banners', {
     viewModel: BannersVM,
-    template: {require: 'text!app/components/banners/banners.html'}
+    template: tpl
   });
 
 });

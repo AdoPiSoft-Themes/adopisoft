@@ -1,10 +1,12 @@
 define([
-  'knockout'
-], function (ko) {
+  'knockout',
+  'app/pages/insert-coin/InsertCoinVM',
+  'text!app/pages/insert-coin/insert-coin-page.html'
+], function (ko, VM, tpl) {
 
   ko.components.register('insert-coin-page', {
-    viewModel: { require: 'app/pages/insert-coin/InsertCoinVM' },
-    template: { require: 'text!app/pages/insert-coin/insert-coin-page.html' }
+    viewModel: VM,
+    template: tpl
   });
 
 });
