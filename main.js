@@ -1,4 +1,4 @@
-require([
+define('main', [
   'knockout',
   'rootVM',
   'domready',
@@ -7,9 +7,8 @@ require([
   'app/bindings/main',
   'app/pages/main',
   'app/services/config',
-  'app/components/app-root/AppComponent',
+  'app/components/app-root/AppComponent'
 ], function(ko, rootVM, domready, init, translator) {
-
   function onLoad() {
     translator.init(function () {
       init(function () {
@@ -18,11 +17,9 @@ require([
         ko.applyBindings(rootVM, headEl);
         ko.applyBindings(rootVM, bodyEl);
       });
-    })
+    });
   }
-
   domready(onLoad);
-
 }, function(err) {
   var failedId = err.requireModules && err.requireModules[0];
   if (failedId === 'json!/settings/portal/config.json' || failedId === 'json!/client/plugins/assets.json') {
