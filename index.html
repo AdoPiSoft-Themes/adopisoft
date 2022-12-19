@@ -6,7 +6,7 @@
     <!-- ko foreach: $data.styles -->
     <link data-bind="attr: {href: $data}" rel="stylesheet" media="all">
     <!-- /ko -->
-    <script data-main="app.bundle.js" src="libs/requirejs/require-2.3.6.min.js"></script>
+    <script src="libs/requirejs/require-2.3.6.min.js"></script>
     
     <!-- ko if: baseUrl -->
     <base data-bind="attr: {href: baseUrl}">
@@ -22,7 +22,9 @@
     <div id="app" data-bind="component: 'app', childrenComplete: $root.showApp" style="display: none;"></div>
 
     <script type="text/javascript">
-      require(['main'])
+      require(['app.bundle.js'], function() {
+        require(['main'])
+      });
     </script>
   </body>
 </html>
