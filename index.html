@@ -3,9 +3,8 @@
   <head>
     <title data-bind="text: $root.pageTitle"></title>
     <link data-bind="attr: {href: $data.favicon}" rel="shortcut icon" type="image/x-icon" />
-    <!-- ko foreach: $data.styles -->
-    <link data-bind="attr: {href: $data}" rel="stylesheet" media="all">
-    <!-- /ko -->
+    <!-- app.bundle.css will be auto-generated on boot or on clear cache in admin theme portal settings -->
+    <link href="app.bundle.css" rel="stylesheet" media="all"> 
     <script src="libs/requirejs/require-2.3.6.min.js"></script>
     
     <!-- ko if: baseUrl -->
@@ -21,6 +20,7 @@
 
     <div id="app" data-bind="component: 'app', childrenComplete: $root.showApp" style="display: none;"></div>
 
+    <!-- app.bundle.js will be auto-generated on boot or on clear cache in admin theme portal settings -->
     <script type="text/javascript">
       require(['app.bundle.js'], function() {
         require(['main'])
