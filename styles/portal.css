@@ -23,9 +23,8 @@ img.img-full {
   width: 100%;
 }
 
-.btn-group-padded .btn {
-  width: 158px;
-  margin: 10px;
+.btn-group-padded {
+  margin: 15px 0px;
 }
 
 .padd-top {

@@ -2,17 +2,25 @@
   <div data-bind="component: 'device-info'"></div>
 
   <div class="row">
-    <div class="col-md-6 col-md-offset-3">
+    <div class="col-md-6 col-md-offset-3 btn-list">
 
       <!-- ko component: 'buy-wifi-or-eload' --><!-- /ko -->
 
       <!-- ko component: 'start-pause-buttons' --><!-- /ko -->
-      <!-- ko component: 'mute-button' --> <!-- /ko -->
-      
-      <a class="btn btn-block btn-lg btn-default" data-bind="navigate: 'more-buttons'">
-        <span data-bind="translate: 'MORE'"></span>
-        <i class="glyphicon glyphicon-chevron-right"></i>
-      </a>
+
+      <!-- ko if: showViewRatesBtn() -->
+        <a class="btn btn-block btn-lg btn-info" data-bind="navigate: 'view-rates', translate: 'VIEW_RATES'"></a>
+      <!-- /ko -->
+      <span class="btn-block mute-unmute-button">
+        <!-- ko component: 'mute-button' --> <!-- /ko -->
+      </span>
+
+      <!-- ko if: showMoreBtn() && !hasNoMoreButtons() -->
+        <a class="btn btn-block btn-lg btn-default" id="more-button" data-bind="navigate: 'more-buttons'">
+          <span data-bind="translate: 'MORE'"></span>
+          <i class="glyphicon glyphicon-chevron-right"></i>
+        </a>
+      <!-- /ko -->
 
     </div>
 

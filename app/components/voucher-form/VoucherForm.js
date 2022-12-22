@@ -6,8 +6,9 @@ define([
   'sessions',
   'translator',
   'app/observables/session',
-  'app/services/config'
-], function (ko, toast, rootVM, http, sessions, translator, Session, config) {
+  'app/services/config',
+  'text!app/components/voucher-form/voucher-form.html'
+], function (ko, toast, rootVM, http, sessions, translator, Session, config, tpl) {
   ko.components.register('voucher-form', {
     viewModel: function(code) {
       var self = this;
@@ -31,6 +32,6 @@ define([
       };
       self.voucher_code_text = translator.print('VOUCHER_CODE')
     },
-    template: {require: 'text!app/components/voucher-form/voucher-form.html'}
+    template: tpl
   });
 });

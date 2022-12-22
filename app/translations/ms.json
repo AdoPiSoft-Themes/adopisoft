@@ -63,5 +63,7 @@
   "PASSCODE_HELPER_1": "Kod laluan ialah pengecam peranti unik kedua anda. Ini akan digunakan untuk menyegerakkan sesi anda merentas alamat mac peranti yang berbeza. Sila sentiasa simpan salinan kod laluan anda.",
   "PASSCODE_HELPER_2": "Untuk keselamatan anda, sila jangan kongsi kod laluan ini dengan sesiapa pun.",
   "SUBMIT": "Hantar",
-  "CLOSE": "Tutup"
+  "CLOSE": "Tutup",
+  "PAUSE": "Jeda",
+  "CONNECT": "Sambung"
 }

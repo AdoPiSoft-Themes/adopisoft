@@ -2,14 +2,14 @@
 
 <!-- ko if: sessions.hasRunning() && allowPause() -->
 <button class="btn btn-block btn-lg btn-warning" data-bind="click: pauseSession, enable: allowPause">
-  Pause <span data-bind="text: pause_limit() "></span>
+  <span data-bind="translate: 'PAUSE'"></span>
   <i class="glyphicon glyphicon-pause"></i>
 </button>
 <!-- /ko -->
 
 <!-- ko ifnot: sessions.hasRunning() -->
 <button class="btn btn-block btn-lg btn-primary" data-bind="click: startSession, disable: starting">
-  Connect
+  <span data-bind="translate: 'CONNECT'"></span>
   <i class="glyphicon glyphicon-play"></i>
 </button>
 <!-- /ko -->

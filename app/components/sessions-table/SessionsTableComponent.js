@@ -1,7 +1,8 @@
 define([
   'knockout',
-  'sessions'
-], function(ko, sessions) {
+  'sessions',
+  'text!app/components/sessions-table/sessions-table.html'
+], function(ko, sessions, tpl) {
   ko.components.register('sessions-table', {
     viewModel: function() {
       this.sessions = sessions.get();
@@ -12,7 +13,7 @@ define([
         sessions.stopSync();
       };
     },
-    template: {require: 'text!app/components/sessions-table/sessions-table.html'}
+    template: tpl
   });
 });
 

@@ -63,5 +63,7 @@
   "PASSCODE_HELPER_1": "Kode sandi adalah pengidentifikasi perangkat unik kedua Anda. Ini akan digunakan untuk menyinkronkan sesi Anda di berbagai alamat mac perangkat. Harap selalu simpan salinan kode sandi Anda.",
   "PASSCODE_HELPER_2": "Demi keamanan Anda, jangan bagikan kode sandi ini kepada siapa pun.",
   "SUBMIT": "Kirim",
-  "CLOSE": "Menutup"
+  "CLOSE": "Menutup",
+  "PAUSE": "Berhenti sebentar",
+  "CONNECT": "Menghubung"
 }
