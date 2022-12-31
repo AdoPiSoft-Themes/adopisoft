@@ -107,6 +107,7 @@ define([
 
       if (data.wait_payment_seconds <= 0) { // 3s allowance
         self.doneTimeout = setTimeout(self.donePayment, 3000);
+        self.que.wait_payment_seconds(0)
       } else if(self.doneTimeout && data.wait_payment_seconds > 0) {
         clearTimeout(self.doneTimeout);
       }
@@ -122,8 +123,17 @@ define([
         }
       })
     }
-    self.donePayment = function () {
+
+    self.donePayment = function (event) {
       self.loading(true);
+      if (event) { // add 3s delay for cancel and done paying button
+        self.done_timeout_by_button = setTimeout(self.execDonePayment, 3000)
+      } else {
+        self.execDonePayment()
+      }
+    };
+
+    self.execDonePayment = function () {
       http.donePayment(self.que.coinslot_id(), function(err, data) {
         if (err) {
           self.loading(false);
@@ -131,7 +141,7 @@ define([
         }
         self.done(data);
       });
-    };
+    }
 
     self.done = function (data) {
       device.is_paying(false);
@@ -185,6 +195,9 @@ define([
       }
       if (self.doneTimeout) {
         clearTimeout(self.doneTimeout);
+      }
+      if (self.done_timeout_by_button) {
+        clearTimeout(self.done_timeout_by_button)
       }
     };
 
