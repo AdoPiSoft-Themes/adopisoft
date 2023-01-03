@@ -14,7 +14,7 @@ define([
     self.que = params.que;
     self.donePayment = params.donePayment;
     self.hasPayment = params.hasPayment;
-
+    self.disable = params.disable
     self.calcEloadPayable = ko.pureComputed(function() {
       var que = self.que;
       return Math.max(que.eload_price() - que.customer_credits(), 0).toFixed(2);

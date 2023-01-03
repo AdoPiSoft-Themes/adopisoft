@@ -29,7 +29,7 @@ define([
     self.config = timerConfig;
     self.rates = rates;
     self.loading = ko.observable(false);
-    self.is_payment_portal_busy = ko.observable(false)
+    self.disable = ko.observable(false)
     self.coinslot_alias = ko.observable('')
     self.que = {
       coinslot_id: ko.observable(0),
@@ -194,7 +194,7 @@ define([
     sounds.insertCoinBg.play();
     socket().on('payment:received', self.onPaymentReceived);
     socket().on('payment:done', self.done);
-    socket().on('payment_portal:busy', self.is_payment_portal_busy)
+    socket().on('payment_portal:busy', self.disable)
   }
 
   return VM;
