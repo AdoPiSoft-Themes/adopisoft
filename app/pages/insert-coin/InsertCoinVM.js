@@ -29,6 +29,7 @@ define([
     self.config = timerConfig;
     self.rates = rates;
     self.loading = ko.observable(false);
+    self.is_payment_portal_busy = ko.observable(false)
     self.coinslot_alias = ko.observable('')
     self.que = {
       coinslot_id: ko.observable(0),
@@ -107,6 +108,7 @@ define([
 
       if (data.wait_payment_seconds <= 0) { // 3s allowance
         self.doneTimeout = setTimeout(self.donePayment, 3000);
+        self.que.wait_payment_seconds(0)
       } else if(self.doneTimeout && data.wait_payment_seconds > 0) {
         clearTimeout(self.doneTimeout);
       }
@@ -141,8 +143,6 @@ define([
         var type = data.type || self.que.type();
         var session_id = (data.session || {}).id || self.session.id();
         var voucher = data.voucher || self.que.voucher();
-
-        console.log(is_voucher, total_amount, type);
 
         receipt.isVoucher(is_voucher);
         receipt.amount(total_amount);
@@ -194,7 +194,7 @@ define([
     sounds.insertCoinBg.play();
     socket().on('payment:received', self.onPaymentReceived);
     socket().on('payment:done', self.done);
-
+    socket().on('payment_portal:busy', self.is_payment_portal_busy)
   }
 
   return VM;

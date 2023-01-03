@@ -39,14 +39,14 @@
             </div>
             <div class="list-group-item">
               <!-- ko if: hasPayment -->
-              <a class="btn btn-lg btn-primary" data-bind="click: donePayment, loadingBtn: loading">
+              <button class="btn btn-lg btn-primary" data-bind="click: donePayment, loadingBtn: loading, disable: is_payment_portal_busy">
                 <span data-bind="translate: 'DONE_PAYING'"></span>
-              </a>
+              </button>
               <!-- /ko -->
               <!-- ko ifnot: hasPayment -->
-              <a class="btn btn-lg btn-warning" data-bind="click: donePayment, loadingBtn: loading">
+              <button class="btn btn-lg btn-warning" data-bind="click: donePayment, loadingBtn: loading, disable: is_payment_portal_busy">
                 <span data-bind="translate: 'CANCEL'"></span>
-              </a>
+              </button>
               <!-- /ko -->
             </div>
           </div>
