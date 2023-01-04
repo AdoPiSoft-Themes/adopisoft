@@ -8,4 +8,4 @@ define([
   'app/pages/receipt-page/ReceiptPage',
   'app/pages/view-vouchers/ViewVouchers',
   'app/pages/view-rates/ViewRates'
-]);
+], function() {});
