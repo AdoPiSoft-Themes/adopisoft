@@ -7,14 +7,14 @@ define(['knockout', 'sounds', 'app/utils/mutedCookie', 'text!app/components/mute
 
     self.muteBtn = function() {
       muted.setMutedCookie('muted');
-      if (sounds.background) {
+      if (sounds.background && typeof sounds.background.pause === 'function') {
         sounds.background.pause();
       }
       self.is_muted(muted.getMutedBoolean());
     };
     self.unMuteBtn = function() {
       muted.setMutedCookie('unmute');
-      if (sounds.background) {
+      if (sounds.background && typeof sounds.background.play === 'function') {
         sounds.background.play();
       }
       self.is_muted(muted.getMutedBoolean());
