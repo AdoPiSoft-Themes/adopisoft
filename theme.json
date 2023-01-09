@@ -171,7 +171,7 @@
           "field_id": "popup_banner",
           "label": "Popup Banner",
           "type": "textarea",
-          "defaultValue": "<h1>To start internet, click <b>Buy Wifi</b> or <b>Insert Coin button</b>. You may also buy Voucher from the machine owner.</h1>"
+          "defaultValue": "<h1>To start internet, click <b>Buy Wifi</b> or <b>Insert Coin button</b>. You may also buy Voucher from the machine owner.</h1>\n<hr>\n<p><small><i>To disable this popup, go to <a href='/admin/#!/theme/portal' target='_blank'><b>Admin</b>-><b/>Theme</b>-><b>Captive Portal</b></a> and go to Banners. Delete the content in the <b>Pop-up banner</b> field and leave it blank.</i></small></p>"
         },
         {
           "field_id": "submit",
