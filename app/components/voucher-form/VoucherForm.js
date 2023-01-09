@@ -16,7 +16,7 @@ define([
       if (code) self.value = (typeof code === 'function') ? code : ko.observable(code);
       else self.value = ko.observable('');
 
-      self.showActivateVoucherForm = ko.observable(config.findField('forms', 'activate_voucher_form'))
+      self.showActivateVoucherForm = ko.observable(config.findField('forms', 'activate_voucher_form'));
       self.activate = function() {
         self.loading(true);
         var code = self.value();
@@ -30,7 +30,7 @@ define([
           rootVM.navigate('home-page');
         });
       };
-      self.voucher_code_text = translator.print('VOUCHER_CODE')
+      self.voucher_code_text = translator.print('VOUCHER_CODE');
     },
     template: tpl
   });
