@@ -25,8 +25,10 @@ define([
     self.activating_voucher = ko.observable(false);
     self.error_msg = ko.observable('');
     self.submitting = ko.observable(false);
-
     self.voucher_code = ko.observable('');
+
+    rootVM.isDirectGcash(params.direct_gcash)
+
     self.back = function() {
       self.selected_product(null);
     };

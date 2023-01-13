@@ -1,10 +1,26 @@
 <div id="vouchers-list" class="container text-center">
   <div data-bind="component: 'device-info'"></div>
   <div class="btn-group-padded">
-    <a class="btn btn-lg btn-default" data-bind="navigate: 'more-buttons'">
-      <i class="glyphicon glyphicon-chevron-left"></i>
-      <span data-bind="translate: 'BACK'"></span>
-    </a>
+    <div class="row">
+      <div class="col-md-6 col-md-offset-3">
+        <!-- ko if: showBuyVoucherBtn-->
+        <a class="btn btn-block btn-lg btn-info" data-bind="click: buyVoucher, loadingBtn: loading">
+          <span data-bind="translate: 'BUY_VOUCHER'"></span>
+        </a>
+        <a class="btn btn-block btn-lg btn-default" data-bind="navigate: 'home-page'">
+          <i class="glyphicon glyphicon-chevron-left"></i>
+          <span data-bind="translate: 'BACK'"></span>
+        </a>
+        <!-- /ko -->
+        <!-- ko ifnot: showBuyVoucherBtn-->
+        <a class="btn btn-lg btn-default" data-bind="navigate: 'home-page'">
+          <i class="glyphicon glyphicon-chevron-left"></i>
+          <span data-bind="translate: 'BACK'"></span>
+        </a>
+        <!-- /ko -->
+
+      </div>
+    </div>
   </div>
 
   <div class="padd-bottom padd-top" data-bind="component: 'voucher-form'"></div>
@@ -18,6 +34,7 @@
       <thead>
         <tr>
           <th class="text-center" data-bind="translate: 'VOUCHER_CODE'"></th>
+          <th class="text-center" data-bind="translate: 'TYPE'"></th>
           <th class="text-center" data-bind="translate: 'STATUS'"></th>
         </tr>
       </thead>
@@ -25,6 +42,7 @@
         <!-- ko foreach: vouchers -->
         <tr data-bind="class: activated_at ? 'text-danger' : 'text-success'">
           <td data-bind="text: code"></td>
+          <td data-bind="text: type.charAt(0).toUpperCase() + type.slice(1)"></td>
           <td data-bind="text: activated_at ? 'Used' : 'Available'"></td>
         </tr>
         <!-- /ko -->

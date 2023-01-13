@@ -65,5 +65,13 @@
   "SUBMIT": "Enviar",
   "CLOSE": "Cerca",
   "PAUSE": "Pausa",
-  "CONNECT": "Conectar"
+  "CONNECT": "Conectar",
+  "GCASH_TEMPORARY_UNAVAILABLE": "Gcash el servicio no está disponible temporalmente.",
+  "ELOAD_TEMPORARY_UNAVAILABLE": "E-loading el servicio no está disponible temporalmente..",
+  "GCASH_CHECKING": "Comprobando el servicio Gcash, por favor espere",
+  "TYPE": "Type",
+  "INSERT_COIN": "Inserte Moneda",
+  "VOUCHERS": "Vales",
+  "BUY_LOAD": "Comprar E-load",
+  "ACCOUNT" : "Cuenta"
 }

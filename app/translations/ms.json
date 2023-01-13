@@ -65,5 +65,13 @@
   "SUBMIT": "Hantar",
   "CLOSE": "Tutup",
   "PAUSE": "Jeda",
-  "CONNECT": "Sambung"
+  "CONNECT": "Sambung",
+  "GCASH_TEMPORARY_UNAVAILABLE": "Gcash perkhidmatan tidak tersedia buat sementara waktu.",
+  "ELOAD_TEMPORARY_UNAVAILABLE": "E-loading perkhidmatan tidak tersedia buat sementara waktu.",
+  "GCASH_CHECKING": "Menyemak perkhidmatan Gcash, sila tunggu",
+  "TYPE": "Taip",
+  "INSERT_COIN": "Masukkan Syiling",
+  "VOUCHERS": "Baucar",
+  "BUY_LOAD": "Beli E-load",
+  "ACCOUNT" : "Akaun"
 }

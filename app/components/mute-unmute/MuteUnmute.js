@@ -16,10 +16,10 @@ define(['knockout', 'sounds', 'app/utils/mutedCookie'], function(ko, sounds, mut
       self.is_muted(muted.getMutedBoolean())
     }
   }
-  ko.components.register('mute-button', {
+  ko.components.register('mute-unmute', {
     viewModel: vm,
     template: {
-      require: 'text!app/components/mute-button/mute-button.html'
+      require: 'text!app/components/mute-unmute/mute-unmute.html'
     }
   })
 

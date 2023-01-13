@@ -1,0 +1,17 @@
+<div id="rates" class="container text-center">
+  <div data-bind="component: 'device-info'"></div>
+  <div class="row">
+    <div class="col-md-6 col-md-offset-3">
+      <a class="btn btn-block btn-lg btn-info" href="/u">
+        <span data-bind="translate: 'MY_ACCT'"></span>
+      </a>
+      <a class="btn btn-block btn-lg btn-warning" data-bind="click: topupWallet, loadingBtn: loading">
+        <span data-bind="translate: 'TOPUP_WALLET'"></span>
+      </a>
+      <a class="btn btn-block btn-lg btn-default" data-bind="navigate: 'home-page'">
+        <i class="glyphicon glyphicon-chevron-left"></i>
+        <span data-bind="translate: 'BACK'"></span>
+      </a>
+    </div>
+  </div>
+</div>

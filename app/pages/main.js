@@ -7,5 +7,7 @@ define([
   './more-buttons/MoreButtons',
   './receipt-page/ReceiptPage',
   './view-vouchers/ViewVouchers',
-  './view-rates/ViewRates'
+  './view-rates/ViewRates',
+  './view-account/ViewAccount',
+  './gcash-cashin/GcashCashin'
 ]);
