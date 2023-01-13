@@ -1,7 +1,8 @@
 define([
   'knockout',
-  'http'
-], function (ko, http) {
+  'http',
+  'text!app/components/internet-status/internet-status.html'
+], function (ko, http, tpl) {
   ko.components.register('internet-status', {
     viewModel: function () {
       var self = this;
@@ -10,6 +11,6 @@ define([
         self.online(res.is_online);
       });
     },
-    template: {require: 'text!app/components/internet-status/internet-status.html'} 
+    template: tpl 
   });
 });

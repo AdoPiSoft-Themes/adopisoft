@@ -4,6 +4,7 @@ define([
   'socket',
   'modal',
   'app/services/config',
+  'text!app/components/app-root/app-root.html',
   'app/observables/payment',
   'app/components/popup-banner/init_popup_banner',
   'app/components/toast/ToastComponent',
@@ -12,8 +13,8 @@ define([
   'app/components/sessions-table/SessionsTableComponent',
   'app/components/modal/Modal',
   'app/components/socket-disconnected-alert/SocketDisconnectedAlert',
-  'app/components/footer/Footer'
-], function (ko, rootVM, socket, modal, config, payment, init_popup_banner) {
+  'app/components/footer/Footer',
+], function (ko, rootVM, socket, modal, config, tpl, payment, init_popup_banner) {
 
   function AppVM() {
     this.favicon = ko.observable(config.favicon());
@@ -57,7 +58,7 @@ define([
 
   ko.components.register('app', {
     viewModel: AppVM,
-    template: {require: 'text!app/components/app-root/app-root.html'}
+    template: tpl
   });
 
 });

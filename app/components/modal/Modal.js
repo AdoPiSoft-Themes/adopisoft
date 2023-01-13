@@ -1,7 +1,8 @@
 define([
   'knockout',
-  'modal'
-],function (ko, modal) {
+  'modal',
+  'text!app/components/modal/modal.html'
+],function (ko, modal, tpl) {
 
   function ModalVM () {
     var self = this;
@@ -25,7 +26,7 @@ define([
 
   ko.components.register('modal', {
     viewModel: ModalVM,
-    template: {require: 'text!app/components/modal/modal.html'}
+    template: tpl
   });
 
 });

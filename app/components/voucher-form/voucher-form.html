@@ -6,7 +6,7 @@
       <div class="input-group">
         <input id="voucher-code-input" name="code" data-bind="value: value, attr: {placeholder: voucher_code_text}" type="text" class="form-control input-lg">
         <span class="input-group-btn" id="basic-addon2">
-          <button type="submit" class="btn btn-lg btn-primary">
+          <button type="submit" class="btn btn-lg btn-primary" data-bind="attr: {disabled: loading}">
             <span data-bind="translate: 'ACTIVATE'"></span>
           </button>
         </span>
