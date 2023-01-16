@@ -125,7 +125,7 @@ define([
       })
     }
 
-    self.donePayment = function (event) {
+    self.donePayment = function () {
       self.loading(true);
       http.donePayment(self.que.coinslot_id(), function(err, data) {
         if (err) {
