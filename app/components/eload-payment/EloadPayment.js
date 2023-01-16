@@ -15,7 +15,6 @@ define([
     self.donePayment = params.donePayment;
     self.hasPayment = params.hasPayment;
     self.disable = params.disable
-    self.disable = params.disable
     self.direct_gcash = rootVM.isDirectGcash()
     self.calcEloadPayable = ko.pureComputed(function() {
       var que = self.que;
