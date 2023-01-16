@@ -9,6 +9,7 @@ define([
     self.rates = params.rates;
     self.hasPayment = params.hasPayment;
     self.donePayment = params.donePayment;
+    self.disable = params.disable
   }
 
   ko.components.register('wallet-topup', {

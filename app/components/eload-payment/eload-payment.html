@@ -42,7 +42,7 @@
 
         <div class="list-group-item">
           <!-- ko ifnot: hasPayment -->
-          <a class="btn btn-lg btn-warning" data-bind="click: cancelEloadPayment">Cancel</a>
+          <button class="btn btn-lg btn-warning" data-bind="click: cancelEloadPayment, disable: disable">Cancel</button>
           <!-- /ko -->
         </div>
       </div>

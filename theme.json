@@ -13,7 +13,7 @@
           "required": true,
           "defaultValue": "favicon.ico"
         },
-        {
+        { 
           "field_id": "page_title",
           "label": "Page Title",
           "type": "text",
@@ -68,8 +68,8 @@
       "legend": "Buttons",
       "fields": [
         {
-          "field_id": "button_buy_wifi",
-          "label": "Show Buy Wifi Button",
+          "field_id": "button_insert_coin",
+          "label": "Show Insert Coin Button",
           "type": "checkbox",
           "defaultValue": true
         },
@@ -85,34 +85,35 @@
           "type": "checkbox",
           "defaultValue": true
         },
-
-        {
-          "field_id": "more_button",
-          "label": "Show More Button",
-          "type": "checkbox",
-          "defaultValue": true,
-          "parent": "more_button"
-        },
-        {
-          "field_id": "button_my_account",
-          "label": "Show My Account Button",
-          "type": "checkbox",
-          "defaultValue": true,
-          "parent": "more_button"
-        },
         {
           "field_id": "button_buy_voucher",
           "label": "Show Buy Voucher Button",
           "type": "checkbox",
-          "defaultValue": true,
-          "parent": "more_button"
+          "defaultValue": true
         },
         {
-          "field_id": "button_view_vouchers",
-          "label": "Show View Vouchers Button",
+          "field_id": "button_vouchers",
+          "label": "Show Voucher Button",
           "type": "checkbox",
-          "defaultValue": true,
-          "parent": "more_button"
+          "defaultValue": true
+        },
+        {
+          "field_id": "button_my_account",
+          "label": "Show Account Button",
+          "type": "checkbox",
+          "defaultValue": true
+        },
+        {
+          "field_id": "button_gcash",
+          "label": "Show Gcash Button",
+          "type": "checkbox",
+          "defaultValue": true
+        },
+        {
+          "field_id": "button_unmute",
+          "label": "Show Mute/Unmute Button",
+          "type": "checkbox",
+          "defaultValue": true
         },
         {
           "field_id": "submit",

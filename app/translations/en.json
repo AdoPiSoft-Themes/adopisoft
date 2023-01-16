@@ -3,7 +3,7 @@
   "SUCCESS": "Success",
   "ERROR": "Error",
   "LOADING": "Loading, please wait",
-  "BUY_WIFI": "Buy WiFi",
+  "BUY_WIFI": "Insert Coin",
   "BUY_ELOAD": "Buy E-Load",
   "BUY_VOUCHER": "Buy Voucher",
   "MORE": "More",
@@ -65,5 +65,13 @@
   "SUBMIT": "Submit",
   "CLOSE": "Close",
   "PAUSE": "Pause",
-  "CONNECT": "Connect"
+  "CONNECT": "Connect",
+  "GCASH_TEMPORARY_UNAVAILABLE": "Gcash service is temporary unavailable.",
+  "ELOAD_TEMPORARY_UNAVAILABLE": "E-loading service is temporary unavailable.",
+  "GCASH_CHECKING": "Checking Gcash Service, please wait",
+  "TYPE": "Type",
+  "INSERT_COIN": "Insert Coin",
+  "VOUCHERS": "Vouchers",
+  "BUY_LOAD": "Buy E-load",
+  "ACCOUNT" : "Account"
 }

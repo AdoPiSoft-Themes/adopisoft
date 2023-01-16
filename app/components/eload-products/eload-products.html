@@ -1,5 +1,8 @@
 <div>
   <ul class="product-list nav" style="margin-top: 15px;">
+    <!-- ko if: direct_gcash -->
+    <div style="border-bottom: 1px dotted gray; padding-top: 20px;"></div>
+    <!-- /ko -->
     <!-- ko if: has_search -->
     <li>
       <div class="form-group" style="padding: 30px 30px 1px">
@@ -57,11 +60,19 @@
 
   </ul>
 
+  <!-- ko ifnot: direct_gcash -->
   <!-- ko if: loading_products()-->
   <p>Fetching eload products, please wait...</p>
   <!-- /ko -->
-
-  <!-- ko if: !promos().length && !loading_products() && !is_voucher()-->
+  <!-- ko if: !promos().length && !loading_products() && !is_voucher() -->
   <p class="alert alert-warning">No eload promos found</p>
   <!-- /ko -->
+  <!-- /ko -->
+  <!-- ko if: !promos().length && !loading_products() && !is_voucher() && direct_gcash-->
+  <!-- ko if: loading_products()-->
+  <p>Fetching Gcash products, please wait...</p>
+  <!-- /ko -->
+  <p class="alert alert-warning">No Gcash promos found</p>
+  <!-- /ko -->
+  
 </div>

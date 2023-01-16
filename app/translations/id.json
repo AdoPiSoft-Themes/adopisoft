@@ -65,5 +65,13 @@
   "SUBMIT": "Kirim",
   "CLOSE": "Menutup",
   "PAUSE": "Berhenti sebentar",
-  "CONNECT": "Menghubung"
+  "CONNECT": "Menghubung",
+  "GCASH_TEMPORARY_UNAVAILABLE": "Gcash layanan sementara tidak tersedia.",
+  "ELOAD_TEMPORARY_UNAVAILABLE": "E-loading layanan sementara tidak tersedia.",
+  "GCASH_CHECKING": "Memeriksa layanan Gcash, harap tunggu",
+  "TYPE": "Jenis",
+  "INSERT_COIN": "Masukkan Koin",
+  "VOUCHERS": "Vouchers",
+  "BUY_LOAD": "Membeli E-load",
+  "ACCOUNT" : "Akun"
 }

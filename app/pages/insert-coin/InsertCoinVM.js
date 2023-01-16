@@ -29,6 +29,7 @@ define([
     self.config = timerConfig;
     self.rates = rates;
     self.loading = ko.observable(false);
+    self.disable = ko.observable(false);
     self.coinslot_alias = ko.observable('')
     self.que = {
       coinslot_id: ko.observable(0),
@@ -126,14 +127,6 @@ define([
 
     self.donePayment = function (event) {
       self.loading(true);
-      if (event) { // add 3s delay for cancel and done paying button
-        self.done_timeout_by_button = setTimeout(self.execDonePayment, 3000)
-      } else {
-        self.execDonePayment()
-      }
-    };
-
-    self.execDonePayment = function () {
       http.donePayment(self.que.coinslot_id(), function(err, data) {
         if (err) {
           self.loading(false);
@@ -141,7 +134,7 @@ define([
         }
         self.done(data);
       });
-    }
+    };
 
     self.done = function (data) {
       device.is_paying(false);
@@ -196,9 +189,6 @@ define([
       if (self.doneTimeout) {
         clearTimeout(self.doneTimeout);
       }
-      if (self.done_timeout_by_button) {
-        clearTimeout(self.done_timeout_by_button)
-      }
     };
 
 
@@ -207,7 +197,7 @@ define([
     sounds.insertCoinBg.play();
     socket().on('payment:received', self.onPaymentReceived);
     socket().on('payment:done', self.done);
-
+    socket().on('payment_portal:busy', self.disable)
   }
 
   return VM;

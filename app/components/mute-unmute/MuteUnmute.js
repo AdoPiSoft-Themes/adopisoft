@@ -1,4 +1,4 @@
-define(['knockout', 'sounds', 'app/utils/mutedCookie', 'text!app/components/mute-button/mute-button.html'], function(ko, sounds, muted, tpl) {
+define(['knockout', 'sounds', 'app/utils/mutedCookie', 'text!app/components/mute-unmute/mute-unmute.html'], function(ko, sounds, muted, tpl) {
 
   function vm() {
     var self = this;
@@ -20,7 +20,7 @@ define(['knockout', 'sounds', 'app/utils/mutedCookie', 'text!app/components/mute
       self.is_muted(muted.getMutedBoolean());
     };
   }
-  ko.components.register('mute-button', {
+  ko.components.register('mute-unmute', {
     viewModel: vm,
     template: tpl
   });

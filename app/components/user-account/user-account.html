@@ -1,0 +1,20 @@
+<!-- ko if: customer.id() -->
+<span class="btn btn-block account" data-bind="navigate: 'view-account'" >
+  <div>
+    <img src="images/account-icon.png" />
+  </div>
+  <div>
+    <span data-bind="translate: 'ACCOUNT'"></span>
+  </div>
+</span>
+<!-- /ko -->
+<!-- ko ifnot: customer.id() -->
+<a class="btn btn-block account" href="/u" >
+  <div>
+    <img src="images/account-icon.png" />
+  </div>
+  <div>
+    <span data-bind="translate: 'ACCOUNT'"></span>
+  </div>
+</a>
+<!-- /ko -->

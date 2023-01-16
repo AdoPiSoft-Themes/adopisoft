@@ -168,11 +168,19 @@ define([
       http.get('/client/system/notifications', cb);
     };
 
+    http.checkProviderByShortName = function(short_name, cb) {
+      http.get('/client/eload/check-provider-shortname/' + short_name, cb)
+    }
     // /eload
 
     http.logoutCustomer = function() {
       http.post('/customer/logout');
     };
+
+    // plugin
+    http.findPluginByName = function(plugin_name, cb) {
+      http.get('/client/plugins/find/' + plugin_name, cb)
+    }
   }
 
   return new Http();

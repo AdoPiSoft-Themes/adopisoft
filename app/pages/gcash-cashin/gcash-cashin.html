@@ -1,0 +1,66 @@
+<div class="container text-center padd-top">
+
+  <!-- ko if: isPageReady -->
+ 
+  <div class="row">
+    <div class="col-md-4 col-md-offset-4">
+      <!-- ko if: isGcashAvailable -->
+      <h1 class="text-center text-info padd-bottom">Gcash Cash-In</h1>
+      <div class="form-group">
+        <label for="acc_number" class="h4" style="line-height: 15px;">Enter Phone Number</label>
+        <input class="phone-input form-control input-lg text-center" type="tel" pattern="\d*" required="" id="acc_number" name="acc_number" placeholder="09xxxxxxxx" maxlength="11" minlength="5" autocomplete="off" data-bind="textInput: acc_number, attr: {disabled: selected_product()}" >
+        <br>
+        <!-- ko if: !phoneChecking() && hasError  -->
+        <small class="text-danger">Phone number is invalid for Gcash, please input a valid phone number.</small>
+        <!-- /ko -->
+
+        <!-- ko if: phoneChecking -->
+        <small>Checking phone number, please wait ...</small>
+        <!-- /ko -->
+
+        <!-- ko if: selected_product -->
+        <div id="eload-to-pay" data-bind="component: {name: 'eload-to-pay', params: {customer: customer, acc_number: acc_number, active_provider: gcashProvider, selected_product: selected_product, voucher: voucher, direct_gcash: true}}"></div>
+        <!-- /ko -->
+
+        <!-- ko ifnot: selected_product() --> 
+        <!-- ko if: !hasError() && customer -->
+        <div id="customer_recent" data-bind="component: {name: 'eload-customer-recent', params: {customer: customer, last_purchase: last_purchase, direct_gcash: true}}"></div>
+        <!-- /ko -->
+
+        <!-- ko if: gcashProvider() --> 
+        <div id="eload-products" data-bind="component: {name: 'eload-products', params: {active_provider: gcashProvider, acc_number: acc_number, customer: customer, voucher: voucher, selected_product: selected_product, direct_gcash: true }}"></div>
+        <br>
+        <button class="btn btn-default btn-lg" data-bind="click: reset">Back</button>
+        <br>
+        <br>
+        <!-- /ko -->
+        <!-- /ko -->
+      
+        <!-- ko ifnot: gcashProvider() -->
+        <div class="row" style="margin-top: 10px;">
+          <div class="col-md-6">
+            <button class="btn btn-default btn-lg" style="width: 100%; margin-bottom: 10px;" data-bind="navigate: 'home-page'">Cancel</button>
+          </div>
+          <div class="col-md-6">
+            <button  data-bind="click: proccedClick, enable: isValid" class="btn btn-success btn-lg" style="width: 100%; margin-bottom: 10px">Proceed</button>
+          </div>
+        </div>
+        <!-- /ko -->
+      </div>
+      <!-- /ko -->
+      <!-- ko ifnot: isGcashAvailable -->
+      <p class="alert alert-danger" data-bind="translate: 'GCASH_TEMPORARY_UNAVAILABLE'"></p>
+      <button class="btn btn-default btn-lg" data-bind="navigate: 'home-page'">Back</button>
+      <!-- /ko -->
+    </div>
+  </div>
+  <!-- /ko -->
+
+  <!-- ko ifnot: isPageReady -->
+  <div class="row">
+    <div class="col-md-4 col-md-offset-4">
+      <p class="alert alert-info" data-bind="translate: 'GCASH_CHECKING'"> ...</p>
+    </div>
+  </div>
+  <!-- /ko -->
+</div>
