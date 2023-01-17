@@ -40,7 +40,7 @@ function (ko, rootVM, http, payment, map) {
           return
         }
         map(data, function(d){
-          if (d.name === 'chat-plugin' && !d.hide_portal_button) {
+          if (d.name === 'chat-plugin') {
             self.hasChatPlugin(true)
           } else if (d.name === 'charging-station') {
             self.hasChargingPlugin(true)
