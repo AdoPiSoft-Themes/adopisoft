@@ -73,5 +73,9 @@
   "INSERT_COIN": "Masukkan Syiling",
   "VOUCHERS": "Baucar",
   "BUY_LOAD": "Beli E-load",
-  "ACCOUNT" : "Akaun"
+  "ACCOUNT" : "Akaun",
+  "CHAT": "Berbual",
+  "CHARGING": "Mengecas",
+  "CHARGING_STATION_INSTALL_ERR": "Ooops, sila pasang pemalam stesen pengecasan.",
+  "CHAT_PLUGIN_INSTALL_ERR": "Ooops, sila pasang pemalam sembang."
 }

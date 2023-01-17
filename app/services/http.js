@@ -178,8 +178,8 @@ define([
     };
 
     // plugin
-    http.findPluginByName = function(plugin_name, cb) {
-      http.get('/client/plugins/find/' + plugin_name, cb)
+    http.getPluginConfigs = function(cb) {
+      http.get('/client/pluginConfigs', cb)
     }
   }
 

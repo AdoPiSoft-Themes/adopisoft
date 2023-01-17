@@ -116,6 +116,18 @@
           "defaultValue": true
         },
         {
+          "field_id": "button_chat",
+          "label": "Show Chat Button",
+          "type": "checkbox",
+          "defaultValue": true
+        },
+        {
+          "field_id": "button_charging",
+          "label": "Show Charging Button",
+          "type": "checkbox",
+          "defaultValue": true
+        },
+        {
           "field_id": "submit",
           "type": "submit"
         }

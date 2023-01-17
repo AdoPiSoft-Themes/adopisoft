@@ -13,6 +13,8 @@ define([
   this.showBuyVoucherBtn = ko.observable(config.findField('buttons', 'button_buy_voucher'));
   this.showVouchersBtn = ko.observable(config.findField('buttons', 'button_vouchers'));
   this.showAccountBtn = ko.observable(config.findField('buttons', 'button_my_account'));
+  this.showChatBtn = ko.observable(config.findField('buttons', 'button_chat'))
+  this.showChargingBtn= ko.observable(config.findField('buttons', 'button_charging'))
 
   ko.components.register('home-page', {
     viewModel: VM,

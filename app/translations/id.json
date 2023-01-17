@@ -73,5 +73,9 @@
   "INSERT_COIN": "Masukkan Koin",
   "VOUCHERS": "Vouchers",
   "BUY_LOAD": "Membeli E-load",
-  "ACCOUNT" : "Akun"
+  "ACCOUNT" : "Akun",
+  "CHAT": "Mengobrol",
+  "CHARGING": "Mengisi Daya",
+  "CHARGING_STATION_INSTALL_ERR": "Ups, harap instal plugin stasiun pengisian daya.",
+  "CHAT_PLUGIN_INSTALL_ERR": "Ups, silakan instal plugin obrolan."
 }

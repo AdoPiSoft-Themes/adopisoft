@@ -73,5 +73,9 @@
   "INSERT_COIN": "Inserte Moneda",
   "VOUCHERS": "Vales",
   "BUY_LOAD": "Comprar E-load",
-  "ACCOUNT" : "Cuenta"
+  "ACCOUNT" : "Cuenta",
+  "CHAT": "Chat",
+  "CHARGING": "Cargando",
+  "CHARGING_STATION_INSTALL_ERR": "Ooops, instale el complemento de la estación de carga.",
+  "CHAT_PLUGIN_INSTALL_ERR": "Ooops, instale el complemento de chat."
 }

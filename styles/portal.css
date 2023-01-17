@@ -190,11 +190,25 @@ img.img-full {
 .home-buttons .col-md-6 .mute-unmute {
   border: 2px solid #33C6C4;
 }
-.home-buttons .col-md-6 .view-chat {
+.home-buttons .col-md-6 .chat-plugin-btn {
   border: 2px solid #2E126A;
 }
+.home-buttons .col-md-6 .disabled-chat-plugin {
+  opacity: .3;
+}
+
 .home-buttons .col-md-6 .btn:hover{
   background-image: linear-gradient(rgb(0 0 0/6%) 0 0);
+}
+
+.home-buttons .col-md-6 .charging-station-btn {
+  border: 2px solid #F54328;
+}
+.home-buttons .col-md-6 .charging-station-btn img {
+  margin-top: 8px;
+}
+.home-buttons .col-md-6 .disabled-charging-station {
+  opacity: .3;
 }
 
 @media (max-width: 500px) {
@@ -209,9 +223,10 @@ img.img-full {
   .home-buttons .col-md-6 .btn-block div:nth-child(2) {
     padding-left: 5px;
   }
-  .home-buttons .col-md-6 #charging-station-btn img {
-    margin-top: 5px !important;
+  .home-buttons .col-md-6 .charging-station-btn img {
+    margin-top: 5px;
   }
+
 }
 @media (max-width: 350px) {
   .home-buttons {

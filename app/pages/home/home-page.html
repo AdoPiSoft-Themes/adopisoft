@@ -62,17 +62,11 @@
         <!-- ko if: showUnmuteBtn -->
         <div class="col-md-6" data-bind="component: 'mute-unmute'"></div>
         <!-- /ko -->
-        <!-- ko if: isChatPluginEnabled -->
-        <div class="col-md-6">
-          <button class="btn btn-block view-chat" onclick="openChatBox()">
-            <div>
-              <img src="images/chat-icon.png"></img>
-            </div>
-            <div>
-              <span data-bind="translate: 'Chat'"></span>
-            </div>
-          </button>
-        </div>
+        <!-- ko if: showChatBtn -->
+        <div class="col-md-6" data-bind="component: {name: 'chat-plugin', params: { hasChatPlugin: hasChatPlugin }} "></div>
+        <!-- /ko -->
+        <!-- ko if: showChargingBtn -->
+        <div class="col-md-6" data-bind="component: {name: 'charging-station', params: { hasChargingPlugin: hasChargingPlugin}}"></div>
         <!-- /ko -->
       </div>
 

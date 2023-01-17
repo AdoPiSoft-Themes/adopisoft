@@ -1,0 +1,9 @@
+
+<button class="btn btn-block charging-station-btn" data-bind="css: {'disabled-charging-station' : !hasChargingPlugin() }, click: hasChargingPlugin() ? buyCharging : clickCharging, disable: loading">
+  <div>
+    <img src="images/charging-icon.png">
+  </div>
+  <div>
+    <span data-bind="loadingBtn: loading, translate: 'CHARGING'"></span>
+  </div>
+</button>

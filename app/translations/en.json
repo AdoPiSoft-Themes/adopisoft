@@ -73,5 +73,9 @@
   "INSERT_COIN": "Insert Coin",
   "VOUCHERS": "Vouchers",
   "BUY_LOAD": "Buy E-load",
-  "ACCOUNT" : "Account"
+  "ACCOUNT" : "Account",
+  "CHAT": "Chat",
+  "CHARGING": "Charging",
+  "CHARGING_STATION_INSTALL_ERR": "Ooops, please install charging station plugin.",
+  "CHAT_PLUGIN_INSTALL_ERR": "Ooops, please install chat plugin."
 }
