@@ -34,6 +34,15 @@ img.img-full {
   padding-bottom: 15px;
 }
 
+.status-fixed {
+  position: fixed;
+  width: 100%;
+  z-index: 9999;
+  color: lightgreen;
+  background: rgba(0,0,0,0.8);
+  font-weight: bold;
+}
+
 #status-nav {
   vertical-align: middle;
   padding-top: 5px;
@@ -43,6 +52,7 @@ img.img-full {
 
 #connection-status img {
   width: 20px;
+  margin-left: 5px;
 }
 
 .panel > .panel-heading {

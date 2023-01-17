@@ -14,6 +14,7 @@
     socketIO: './libs/socket.io/socket.io-2.1.1.min',
     knockout: './libs/knockout/knockout-latest',
     howler: './libs/howler/howler.core.min',
+    jquery: './libs/jquery/jquery.min',
     domready: './libs/domready',
     clipboard: './libs/clipboard.min',
     getElementsByClassName: './libs/polyfills/getElementsByClassName',
