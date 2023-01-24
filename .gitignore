@@ -5,3 +5,5 @@ tags.*
 .DS_Store
 *.js_eslint_tmp*.js
 metadata.json
+app.bundle.js
+app.bundle.css
