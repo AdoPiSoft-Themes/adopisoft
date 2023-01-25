@@ -249,3 +249,16 @@ img.img-full {
     padding: 8px;
   }
 }
+
+.coinslot-btn {
+  width: 100%;
+  padding: 15px;
+  border: 1px solid #920092;
+  border-radius: 4px;
+  margin-bottom: 5px;
+}
+
+.coinslot-btn:hover {
+  color: white;
+  background: #920092;
+}

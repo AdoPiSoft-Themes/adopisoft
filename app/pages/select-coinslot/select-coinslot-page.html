@@ -4,26 +4,13 @@
       <span data-bind="translate: 'SELECT_PORTAL'"></span>
     </div>
 
-    <table class="table">
-      <thead>
-        <tr>
-          <th class="text-center" data-bind="translate: 'AVAILABLE_COINSLOTS'"></th>
-          <th></th>
-        </tr>
-      </thead>
-      <tbody>
-        <!-- ko foreach: {data: coinslots} -->
-        <tr>
-          <td data-bind="text: alias">
-          </td>
-          <td>
-            <button class="btn btn-primary" data-bind="translate: 'SELECT', click: function () { $parent.selectCoinslot(id) }, loadingBtn: $parent.loading() && $parent.selectedId() == id">
-            </button>
-          </td>
-        </tr>
-        <!-- /ko -->
-      </tbody>
-    </table>
-
+    <div class="row" style="padding: 15px">
+      <!-- ko foreach: {data: coinslots} -->
+      <div class="col-md-6">
+        <button class="coinslot-btn" data-bind="html: html_details, click: function () { $parent.selectCoinslot(id) }, loadingBtn: $parent.loading() && $parent.selectedId() == id">
+        </button>
+      </div>
+      <!-- /ko -->
+    </div>
   </div>
 </div>

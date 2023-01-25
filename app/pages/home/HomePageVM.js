@@ -31,7 +31,7 @@ function (ko, rootVM, http, payment, map) {
     self.koDescendantsComplete = function() {
       rootVM.showingBanners(true);
       rootVM.showingSessionsTable(true);
-      rootVM.showingStatusNav(true);
+      rootVM.showingStatusNav(true)
 
       http.getPluginConfigs(function (err, data) {
         if (err) {
@@ -39,7 +39,7 @@ function (ko, rootVM, http, payment, map) {
           self.hasChargingPlugin(false)
           return
         }
-        map(data, function(d){
+        map(data, function(d) {
           if (d.name === 'chat-plugin') {
             self.hasChatPlugin(true)
           } else if (d.name === 'charging-station') {
@@ -54,7 +54,7 @@ function (ko, rootVM, http, payment, map) {
       payment.intent('wifi');
       payment.isVoucher(false);
       payment.rateType('');
-      rootVM.navigate('buy-wifi-buttons');
+      rootVM.navigate('select-coinslot-page')
     }
 
     self.buyEload = function () {

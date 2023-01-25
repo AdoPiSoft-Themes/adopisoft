@@ -62,11 +62,11 @@ define([
     http.pauseSession = function (s_id, cb) {
       http.post('/client/sessions/' + s_id + '/pause', cb);
     };
-    http.fetchRates = function (cb) {
-      http.get('/settings/timer/rates', cb);
+    http.fetchRates = function (coinslot_id, cb) {
+      http.get('/client/wifi-rates?coinslot_id=' + coinslot_id, cb);
     };
-    http.fetchCoinslots = function (rate_type, cb) {
-      http.get('/client/coinslots?rate_type=' + rate_type, cb);
+    http.fetchCoinslots = function (intent, cb) {
+      http.get('/client/coinslots?intent=' + intent, cb);
     };
 
     http.queForPayment = function (opts, cb) {

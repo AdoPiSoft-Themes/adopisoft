@@ -6,6 +6,16 @@
       <span data-bind="translate: 'BACK'"></span>
     </a>
   </div>
+  <!-- ko if: coinslots().length > 1 -->
+  <form>
+    <div class="form-group">
+      <label class="control-label" for="subvendo">
+        <span data-bind="translate: 'SELECT_PORTAL'"></span>
+      </label>
+      <select id="subvendo" class="form-control input-lg text-center" data-bind="options: coinslots, value: selectedCoinslot, optionsText: 'alias', optionsValue: 'id'"></select>
+    </div>
+  </form>
+  <!-- /ko -->
 
   <div class="panel panel-info">
     <div class="panel-heading" data-bind="translate: 'WIFI_RATES'"></div>
