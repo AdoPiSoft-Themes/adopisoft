@@ -13,7 +13,6 @@ define([
     self.rates = rates
     self.loading = ko.observable(false);
     var coinslot_id = payment.coinslotId()
-
     self.koDescendantsComplete = function () {
       rootVM.showingStatusNav(true);
       rootVM.showingBanners(true);

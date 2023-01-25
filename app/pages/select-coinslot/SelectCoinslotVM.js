@@ -54,7 +54,9 @@ define([
         coinslot_id: coinslot_id,
         is_voucher: payment.isVoucher()
       };
-      if(intent === 'eload') {
+      if(intent === 'wifi') {
+        rootVM.navigate('buy-wifi-buttons');
+      } else {
         params.type = intent
         var opts = payment.eloadOptions();
         params.provider_id = opts.provider_id;
@@ -69,8 +71,6 @@ define([
             device.is_paying(true);
           }
         });
-      } else {
-        rootVM.navigate('buy-wifi-buttons');
       }
       
     };

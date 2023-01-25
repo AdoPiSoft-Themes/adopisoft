@@ -72,6 +72,7 @@ define([
     http.queForPayment = function (opts, cb) {
       var data = {
         coinslot_id: opts.coinslot_id,
+        rates_profile_id: opts.rates_profile_id,
         type: opts.type,
         is_voucher: opts.is_voucher,
         provider_id: opts.provider_id,
