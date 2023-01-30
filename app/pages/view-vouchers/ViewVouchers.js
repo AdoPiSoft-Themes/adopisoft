@@ -24,7 +24,7 @@ define([
         payment.intent('wifi');
         payment.isVoucher(true);
         payment.rateType('');
-        rootVM.navigate('buy-wifi-buttons');
+        rootVM.navigate('select-coinslot-page')
       }
 
       http.getVouchers(function (err, vouchers) {

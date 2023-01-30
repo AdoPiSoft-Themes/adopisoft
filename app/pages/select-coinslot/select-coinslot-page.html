@@ -5,12 +5,20 @@
     </div>
 
     <div class="row" style="padding: 15px">
+      <!-- ko if: !coinslots().length && !loading()-->
+      <h4 class="text-danger" data-bind="translate: 'NO_COINSLOT_AVAILABLE'"></h4>
+      <!-- /ko -->
+
+      <!-- ko if: coinslots().length -->
       <!-- ko foreach: {data: coinslots} -->
       <div class="col-md-6">
         <button class="coinslot-btn" data-bind="html: html_details, click: function () { $parent.selectCoinslot(id) }, loadingBtn: $parent.loading() && $parent.selectedId() == id">
         </button>
       </div>
       <!-- /ko -->
+      <!-- /ko -->
+
+
     </div>
   </div>
 </div>

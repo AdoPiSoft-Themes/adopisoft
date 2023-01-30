@@ -77,5 +77,7 @@
   "CHAT": "Chat",
   "CHARGING": "Cargando",
   "CHARGING_STATION_INSTALL_ERR": "Ooops, instale el complemento de la estación de carga.",
-  "CHAT_PLUGIN_INSTALL_ERR": "Ooops, instale el complemento de chat."
+  "CHAT_PLUGIN_INSTALL_ERR": "Ooops, instale el complemento de chat.",
+  "COINSLOT_IS_DOWN": "Ooops, El portal de pago no está disponible actualmente.",
+  "NO_COINSLOT_AVAILABLE": "Lo sentimos, no hay ningún portal de pago disponible actualmente. El subvendo está inactivo o la configuración de administración es incorrecta, infórmele al propietario del vendo."
 }

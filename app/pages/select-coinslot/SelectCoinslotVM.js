@@ -6,10 +6,11 @@ define([
   'app/observables/payment',
   'app/observables/device',
   'app/utils/array.map',
+  'app/utils/array.find',
+  'translator',
   'modal',
-  'app/utils/array.includes',
   'app/components/wallet-prompt/WalletPrompt'
-], function (ko, rootVM, toast, http, payment, device, map) {
+], function (ko, rootVM, toast, http, payment, device, map, find, translator) {
 
   return function () {
     var self = this;
@@ -45,6 +46,13 @@ define([
     };
 
     self.selectCoinslot = function(coinslot_id) {
+      var coinslot = find(self.coinslots(), function(c) {
+        return c.id === coinslot_id
+      }) || {}
+      if (coinslot.is_offline) {
+        return toast.error(translator.print('COINSLOT_IS_DOWN'))
+      }
+
       self.selectedId(coinslot_id);
       payment.coinslotId(coinslot_id);
 
