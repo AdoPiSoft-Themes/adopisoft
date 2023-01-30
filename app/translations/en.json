@@ -77,5 +77,7 @@
   "CHAT": "Chat",
   "CHARGING": "Charging",
   "CHARGING_STATION_INSTALL_ERR": "Ooops, please install charging station plugin.",
-  "CHAT_PLUGIN_INSTALL_ERR": "Ooops, please install chat plugin."
+  "CHAT_PLUGIN_INSTALL_ERR": "Ooops, please install chat plugin.",
+  "COINSLOT_IS_DOWN": "Ooops, payment portal is currently unavailable.",
+  "NO_COINSLOT_AVAILABLE": "Sorry, no available payment portal currently. Either subvendo is down or wrong admin config, please report to vendo owner."
 }

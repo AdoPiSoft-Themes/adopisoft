@@ -77,5 +77,7 @@
   "CHAT": "Mengobrol",
   "CHARGING": "Mengisi Daya",
   "CHARGING_STATION_INSTALL_ERR": "Ups, harap instal plugin stasiun pengisian daya.",
-  "CHAT_PLUGIN_INSTALL_ERR": "Ups, silakan instal plugin obrolan."
+  "CHAT_PLUGIN_INSTALL_ERR": "Ups, silakan instal plugin obrolan.",
+  "COINSLOT_IS_DOWN": "Ooops, portal pembayaran saat ini tidak tersedia.",
+  "NO_COINSLOT_AVAILABLE": "Maaf, tidak ada portal pembayaran yang tersedia saat ini. Entah subvendo sedang down atau konfigurasi admin salah, harap laporkan ke pemilik vendo."
 }

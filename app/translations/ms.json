@@ -77,5 +77,7 @@
   "CHAT": "Berbual",
   "CHARGING": "Mengecas",
   "CHARGING_STATION_INSTALL_ERR": "Ooops, sila pasang pemalam stesen pengecasan.",
-  "CHAT_PLUGIN_INSTALL_ERR": "Ooops, sila pasang pemalam sembang."
+  "CHAT_PLUGIN_INSTALL_ERR": "Ooops, sila pasang pemalam sembang.",
+  "COINSLOT_IS_DOWN": "Ooops, portal pembayaran tidak tersedia pada masa ini.",
+  "NO_COINSLOT_AVAILABLE": "Maaf, tiada portal pembayaran tersedia pada masa ini. Sama ada subvendo tidak berfungsi atau konfigurasi pentadbir yang salah, sila laporkan kepada pemilik vendo."
 }
