@@ -145,8 +145,6 @@ define([
         var session_id = (data.session || {}).id || self.session.id();
         var voucher = data.voucher || self.que.voucher();
 
-        console.log(is_voucher, total_amount, type);
-
         receipt.isVoucher(is_voucher);
         receipt.amount(total_amount);
         receipt.type(type);

@@ -16,6 +16,7 @@ define([
     self.hasPayment = params.hasPayment;
     self.disable = params.disable
     self.direct_gcash = rootVM.isDirectGcash()
+
     self.calcEloadPayable = ko.pureComputed(function() {
       var que = self.que;
       return Math.max(que.eload_price() - que.customer_credits(), 0).toFixed(2);
