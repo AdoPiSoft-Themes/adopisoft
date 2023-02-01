@@ -42,12 +42,12 @@ define([
         self.gcashProvider(null);
         if (err) return http.catchError(err)
         
-        http.getEloadClientData(acc_number, function(err, data) {
+        http.getEloadClientData(self.acc_number(), function(err, data) {
           self.customer(null);
           if (err) return http.catchError(err);
           if(data.customer && data.customer.id) {
             self.customer(data.customer);
-            if (data && data.last_purchase.provider_id === self.oldGcash().id) {
+            if (data.last_purchase && data.last_purchase.provider_id === self.oldGcash().id) {
               self.last_purchase(data.last_purchase);
             }
           }
