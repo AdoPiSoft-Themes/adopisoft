@@ -65,6 +65,7 @@ define([
     self.fetch = function () {
       http.currentPaymentQue(function (err, data) {
         if (!err) {
+          self.setDisable(data.is_payment_portal_busy)
           self.onPaymentReceived(data);
           self.coinslotInfo(data.coinslot_id, data.type)
         }
@@ -189,13 +190,16 @@ define([
       }
     };
 
+    self.setDisable = function(isBusy) {
+      self.disable(isBusy)
+    }
 
     receipt.reset();
     sounds.insertCoin.play();
     sounds.insertCoinBg.play();
     socket().on('payment:received', self.onPaymentReceived);
     socket().on('payment:done', self.done);
-    socket().on('payment_portal:busy', self.disable)
+    socket().on('payment_portal:busy', self.setDisable)
   }
 
   return VM;
