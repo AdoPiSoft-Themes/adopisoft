@@ -1,18 +1,23 @@
 define([
   'knockout',
-  'app/services/config'
-], function (ko, config) {
+  'app/services/config',
+  'app/pages/home/HomePageVM',
+  'text!app/pages/home/home-page.html'
+], function (ko, config, VM, tpl) {
 
+  this.showViewInsertCoinBtn = ko.observable(config.findField('buttons', 'button_insert_coin'));
   this.showViewRatesBtn = ko.observable(config.findField('buttons', 'button_view_rates'));
-  this.showMoreBtn = ko.observable(config.findField('buttons', 'more_button'));
-  this.showMyAccountBtn = ko.observable(config.findField('buttons', 'button_my_account'));
-  this.showViewVouchersBtn = ko.observable(config.findField('buttons', 'button_view_vouchers'));
+  this.showBuyEloadBtn = ko.observable(config.findField('buttons', 'button_buy_eload'));
+  this.showGcashBtn = ko.observable(config.findField('buttons', 'button_gcash'));
+  this.showUnmuteBtn = ko.observable(config.findField('buttons', 'button_unmute'));
   this.showBuyVoucherBtn = ko.observable(config.findField('buttons', 'button_buy_voucher'));
-
-  this.hasNoMoreButtons = ko.observable(!this.showMyAccountBtn() && !this.showViewVouchersBtn() && !this.showBuyVoucherBtn())
+  this.showVouchersBtn = ko.observable(config.findField('buttons', 'button_vouchers'));
+  this.showAccountBtn = ko.observable(config.findField('buttons', 'button_my_account'));
+  this.showChatBtn = ko.observable(config.findField('buttons', 'button_chat'))
+  this.showChargingBtn= ko.observable(config.findField('buttons', 'button_charging'))
 
   ko.components.register('home-page', {
-    viewModel: { require: 'app/pages/home/HomePageVM' },
-    template: { require: 'text!app/pages/home/home-page.html' }
+    viewModel: VM,
+    template: tpl
   });
 });

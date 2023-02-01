@@ -1,5 +1,5 @@
 define([
-  './navigate',
-  './loadingBtn',
-  './translate'
-]);
+  'app/bindings/navigate',
+  'app/bindings/loadingBtn',
+  'app/bindings/translate'
+], function() {});

@@ -1,30 +1,77 @@
 <div id="home" class="container text-center">
   <div data-bind="component: 'device-info'"></div>
-
-  <div class="row">
+  <div class="row padd-bottom">
     <div class="col-md-6 col-md-offset-3">
-
-      <!-- ko component: 'buy-wifi-or-eload' --><!-- /ko -->
-
-      <!-- ko component: 'start-pause-buttons' --><!-- /ko -->
-
-      <!-- ko if: showViewRatesBtn() -->
-        <a class="btn btn-block btn-lg btn-info" data-bind="navigate: 'view-rates', translate: 'VIEW_RATES'"></a>
+      <!-- ko if: showViewInsertCoinBtn-->
+      <a class="btn btn-block btn-lg btn-primary" data-bind="click: buyWifi, loadingBtn: loading">
+        <span data-bind="translate: 'INSERT_COIN'"></span>
+      </a>
       <!-- /ko -->
-      <span class="btn-block mute-unmute-button">
-        <!-- ko component: 'mute-button' --> <!-- /ko -->
-      </span>
-
-      <!-- ko if: showMoreBtn() && !hasNoMoreButtons() -->
-        <a class="btn btn-block btn-lg btn-default" id="more-button" data-bind="navigate: 'more-buttons'">
-          <span data-bind="translate: 'MORE'"></span>
-          <i class="glyphicon glyphicon-chevron-right"></i>
-        </a>
-      <!-- /ko -->
+      <div class="home-buttons">
+        <!-- ko if: showVouchersBtn -->
+        <div class="col-md-6">
+          <button class="btn btn-block vouchers" data-bind="click: showVouchers, disable: vouchersLoading">
+            <div>
+              <img src="images/voucher-icon.png"></img>
+            </div>
+            <div>
+              <span data-bind="translate: 'VOUCHERS', loadingBtn: vouchersLoading"></span>
+            </div>
+          </button>
+        </div>
+        <!-- /ko -->
+        <!-- ko if: showViewRatesBtn -->
+        <div class="col-md-6">
+          <button class="btn btn-block view-rates" data-bind="click: showRates, disable: showRatesLoading">
+            <div>
+              <img src="images/rates-icon.png"></img>
+            </div>
+            <div>
+              <span data-bind="translate: 'VIEW_RATES', loadingBtn: showRatesLoading"></span>
+            </div>
+          </button>
+        </div>
+        <!-- /ko -->
+        <!-- ko if: showBuyEloadBtn -->
+        <div class="col-md-6">
+          <button class="btn btn-block buy-eload" data-bind="click: buyEload, disable: eloadLoading">
+            <div>
+              <img src="images/simcard-icon.png"></img>
+            </div>
+            <div>
+              <span data-bind="loadingBtn: eloadLoading, translate: 'BUY_LOAD'"></span>
+            </div>
+          </button>
+        </div>
+        <!-- /ko -->
+        <!-- ko if: showGcashBtn -->
+        <div class="col-md-6">
+          <button class="btn btn-block gcash" data-bind="click: showGcash, disable: gcashLoading">
+            <div>
+              <img src="images/gcash-icon.png"></img>
+            </div>
+            <div>
+              <span data-bind="loadingBtn: gcashLoading">Gcash</span>
+            </div>
+          </button>
+        </div>
+        <!-- /ko -->
+        <!-- ko if: showAccountBtn -->
+        <div class="col-md-6" data-bind="component: 'user-account'"></div>
+        <!-- /ko -->
+        <!-- ko if: showUnmuteBtn -->
+        <div class="col-md-6" data-bind="component: 'mute-unmute'"></div>
+        <!-- /ko -->
+        <!-- ko if: showChatBtn -->
+        <div class="col-md-6" data-bind="component: {name: 'chat-plugin', params: { hasChatPlugin: hasChatPlugin }} "></div>
+        <!-- /ko -->
+        <!-- ko if: showChargingBtn -->
+        <div class="col-md-6" data-bind="component: {name: 'charging-station', params: { hasChargingPlugin: hasChargingPlugin}}"></div>
+        <!-- /ko -->
+      </div>
 
     </div>
 
   </div>
-  <div class="padd-top" data-bind="component: 'voucher-form'"></div>
   <!-- ko component: {name: 'internet-status'} --><!-- /ko -->
 </div>

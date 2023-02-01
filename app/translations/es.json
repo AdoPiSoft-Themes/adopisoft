@@ -65,5 +65,19 @@
   "SUBMIT": "Enviar",
   "CLOSE": "Cerca",
   "PAUSE": "Pausa",
-  "CONNECT": "Conectar"
+  "CONNECT": "Conectar",
+  "GCASH_TEMPORARY_UNAVAILABLE": "Gcash el servicio no está disponible temporalmente.",
+  "ELOAD_TEMPORARY_UNAVAILABLE": "E-loading el servicio no está disponible temporalmente..",
+  "GCASH_CHECKING": "Comprobando el servicio Gcash, por favor espere",
+  "TYPE": "Type",
+  "INSERT_COIN": "Inserte Moneda",
+  "VOUCHERS": "Vales",
+  "BUY_LOAD": "Comprar E-load",
+  "ACCOUNT" : "Cuenta",
+  "CHAT": "Chat",
+  "CHARGING": "Cargando",
+  "CHARGING_STATION_INSTALL_ERR": "Ooops, instale el complemento de la estación de carga.",
+  "CHAT_PLUGIN_INSTALL_ERR": "Ooops, instale el complemento de chat.",
+  "COINSLOT_IS_DOWN": "Ooops, El portal de pago no está disponible actualmente.",
+  "NO_COINSLOT_AVAILABLE": "Lo sentimos, no hay ningún portal de pago disponible actualmente. El subvendo está inactivo o la configuración de administración es incorrecta, infórmele al propietario del vendo."
 }

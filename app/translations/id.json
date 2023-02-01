@@ -65,5 +65,19 @@
   "SUBMIT": "Kirim",
   "CLOSE": "Menutup",
   "PAUSE": "Berhenti sebentar",
-  "CONNECT": "Menghubung"
+  "CONNECT": "Menghubung",
+  "GCASH_TEMPORARY_UNAVAILABLE": "Gcash layanan sementara tidak tersedia.",
+  "ELOAD_TEMPORARY_UNAVAILABLE": "E-loading layanan sementara tidak tersedia.",
+  "GCASH_CHECKING": "Memeriksa layanan Gcash, harap tunggu",
+  "TYPE": "Jenis",
+  "INSERT_COIN": "Masukkan Koin",
+  "VOUCHERS": "Vouchers",
+  "BUY_LOAD": "Membeli E-load",
+  "ACCOUNT" : "Akun",
+  "CHAT": "Mengobrol",
+  "CHARGING": "Mengisi Daya",
+  "CHARGING_STATION_INSTALL_ERR": "Ups, harap instal plugin stasiun pengisian daya.",
+  "CHAT_PLUGIN_INSTALL_ERR": "Ups, silakan instal plugin obrolan.",
+  "COINSLOT_IS_DOWN": "Ooops, portal pembayaran saat ini tidak tersedia.",
+  "NO_COINSLOT_AVAILABLE": "Maaf, tidak ada portal pembayaran yang tersedia saat ini. Entah subvendo sedang down atau konfigurasi admin salah, harap laporkan ke pemilik vendo."
 }

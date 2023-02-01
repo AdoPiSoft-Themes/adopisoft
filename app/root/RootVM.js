@@ -18,6 +18,8 @@ define([
     this.showingStatusNav = ko.observable(true);
     this.showingBanners = ko.observable(true);
     this.showingSessionsTable = ko.observable(true);
+    this.isDirectGcash = ko.observable(false)
+    
     this.navigate = function (page) {
       this.page(page);
     };

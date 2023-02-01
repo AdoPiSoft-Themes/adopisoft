@@ -1,7 +1,8 @@
 define([
   'knockout',
-  'sessions'
-], function(ko, sessions) {
+  'sessions',
+  'text!app/components/start-pause-buttons/start-pause-buttons.html'
+], function(ko, sessions, tpl) {
 
   function vm () {
     var self = this;
@@ -52,7 +53,7 @@ define([
 
   ko.components.register('start-pause-buttons', {
     viewModel: vm,
-    template: {require: 'text!app/components/start-pause-buttons/start-pause-buttons.html'}
+    template: tpl
 
   });
 });

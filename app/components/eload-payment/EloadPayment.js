@@ -15,6 +15,8 @@ define([
     self.donePayment = params.donePayment;
     self.hasPayment = params.hasPayment;
     self.disable = params.disable
+    self.direct_gcash = rootVM.isDirectGcash()
+
     self.calcEloadPayable = ko.pureComputed(function() {
       var que = self.que;
       return Math.max(que.eload_price() - que.customer_credits(), 0).toFixed(2);
@@ -23,7 +25,11 @@ define([
     self.cancelEloadPayment = function() {
       http.donePayment(self.que.coinslot_id(), function() {
         device.is_paying(false);
-        rootVM.navigate('buy-eload-page');
+        if (self.direct_gcash) {
+          rootVM.navigate('gcash-cashin')
+        } else {
+          rootVM.navigate('buy-eload-page');
+        }
       });
     };
 

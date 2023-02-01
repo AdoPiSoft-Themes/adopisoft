@@ -10,7 +10,7 @@ h1, h2, h3, h4, h5, h6,
 }
 
 #banner-text, .btn, th, #footer {
-  font-family: 'Righteous';
+  font-family: "Poppins";
 }
 
 #popup-banner {
@@ -34,6 +34,15 @@ img.img-full {
   padding-bottom: 15px;
 }
 
+.status-fixed {
+  position: fixed;
+  width: 100%;
+  z-index: 9999;
+  color: lightgreen;
+  background: rgba(0,0,0,0.8);
+  font-weight: bold;
+}
+
 #status-nav {
   vertical-align: middle;
   padding-top: 5px;
@@ -43,10 +52,11 @@ img.img-full {
 
 #connection-status img {
   width: 20px;
+  margin-left: 5px;
 }
 
 .panel > .panel-heading {
-  font-family: 'Righteous';
+  font-family: 'Poppins';
   border-bottom-left-radius: 0px;
   border-bottom-right-radius: 0px;
 }
@@ -132,4 +142,123 @@ img.img-full {
 
 .pt-12{
   padding-top: 12px;
+}
+
+.home-buttons {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+#home .row .col-md-6 .btn-primary {
+  padding: 15px 0px;
+}
+.home-buttons .col-md-6 {
+  padding: 0px;
+  width: 49%;
+  margin-top: 10px;
+}
+.home-buttons .col-md-6 .btn-block {
+  border-radius: 6px;
+  padding: 8px 20px;
+  color: #170739;
+  font-size: 18px;
+  text-align: left;
+  outline: none;
+  background: #E3E7E9;
+  display: inline-flex;
+  align-items: center;
+}
+
+.home-buttons .col-md-6 .btn-block div:first-child {
+  width: 50px;
+  height: 50px;
+}
+.home-buttons .col-md-6 .btn-block div:nth-child(2) {
+  padding-left: 10px;
+}
+
+.home-buttons .col-md-6 .btn-block  img {
+  width: 100%;
+}
+.home-buttons .col-md-6 .vouchers {
+  border: 2px solid #F5A328;
+}
+.home-buttons .col-md-6 .view-rates {
+  border: 2px solid #9B3DEA;
+}
+.home-buttons .col-md-6 .buy-eload {
+  border: 2px solid #79CA32;
+}
+.home-buttons .col-md-6 .gcash {
+  border: 2px solid #5043E2;
+}
+
+.home-buttons .col-md-6 .account {
+  border: 2px solid #F900FE;
+}
+.home-buttons .col-md-6 .mute-unmute {
+  border: 2px solid #33C6C4;
+}
+.home-buttons .col-md-6 .chat-plugin-btn {
+  border: 2px solid #2E126A;
+}
+.home-buttons .col-md-6 .disabled-chat-plugin {
+  opacity: .3;
+}
+
+.home-buttons .col-md-6 .btn:hover{
+  background-image: linear-gradient(rgb(0 0 0/6%) 0 0);
+}
+
+.home-buttons .col-md-6 .charging-station-btn {
+  border: 2px solid #F54328;
+}
+.home-buttons .col-md-6 .charging-station-btn img {
+  margin-top: 8px;
+}
+.home-buttons .col-md-6 .disabled-charging-station {
+  opacity: .3;
+}
+
+@media (max-width: 500px) {
+  .home-buttons .col-md-6 .btn-block {
+    padding: 10px;
+    font-size: 15px;
+  }
+  .home-buttons .col-md-6 .btn-block div:first-child {
+    width: 35px;
+    height: 35px;
+  }
+  .home-buttons .col-md-6 .btn-block div:nth-child(2) {
+    padding-left: 5px;
+  }
+  .home-buttons .col-md-6 .charging-station-btn img {
+    margin-top: 5px;
+  }
+
+}
+@media (max-width: 350px) {
+  .home-buttons {
+    display: block;
+  }
+  .home-buttons .col-md-6 {
+    width: 100%;
+  }
+  .home-buttons .col-md-6 .btn-block  {
+    padding: 8px;
+  }
+}
+
+.coinslot-btn {
+  width: 100%;
+  padding: 15px;
+  border: 1px solid #920092;
+  border-radius: 4px;
+  margin-bottom: 5px;
+}
+
+.coinslot-btn:hover {
+  color: white;
+  background: #920092;
 }

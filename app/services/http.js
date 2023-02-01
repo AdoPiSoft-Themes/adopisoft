@@ -62,16 +62,17 @@ define([
     http.pauseSession = function (s_id, cb) {
       http.post('/client/sessions/' + s_id + '/pause', cb);
     };
-    http.fetchRates = function (cb) {
-      http.get('/settings/timer/rates', cb);
+    http.fetchRates = function (coinslot_id, cb) {
+      http.get('/client/wifi-rates?coinslot_id=' + coinslot_id, cb);
     };
-    http.fetchCoinslots = function (rate_type, cb) {
-      http.get('/client/coinslots?rate_type=' + rate_type, cb);
+    http.fetchCoinslots = function (intent, cb) {
+      http.get('/client/coinslots?intent=' + intent, cb);
     };
 
     http.queForPayment = function (opts, cb) {
       var data = {
         coinslot_id: opts.coinslot_id,
+        rates_profile_id: opts.rates_profile_id,
         type: opts.type,
         is_voucher: opts.is_voucher,
         provider_id: opts.provider_id,
@@ -168,11 +169,19 @@ define([
       http.get('/client/system/notifications', cb);
     };
 
+    http.checkProviderByShortName = function(short_name, cb) {
+      http.get('/client/eload/check-provider-shortname/' + short_name, cb)
+    }
     // /eload
 
     http.logoutCustomer = function() {
       http.post('/customer/logout');
     };
+
+    // plugin
+    http.getPluginConfigs = function(cb) {
+      http.get('/client/pluginConfigs', cb)
+    }
   }
 
   return new Http();

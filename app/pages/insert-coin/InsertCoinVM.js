@@ -29,7 +29,7 @@ define([
     self.config = timerConfig;
     self.rates = rates;
     self.loading = ko.observable(false);
-    self.disable = ko.observable(false)
+    self.disable = ko.observable(false);
     self.coinslot_alias = ko.observable('')
     self.que = {
       coinslot_id: ko.observable(0),
@@ -124,6 +124,7 @@ define([
         }
       })
     }
+
     self.donePayment = function () {
       self.loading(true);
       http.donePayment(self.que.coinslot_id(), function(err, data) {

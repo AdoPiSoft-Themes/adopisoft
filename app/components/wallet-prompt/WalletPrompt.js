@@ -24,7 +24,7 @@ define([
       var amount = self.amount();
       if(amount > 0 && amount <= self.customer.credits()) {
         
-        var opts = {amount: amount, rate_type: rate_type};
+        var opts = {amount: amount, rate_type: rate_type, rates_profile_id: wifiRates.profileId()};
         if(is_voucher) opts.is_voucher = true;
 
         http.customerPurchase(opts, function (err, data) {
@@ -41,7 +41,7 @@ define([
           receipt.credits(self.totalCredits(data));
           if (is_voucher) receipt.voucherCode(data.voucher.code);
           if (!is_voucher && data.session) receipt.sessionId(data.session.id);
-          self.close();
+          self.close(amount);
           rootVM.navigate('receipt-page');
         });
       }

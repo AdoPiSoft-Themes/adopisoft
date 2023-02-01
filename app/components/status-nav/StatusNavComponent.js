@@ -2,8 +2,9 @@ define([
   'knockout',
   'sessions',
   'translator',
-  'app/services/config'
-], function(ko, sessions, translator, config) {
+  'app/services/config',
+  'text!app/components/status-nav/status-nav.html'
+], function(ko, sessions, translator, config, tpl) {
 
   function vm () {
     var self = this;
@@ -22,7 +23,7 @@ define([
 
   ko.components.register('status-nav', {
     viewModel: vm,
-    template: {require: 'text!app/components/status-nav/status-nav.html'}
+    template: tpl
   });
 
 });

@@ -13,7 +13,8 @@ define([
     self.voucher = params.voucher;
     self.selected_product = params.selected_product;
     self.selected_product(null);
-
+    self.direct_gcash = params.direct_gcash
+    
     self.promos = ko.observableArray([]);
     self.regular_denoms = ko.observableArray([]);
     self.amounts = ko.observableArray([]);
