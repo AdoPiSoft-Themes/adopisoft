@@ -37,7 +37,7 @@ define([
         if (err) return http.catchError(err);
 
         self.coinslots(coinslots)
-        let coinslot_id = (coinslots[0] || {}).id
+        var coinslot_id = (coinslots[0] || {}).id
 
         if (coinslot_id) {
           self.selectedCoinslot(coinslot_id);
