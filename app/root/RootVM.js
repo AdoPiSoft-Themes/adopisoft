@@ -30,6 +30,9 @@ define([
     this.showApp = function () {
       document.getElementById('loading').style.display = 'none';
       document.getElementById('app').style.display = 'block';
+
+      if ((document.URL || '').indexOf('index-preview.html') > -1) return
+
       try{
         window.history.replaceState('', document.title, '/');
       } catch(e) {
