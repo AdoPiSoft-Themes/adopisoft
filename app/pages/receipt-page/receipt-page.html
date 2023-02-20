@@ -1,6 +1,17 @@
 <div class="container text-center padd-top" id="receipt-page">
   <h1 class="text-success" data-bind="translate: 'THANKS'"></h1>
 
+  <!-- ko if: enablePasscode() -->
+  <br/>
+  <p>
+    <strong>Your Passcode: <code data-bind="text: device.passcode"></code></strong>
+
+    <a href="javascript:void(0)" data-bind="click: editPasscode">
+      <i class="glyphicon glyphicon-question-sign">&nbsp;</i>
+    </a>
+  </p>
+  <!-- /ko -->
+
   <div class="padd-top">
     <div class="panel panel-primary">
       <div class="panel-heading" data-bind="translate: 'TRANSACTION_SUMMARY'"></div>
