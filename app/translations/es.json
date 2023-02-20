@@ -51,6 +51,7 @@
   "WAITING_FOR_PAYMENT": "A la Espera del Pago",
   "POWERED_BY": "Desarrollado Por",
   "PAYMENT_RECEIVED": "Pago Recibido",
+  "RECEIVED": "Recibido",
   "VOUCHER_ACTIVATED": "Cupón Activado con éxito!",
   "PAGE_OUTDATED": "Página Desactualizada",
   "UNABLE_TO_SYNC_MSG": "No se puede sincronizar con el servidor. Por favor recarga la página.",

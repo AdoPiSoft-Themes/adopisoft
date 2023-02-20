@@ -97,11 +97,18 @@ define([
         self.session.time_seconds(data.voucher.minutes * 60);
       }
       if (data.total_amount > prev_amount) {
+        var currency = rates.currency()
         if (self.session.data_mb() > 0 || self.session.time_seconds() > 0) {
-          toast.success(translator.print('TOTAL_AMOUNT') + ': ' + rates.currency() + ' ' + self.que.total_amount(), translator.print('TOTAL_CREDITS') + ': ' + self.totalCredits());
+          var msg = '';
+          if (data.amount > 0) {
+            msg = translator.print('RECEIVED') + ': ' + currency + data.amount.toFixed(2) + '<br/>'
+          }
+
+          msg = msg + translator.print('TOTAL_AMOUNT') + ': ' + currency + self.que.total_amount()
+          toast.success(msg, translator.print('TOTAL_CREDITS') + ': ' + self.totalCredits());
           sounds.coinInserted.play();
         } else if (data.amount > 0) {
-          toast.success(translator.print('PAYMENT_RECEIVED') + ': ' + rates.currency() + data.amount.toFixed(2));
+          toast.success(translator.print('PAYMENT_RECEIVED') + ': ' + currency + data.amount.toFixed(2));
           sounds.coinInserted.play();
         }
         prev_amount = data.total_amount;
