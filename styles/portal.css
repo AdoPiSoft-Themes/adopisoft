@@ -150,7 +150,7 @@ img.img-full {
   flex-wrap: wrap;
 }
 
-#home .row .col-md-6 .btn-primary {
+#home .row .col-md-6 .btn-primary, #home .row .col-md-6 .start-pause-button {
   padding: 15px 0px;
 }
 .home-buttons .col-md-6 {
