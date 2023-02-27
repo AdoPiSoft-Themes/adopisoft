@@ -6,7 +6,8 @@ define([
   'app/utils/shortSecondsFormat',
   'app/utils/formatBytes',
   'app/utils/array.map',
-  'app/utils/array.find'
+  'app/utils/array.find',
+  'app/components/session-expirations/SessionExpirations'
 ], function(ko, rootVM, http, wifiRates, secondsFormat, formatBytes, map, find) {
   ko.components.register('view-rates', {
     viewModel: function () {

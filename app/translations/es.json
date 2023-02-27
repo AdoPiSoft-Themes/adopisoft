@@ -80,5 +80,16 @@
   "CHARGING_STATION_INSTALL_ERR": "Ooops, instale el complemento de la estación de carga.",
   "CHAT_PLUGIN_INSTALL_ERR": "Ooops, instale el complemento de chat.",
   "COINSLOT_IS_DOWN": "Ooops, El portal de pago no está disponible actualmente.",
-  "NO_COINSLOT_AVAILABLE": "Lo sentimos, no hay ningún portal de pago disponible actualmente. El subvendo está inactivo o la configuración de administración es incorrecta, infórmele al propietario del vendo."
+  "NO_COINSLOT_AVAILABLE": "Lo sentimos, no hay ningún portal de pago disponible actualmente. El subvendo está inactivo o la configuración de administración es incorrecta, infórmele al propietario del vendo.",
+  "SESSION_EXPIRATION_AND_PAUSE_LIMIT": "Caducidad de sesión y límites de pausa",
+  "PAUSE_LIMIT": "Límite de pausa",
+  "SESSION_S_TIME": "Hora de la sesión +",
+  "NO_EXPIRATION": "Sin fecha de caducidad",
+  "RATE_TYPE": "Tipo de cambio",
+  "EXPIRATION": "Vencimiento",
+  "OR": "O",
+  "UNLIMITED_PAUSE": "Pausa ilimitada",
+  "DISABLE_PAUSE": "Desactivar pausa",
+  "LIMIT_PAUSE_TO_X": "Limitar pausa a",
+  "TIME_WITH_DATA": "Tiempo con límite de datos"
 }

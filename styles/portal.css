@@ -70,6 +70,9 @@ img.img-full {
 .no-scrollbar::-webkit-scrollbar {
   display: none;
 }
+.scrollable-x {
+  overflow-x: auto;
+}
 
 /* Hide scrollbar for IE, Edge and Firefox */
 .no-scrollbar {
