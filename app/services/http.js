@@ -69,6 +69,10 @@ define([
       http.get('/client/coinslots?intent=' + intent, cb);
     };
 
+    http.fetchSessionSettings = function (cb) {
+      http.get('/client/settings/sessions/config', cb)
+    }
+
     http.queForPayment = function (opts, cb) {
       var data = {
         coinslot_id: opts.coinslot_id,

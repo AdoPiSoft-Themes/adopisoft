@@ -80,5 +80,16 @@
   "CHARGING_STATION_INSTALL_ERR": "Ups, harap instal plugin stasiun pengisian daya.",
   "CHAT_PLUGIN_INSTALL_ERR": "Ups, silakan instal plugin obrolan.",
   "COINSLOT_IS_DOWN": "Ooops, portal pembayaran saat ini tidak tersedia.",
-  "NO_COINSLOT_AVAILABLE": "Maaf, tidak ada portal pembayaran yang tersedia saat ini. Entah subvendo sedang down atau konfigurasi admin salah, harap laporkan ke pemilik vendo."
+  "NO_COINSLOT_AVAILABLE": "Maaf, tidak ada portal pembayaran yang tersedia saat ini. Entah subvendo sedang down atau konfigurasi admin salah, harap laporkan ke pemilik vendo.",
+  "SESSION_EXPIRATION_AND_PAUSE_LIMIT": "Kedaluwarsa Sesi & Batas Jeda",
+  "PAUSE_LIMIT": "Batas Jeda",
+  "SESSION_S_TIME": "Waktu Sesi +",
+  "NO_EXPIRATION": "Tidak ada kedaluwarsa",
+  "RATE_TYPE": "Jenis Tarif",
+  "EXPIRATION": "Kedaluwarsa",
+  "OR": "Atau",
+  "UNLIMITED_PAUSE": "Jeda Tanpa Batas",
+  "DISABLE_PAUSE": "Nonaktifkan Jeda",
+  "LIMIT_PAUSE_TO_X": "Batasi Jeda hingga",
+  "TIME_WITH_DATA": "Waktu dengan Pembatasan Data"
 }
