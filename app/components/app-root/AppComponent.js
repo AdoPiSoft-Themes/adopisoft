@@ -14,10 +14,11 @@ define([
   'app/components/sessions-table/SessionsTableComponent',
   'app/components/modal/Modal',
   'app/components/socket-disconnected-alert/SocketDisconnectedAlert',
-  'app/components/footer/Footer',
+  'app/components/footer/Footer'
 ], function (ko, rootVM, socket, modal, config, tpl, payment, jquery, init_popup_banner) {
 
   function AppVM() {
+    var self = this
     this.favicon = ko.observable(config.favicon());
     this.pageTitle = ko.observable(config.pageTitle());
     this.styles = ko.observableArray(config.styles());
@@ -41,17 +42,18 @@ define([
     this.showAlert = false;
     this.socket = socket();
     this.socket.on('connect', function () {
-      if (this.showAlert) {
+      if (self.showAlert) {
         modal.hide();
-        this.showAlert = false;
+        self.showAlert = false;
       }
     });
     this.socket.on('disconnect', function () {
-      if (!this.showAlert) {
+      if (!self.showAlert) {
         modal.show('socket-disconnected-alert');
-        this.showAlert = true;
+        self.showAlert = true;
       }
     });
+
     this.koDescendantsComplete = function () {
       init_popup_banner();
     };
@@ -81,7 +83,7 @@ define([
 
     function scroll() {
       $(window).scroll(function() {
-        if ($(this).scrollTop() > 150) {
+        if ($(this).scrollTop() > 30) {
           $('#status-nav').addClass('status-fixed')
         } else {
           $('#status-nav').removeClass('status-fixed')

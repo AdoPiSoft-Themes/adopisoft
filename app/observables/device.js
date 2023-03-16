@@ -12,6 +12,7 @@ define([
     status: ko.observable(''),
     passcode: ko.observable(''),
     is_clone: ko.observable(false),
+    is_ready: ko.observable(false),
     set: function(device) {
 
       http.tmp_client_id = device.tmp_client_id

@@ -91,5 +91,6 @@
   "UNLIMITED_PAUSE": "Pausa ilimitada",
   "DISABLE_PAUSE": "Desactivar pausa",
   "LIMIT_PAUSE_TO_X": "Limitar pausa a",
-  "TIME_WITH_DATA": "Tiempo con límite de datos"
+  "TIME_WITH_DATA": "Tiempo con límite de datos",
+  "SYNCING_DEVICE_INFO": "Sincronizando registro del dispositivo, por favor espere ..."
 }

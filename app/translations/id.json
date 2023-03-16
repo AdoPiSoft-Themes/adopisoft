@@ -91,5 +91,6 @@
   "UNLIMITED_PAUSE": "Jeda Tanpa Batas",
   "DISABLE_PAUSE": "Nonaktifkan Jeda",
   "LIMIT_PAUSE_TO_X": "Batasi Jeda hingga",
-  "TIME_WITH_DATA": "Waktu dengan Pembatasan Data"
+  "TIME_WITH_DATA": "Waktu dengan Pembatasan Data",
+  "SYNCING_DEVICE_INFO": "Menyinkronkan catatan perangkat, harap tunggu ..."
 }

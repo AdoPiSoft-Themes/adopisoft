@@ -91,5 +91,6 @@
   "UNLIMITED_PAUSE": "Unlimited Pause",
   "DISABLE_PAUSE": "Disable Pause",
   "LIMIT_PAUSE_TO_X": "Limit Pause to",
-  "TIME_WITH_DATA": "Time with Data Capping"
+  "TIME_WITH_DATA": "Time with Data Capping",
+  "SYNCING_DEVICE_INFO": "Syncing device records, please wait ..."
 }

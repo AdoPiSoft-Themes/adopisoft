@@ -91,5 +91,6 @@
   "UNLIMITED_PAUSE": "Jeda Tanpa Had",
   "DISABLE_PAUSE": "Lumpuhkan Jeda",
   "LIMIT_PAUSE_TO_X": "Hadkan Jeda kepada",
-  "TIME_WITH_DATA": "Masa dengan Pengehadan Data"
+  "TIME_WITH_DATA": "Masa dengan Pengehadan Data",
+  "SYNCING_DEVICE_INFO": "Menyegerakkan rekod peranti, sila tunggu ..."
 }

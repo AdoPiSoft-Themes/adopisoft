@@ -38,9 +38,6 @@ img.img-full {
   position: fixed;
   width: 100%;
   z-index: 9999;
-  color: lightgreen;
-  background: rgba(0,0,0,0.8);
-  font-weight: bold;
 }
 
 #status-nav {
@@ -48,11 +45,18 @@ img.img-full {
   padding-top: 5px;
   padding-bottom: 5px;
   text-align: center;
+  color: lightgreen;
+  background: rgba(0,0,0,0.8);
+  font-weight: bold;
+  max-width: 1080px;
+  margin: 0 auto;
+  cursor: pointer;
 }
 
 #connection-status img {
-  width: 20px;
+  width: 24px;
   margin-left: 5px;
+  margin-bottom: 6px;
 }
 
 .panel > .panel-heading {
@@ -264,4 +268,8 @@ img.img-full {
 .coinslot-btn:hover {
   color: white;
   background: #920092;
+}
+
+#session-summary {
+  font-size: 20px; 
 }

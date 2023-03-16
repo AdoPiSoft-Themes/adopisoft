@@ -27,6 +27,14 @@ define([
         sounds.disconnected.play();
       });
 
+      socket.on('device:ready', function() {
+        d.is_ready(true)
+      })
+
+      setTimeout(function () {
+        d.is_ready(true)
+      }, 10000)
+
       socket.on('customer:logout', function() {
         http.logoutCustomer();
       });
