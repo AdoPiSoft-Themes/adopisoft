@@ -12,6 +12,11 @@ define([
     self.isDeviceReady = device.is_ready
     var connectedIcon = config.findField('wifi_icons', 'wifi_connected_icon');
     var disconnectedIcon = config.findField('wifi_icons', 'wifi_disconnected_icon');
+    
+    this.hasSessions = ko.pureComputed(function () {
+      return sessions.hasSessions()
+    })
+
     this.connected = ko.pureComputed(function () {
       return sessions.hasRunning();
     });

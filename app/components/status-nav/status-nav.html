@@ -1,15 +1,8 @@
 <div id="status-nav" data-bind="click: focusSessions">
-  <!-- ko if: isDeviceReady -->
+  <!-- ko if: isDeviceReady() ||  hasSessions() -->
   <span id="session-summary" data-bind="text: summary"></span>
   <span id="connection-status">
     <img data-bind="attr: {src: icon_src}"/>
-  </span>
-  <!-- /ko -->
-
-  <!-- ko ifnot: isDeviceReady -->
-  <span id="session-summary">
-    <img src="/uploads/img/preloader.gif" style="width: 20px;margin: 10px;"/>
-    <span data-bind="translate: 'SYNCING_DEVICE_INFO'"></span>
   </span>
   <!-- /ko -->
 </div>
