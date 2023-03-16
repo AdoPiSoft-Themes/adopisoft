@@ -1,7 +1,7 @@
 <!-- ko if: sessions.hasSessions() -->
 
 <!-- ko if: sessions.hasRunning() && allowPause() -->
-<button class="btn btn-block btn-lg btn-warning start-pause-button" data-bind="click: pauseSession, enable: allowPause">
+<button class="btn btn-block btn-lg btn-warning start-pause-button" data-bind="click: pauseSession, enable: allowPause() && !pausing()">
   <span data-bind="translate: 'PAUSE'"></span>
   <i class="glyphicon glyphicon-pause"></i>
 </button>
