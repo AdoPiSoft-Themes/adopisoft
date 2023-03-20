@@ -40,19 +40,22 @@ define([
     rootVM.page('home-page');
 
     this.showAlert = false;
-    this.socket = socket();
-    this.socket.on('connect', function () {
-      if (self.showAlert) {
-        modal.hide();
-        self.showAlert = false;
-      }
-    });
-    this.socket.on('disconnect', function () {
-      if (!self.showAlert) {
-        modal.show('socket-disconnected-alert');
-        self.showAlert = true;
-      }
-    });
+
+    window.Socket.getInstance(function(_socket) {
+      this.socket = _socket
+      this.socket.on('connect', function () {
+        if (self.showAlert) {
+          modal.hide();
+          self.showAlert = false;
+        }
+      });
+      this.socket.on('disconnect', function () {
+        if (!self.showAlert) {
+          modal.show('socket-disconnected-alert');
+          self.showAlert = true;
+        }
+      });
+    })
 
     this.koDescendantsComplete = function () {
       init_popup_banner();

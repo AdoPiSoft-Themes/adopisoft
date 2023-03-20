@@ -4,13 +4,26 @@ define([
   'app/services/plugin_assets'
 ], function (device, socket, assets) {
   return function init(cb) {
-    device.fetch(function (d) {
-      var socket_instance = socket(d);
-      window.Socket = {
-        getInstance: function() {
+    var socket_instance;
+    var socket_listener_que = []
+
+    window.Socket = {
+      getInstance: function(fn) {
+        if (socket_instance) {
+          if (typeof fn === 'function') fn(socket_instance)
           return socket_instance;
+        } else if(typeof fn === 'function') {
+          socket_listener_que.push(fn)
         }
-      };
+      }
+    };
+
+    device.fetch(function (d) {
+      socket_instance = socket(d);
+
+      for (var e = 0; e < socket_listener_que.length; e++) {
+        socket_listener_que[e](socket_instance)
+      }
 
       // insert plugin assets
       for(var i = 0; i < assets.length; i++) {
@@ -30,8 +43,7 @@ define([
           document.getElementsByTagName('head')[0].appendChild(link);
         }
       }
-
-      cb();
     });
+    cb();
   };
 });
