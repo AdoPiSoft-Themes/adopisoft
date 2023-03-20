@@ -5,5 +5,15 @@
     <img data-bind="attr: {src: icon_src}"/>
   </span>
   <!-- /ko -->
+
+  <!-- ko ifnot: isDeviceReady() -->
+  <!-- ko ifnot: hasSessions() -->
+  <span id="session-summary">
+    <img src="/uploads/img/preloader.gif" style="width: 20px;margin: 10px;"/>
+    Syncronizing device data ...
+  </span>
+  <!-- /ko -->
+  <!-- /ko -->
+
 </div>
 
