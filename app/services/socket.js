@@ -33,7 +33,7 @@ define([
 
       setTimeout(function () {
         d.is_ready(true)
-      }, 10000)
+      }, 5000)
 
       socket.on('customer:logout', function() {
         http.logoutCustomer();

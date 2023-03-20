@@ -19,6 +19,7 @@ define([
     };
 
     device.fetch(function (d) {
+      d.is_ready(true)
       socket_instance = socket(d);
 
       for (var e = 0; e < socket_listener_que.length; e++) {
