@@ -138,7 +138,7 @@ define([
       http.donePayment(self.que.coinslot_id(), function(err, data) {
         if (err) {
           self.loading(false);
-          http.catchError(err);
+          return http.catchError(err);
         }
         self.done(data);
       });
