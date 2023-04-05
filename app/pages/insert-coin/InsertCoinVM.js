@@ -138,7 +138,16 @@ define([
       http.donePayment(self.que.coinslot_id(), function(err, data) {
         if (err) {
           self.loading(false);
-          return http.catchError(err);
+          http.catchError(err);
+
+          var invalid_errors = ['is invalid', 'no es válido', 'tidak valid', 'tidak sah']
+          for (var i = 0; i < invalid_errors.length; i++) {
+            if (err.includes(invalid_errors[i])) {
+              window.location.reload()
+              break
+            }
+          }
+          return
         }
         self.done(data);
       });
