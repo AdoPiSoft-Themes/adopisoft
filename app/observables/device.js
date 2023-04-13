@@ -13,6 +13,7 @@ define([
     passcode: ko.observable(''),
     is_clone: ko.observable(false),
     is_ready: ko.observable(false),
+    readyCallbacks: [],
     set: function(device) {
 
       http.tmp_client_id = device.tmp_client_id
@@ -34,8 +35,20 @@ define([
         } else {
           d.set(device);
           cb(d);
+
+          for (var i = 0; i < d.readyCallbacks.length; i++) {
+            d.readyCallbacks[i]()
+          }
         }
       });
+    },
+    onReady: function(cb) {
+      if (typeof cb !== 'function') return
+      if (d.is_ready()) {
+        return cb()
+      }
+
+      d.readyCallbacks.push(cb)
     }
   };
   return d;

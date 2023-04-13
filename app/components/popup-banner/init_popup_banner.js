@@ -8,16 +8,19 @@ define([
   return function () {
     var bannerHtml = config.findField('banners', 'popup_banner');
 
-    function showPasscodePrompt() {
-      if (device.is_clone()) {
-        modal.show('passcode-modal');
+    device.onReady(function() {
+      function showPasscodePrompt() {
+        if (device.is_clone()) {
+          modal.show('passcode-modal');
+        }
       }
-    }
-    if (device.is_paying()) return;
-    if (bannerHtml) {
-      modal.show('popup-banner', {onClose: showPasscodePrompt});
-    } else {
-      showPasscodePrompt();
-    }
+
+      if (device.is_paying()) return;
+      if (bannerHtml) {
+        modal.show('popup-banner', {onClose: showPasscodePrompt});
+      } else {
+        showPasscodePrompt()
+      }
+    })
   };
 });
