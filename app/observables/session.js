@@ -37,7 +37,7 @@ function (ko, toast, http, redirect, socket, config, parseCredits, formatDate) {
       self.interval = setInterval(self.tick, 1000);
     };
     self.tick = function () {
-      if (self.status() === 'running' && self.isTimeSession() && self.remaining_time_seconds() > 0 && socket().connected) {
+      if (self.status() === 'running' && self.isTimeSession() && self.remaining_time_seconds() > 0 && socket() && socket().connected) {
         self.running_time_seconds(self.running_time_seconds() + 1);
       }
       self.credits(parseCredits(self));
