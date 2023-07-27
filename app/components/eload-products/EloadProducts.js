@@ -107,7 +107,12 @@ define([
         var amount = parseInt(q);
         var denom = self.findRegularDenom(amount);
         if(denom) {
-          promos.push({id: denom.id, keyword: q, description: 'Regular Load', price: amount + denom.topup });
+          var desc = 'Regular Denom'
+          var provider = self.active_provider();
+          if (provider && (provider.name.includes('GCASH') || provider.name.includes('MAYA'))) {
+            desc = provider.name
+          }
+          promos.push({id: denom.id, keyword: q, description: desc, price: amount + denom.topup });
         }
       }
 

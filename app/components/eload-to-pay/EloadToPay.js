@@ -61,7 +61,8 @@ define([
       payment.eloadOptions({
         provider_id: provider_id,
         account_number: self.acc_number,
-        product_keyword: product.keyword
+        product_keyword: product.keyword,
+        provider_name: (self.active_provider() || {}).name
       });
 
       if((related_txn && related_txn.is_paid) || toPay <= 0) {

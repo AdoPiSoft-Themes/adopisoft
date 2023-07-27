@@ -42,7 +42,8 @@ define([
       eload_price: ko.observable(0),
       customer_credits: ko.observable(0),
       account_number: ko.observable(''),
-      product_keyword: ko.observable('')
+      product_keyword: ko.observable(''),
+      provider_name: ko.observable('')
     };
 
 
@@ -85,6 +86,7 @@ define([
       self.que.account_number(data.account_number);
       self.que.customer(data.customer);
       self.que.customer_credits(data.customer_credits);
+      self.que.provider_name(data.provider_name);
 
       if (data.session) {
         self.session.id(data.session.id);
