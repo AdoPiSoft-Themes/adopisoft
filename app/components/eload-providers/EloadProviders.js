@@ -18,7 +18,8 @@ define([
       'CHERRY PREPA.': '/public/eload-logos/cherry-prepaid-logo.png',
       'CHERRY PREPAID': '/public/eload-logos/cherry-prepaid-logo.png',
       'GCASH CASH-IN': '/public/eload-logos/gcash_cash_in_logo.png',
-      'MAYA CASH-IN': '/public/eload-logos/maya_cash_in_logo.png'
+      'MAYA CASH-IN': '/public/eload-logos/maya_cash_in_logo.png',
+      'COINSPH CASH-IN': '/public/eload-logos/coinsph_cash_in_logo.png'
     };
     
     self.logoUrl = function(p) {

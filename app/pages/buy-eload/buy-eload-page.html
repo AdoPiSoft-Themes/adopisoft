@@ -2,7 +2,9 @@
 
   <!-- ko if: isPageReady -->
 
-  <h1 class="text-center text-success mt-20">Buy eLoad</h1>
+  <h1 class="text-center text-success mt-20">
+    <span data-bind="translate: 'BUY_ELOAD'"></span>
+  </h1>
 
   <!-- ko if: isEloadAvailable -->
   <div class="row">
@@ -48,7 +50,7 @@
         </p>
 
         <p class="text-warning text-left">
-          For telco prepaid eloads, enter your phone number.
+          For <b>GCash</b>, <b>Maya</b>, <b>COINS.PH cash-in</b> and telco prepaid eloads enter your phone number.
         </p>
       </div>
       <!-- /ko -->
