@@ -1,8 +1,10 @@
 define([
-  'knockout'
-], function(ko) {
+  'knockout',
+  'app/pages/receipt-page/ReceiptPageVM',
+  'text!app/pages/receipt-page/receipt-page.html'
+], function(ko, VM, tpl) {
   ko.components.register('receipt-page', {
-    viewModel: {require: 'app/pages/receipt-page/ReceiptPageVM'},
-    template: {require: 'text!app/pages/receipt-page/receipt-page.html'}
+    viewModel: VM,
+    template: tpl
   });
 });

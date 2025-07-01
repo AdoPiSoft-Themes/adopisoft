@@ -25,8 +25,10 @@ define([
     self.activating_voucher = ko.observable(false);
     self.error_msg = ko.observable('');
     self.submitting = ko.observable(false);
-
     self.voucher_code = ko.observable('');
+
+    rootVM.isDirectGcash(params.direct_gcash)
+
     self.back = function() {
       self.selected_product(null);
     };
@@ -59,7 +61,8 @@ define([
       payment.eloadOptions({
         provider_id: provider_id,
         account_number: self.acc_number,
-        product_keyword: product.keyword
+        product_keyword: product.keyword,
+        provider_name: (self.active_provider() || {}).name
       });
 
       if((related_txn && related_txn.is_paid) || toPay <= 0) {

@@ -7,7 +7,14 @@ define([
   function Http () {
     var http = this;
     http.get = function (url, cb) {
+      var tmp_client_id = http.tmp_client_id;
       try {
+        if (url.indexOf('?') > 0) {
+          url = url + '&tmp_client_id=' + tmp_client_id;
+        } else {
+          url = url + '?tmp_client_id=' + tmp_client_id;
+        }
+
         ajax({
           url: url,
           success: function (data) {
@@ -24,6 +31,7 @@ define([
         data = {};
       }
       try {
+        data.tmp_client_id = http.tmp_client_id;
         ajax({
           url: url,
           method: 'POST',
@@ -54,16 +62,21 @@ define([
     http.pauseSession = function (s_id, cb) {
       http.post('/client/sessions/' + s_id + '/pause', cb);
     };
-    http.fetchRates = function (cb) {
-      http.get('/settings/timer/rates', cb);
+    http.fetchRates = function (coinslot_id, cb) {
+      http.get('/client/wifi-rates?coinslot_id=' + coinslot_id, cb);
     };
-    http.fetchCoinslots = function (rate_type, cb) {
-      http.get('/client/coinslots?rate_type=' + rate_type, cb);
+    http.fetchCoinslots = function (intent, cb) {
+      http.get('/client/coinslots?intent=' + intent, cb);
     };
+
+    http.fetchSessionSettings = function (cb) {
+      http.get('/client/settings/sessions/config', cb)
+    }
 
     http.queForPayment = function (opts, cb) {
       var data = {
         coinslot_id: opts.coinslot_id,
+        rates_profile_id: opts.rates_profile_id,
         type: opts.type,
         is_voucher: opts.is_voucher,
         provider_id: opts.provider_id,
@@ -83,6 +96,9 @@ define([
     http.timerConfig = function (cb) {
       http.get('/settings/timer/config', cb);
     };
+    http.securityConfig = function (cb) {
+      http.get('/settings/security', cb)
+    }
     http.donePayment = function (coinslot_id, cb) {
       http.post('/client/payments/done', {coinslot_id: coinslot_id}, cb);
     };
@@ -95,6 +111,10 @@ define([
 
     http.getCurrentUser = function(cb) {
       http.get('/user/me', cb);
+    };
+
+    http.submitPasscode = function(passcode, cb) {
+      http.post('/passcode', {passcode: passcode}, cb);
     };
 
     // Eload
@@ -153,11 +173,19 @@ define([
       http.get('/client/system/notifications', cb);
     };
 
+    http.checkProviderByShortName = function(short_name, cb) {
+      http.get('/client/eload/check-provider-shortname/' + short_name, cb)
+    }
     // /eload
 
     http.logoutCustomer = function() {
       http.post('/customer/logout');
     };
+
+    // plugin
+    http.getPluginConfigs = function(cb) {
+      http.get('/client/pluginConfigs', cb)
+    }
   }
 
   return new Http();

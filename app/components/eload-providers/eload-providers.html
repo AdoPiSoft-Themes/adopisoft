@@ -1,6 +1,6 @@
 <div class="row">
   <div class="col-md-12 no-scrollbar" style="overflow-x: scroll;overflow-y: hidden;">
-    <ul class="providers nav nav-tabs" id="provider_con" data-bind="foreach: {data: providers, as: 'p'}" style="min-width: 950px;">
+    <ul class="providers nav nav-tabs" id="provider_con" data-bind="foreach: {data: providers, as: 'p'}, style: { minWidth: 130.9 * providers().length + 'px' }">
       <li data-bind="attr: {class: ($parent.active_provider() && $parent.active_provider().id == p.id ? 'active' : '')}">
         <a data-toggle="tab" href="javascript:void(0);" data-bind="click: function(d, e){ $parent.selectProvider(p) }">
           <span>

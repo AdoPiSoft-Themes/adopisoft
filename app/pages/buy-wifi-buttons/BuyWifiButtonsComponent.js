@@ -1,9 +1,11 @@
 define([
   'knockout',
-  'app/components/device-info/DeviceInfo'
-], function (ko) {
+  'app/components/device-info/DeviceInfo',
+  'app/pages/buy-wifi-buttons/BuyWifiButtonsVM',
+  'text!app/pages/buy-wifi-buttons/buy-wifi-buttons.html'
+], function (ko, device, VM, tpl) {
   ko.components.register('buy-wifi-buttons', {
-    viewModel: {require: 'app/pages/buy-wifi-buttons/BuyWifiButtonsVM'},
-    template: {require: 'text!app/pages/buy-wifi-buttons/buy-wifi-buttons.html'}
+    viewModel: VM,
+    template: tpl
   });
 });

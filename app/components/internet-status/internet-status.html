@@ -1,5 +1,8 @@
 <div class="padd-top">
-  Internet is:
-  <strong data-bind="if: online" class="text-success">Up</strong>
-  <strong data-bind="ifnot: online" class="text-danger">Down</strong>
+  <strong data-bind="if: online" class="text-success">
+    <span data-bind="translate: 'INTERNET_UP'"></span>
+  </strong>
+  <strong data-bind="ifnot: online" class="text-danger">
+    <span data-bind="translate: 'INTERNET_DOWN'"></span>
+  </strong>
 </div>
