@@ -26,6 +26,7 @@ function (ko, toast, http, redirect, socket, config, parseCredits, formatDate) {
     self.running_time_seconds = ko.observable(data.running_time_seconds);
     self.credits = ko.observable('');
     self.allow_pause = ko.observable(data.allow_pause);
+    self.pause_limit = ko.observable(data.pause_limit);
     self.status = ko.observable(data.status);
     self.expiration_date = data.expiration_date;
     self.formatted_expiry_date = data.expiration_date
@@ -36,7 +37,7 @@ function (ko, toast, http, redirect, socket, config, parseCredits, formatDate) {
       self.interval = setInterval(self.tick, 1000);
     };
     self.tick = function () {
-      if (self.status() === 'running' && self.isTimeSession() && self.remaining_time_seconds() > 0 && socket().connected) {
+      if (self.status() === 'running' && self.isTimeSession() && self.remaining_time_seconds() > 0 && socket() && socket().connected) {
         self.running_time_seconds(self.running_time_seconds() + 1);
       }
       self.credits(parseCredits(self));

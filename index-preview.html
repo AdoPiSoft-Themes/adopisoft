@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title data-bind="text: $root.pageTitle"></title>
+    <link data-bind="attr: {href: $data.favicon}" rel="shortcut icon" type="image/x-icon" />
+
+    <!-- ko foreach: $data.styles -->
+    <link data-bind="attr: {href: $data}" rel="stylesheet" media="all">
+    <!-- /ko -->
+    <script data-main="main-dev.js" src="libs/requirejs/require-2.3.6.min.js"></script>
+    <!-- ko if: baseUrl -->
+    <base data-bind="attr: {href: baseUrl}">
+    <!-- /ko -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
+
+  </head>
+  <body id="body" data-bind="class: bodyClass, style: bodyStyle">
+
+    <p id="loading">Loading...</p>
+
+    <div id="app" data-bind="component: 'app', childrenComplete: $root.showApp" style="display: none;"></div>
+
+  </body>
+</html>

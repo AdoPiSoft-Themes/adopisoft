@@ -25,11 +25,11 @@
 
         <div class="list-group-item">
           <!-- ko if: hasPayment -->
-          <a class="btn btn-lg btn-primary" data-bind="click: donePayment, loadingBtn: loading">I'm Done Paying</a>
+          <button class="btn btn-lg btn-primary" data-bind="click: donePayment, loadingBtn: loading, disable: disable">I'm Done Paying</button>
           <!-- /ko -->
 
           <!-- ko ifnot: hasPayment -->
-          <a class="btn btn-lg btn-warning" data-bind="click: donePayment, loadingBtn: loading">Cancel</a>
+          <button class="btn btn-lg btn-warning" data-bind="click: donePayment, loadingBtn: loading, disable: disable">Cancel</button>
           <!-- /ko -->
         </div>
 

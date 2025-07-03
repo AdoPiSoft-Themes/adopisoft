@@ -4,7 +4,8 @@
   "description": "AdoPiSoft default captive portal theme",
   "main": "main.js",
   "scripts": {
-    "test": "eslint ./app"
+    "test": "eslint ./app",
+    "build": "npx r.js -o ./build.json"
   },
   "repository": {
     "type": "git",

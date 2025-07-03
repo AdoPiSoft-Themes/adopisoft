@@ -103,6 +103,13 @@
   height: 50px;
   overflow: scroll;
 }
+@media (max-width: 350px){
+  .modal-dialog{
+    height: 350px;
+    overflow-y: auto;
+  }
+}
+
 @media (min-width: 768px) {
   .modal-dialog {
     width: 600px;

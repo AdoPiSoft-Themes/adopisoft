@@ -1,7 +1,7 @@
-define(['knockout'], function (ko) {
+define(['knockout', 'app/pages/select-coinslot/SelectCoinslotVM', 'text!app/pages/select-coinslot/select-coinslot-page.html'], function (ko, VM, tpl) {
   ko.components.register('select-coinslot-page', {
-    viewModel: {require: 'app/pages/select-coinslot/SelectCoinslotVM.js'},
-    template: {require: 'text!app/pages/select-coinslot/select-coinslot-page.html'}
+    viewModel: VM,
+    template: tpl
   });
 });
 

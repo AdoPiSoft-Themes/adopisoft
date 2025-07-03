@@ -18,6 +18,7 @@ define(['app/utils/creditsFormat'], function (creditsFormat) {
       return creditsFormat({
         type: type,
         seconds: seconds,
+        data_mb: data_mb,
         megabytes: megabytes,
         data_consumption_mb: data_consumption_mb
       });

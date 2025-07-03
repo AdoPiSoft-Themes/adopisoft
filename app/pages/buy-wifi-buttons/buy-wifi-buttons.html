@@ -1,28 +1,28 @@
-
 <div class="text-center" data-bind="component: 'device-info'"></div>
 
-<div data-bind="ifnot: loading">
-  <div class="btn-group-padded text-center">
+<div data-bind="ifnot: loading" class="container">
+  <div class="row text-center">
+    <div class="col-md-6 col-md-offset-3">
 
-    <!-- ko if: rates.time_rates -->
-    <a
-        class="btn btn-lg btn-success"
-        data-bind="click: function () { selectRate('time') }">
-      Wifi Time
-    </a>
-    <!-- /ko -->
+      <!-- ko if: rates.time_rates -->
+      <a class="btn btn-block btn-lg btn-success"
+         data-bind="click: function () { selectRate('time') }">
+        <span data-bind="translate: 'WIFI_TIME'"></span>
+      </a>
+      <!-- /ko -->
 
-    <!-- ko if: rates.data_rates -->
-    <a class="btn btn-lg btn-success" data-bind="click: function () { selectRate('data') }">
-      Wifi Data
-    </a>
-    <!-- /ko -->
+      <!-- ko if: rates.data_rates -->
+      <a class="btn btn-block btn-lg btn-success" data-bind="click: function () { selectRate('data') }">
+        <span data-bind="translate: 'WIFI_DATA'"></span>
+      </a>
+      <!-- /ko -->
 
+    </div>
   </div>
 </div>
 
 <div data-bind="if: loading" class="container">
-  <p class="alert alert-info text-center">Loading, please wait...</p>
+  <p class="alert alert-info text-center"><span data-bind="translate: 'LOADING'"></span>...</p>
 </div>
 
 

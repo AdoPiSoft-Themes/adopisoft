@@ -8,7 +8,8 @@ define([
     var customer = params.customer() || {};
     customer.credits = customer.credits || 0;
     self.customer = customer;
-
+    self.direct_gcash = params.direct_gcash;
+    
     var last_purchase = params.last_purchase();
     if(last_purchase) {
       last_purchase.created_at = formatDate(last_purchase.created_at);
