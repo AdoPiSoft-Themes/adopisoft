@@ -21,6 +21,8 @@ a { cursor: pointer; }
 
 img.img-full {
   width: 100%;
+  padding: 2rem;
+  border-radius: 32px;
 }
 
 .btn-group-padded {
@@ -42,11 +44,9 @@ img.img-full {
 
 #status-nav {
   vertical-align: middle;
-  padding-top: 5px;
-  padding-bottom: 5px;
+  padding-top: 8px;
   text-align: center;
-  color: lightgreen;
-  background: rgba(0,0,0,0.8);
+  background: white;
   font-weight: bold;
   max-width: 1080px;
   margin: 0 auto;
