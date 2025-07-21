@@ -23,6 +23,11 @@ define([
     this.icon_src = ko.pureComputed(function() {
       return self.connected() ? connectedIcon : disconnectedIcon;
     });
+
+    this.text_color = ko.pureComputed(function(){
+      return self.connected() ? 'color: limegreen' : 'color: red';
+    });
+    
     this.summary = ko.pureComputed(function () {
       return sessions.summary() || translator.print('DISCONNECTED');
     });

@@ -1,6 +1,6 @@
 <div id="status-nav" data-bind="click: focusSessions">
   <!-- ko if: isDeviceReady() ||  hasSessions() -->
-  <span id="session-summary" data-bind="text: summary"></span>
+  <span id="session-summary" data-bind="text: summary, attr: {style: text_color}"></span>
   <span id="connection-status">
     <img data-bind="attr: {src: icon_src}"/>
   </span>
