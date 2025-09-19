@@ -1,12 +1,11 @@
 define([
   'knockout',
-  'toast',
   'http',
   'app/observables/session',
   'app/utils/array.find',
   'app/utils/array.map',
   'app/utils/sessionSummary'
-], function(ko, toast, http, Session, find, map, sessionSummary) {
+], function(ko, http, Session, find, map, sessionSummary) {
 
   var sessions = ko.observableArray([]);
 
@@ -18,6 +17,10 @@ define([
         sessions(map(data, function (s) {
           return new Session(s);
         }));
+        var free_trial_session = util.hasFreeTrial()
+        if (!util.hasRunning() && free_trial_session) {
+          free_trial_session.startSession()
+        }
         util._fetchTimeout = setTimeout(function() {
           util.fetch();
         }, 5000);
@@ -43,6 +46,11 @@ define([
     runningSession: ko.pureComputed(function() {
       return find(sessions(), function(s) {
         return s.status() === 'running';
+      });
+    }),
+    hasFreeTrial: ko.pureComputed(function(){
+      return find(sessions(), function(s) {
+        return s.is_free_trial && s.status() === 'available';
       });
     }),
     hasRunning: ko.pureComputed(function() {
