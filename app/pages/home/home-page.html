@@ -34,30 +34,6 @@
           </button>
         </div>
         <!-- /ko -->
-        <!-- ko if: showBuyEloadBtn -->
-        <div class="col-md-6">
-          <button class="btn btn-block buy-eload" data-bind="click: buyEload, disable: eloadLoading">
-            <div>
-              <img src="images/simcard-icon.png"></img>
-            </div>
-            <div>
-              <span data-bind="loadingBtn: eloadLoading, translate: 'BUY_LOAD'"></span>
-            </div>
-          </button>
-        </div>
-        <!-- /ko -->
-        <!-- ko if: showGcashBtn -->
-        <div class="col-md-6">
-          <button class="btn btn-block gcash" data-bind="click: showGcash, disable: gcashLoading">
-            <div>
-              <img src="images/gcash-icon.png"></img>
-            </div>
-            <div>
-              <span data-bind="loadingBtn: gcashLoading">Gcash Cash-in</span>
-            </div>
-          </button>
-        </div>
-        <!-- /ko -->
         <!-- ko if: showAccountBtn -->
         <div class="col-md-6" data-bind="component: 'user-account'"></div>
         <!-- /ko -->
