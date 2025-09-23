@@ -37,7 +37,7 @@
       <div class="panel-footer">
 
         <!-- ko if: receipt.isVoucher -->
-        <h3 class="text-center"><span data-bind="translate: 'VOUCHER_CODE'"></span>: <span class="text-primary" data-bind="text: receipt.voucherCode"></span></h3>
+        <h3 class="text-center"><span data-bind="translate: 'VOUCHER_CODE'"></span>:</h3>
         <div data-bind="component: {name: 'voucher-form', params: receipt.voucherCode}"></div>
         <div class="padd-top">
           <a class="btn btn-lg" data-bind="translate: 'COPY_VOUCHER', clipboard: {targetId: 'voucher-code-input', done: afterCopy }, class: copied() ? 'btn-default' : 'btn-success'">
