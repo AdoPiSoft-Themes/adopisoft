@@ -178,7 +178,7 @@
           "label": "Banners",
           "type": "images",
           "min": 1,
-          "defaultValue": ["images/adopisoft-default-banner.png"]
+          "defaultValue": ["images/adopisoft-default-banner-v2.png"]
         },
         {
           "field_id": "popup_banner",

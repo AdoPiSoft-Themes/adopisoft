@@ -4,7 +4,7 @@ requirejs.config({
     text:  './libs/requirejs/text-2.0.16',
     json:  './libs/requirejs/json-0.4.0',
     css: './libs/requirejs/css-0.3.1.min',
-    socketIO: './libs/socket.io/socket.io-2.1.1.min',
+    socketIO: './libs/socket.io/socket.io-2.1.0.min',
     knockout: './libs/knockout/knockout-latest',
     howler: './libs/howler/howler.core.min',
     jquery: './libs/jquery/jquery.min',
