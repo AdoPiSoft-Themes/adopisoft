@@ -9,9 +9,10 @@ define(['app/services/config'], function (config) {
 
   return {
     redirect: function () {
+      cancel() // Cancel pending redirect first
+
       timeout = setTimeout(function () {
         if (redirect_url) {
-
           var prefix = 'http';
           if (redirect_url.substr(0, prefix.length) !== prefix) {
             redirect_url = prefix + '://' + redirect_url;

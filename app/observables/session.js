@@ -31,7 +31,7 @@ function (ko, toast, http, redirect, socket, config, parseCredits, formatDate) {
     self.expiration_date = data.expiration_date;
     self.formatted_expiry_date = data.expiration_date
       ? formatDate(data.expiration_date)
-      : 'N/A'; 
+      : 'N/A';
     self.startTick = function () {
       self.tick();
       self.interval = setInterval(self.tick, 1000);
@@ -47,7 +47,7 @@ function (ko, toast, http, redirect, socket, config, parseCredits, formatDate) {
     };
     self.isTimeSession = function () {
       return data.type.indexOf('time') > -1;
-    }; 
+    };
     self.enablePause = ko.pureComputed(function () {
       return self.allow_pause() && self.status() === 'running';
     });
@@ -65,7 +65,8 @@ function (ko, toast, http, redirect, socket, config, parseCredits, formatDate) {
         if (err) {
           http.catchError(err);
         } else {
-          self.status('running'); 
+          self.status('running');
+          redirect.redirect();
         }
       });
     };
@@ -75,7 +76,7 @@ function (ko, toast, http, redirect, socket, config, parseCredits, formatDate) {
       http.pauseSession(data.id, function (err) {
         self.pausing(false);
         if (err) return http.catchError(err);
-        self.status('available'); 
+        self.status('available');
         redirect.cancel();
       });
     };
