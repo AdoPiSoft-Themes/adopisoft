@@ -3,6 +3,7 @@ define(['knockout'], function(ko) {
     intent: ko.observable(''),
     rateType: ko.observable(''),
     isVoucher: ko.observable(false),
-    eloadOptions: ko.observable({})
+    eloadOptions: ko.observable({}),
+    coinslotId: ko.observable('')
   };
 });

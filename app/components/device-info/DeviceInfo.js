@@ -12,12 +12,15 @@ define([
       self.device = device;
       self.enablePasscode = ko.observable(false);
       self.passcodeShown = ko.observable(false);
+
       self.showPasscode = function () {
         self.passcodeShown(true);
       };
 
       self.editPasscode = function () {
-        modal.show('passcode-modal');
+        modal.show('passcode-modal', {onClose: function () {
+          device.fetch(function () {})
+        }});
       };
 
       self.dispose = function () {

@@ -21,7 +21,7 @@ define([
     };
     self.allowPause = ko.pureComputed(function () {
       var s = sessions.runningSession();
-      return s && s.allow_pause() && !self.pausing();
+      return s && s.allow_pause();
     });
     self.setStarting = function () {
       self.clearStarting();

@@ -13,10 +13,15 @@ define([
     self.message = ko.observable('Please wait ...' + loader_icon);
     self.allow_retry = ko.observable(false);
     self.status = ko.observable('');
+    self.direct_gcash = rootVM.isDirectGcash()
 
     self.close = function() {
       params.close();
-      rootVM.navigate('buy-eload-page');
+      if (self.direct_gcash) {
+        rootVM.navigate('gcash-cashin')
+      } else {
+        rootVM.navigate('buy-eload-page')
+      }
     };
     self.retry = self.close;
 
@@ -38,6 +43,9 @@ define([
         self.allow_retry(false);
       }else if(data.status === 'queued') {
         message += loader_icon;
+        if (self.direct_gcash) {
+          data.title = "Processing Gcash Cash-In"
+        }
       }
         
       self.status(data.status);

@@ -29,6 +29,7 @@ define([
     self.config = timerConfig;
     self.rates = rates;
     self.loading = ko.observable(false);
+    self.disable = ko.observable(false);
     self.coinslot_alias = ko.observable('')
     self.que = {
       coinslot_id: ko.observable(0),
@@ -41,7 +42,8 @@ define([
       eload_price: ko.observable(0),
       customer_credits: ko.observable(0),
       account_number: ko.observable(''),
-      product_keyword: ko.observable('')
+      product_keyword: ko.observable(''),
+      provider_name: ko.observable('')
     };
 
 
@@ -64,6 +66,7 @@ define([
     self.fetch = function () {
       http.currentPaymentQue(function (err, data) {
         if (!err) {
+          self.setDisable(data.is_payment_portal_busy)
           self.onPaymentReceived(data);
           self.coinslotInfo(data.coinslot_id, data.type)
         }
@@ -83,6 +86,7 @@ define([
       self.que.account_number(data.account_number);
       self.que.customer(data.customer);
       self.que.customer_credits(data.customer_credits);
+      self.que.provider_name(data.provider_name);
 
       if (data.session) {
         self.session.id(data.session.id);
@@ -95,11 +99,18 @@ define([
         self.session.time_seconds(data.voucher.minutes * 60);
       }
       if (data.total_amount > prev_amount) {
+        var currency = rates.currency()
         if (self.session.data_mb() > 0 || self.session.time_seconds() > 0) {
-          toast.success(translator.print('TOTAL_AMOUNT') + ': ' + rates.currency() + ' ' + self.que.total_amount(), translator.print('TOTAL_CREDITS') + ': ' + self.totalCredits());
+          var msg = '';
+          if (data.amount > 0) {
+            msg = translator.print('RECEIVED') + ': ' + currency + data.amount.toFixed(2) + '<br/>'
+          }
+
+          msg = msg + translator.print('TOTAL_AMOUNT') + ': ' + currency + self.que.total_amount()
+          toast.success(msg, translator.print('TOTAL_CREDITS') + ': ' + self.totalCredits());
           sounds.coinInserted.play();
         } else if (data.amount > 0) {
-          toast.success(translator.print('PAYMENT_RECEIVED') + ': ' + rates.currency() + data.amount.toFixed(2));
+          toast.success(translator.print('PAYMENT_RECEIVED') + ': ' + currency + data.amount.toFixed(2));
           sounds.coinInserted.play();
         }
         prev_amount = data.total_amount;
@@ -107,6 +118,7 @@ define([
 
       if (data.wait_payment_seconds <= 0) { // 3s allowance
         self.doneTimeout = setTimeout(self.donePayment, 3000);
+        self.que.wait_payment_seconds(0)
       } else if(self.doneTimeout && data.wait_payment_seconds > 0) {
         clearTimeout(self.doneTimeout);
       }
@@ -122,12 +134,22 @@ define([
         }
       })
     }
+
     self.donePayment = function () {
       self.loading(true);
       http.donePayment(self.que.coinslot_id(), function(err, data) {
         if (err) {
           self.loading(false);
           http.catchError(err);
+
+          var invalid_errors = ['is invalid', 'no es válido', 'tidak valid', 'tidak sah']
+          for (var i = 0; i < invalid_errors.length; i++) {
+            if (err.includes(invalid_errors[i])) {
+              window.location.reload()
+              break
+            }
+          }
+          return
         }
         self.done(data);
       });
@@ -141,8 +163,6 @@ define([
         var type = data.type || self.que.type();
         var session_id = (data.session || {}).id || self.session.id();
         var voucher = data.voucher || self.que.voucher();
-
-        console.log(is_voucher, total_amount, type);
 
         receipt.isVoucher(is_voucher);
         receipt.amount(total_amount);
@@ -188,13 +208,16 @@ define([
       }
     };
 
+    self.setDisable = function(isBusy) {
+      self.disable(isBusy)
+    }
 
     receipt.reset();
     sounds.insertCoin.play();
     sounds.insertCoinBg.play();
     socket().on('payment:received', self.onPaymentReceived);
     socket().on('payment:done', self.done);
-
+    socket().on('payment_portal:busy', self.setDisable)
   }
 
   return VM;

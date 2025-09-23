@@ -1,0 +1,87 @@
+<!-- ko if: session_settings().length > 0 -->
+<div id="session-expirations" class="container text-center">
+  <div class="panel panel-info">
+    <div class="panel-heading" data-bind="translate: 'SESSION_EXPIRATION_AND_PAUSE_LIMIT'"></div>
+    <div class="scrollable-x">
+      <table class="table">
+        <thead>
+          <tr>
+            <th class="text-center" data-bind="translate: 'RATE_TYPE'"></th>
+            <th class="text-center" data-bind="translate: 'CREDITS'"></th>
+            <th class="text-center" data-bind="translate: 'PAUSE_LIMIT'"></th>
+            <th class="text-center" data-bind="translate: 'EXPIRATION'" ></th>
+          </tr>
+        </thead>
+        <tbody>
+          <!-- ko foreach: { data: session_settings, as: 'setting' } -->
+          <tr>
+            <td data-bind="translate: rate_type === 'data' ? 'DATA' : rate_type === 'time' ? 'TIME' : 'TIME_WITH_DATA'"></td>
+            <td>
+              <!-- ko if: setting.rate_type == 'data' -->
+              <span>
+                <span data-bind="text: setting.data_mb_from"></span>
+                - 
+                <span data-bind="text: setting.data_mb_to"></span>
+                MB
+              </span>
+              <!-- /ko -->
+              <!-- ko if: setting.rate_type == 'time' -->
+              <span>
+                <span data-bind="text: setting.minutes_from"></span>
+                - 
+                <span data-bind="text: setting.minutes_to"></span>
+              </span>
+              <!-- /ko -->
+              <!-- ko if: setting.rate_type == 'time_or_data' -->
+              <span>
+                <span data-bind="text: setting.minutes_from"></span>
+                -
+                <span data-bind="text: setting.minutes_to"></span>
+                or
+                <span data-bind="text: setting.data_mb_from"></span>
+                -
+                <span data-bind="text: setting.data_mb_to"></span>
+                MB
+              </span>
+              <!-- /ko -->
+            </td>
+            <td>
+              <!-- ko if: setting.pause_limit == 99 -->
+              <span data-bind="translate: 'UNLIMITED_PAUSE'"></span>
+              <!-- /ko -->
+              <!-- ko if: setting.pause_limit <= 0 -->
+              <span data-bind="translate: 'DISABLE_PAUSE'"></span>
+              <!-- /ko -->
+              <!-- ko if: setting.pause_limit > 0 && setting.pause_limit != 99 -->
+              <span>
+                <span data-bind="translate: 'LIMIT_PAUSE_TO_X'"></span>
+                <strong><span data-bind="text: setting.pause_limit"></span>x</strong>
+              </span>
+              <!-- /ko -->
+
+            </td>
+            <td> 
+              <strong>
+                <!-- ko if: setting.rate_type.includes('time') && setting.expiration_minutes != null -->
+                <span>
+                  <span data-bind="translate: 'SESSION_S_TIME'"></span>
+                  <span data-bind="text: setting.expiration_minutes"></span>
+                </span>
+                <!-- /ko -->
+
+                <!-- ko if: setting.rate_type == 'data' && setting.expiration_minutes != null -->
+                <span data-bind="text: setting.expiration_minutes"></span>
+                <!-- /ko -->
+              </strong>
+              <!-- ko if: setting.expiration_minutes == null -->
+              <span data-bind="translate: 'NO_EXPIRATION'"></span>
+              <!-- /ko -->
+            </td>
+          </tr>
+          <!-- /ko -->
+        </tbody>
+      </table>
+      </div>
+  </div>
+</div>
+<!-- /ko -->

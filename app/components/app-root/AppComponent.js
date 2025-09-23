@@ -6,6 +6,7 @@ define([
   'app/services/config',
   'text!app/components/app-root/app-root.html',
   'app/observables/payment',
+  'jquery',
   'app/components/popup-banner/init_popup_banner',
   'app/components/toast/ToastComponent',
   'app/components/status-nav/StatusNavComponent',
@@ -13,10 +14,11 @@ define([
   'app/components/sessions-table/SessionsTableComponent',
   'app/components/modal/Modal',
   'app/components/socket-disconnected-alert/SocketDisconnectedAlert',
-  'app/components/footer/Footer',
-], function (ko, rootVM, socket, modal, config, tpl, payment, init_popup_banner) {
+  'app/components/footer/Footer'
+], function (ko, rootVM, socket, modal, config, tpl, payment, jquery, init_popup_banner) {
 
   function AppVM() {
+    var self = this
     this.favicon = ko.observable(config.favicon());
     this.pageTitle = ko.observable(config.pageTitle());
     this.styles = ko.observableArray(config.styles());
@@ -38,19 +40,23 @@ define([
     rootVM.page('home-page');
 
     this.showAlert = false;
-    this.socket = socket();
-    this.socket.on('connect', function () {
-      if (this.showAlert) {
-        modal.hide();
-        this.showAlert = false;
-      }
-    });
-    this.socket.on('disconnect', function () {
-      if (!this.showAlert) {
-        modal.show('socket-disconnected-alert');
-        this.showAlert = true;
-      }
-    });
+
+    window.Socket.getInstance(function(_socket) {
+      this.socket = _socket
+      this.socket.on('connect', function () {
+        if (self.showAlert) {
+          modal.hide();
+          self.showAlert = false;
+        }
+      });
+      this.socket.on('disconnect', function () {
+        if (!self.showAlert) {
+          modal.show('socket-disconnected-alert');
+          self.showAlert = true;
+        }
+      });
+    })
+
     this.koDescendantsComplete = function () {
       init_popup_banner();
     };
@@ -61,4 +67,32 @@ define([
     template: tpl
   });
 
+  // jquery
+  (function ($) {
+    var window_size = $(window).width()
+    if (window_size < 700) {
+      scroll()
+    }
+    $(window).resize(function() {
+      window_size = $(window).width()
+      if (window_size < 700) {
+        scroll()
+      } else {
+        $(window).unbind('scroll')
+        $('#status-nav').removeClass('status-fixed')
+      }
+    })
+
+
+    function scroll() {
+      $(window).scroll(function() {
+        if ($(this).scrollTop() > 30) {
+          $('#status-nav').addClass('status-fixed')
+        } else {
+          $('#status-nav').removeClass('status-fixed')
+        }
+      })
+    }
+
+  })( jquery)
 });

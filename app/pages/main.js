@@ -7,5 +7,7 @@ define([
   'app/pages/more-buttons/MoreButtons',
   'app/pages/receipt-page/ReceiptPage',
   'app/pages/view-vouchers/ViewVouchers',
-  'app/pages/view-rates/ViewRates'
+  'app/pages/view-rates/ViewRates',
+  'app/pages/gcash-cashin/GcashCashin',
+  'app/pages/view-account/ViewAccount'
 ], function() {});

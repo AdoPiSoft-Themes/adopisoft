@@ -18,6 +18,8 @@ define([
     this.showingStatusNav = ko.observable(true);
     this.showingBanners = ko.observable(true);
     this.showingSessionsTable = ko.observable(true);
+    this.isDirectGcash = ko.observable(false)
+    
     this.navigate = function (page) {
       this.page(page);
     };
@@ -28,6 +30,9 @@ define([
     this.showApp = function () {
       document.getElementById('loading').style.display = 'none';
       document.getElementById('app').style.display = 'block';
+
+      if ((document.URL || '').indexOf('index-preview.html') > -1) return
+
       try{
         window.history.replaceState('', document.title, '/');
       } catch(e) {

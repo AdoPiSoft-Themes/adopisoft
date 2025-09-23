@@ -12,7 +12,13 @@ define([
     self.show = function(component, opts) {
       self.modalComponent(component);
       opts = opts || {};
-      opts.close = self.hide;
+      opts.close = function (args) {
+        if (typeof opts.onClose === 'function') {
+          opts.onClose(args)
+        }
+
+        return self.hide()
+      }
       self.modalOptions(opts);
     };
 

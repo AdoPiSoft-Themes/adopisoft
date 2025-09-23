@@ -26,12 +26,11 @@ define([
           }
         });
       }else{
-        toast.error("Error", "Combination of letters and numbers required.")
+        toast.error("Error", "Combination of letters and numbers only")
       }
     };
 
     self.validPasscode = function() {
-      if (device.is_clone()) return true
       const alpha_numberic_regex = /(?!^[0-9]*$)(?!^[a-zA-Z]*$)^([a-zA-Z0-9]{6,15})$/
       return alpha_numberic_regex.test(self.passcode())
     }
