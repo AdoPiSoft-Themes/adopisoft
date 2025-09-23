@@ -13,7 +13,7 @@
           "required": true,
           "defaultValue": "favicon.ico"
         },
-        {
+        { 
           "field_id": "page_title",
           "label": "Page Title",
           "type": "text",

@@ -12,7 +12,7 @@ define([
     self.isDeviceReady = device.is_ready
     var connectedIcon = config.findField('wifi_icons', 'wifi_connected_icon');
     var disconnectedIcon = config.findField('wifi_icons', 'wifi_disconnected_icon');
-    
+
     this.hasSessions = ko.pureComputed(function () {
       return sessions.hasSessions()
     })
@@ -27,10 +27,11 @@ define([
     this.text_color = ko.pureComputed(function(){
       return self.connected() ? 'color: limegreen' : 'color: red';
     });
-    
+
     this.summary = ko.pureComputed(function () {
       return sessions.summary() || translator.print('DISCONNECTED');
     });
+
     this.focusSessions = function () {
       $('#sessions-list-con').focus()
     }

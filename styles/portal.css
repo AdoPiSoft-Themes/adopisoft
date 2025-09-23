@@ -46,7 +46,8 @@ img.img-full {
   vertical-align: middle;
   padding-top: 8px;
   text-align: center;
-  background: white;
+  color: lightgreen;
+  background: rgba(0,0,0,0.8);
   font-weight: bold;
   max-width: 1080px;
   margin: 0 auto;
@@ -271,5 +272,5 @@ img.img-full {
 }
 
 #session-summary {
-  font-size: 18px; 
+  font-size: 18px;
 }

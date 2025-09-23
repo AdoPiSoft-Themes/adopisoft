@@ -2,7 +2,7 @@ define([
   'app/observables/device',
   'socket',
   'app/services/plugin_assets'
-], function (device, socket, assets) {
+], function(device, socket, assets) {
   return function init(cb) {
     var socket_instance;
     var socket_listener_que = []
@@ -12,21 +12,21 @@ define([
         if (socket_instance) {
           if (typeof fn === 'function') fn(socket_instance)
           return socket_instance;
-        } else if(typeof fn === 'function') {
+        } else if (typeof fn === 'function') {
           socket_listener_que.push(fn)
         }
       }
     };
-    setTimeout(function () {
-      device.fetch(function (d) {
+    setTimeout(function() {
+      device.fetch(function(d) {
         d.is_ready(true)
         socket_instance = socket(d);
         for (var e = 0; e < socket_listener_que.length; e++) {
           socket_listener_que[e](socket_instance)
         }
-  
+
         // insert plugin assets
-        for(var i = 0; i < assets.length; i++) {
+        for (var i = 0; i < assets.length; i++) {
           var p = assets[i];
           for (var x = 0; x < p.assets.scripts.length; x++) {
             var js_src = p.assets.scripts[x];
